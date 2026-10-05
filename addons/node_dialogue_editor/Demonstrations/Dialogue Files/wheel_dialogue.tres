@@ -1,0 +1,113 @@
+[gd_resource type="Resource" script_class="DialogueGraph" format=3 uid="uid://dmueqmlpehil8"]
+
+[ext_resource type="Script" uid="uid://c5g63aq5hks3o" path="res://addons/node_dialogue_editor/Permanency/Nodes/dialogue_node.gd" id="1_1bm2b"]
+[ext_resource type="Script" uid="uid://ctj28jh7u1tsa" path="res://addons/node_dialogue_editor/Permanency/Nodes/question_node.gd" id="2_ktitm"]
+[ext_resource type="Script" uid="uid://dikkiwdmudi0m" path="res://addons/node_dialogue_editor/Permanency/Nodes/answer_node.gd" id="3_0rh32"]
+[ext_resource type="Script" uid="uid://gg5rkrqtkivq" path="res://addons/node_dialogue_editor/Permanency/Nodes/end_node.gd" id="4_k3hrv"]
+[ext_resource type="Script" uid="uid://djorw6bduaml" path="res://addons/node_dialogue_editor/Permanency/dialogue_graph.gd" id="5_k3ygi"]
+[ext_resource type="Script" uid="uid://dkl8negx1n45j" path="res://addons/node_dialogue_editor/Permanency/Nodes/start_node.gd" id="6_yjhi3"]
+
+[sub_resource type="Resource" id="Resource_q3ccu"]
+script = ExtResource("1_1bm2b")
+node_id = 1
+speaker = "Narrator"
+dialogue_text = "Wheel dialogs are a common type of dialogue where the player is first shown a short answer, and after choosing their character say a long version."
+next_node_id = 2
+position = Vector2(600, 560)
+size = Vector2(260, 299.99997)
+
+[sub_resource type="Resource" id="Resource_tgaos"]
+script = ExtResource("2_ktitm")
+node_id = 2
+speaker = "Narrator"
+dialogue_text = "For example:
+"
+next_node_ids = Array[int]([3])
+position = Vector2(940, 560)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_5osqs"]
+script = ExtResource("3_0rh32")
+node_id = 3
+speaker = "You"
+answer_peek = "This is the short text."
+answer_peek_enabled = true
+dialogue_text = "And this is the full response."
+next_node_id = 4
+position = Vector2(1220, 560)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_f3a8i"]
+script = ExtResource("2_ktitm")
+node_id = 4
+speaker = "Narrator"
+dialogue_text = "If an answer node only cotains text in the answer peek field, the full response is skipped."
+next_node_ids = Array[int]([5, 6, 7])
+position = Vector2(1520, 560)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_nfsok"]
+script = ExtResource("3_0rh32")
+node_id = 5
+answer_peek = "This one's dialog will be skipped."
+answer_peek_enabled = true
+next_node_id = 9
+position = Vector2(1820, 140)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_c06ef"]
+script = ExtResource("3_0rh32")
+node_id = 6
+answer_peek = "This one's will not."
+answer_peek_enabled = true
+dialogue_text = "This is the dialogue text."
+next_node_id = 9
+position = Vector2(1820, 520)
+size = Vector2(200, 260)
+
+[sub_resource type="Resource" id="Resource_aa1q2"]
+script = ExtResource("3_0rh32")
+node_id = 7
+answer_peek = "Press to end demonstration."
+answer_peek_enabled = true
+next_node_id = 8
+position = Vector2(1840, 900)
+size = Vector2(180, 260)
+
+[sub_resource type="Resource" id="Resource_qlj7e"]
+script = ExtResource("4_k3hrv")
+node_id = 8
+position = Vector2(2320, 940)
+size = Vector2(187.692, 75.12)
+
+[sub_resource type="Resource" id="Resource_183l5"]
+script = ExtResource("1_1bm2b")
+node_id = 9
+dialogue_text = "You will now return to the question to check the other answers."
+next_node_id = 4
+position = Vector2(2120, 240)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_70482"]
+script = ExtResource("6_yjhi3")
+node_id = 0
+next_node_id = 1
+position = Vector2(320, 560)
+size = Vector2(187.692, 75.12)
+
+[resource]
+script = ExtResource("5_k3ygi")
+nodes = Dictionary[int, Resource]({
+1: SubResource("Resource_q3ccu"),
+2: SubResource("Resource_tgaos"),
+3: SubResource("Resource_5osqs"),
+4: SubResource("Resource_f3a8i"),
+5: SubResource("Resource_nfsok"),
+6: SubResource("Resource_c06ef"),
+7: SubResource("Resource_aa1q2"),
+8: SubResource("Resource_qlj7e"),
+9: SubResource("Resource_183l5")
+})
+starts = Dictionary[int, Resource]({
+0: SubResource("Resource_70482")
+})

@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://8xro2awi27sx"]
+
+[ext_resource type="Script" uid="uid://bd6q63iaxh7xb" path="res://script/main.gd" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://ceosdecun0sc3" path="res://scenes/pages/main_menu.tscn" id="2_0wfyh"]
+
+[node name="main" type="Node2D" unique_id=353750260]
+script = ExtResource("1_sugp2")
+
+[node name="MainMenu" parent="." unique_id=1838548920 instance=ExtResource("2_0wfyh")]
+
+[connection signal="open_one_list" from="MainMenu" to="." method="_on_main_menu_open_one_list"]

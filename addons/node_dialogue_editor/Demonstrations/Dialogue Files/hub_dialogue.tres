@@ -1,0 +1,215 @@
+[gd_resource type="Resource" script_class="DialogueGraph" format=3 uid="uid://bfrc6gme0f6wb"]
+
+[ext_resource type="Script" uid="uid://gg5rkrqtkivq" path="res://addons/node_dialogue_editor/Permanency/Nodes/end_node.gd" id="1_smkkj"]
+[ext_resource type="Script" uid="uid://c5g63aq5hks3o" path="res://addons/node_dialogue_editor/Permanency/Nodes/dialogue_node.gd" id="2_kkx0s"]
+[ext_resource type="Script" uid="uid://ctj28jh7u1tsa" path="res://addons/node_dialogue_editor/Permanency/Nodes/question_node.gd" id="3_p4ixk"]
+[ext_resource type="Script" uid="uid://dikkiwdmudi0m" path="res://addons/node_dialogue_editor/Permanency/Nodes/answer_node.gd" id="4_nb3fv"]
+[ext_resource type="Script" uid="uid://dga0jdmic0t5c" path="res://addons/node_dialogue_editor/Permanency/Nodes/condition_node.gd" id="5_mosyx"]
+[ext_resource type="Script" uid="uid://cblvpyffyocl6" path="res://addons/node_dialogue_editor/Permanency/Nodes/operator_node.gd" id="6_7i28l"]
+[ext_resource type="Script" uid="uid://djorw6bduaml" path="res://addons/node_dialogue_editor/Permanency/dialogue_graph.gd" id="7_wg8ou"]
+[ext_resource type="Script" uid="uid://dkl8negx1n45j" path="res://addons/node_dialogue_editor/Permanency/Nodes/start_node.gd" id="8_amkpo"]
+
+[sub_resource type="Resource" id="Resource_smkkj"]
+script = ExtResource("1_smkkj")
+node_id = 1
+position = Vector2(1660, 1140)
+size = Vector2(187.692, 75.12)
+
+[sub_resource type="Resource" id="Resource_kkx0s"]
+script = ExtResource("2_kkx0s")
+node_id = 2
+speaker = "Narrator"
+dialogue_text = "It is possible to create loops using these nodes."
+next_node_id = 3
+position = Vector2(60, 240)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_p4ixk"]
+script = ExtResource("2_kkx0s")
+node_id = 3
+speaker = "Narrator"
+dialogue_text = "Typical dialogues in videogames use loops when interacting with NPCs."
+next_node_id = 4
+position = Vector2(320, 240)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_nb3fv"]
+script = ExtResource("3_p4ixk")
+node_id = 4
+speaker = "Narrator"
+dialogue_text = "What do you want to do?
+
+Narrator coins : $$narrator_coins
+Player coins: $$player_coins"
+next_node_ids = Array[int]([5, 6, 18])
+position = Vector2(740, 240)
+size = Vector2(319.99997, 260)
+
+[sub_resource type="Resource" id="Resource_mosyx"]
+script = ExtResource("4_nb3fv")
+node_id = 5
+answer_peek = "Give a coin."
+answer_peek_enabled = true
+next_node_id = 8
+position = Vector2(1140, -160)
+size = Vector2(220, 355)
+
+[sub_resource type="Resource" id="Resource_7i28l"]
+script = ExtResource("4_nb3fv")
+node_id = 6
+answer_peek = "Get a coin."
+answer_peek_enabled = true
+next_node_id = 13
+position = Vector2(1140, 500)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_wg8ou"]
+script = ExtResource("5_mosyx")
+node_id = 8
+variable_name = "player_coins"
+compare_value = "0"
+true_branch_id = 9
+false_branch_id = 10
+position = Vector2(1440, -160)
+size = Vector2(129.61198, 218.59999)
+
+[sub_resource type="Resource" id="Resource_amkpo"]
+script = ExtResource("2_kkx0s")
+node_id = 9
+speaker = "Narrator "
+dialogue_text = "You don't have coins to give."
+next_node_id = 4
+position = Vector2(1740, -320)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_4ttpu"]
+script = ExtResource("6_7i28l")
+node_id = 10
+variable_name = "player_coins"
+operation = 2
+value = "1"
+next_node_id = 11
+position = Vector2(1660, -40)
+size = Vector2(154.93056, 218.59259)
+
+[sub_resource type="Resource" id="Resource_wfyb6"]
+script = ExtResource("6_7i28l")
+node_id = 11
+variable_name = "narrator_coins"
+operation = 1
+value = "1"
+next_node_id = 12
+position = Vector2(1900, -40)
+size = Vector2(154.93056, 218.59259)
+
+[sub_resource type="Resource" id="Resource_c6opf"]
+script = ExtResource("2_kkx0s")
+node_id = 12
+speaker = "Narrator"
+dialogue_text = "Thanks for the coin."
+next_node_id = 4
+position = Vector2(2200, -60)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_gt1vb"]
+script = ExtResource("5_mosyx")
+node_id = 13
+variable_name = "narrator_coins"
+compare_value = "0"
+true_branch_id = 17
+false_branch_id = 15
+position = Vector2(1420, 500)
+size = Vector2(129.61198, 218.59999)
+
+[sub_resource type="Resource" id="Resource_hm3is"]
+script = ExtResource("6_7i28l")
+node_id = 14
+variable_name = "narrator_coins"
+operation = 2
+value = "1"
+next_node_id = 16
+position = Vector2(1900, 820)
+size = Vector2(154.93056, 218.59259)
+
+[sub_resource type="Resource" id="Resource_wphpe"]
+script = ExtResource("6_7i28l")
+node_id = 15
+variable_name = "player_coins"
+operation = 1
+value = "1"
+next_node_id = 14
+position = Vector2(1620, 820)
+size = Vector2(154.93056, 218.59259)
+
+[sub_resource type="Resource" id="Resource_mc2kc"]
+script = ExtResource("2_kkx0s")
+node_id = 16
+speaker = "Narrator"
+dialogue_text = "No problem, have another coin."
+next_node_id = 4
+position = Vector2(2120, 840)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_o040s"]
+script = ExtResource("2_kkx0s")
+node_id = 17
+speaker = "Narrator "
+dialogue_text = "I don't have coins to give"
+next_node_id = 4
+position = Vector2(1700, 500)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_aoxki"]
+script = ExtResource("4_nb3fv")
+node_id = 18
+answer_peek = "Finish dialogue."
+answer_peek_enabled = true
+next_node_id = 19
+position = Vector2(1126.343, 1009.6957)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_cbyyd"]
+script = ExtResource("2_kkx0s")
+node_id = 19
+speaker = "Narrator"
+dialogue_text = "Remember to check the files to see how they work."
+next_node_id = 1
+position = Vector2(1380, 1080)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_pbjw6"]
+script = ExtResource("8_amkpo")
+node_id = 0
+next_node_id = 2
+position = Vector2(-265.5545, 237.99843)
+size = Vector2(187.692, 75.12)
+
+[resource]
+script = ExtResource("7_wg8ou")
+nodes = Dictionary[int, Resource]({
+1: SubResource("Resource_smkkj"),
+2: SubResource("Resource_kkx0s"),
+3: SubResource("Resource_p4ixk"),
+4: SubResource("Resource_nb3fv"),
+5: SubResource("Resource_mosyx"),
+6: SubResource("Resource_7i28l"),
+8: SubResource("Resource_wg8ou"),
+9: SubResource("Resource_amkpo"),
+10: SubResource("Resource_4ttpu"),
+11: SubResource("Resource_wfyb6"),
+12: SubResource("Resource_c6opf"),
+13: SubResource("Resource_gt1vb"),
+14: SubResource("Resource_hm3is"),
+15: SubResource("Resource_wphpe"),
+16: SubResource("Resource_mc2kc"),
+17: SubResource("Resource_o040s"),
+18: SubResource("Resource_aoxki"),
+19: SubResource("Resource_cbyyd")
+})
+starts = Dictionary[int, Resource]({
+0: SubResource("Resource_pbjw6")
+})
+variables = {
+"narrator_coins": 10,
+"player_coins": 0
+}

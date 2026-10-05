@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://c813li8iq47tt"]
+
+[ext_resource type="Script" uid="uid://c5ykk25tu2bij" path="res://addons/node_dialogue_editor/EditorScreen/graph_edit.gd" id="1_7yew1"]
+
+[node name="GraphEdit" type="GraphEdit" unique_id=786311106]
+custom_minimum_size = Vector2(500, 500)
+offset_right = 1152.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+right_disconnects = true
+type_names = {
+1: "QuestionAnswer"
+}
+script = ExtResource("1_7yew1")
+
+[node name="PopupMenu" type="PopupMenu" parent="." unique_id=212272389]
+oversampling_override = 1.0
+size = Vector2i(116, 224)
+item_count = 8
+item_0/text = "Start"
+item_0/id = 0
+item_1/text = "Dialogue"
+item_1/id = 1
+item_2/text = "Question"
+item_2/id = 2
+item_3/text = "Answer"
+item_3/id = 3
+item_4/text = "End"
+item_4/id = 4
+item_5/text = "Condition"
+item_5/id = 5
+item_6/text = "Operator"
+item_6/id = 6
+item_7/text = "Signal"
+item_7/id = 7
+
+[connection signal="popup_request" from="." to="." method="on_graph_edit_popup_request"]
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]

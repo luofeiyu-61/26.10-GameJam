@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://dq0gv6omd8nyh"]
+
+[ext_resource type="Script" uid="uid://qx57euv6ybl6" path="res://addons/node_dialogue_editor/VisualNodes/condition_visual_node.gd" id="1_4f4ie"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tatjx"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.842686, 0.42116183, 0.054024473, 0.6)
+
+[node name="ConditionVisualNodes" type="GraphNode" unique_id=820933211]
+anchors_preset = -1
+anchor_right = 0.134
+anchor_bottom = 0.35000002
+offset_right = -0.36801147
+offset_bottom = 0.19998169
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_tatjx")
+resizable = true
+title = "Condition"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(0.93, 0.93, 0.93, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(0.31231996, 0.96, 0.07679998, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = true
+slot/1/right_type = 0
+slot/1/right_color = Color(0.96, 0.07679998, 0.07679998, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+slot/5/left_enabled = false
+slot/5/left_type = 0
+slot/5/left_color = Color(1, 1, 1, 1)
+slot/5/left_icon = null
+slot/5/right_enabled = false
+slot/5/right_type = 0
+slot/5/right_color = Color(1, 1, 1, 1)
+slot/5/right_icon = null
+slot/5/draw_stylebox = true
+script = ExtResource("1_4f4ie")
+
+[node name="VariableLabel" type="Label" parent="." unique_id=416603735]
+layout_mode = 2
+text = "Variable"
+
+[node name="VariableEdit" type="LineEdit" parent="." unique_id=1230064959]
+layout_mode = 2
+placeholder_text = "variable_name"
+
+[node name="OperatorLabel" type="Label" parent="." unique_id=1939205199]
+layout_mode = 2
+text = "Operator"
+
+[node name="OperatorOption" type="OptionButton" parent="." unique_id=563515050]
+layout_mode = 2
+selected = 0
+item_count = 6
+popup/item_0/text = "=="
+popup/item_0/id = 0
+popup/item_1/text = "!="
+popup/item_1/id = 1
+popup/item_2/text = ">"
+popup/item_2/id = 2
+popup/item_3/text = "<"
+popup/item_3/id = 3
+popup/item_4/text = ">="
+popup/item_4/id = 4
+popup/item_5/text = "<="
+popup/item_5/id = 5
+
+[node name="ValueLabel" type="Label" parent="." unique_id=1610934003]
+layout_mode = 2
+text = "Compare Value"
+
+[node name="ValueEdit" type="LineEdit" parent="." unique_id=1371794043]
+layout_mode = 2
+placeholder_text = "value"

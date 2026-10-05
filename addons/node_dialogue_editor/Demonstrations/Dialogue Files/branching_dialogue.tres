@@ -1,0 +1,191 @@
+[gd_resource type="Resource" script_class="DialogueGraph" format=3 uid="uid://bxgak0koxdh01"]
+
+[ext_resource type="Script" uid="uid://c5g63aq5hks3o" path="res://addons/node_dialogue_editor/Permanency/Nodes/dialogue_node.gd" id="1_nym0y"]
+[ext_resource type="Script" uid="uid://gg5rkrqtkivq" path="res://addons/node_dialogue_editor/Permanency/Nodes/end_node.gd" id="2_dnnm4"]
+[ext_resource type="Script" uid="uid://ctj28jh7u1tsa" path="res://addons/node_dialogue_editor/Permanency/Nodes/question_node.gd" id="3_n0g2r"]
+[ext_resource type="Script" uid="uid://dikkiwdmudi0m" path="res://addons/node_dialogue_editor/Permanency/Nodes/answer_node.gd" id="4_3lh2g"]
+[ext_resource type="Script" uid="uid://cblvpyffyocl6" path="res://addons/node_dialogue_editor/Permanency/Nodes/operator_node.gd" id="5_inwe2"]
+[ext_resource type="Script" uid="uid://dga0jdmic0t5c" path="res://addons/node_dialogue_editor/Permanency/Nodes/condition_node.gd" id="6_qsw6a"]
+[ext_resource type="Script" uid="uid://djorw6bduaml" path="res://addons/node_dialogue_editor/Permanency/dialogue_graph.gd" id="7_k3e2q"]
+[ext_resource type="Script" uid="uid://dkl8negx1n45j" path="res://addons/node_dialogue_editor/Permanency/Nodes/start_node.gd" id="8_8pfx3"]
+
+[sub_resource type="Resource" id="Resource_nym0y"]
+script = ExtResource("1_nym0y")
+node_id = 1
+speaker = "Narrator"
+dialogue_text = "Branching dialogs can be made with two kinds of nodes."
+next_node_id = 3
+position = Vector2(60, 560)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_dnnm4"]
+script = ExtResource("2_dnnm4")
+node_id = 2
+position = Vector2(3480, 680)
+size = Vector2(187.692, 75.12)
+
+[sub_resource type="Resource" id="Resource_n0g2r"]
+script = ExtResource("1_nym0y")
+node_id = 3
+speaker = "Narrator"
+dialogue_text = "Question Nodes allow the player to select between multiple answers."
+next_node_id = 4
+position = Vector2(320, 560)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_3lh2g"]
+script = ExtResource("3_n0g2r")
+node_id = 4
+dialogue_text = "These answer must be each an Answer Node."
+next_node_ids = Array[int]([5, 6])
+position = Vector2(580, 560)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_inwe2"]
+script = ExtResource("4_3lh2g")
+node_id = 5
+speaker = "Player"
+answer_peek = "Like this one."
+dialogue_text = "Like this one."
+next_node_id = 12
+position = Vector2(920, 400)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_qsw6a"]
+script = ExtResource("4_3lh2g")
+node_id = 6
+speaker = "Player"
+answer_peek = "Or this other one."
+dialogue_text = "Or this other one."
+next_node_id = 11
+position = Vector2(920, 780)
+size = Vector2(180, 254)
+
+[sub_resource type="Resource" id="Resource_k3e2q"]
+script = ExtResource("3_n0g2r")
+node_id = 8
+speaker = "Narrator"
+dialogue_text = "There's also Condition Nodes, which compare values and branch depending on the result. 
+You have $$coins coins, want one?"
+next_node_ids = Array[int]([9, 10])
+position = Vector2(1620, 600)
+size = Vector2(200, 300)
+
+[sub_resource type="Resource" id="Resource_8pfx3"]
+script = ExtResource("4_3lh2g")
+node_id = 9
+speaker = "You"
+answer_peek = "Say yes."
+dialogue_text = "Yeah, i need one."
+next_node_id = 13
+position = Vector2(1980, 380)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_br1li"]
+script = ExtResource("4_3lh2g")
+node_id = 10
+speaker = "You"
+answer_peek = "Say no."
+dialogue_text = "I'm okay, i don't want a coin."
+next_node_id = 15
+position = Vector2(1980, 780)
+size = Vector2(187.692, 355)
+
+[sub_resource type="Resource" id="Resource_ru0e6"]
+script = ExtResource("1_nym0y")
+node_id = 11
+dialogue_text = "You have choosen the second option.
+ Great."
+next_node_id = 8
+position = Vector2(1160, 780)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_ut4x8"]
+script = ExtResource("1_nym0y")
+node_id = 12
+dialogue_text = "You have chosen the first option. 
+Great."
+next_node_id = 8
+position = Vector2(1160, 400)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_w4ose"]
+script = ExtResource("5_inwe2")
+node_id = 13
+variable_name = "coins"
+operation = 1
+value = "1"
+next_node_id = 15
+position = Vector2(2240, 380)
+size = Vector2(154.93056, 218.59259)
+
+[sub_resource type="Resource" id="Resource_i3jw2"]
+script = ExtResource("6_qsw6a")
+node_id = 14
+variable_name = "coins"
+compare_value = "0"
+true_branch_id = 16
+false_branch_id = 17
+position = Vector2(2800, 660)
+size = Vector2(129.61198, 218.59999)
+
+[sub_resource type="Resource" id="Resource_n0r6b"]
+script = ExtResource("1_nym0y")
+node_id = 15
+speaker = "Narrator"
+dialogue_text = "Okey, let's see if you have 0 or more coins."
+next_node_id = 14
+position = Vector2(2520, 660)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_40m2i"]
+script = ExtResource("1_nym0y")
+node_id = 16
+speaker = "Narrator"
+dialogue_text = "You ended the dialogue with no coins. "
+next_node_id = 2
+position = Vector2(3060, 500)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_ow1jp"]
+script = ExtResource("1_nym0y")
+node_id = 17
+speaker = "Narrator"
+dialogue_text = "You ended the dialog with a coin. Nice job."
+next_node_id = 2
+position = Vector2(3060, 840)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_rsmfj"]
+script = ExtResource("8_8pfx3")
+node_id = 0
+next_node_id = 1
+position = Vector2(-220, 560)
+size = Vector2(187.692, 75.12)
+
+[resource]
+script = ExtResource("7_k3e2q")
+nodes = Dictionary[int, Resource]({
+1: SubResource("Resource_nym0y"),
+2: SubResource("Resource_dnnm4"),
+3: SubResource("Resource_n0g2r"),
+4: SubResource("Resource_3lh2g"),
+5: SubResource("Resource_inwe2"),
+6: SubResource("Resource_qsw6a"),
+8: SubResource("Resource_k3e2q"),
+9: SubResource("Resource_8pfx3"),
+10: SubResource("Resource_br1li"),
+11: SubResource("Resource_ru0e6"),
+12: SubResource("Resource_ut4x8"),
+13: SubResource("Resource_w4ose"),
+14: SubResource("Resource_i3jw2"),
+15: SubResource("Resource_n0r6b"),
+16: SubResource("Resource_40m2i"),
+17: SubResource("Resource_ow1jp")
+})
+starts = Dictionary[int, Resource]({
+0: SubResource("Resource_rsmfj")
+})
+variables = {
+"coins": 0
+}

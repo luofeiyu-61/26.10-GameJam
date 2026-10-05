@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="DialogueGraph" format=3 uid="uid://bvmglqps0e7jk"]
+
+[ext_resource type="Script" uid="uid://gg5rkrqtkivq" path="res://addons/node_dialogue_editor/Permanency/Nodes/end_node.gd" id="1_tbiba"]
+[ext_resource type="Script" uid="uid://c5g63aq5hks3o" path="res://addons/node_dialogue_editor/Permanency/Nodes/dialogue_node.gd" id="2_rxrtu"]
+[ext_resource type="Script" uid="uid://djorw6bduaml" path="res://addons/node_dialogue_editor/Permanency/dialogue_graph.gd" id="3_f3b1p"]
+[ext_resource type="Script" uid="uid://dkl8negx1n45j" path="res://addons/node_dialogue_editor/Permanency/Nodes/start_node.gd" id="4_gvqik"]
+
+[sub_resource type="Resource" id="Resource_yefch"]
+script = ExtResource("1_tbiba")
+node_id = 1
+position = Vector2(1000, 380)
+size = Vector2(187.692, 75.12)
+
+[sub_resource type="Resource" id="Resource_8has6"]
+script = ExtResource("2_rxrtu")
+node_id = 2
+speaker = "Narrator"
+dialogue_text = "This is the simplest of dialogues."
+next_node_id = 3
+position = Vector2(-180, 380)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_6wt3m"]
+script = ExtResource("2_rxrtu")
+node_id = 3
+speaker = "Narrator"
+dialogue_text = "It requires a Start Node, an End node and DialogueNodes."
+next_node_id = 4
+position = Vector2(140, 380)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_2v4jp"]
+script = ExtResource("2_rxrtu")
+node_id = 4
+speaker = "Narrator "
+dialogue_text = "Dialogue Nodes contain both a Speaker and the text to display."
+next_node_id = 5
+position = Vector2(400, 380)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_8spip"]
+script = ExtResource("2_rxrtu")
+node_id = 5
+dialogue_text = "Altough the speaker is optional"
+next_node_id = 1
+position = Vector2(660, 380)
+size = Vector2(187.692, 254.23201)
+
+[sub_resource type="Resource" id="Resource_2my1b"]
+script = ExtResource("4_gvqik")
+node_id = 0
+next_node_id = 2
+position = Vector2(-440, 380)
+size = Vector2(187.692, 75.12)
+
+[resource]
+script = ExtResource("3_f3b1p")
+nodes = Dictionary[int, Resource]({
+1: SubResource("Resource_yefch"),
+2: SubResource("Resource_8has6"),
+3: SubResource("Resource_6wt3m"),
+4: SubResource("Resource_2v4jp"),
+5: SubResource("Resource_8spip")
+})
+starts = Dictionary[int, Resource]({
+0: SubResource("Resource_2my1b")
+})

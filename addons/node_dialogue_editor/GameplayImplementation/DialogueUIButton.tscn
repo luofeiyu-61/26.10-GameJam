@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://domagqo0f8y6d"]
+
+[node name="Button" type="Button" unique_id=914258017]
+theme_override_font_sizes/font_size = 14
+text = "AnswerText"
+alignment = 0

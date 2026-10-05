@@ -1,0 +1,84 @@
+[gd_scene format=3 uid="uid://fgx148ki1m7k"]
+
+[ext_resource type="Script" uid="uid://biobwu754wauo" path="res://addons/node_dialogue_editor/VisualNodes/signal_visual_node.gd" id="1_vofbp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vofbp"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.6630899, 0.15180002, 0.69, 0.6)
+
+[node name="ConditionVisualNodes" type="GraphNode" unique_id=820933211]
+anchors_preset = -1
+anchor_right = 0.136
+anchor_bottom = 0.264
+offset_right = -156.67201
+offset_bottom = -171.072
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_vofbp")
+resizable = true
+title = "Signal"
+slot/0/left_enabled = true
+slot/0/left_type = 0
+slot/0/left_color = Color(0.93, 0.93, 0.93, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(0.95686275, 0.31764707, 0.078431375, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+slot/1/left_enabled = false
+slot/1/left_type = 0
+slot/1/left_color = Color(1, 1, 1, 1)
+slot/1/left_icon = null
+slot/1/right_enabled = false
+slot/1/right_type = 0
+slot/1/right_color = Color(1, 1, 1, 1)
+slot/1/right_icon = null
+slot/1/draw_stylebox = true
+slot/2/left_enabled = false
+slot/2/left_type = 0
+slot/2/left_color = Color(1, 1, 1, 1)
+slot/2/left_icon = null
+slot/2/right_enabled = false
+slot/2/right_type = 0
+slot/2/right_color = Color(1, 1, 1, 1)
+slot/2/right_icon = null
+slot/2/draw_stylebox = true
+slot/3/left_enabled = false
+slot/3/left_type = 0
+slot/3/left_color = Color(1, 1, 1, 1)
+slot/3/left_icon = null
+slot/3/right_enabled = false
+slot/3/right_type = 0
+slot/3/right_color = Color(1, 1, 1, 1)
+slot/3/right_icon = null
+slot/3/draw_stylebox = true
+slot/4/left_enabled = false
+slot/4/left_type = 0
+slot/4/left_color = Color(1, 1, 1, 1)
+slot/4/left_icon = null
+slot/4/right_enabled = false
+slot/4/right_type = 0
+slot/4/right_color = Color(1, 1, 1, 1)
+slot/4/right_icon = null
+slot/4/draw_stylebox = true
+script = ExtResource("1_vofbp")
+
+[node name="SignalLabel" type="Label" parent="." unique_id=714070557]
+layout_mode = 2
+text = "Signal Name"
+
+[node name="SignalEdit" type="LineEdit" parent="." unique_id=389550504]
+layout_mode = 2
+
+[node name="ArgsLabel" type="Label" parent="." unique_id=1529103700]
+layout_mode = 2
+text = "Arguments"
+
+[node name="ArgsContainer" type="VBoxContainer" parent="." unique_id=1231961939]
+layout_mode = 2
+
+[node name="AddButton" type="Button" parent="." unique_id=89652388]
+layout_mode = 2
+text = "Add Argument"

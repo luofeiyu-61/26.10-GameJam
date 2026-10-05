@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://c4gpvvjcmgf6h"]
+
+[ext_resource type="Script" uid="uid://cludq6c60y6u6" path="res://script/game/events_stream.gd" id="1_ktdv8"]
+
+[node name="EventsStream" type="Node2D" unique_id=2064952660]
+script = ExtResource("1_ktdv8")

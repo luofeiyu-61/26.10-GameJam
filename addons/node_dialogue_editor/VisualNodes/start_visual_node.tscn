@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://cyrhd7yhywuop"]
+
+[ext_resource type="Script" uid="uid://bb2d0wb7urrmg" path="res://addons/node_dialogue_editor/VisualNodes/start_visual_node.gd" id="1_6ogo7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ogo7"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.15180002, 0.69, 0.29532003, 0.6)
+
+[node name="VisualGraphNode" type="GraphNode" unique_id=2120426918]
+anchors_preset = -1
+anchor_right = 0.194
+anchor_bottom = 0.120000005
+offset_right = -0.4880066
+offset_bottom = 0.23999786
+theme_override_styles/titlebar = SubResource("StyleBoxFlat_6ogo7")
+resizable = true
+title = "Start"
+slot/0/left_enabled = false
+slot/0/left_type = 0
+slot/0/left_color = Color(1, 1, 1, 1)
+slot/0/left_icon = null
+slot/0/right_enabled = true
+slot/0/right_type = 0
+slot/0/right_color = Color(0.96, 0.96, 0.96, 1)
+slot/0/right_icon = null
+slot/0/draw_stylebox = true
+script = ExtResource("1_6ogo7")
+
+[node name="Label" type="Label" parent="." unique_id=692701813]
+layout_mode = 2

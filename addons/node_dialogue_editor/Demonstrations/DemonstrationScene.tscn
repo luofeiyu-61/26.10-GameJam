@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://ced3k6oaeqh0r"]
+
+[ext_resource type="Script" path="res://demonstrations/demonstration_scene.gd" id="1_gmfjy"]
+[ext_resource type="Resource" path="res://demonstrations/Dialogue Files/lineal_dialogue.tres" id="2_8jobp"]
+[ext_resource type="Resource" path="res://demonstrations/Dialogue Files/branching_dialogue.tres" id="3_46icc"]
+[ext_resource type="Resource" path="res://demonstrations/Dialogue Files/wheel_dialogue.tres" id="4_6s4jw"]
+[ext_resource type="Resource" path="res://demonstrations/Dialogue Files/hub_dialogue.tres" id="5_je4bj"]
+[ext_resource type="PackedScene" uid="uid://bng2lc1egb5ih" path="res://addons/node_dialogue_editor/GameplayImplementation/DialogueBoxUI.tscn" id="6_03mgd"]
+
+[node name="DemonstrationScene" type="Control" unique_id=1816771248]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gmfjy")
+lineal_dialogue = ExtResource("2_8jobp")
+branching_dialogue = ExtResource("3_46icc")
+wheel_dialogue = ExtResource("4_6s4jw")
+hub_dialogue = ExtResource("5_je4bj")
+
+[node name="Panel" type="Panel" parent="." unique_id=1203414151]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -171.0
+offset_top = -160.0
+offset_right = 163.5
+offset_bottom = 120.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(167, 140)
+
+[node name="VBOXContainer" type="VBoxContainer" parent="Panel" unique_id=1257783040]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.047832586
+anchor_top = 0.05
+anchor_right = 0.95366216
+anchor_bottom = 0.95357144
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Panel/VBOXContainer" unique_id=10253326]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Choose a Dialogue to play ingame"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionButton" type="OptionButton" parent="Panel/VBOXContainer" unique_id=135673228]
+layout_mode = 2
+size_flags_vertical = 3
+selected = 0
+item_count = 4
+popup/item_0/text = "Lineal Dialogue"
+popup/item_0/id = 0
+popup/item_1/text = "Branching dialogue"
+popup/item_1/id = 3
+popup/item_2/text = "Wheel dialogue"
+popup/item_2/id = 1
+popup/item_3/text = "Hub dialogue and operations"
+popup/item_3/id = 2
+
+[node name="Button" type="Button" parent="Panel/VBOXContainer" unique_id=429233686]
+layout_mode = 2
+size_flags_vertical = 3
+text = "START"
+
+[node name="DialogueUiBox" parent="." unique_id=1002634019 instance=ExtResource("6_03mgd")]
+visible = false
+top_level = true
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="Panel/VBOXContainer/Button" to="." method="_on_start_pressed"]

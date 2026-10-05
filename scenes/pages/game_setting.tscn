@@ -1,0 +1,196 @@
+[gd_scene format=3 uid="uid://ybgw0xvwy0ix"]
+
+[ext_resource type="Script" uid="uid://ckifigikb1vl6" path="res://script/pages/game_setting.gd" id="1_wl78f"]
+
+[node name="GameSettingUI" type="CanvasLayer" unique_id=612859518]
+layer = 3
+script = ExtResource("1_wl78f")
+
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1692171966]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="window" type="ColorRect" parent="CenterContainer" unique_id=48740880]
+custom_minimum_size = Vector2(500, 350)
+layout_mode = 2
+color = Color(0.24, 0.24, 0.24, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer/window" unique_id=523759804]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -156.0
+offset_right = 250.0
+offset_bottom = 156.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+
+[node name="volumn" type="ColorRect" parent="CenterContainer/window/VBoxContainer" unique_id=2056219327]
+custom_minimum_size = Vector2(480, 120)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.36, 0.36, 0.36, 1)
+
+[node name="SoundsVolumn" type="VBoxContainer" parent="CenterContainer/window/VBoxContainer/volumn" unique_id=1564775675]
+custom_minimum_size = Vector2(0, 100)
+custom_maximum_size = Vector2(450, -1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -38.5
+offset_bottom = 38.5
+grow_horizontal = 2
+grow_vertical = 2
+offset_transform_enabled = true
+
+[node name="MasterVolumn" type="HBoxContainer" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn" unique_id=2056426835]
+layout_mode = 2
+
+[node name="Volumn" type="Label" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/MasterVolumn" unique_id=523868374]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "总音量"
+
+[node name="Master" type="HSlider" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/MasterVolumn" unique_id=66881277]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="BGM" type="HBoxContainer" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn" unique_id=504861767]
+layout_mode = 2
+
+[node name="BGM" type="Label" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/BGM" unique_id=1996622781]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "   BGM"
+
+[node name="BGMslider" type="HSlider" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/BGM" unique_id=816719828]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+value = 100.0
+
+[node name="SFX" type="HBoxContainer" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn" unique_id=1191423411]
+layout_mode = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+
+[node name="SFX" type="Label" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/SFX" unique_id=1634571050]
+layout_mode = 2
+size_flags_horizontal = 2
+offset_transform_enabled = true
+offset_transform_visual_only = false
+text = "   SFX"
+
+[node name="SFXslider" type="HSlider" parent="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/SFX" unique_id=1930882636]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+offset_transform_visual_only = false
+value = 100.0
+
+[node name="windowsize" type="ColorRect" parent="CenterContainer/window/VBoxContainer" unique_id=64522591]
+custom_minimum_size = Vector2(480, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.39, 0.39, 0.39, 1)
+
+[node name="WindowSzie" type="HBoxContainer" parent="CenterContainer/window/VBoxContainer/windowsize" unique_id=1173694283]
+custom_minimum_size = Vector2(0, 50)
+custom_maximum_size = Vector2(450, -1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -15.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer/window/VBoxContainer/windowsize/WindowSzie" unique_id=1666156809]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "窗口大小"
+
+[node name="OptionButton" type="OptionButton" parent="CenterContainer/window/VBoxContainer/windowsize/WindowSzie" unique_id=1975425702]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+selected = 0
+allow_reselect = true
+item_count = 3
+popup/item_0/text = "1152x648"
+popup/item_0/id = 2
+popup/item_1/text = "1280x720"
+popup/item_1/id = 0
+popup/item_2/text = "1920x1080"
+popup/item_2/id = 1
+
+[node name="developer" type="ColorRect" parent="CenterContainer/window/VBoxContainer" unique_id=1234638908]
+custom_minimum_size = Vector2(480, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+color = Color(0.41, 0.41, 0.41, 1)
+
+[node name="Developer" type="HBoxContainer" parent="CenterContainer/window/VBoxContainer/developer" unique_id=1629585890]
+custom_minimum_size = Vector2(0, 50)
+custom_maximum_size = Vector2(450, -1)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -12.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="CenterContainer/window/VBoxContainer/developer/Developer" unique_id=1961151455]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "*开发者选项[debug]"
+
+[node name="CheckButton" type="CheckButton" parent="CenterContainer/window/VBoxContainer/developer/Developer" unique_id=780131139]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="savebar" type="HBoxContainer" parent="CenterContainer/window/VBoxContainer" unique_id=1567806973]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+
+[node name="cancel" type="Button" parent="CenterContainer/window/VBoxContainer/savebar" unique_id=771361071]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+text = "     取消     "
+
+[node name="apply" type="Button" parent="CenterContainer/window/VBoxContainer/savebar" unique_id=1898097472]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 8
+text = "     应用     "
+
+[connection signal="value_changed" from="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/MasterVolumn/Master" to="." method="_on_master_value_changed"]
+[connection signal="value_changed" from="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/BGM/BGMslider" to="." method="_on_bg_mslider_value_changed"]
+[connection signal="value_changed" from="CenterContainer/window/VBoxContainer/volumn/SoundsVolumn/SFX/SFXslider" to="." method="_on_sf_xslider_value_changed"]
+[connection signal="pressed" from="CenterContainer/window/VBoxContainer/savebar/cancel" to="." method="_cancel_setting_change"]
+[connection signal="pressed" from="CenterContainer/window/VBoxContainer/savebar/apply" to="." method="_apply_setting_change"]

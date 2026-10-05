@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://hrfc3u2d673j"]
+
+[ext_resource type="Script" uid="uid://4l171p1mju0o" path="res://addons/node_dialogue_editor/EditorScreen/editor_screen.gd" id="1_r1r3p"]
+[ext_resource type="PackedScene" uid="uid://c813li8iq47tt" path="res://addons/node_dialogue_editor/EditorScreen/GraphEdit.tscn" id="2_4f0t7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r1r3p"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.12941177, 0.12941177, 0.12941177, 1)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4f0t7"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Control" type="Control" unique_id=1966005401]
+layout_mode = 3
+anchor_right = 1.0
+anchor_bottom = 0.98800004
+offset_bottom = 7.776001
+grow_horizontal = 0
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_r1r3p")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=835168208]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="PanelContainer" type="MarginContainer" parent="VBoxContainer" unique_id=1115693274]
+layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/PanelContainer" unique_id=1805408434]
+layout_mode = 2
+color = Color(0, 0, 0, 0.4)
+
+[node name="FileMenu" type="MenuBar" parent="VBoxContainer/PanelContainer" unique_id=702884996]
+layout_mode = 2
+size_flags_horizontal = 0
+flat = true
+language = "en"
+
+[node name="PopupMenu" type="PopupMenu" parent="VBoxContainer/PanelContainer/FileMenu" unique_id=930678549]
+oversampling_override = 1.0
+title = "File"
+size = Vector2i(159, 116)
+item_count = 4
+item_0/text = "New"
+item_0/id = 0
+item_1/text = "Open"
+item_1/id = 1
+item_2/text = "Save"
+item_2/id = 2
+item_3/text = "Name and save"
+item_3/id = 3
+
+[node name="RunMenu" type="PopupMenu" parent="VBoxContainer/PanelContainer/FileMenu" unique_id=309227959]
+oversampling_override = 1.0
+title = "Run"
+size = Vector2i(161, 100)
+item_count = 1
+item_0/text = "Run current file"
+item_0/id = 0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer" unique_id=458614425]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="RecentFilesContainer" type="PanelContainer" parent="VBoxContainer/HSplitContainer" unique_id=1788256503]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="RecentFilesList" type="ItemList" parent="VBoxContainer/HSplitContainer/RecentFilesContainer" unique_id=2064172297]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_r1r3p")
+item_count = 3
+item_0/text = "tree2"
+item_1/text = "testDialog"
+item_2/text = "tree1"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer/HSplitContainer" unique_id=611212698]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="GraphEdit" parent="VBoxContainer/HSplitContainer/HSplitContainer" unique_id=786311106 instance=ExtResource("2_4f0t7")]
+visible = false
+layout_mode = 2
+scroll_offset = Vector2(0, -648)
+
+[node name="VariablePanel" type="PanelContainer" parent="VBoxContainer/HSplitContainer/HSplitContainer" unique_id=951374874]
+visible = false
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4f0t7")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/HSplitContainer/VariablePanel" unique_id=1209960707]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer/HSplitContainer/VariablePanel/VBoxContainer" unique_id=1875452944]
+layout_mode = 2
+text = "Variables"
+horizontal_alignment = 1
+
+[node name="VariablesTree" type="Tree" parent="VBoxContainer/HSplitContainer/HSplitContainer/VariablePanel/VBoxContainer" unique_id=1936060432]
+custom_minimum_size = Vector2(0, 300)
+layout_mode = 2
+size_flags_vertical = 2
+theme_override_constants/h_separation = 8
+theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/title_button_font_size = 12
+columns = 3
+column_titles_visible = true
+hide_root = true
+scroll_horizontal_enabled = false
+
+[node name="HBoxContainer" type="VBoxContainer" parent="VBoxContainer/HSplitContainer/HSplitContainer/VariablePanel/VBoxContainer" unique_id=877024710]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="AddVariable" type="Button" parent="VBoxContainer/HSplitContainer/HSplitContainer/VariablePanel/VBoxContainer/HBoxContainer" unique_id=1223348155]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Add"
+
+[node name="RemoveVariable" type="Button" parent="VBoxContainer/HSplitContainer/HSplitContainer/VariablePanel/VBoxContainer/HBoxContainer" unique_id=1218437495]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "Remove"

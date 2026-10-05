@@ -1,0 +1,96 @@
+[gd_scene format=3 uid="uid://ceosdecun0sc3"]
+
+[ext_resource type="Texture2D" uid="uid://cnooylcvutelr" path="res://assets/map_background.png" id="1_8ln24"]
+[ext_resource type="Script" uid="uid://c4c867b83f72h" path="res://script/pages/main_menu.gd" id="1_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="1_wu84c"]
+[ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="4_oa1go"]
+[ext_resource type="PackedScene" uid="uid://ybgw0xvwy0ix" path="res://scenes/pages/game_setting.tscn" id="7_oa1go"]
+
+[node name="MainMenu" type="CanvasLayer" unique_id=1838548920]
+script = ExtResource("1_rtw2f")
+
+[node name="Control" type="Control" parent="." unique_id=1615182139]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 640.0
+
+[node name="BG" type="TextureRect" parent="Control" unique_id=1068321975]
+layout_mode = 0
+offset_left = 104.0
+offset_top = 128.0
+offset_right = 168.0
+offset_bottom = 192.0
+scale = Vector2(5.7859254, 6.6043034)
+texture = ExtResource("1_8ln24")
+
+[node name="MenuOptions" type="VBoxContainer" parent="Control" unique_id=955259795]
+layout_mode = 1
+offset_left = 192.0
+offset_top = 312.0
+offset_right = 303.11115
+offset_bottom = 416.0
+scale = Vector2(1.8, 1.8)
+alignment = 1
+
+[node name="OnesList" type="HBoxContainer" parent="Control/MenuOptions" unique_id=1036146893]
+layout_mode = 2
+alignment = 2
+
+[node name="OnesList" type="Label" parent="Control/MenuOptions/OnesList" unique_id=1229714712]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+text = "世界"
+
+[node name="OnesListBt" type="TextureButton" parent="Control/MenuOptions/OnesList" unique_id=1901124449]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("1_wu84c")
+texture_pressed = ExtResource("2_8ln24")
+texture_hover = ExtResource("3_rtw2f")
+texture_disabled = ExtResource("4_oa1go")
+
+[node name="GameSetting" type="HBoxContainer" parent="Control/MenuOptions" unique_id=2054071553]
+layout_mode = 2
+alignment = 2
+
+[node name="GameSetting" type="Label" parent="Control/MenuOptions/GameSetting" unique_id=1704110152]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "设置"
+
+[node name="GameSettingBt" type="TextureButton" parent="Control/MenuOptions/GameSetting" unique_id=1181668141]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("1_wu84c")
+texture_pressed = ExtResource("2_8ln24")
+texture_hover = ExtResource("3_rtw2f")
+texture_disabled = ExtResource("4_oa1go")
+
+[node name="Exit" type="HBoxContainer" parent="Control/MenuOptions" unique_id=1541308607]
+layout_mode = 2
+alignment = 2
+
+[node name="Exit" type="Label" parent="Control/MenuOptions/Exit" unique_id=658319277]
+layout_mode = 2
+size_flags_horizontal = 2
+text = "退出"
+
+[node name="ExitBt" type="TextureButton" parent="Control/MenuOptions/Exit" unique_id=592871490]
+layout_mode = 2
+size_flags_horizontal = 10
+texture_normal = ExtResource("1_wu84c")
+texture_pressed = ExtResource("2_8ln24")
+texture_hover = ExtResource("3_rtw2f")
+texture_disabled = ExtResource("4_oa1go")
+
+[node name="GameSettingUI" parent="." unique_id=612859518 instance=ExtResource("7_oa1go")]
+visible = false
+
+[connection signal="pressed" from="Control/MenuOptions/OnesList/OnesListBt" to="." method="_open_ones_list"]
+[connection signal="pressed" from="Control/MenuOptions/GameSetting/GameSettingBt" to="." method="_on_game_setting_bt_pressed"]
+[connection signal="pressed" from="Control/MenuOptions/Exit/ExitBt" to="." method="_exit_game"]
+[connection signal="close_game_setting" from="GameSettingUI" to="." method="_on_game_setting_ui_close_game_setting"]

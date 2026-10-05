@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://buu1vobdeue0d"]
+
+[ext_resource type="Script" uid="uid://bb71g3w4bi4nk" path="res://script/pages/ones_list.gd" id="1_2wrn1"]
+[ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="2_dhgwa"]
+[ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="3_j10or"]
+[ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="4_cde61"]
+[ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="5_cio4y"]
+
+[node name="OnesList" type="CanvasLayer" unique_id=539324909]
+layer = 3
+script = ExtResource("1_2wrn1")
+
+[node name="testBt" type="TextureButton" parent="." unique_id=2095864355]
+offset_left = 565.0
+offset_top = 313.0
+offset_right = 587.0
+offset_bottom = 335.0
+size_flags_horizontal = 10
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+offset_transform_visual_only = false
+texture_normal = ExtResource("2_dhgwa")
+texture_pressed = ExtResource("3_j10or")
+texture_hover = ExtResource("4_cde61")
+texture_disabled = ExtResource("5_cio4y")
+stretch_mode = 0
+
+[node name="CloseListBt" type="TextureButton" parent="." unique_id=269159040]
+offset_left = 1088.0
+offset_top = 592.0
+offset_right = 1110.0
+offset_bottom = 614.0
+size_flags_horizontal = 10
+offset_transform_enabled = true
+offset_transform_scale = Vector2(2, 2)
+offset_transform_visual_only = false
+texture_normal = ExtResource("2_dhgwa")
+texture_pressed = ExtResource("3_j10or")
+texture_hover = ExtResource("4_cde61")
+texture_disabled = ExtResource("5_cio4y")
+stretch_mode = 0
+
+[connection signal="pressed" from="testBt" to="." method="_open_one"]
+[connection signal="pressed" from="CloseListBt" to="." method="closeOnesList"]

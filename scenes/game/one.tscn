@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://bwji7b46xo40h"]
+
+[ext_resource type="Script" uid="uid://bu0jh080vpqb0" path="res://script/game/one.gd" id="1_6mu0j"]
+[ext_resource type="PackedScene" uid="uid://c4gpvvjcmgf6h" path="res://scenes/game/events_stream.tscn" id="2_vfh2y"]
+[ext_resource type="PackedScene" uid="uid://cgfpcfq020s78" path="res://scenes/game/sacrifice_window.tscn" id="3_tr1a1"]
+[ext_resource type="PackedScene" uid="uid://dskgnhh6o13wa" path="res://scenes/game/wish_window.tscn" id="4_jc0xx"]
+[ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="5_q8wxn"]
+[ext_resource type="PackedScene" uid="uid://ybgw0xvwy0ix" path="res://scenes/pages/game_setting.tscn" id="5_vfh2y"]
+[ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="6_45klv"]
+[ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="7_f04th"]
+[ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="8_ewchi"]
+
+[node name="One" type="Node" unique_id=655850677]
+script = ExtResource("1_6mu0j")
+
+[node name="EventsStream" parent="." unique_id=2064952660 instance=ExtResource("2_vfh2y")]
+
+[node name="Sacrifice_window" parent="." unique_id=1254893706 instance=ExtResource("3_tr1a1")]
+visible = false
+
+[node name="Wish_window" parent="." unique_id=647853954 instance=ExtResource("4_jc0xx")]
+visible = false
+
+[node name="options" type="CanvasLayer" parent="." unique_id=1163264075]
+layer = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="options" unique_id=2090130154]
+offset_left = 34.0
+offset_top = 580.0
+offset_right = 140.0
+offset_bottom = 603.0
+scale = Vector2(2, 2)
+
+[node name="Label" type="Label" parent="options/HBoxContainer" unique_id=1266260859]
+layout_mode = 2
+size_flags_vertical = 0
+text = "返回主菜单"
+
+[node name="backToMenu" type="TextureButton" parent="options/HBoxContainer" unique_id=1585975617]
+layout_mode = 2
+size_flags_vertical = 0
+texture_normal = ExtResource("5_q8wxn")
+texture_pressed = ExtResource("6_45klv")
+texture_hover = ExtResource("7_f04th")
+texture_disabled = ExtResource("8_ewchi")
+
+[node name="GameSettingUI" parent="." unique_id=612859518 instance=ExtResource("5_vfh2y")]
+visible = false
+
+[connection signal="pressed" from="options/HBoxContainer/backToMenu" to="." method="_on_back_to_menu_pressed"]

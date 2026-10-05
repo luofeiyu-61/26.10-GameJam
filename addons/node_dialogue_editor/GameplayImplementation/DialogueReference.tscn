@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://fj4dyqxcfgvb"]
+
+[ext_resource type="Script" uid="uid://cpjn7jfcmawjk" path="res://addons/node_dialogue_editor/GameplayImplementation/dialogue_reference.gd" id="1_pcy4k"]
+
+[node name="DialogueReference" type="Node" unique_id=776961496]
+script = ExtResource("1_pcy4k")
