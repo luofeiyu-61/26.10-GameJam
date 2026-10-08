@@ -40,5 +40,9 @@ texture_hover = ExtResource("4_cde61")
 texture_disabled = ExtResource("5_cio4y")
 stretch_mode = 0
 
+[node name="OnesContainer" type="Control" parent="." unique_id=2007432558]
+layout_mode = 3
+anchors_preset = 0
+
 [connection signal="pressed" from="testBt" to="." method="_open_one"]
 [connection signal="pressed" from="CloseListBt" to="." method="closeOnesList"]

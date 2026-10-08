@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b6uc5y2tqfmce"]
+
+[ext_resource type="Script" uid="uid://dkgfc2g1xbie5" path="res://addons/medusa/nodes/atom.gd" id="1_e3jx2"]
+[ext_resource type="Texture2D" uid="uid://c1pkd3su81hsn" path="res://assets/one list/icon_circle.png" id="2_b5pvt"]
+
+[node name="Atom" type="Control" unique_id=1403652135]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 32.0
+offset_bottom = 32.0
+pivot_offset = Vector2(16, 16)
+script = ExtResource("1_e3jx2")
+radius = 15.0
+icon = ExtResource("2_b5pvt")
+status = 1
+metadata/_custom_type_script = "uid://dkgfc2g1xbie5"

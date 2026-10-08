@@ -1,6 +1,89 @@
 [gd_scene format=3 uid="uid://dpr4pgm86k3nj"]
 
 [ext_resource type="Script" uid="uid://b73nlww2laatk" path="res://script/settings_manager.gd" id="1_ghynm"]
+[ext_resource type="Texture2D" uid="uid://ch7mbwgomc312" path="res://assets/charas/white/charas.png" id="2_jbx30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_48orp"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(0, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qxtnc"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(7, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1dtr"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(14, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y04eg"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(21, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f5np4"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(28, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hlmhc"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(35, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dbygq"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(42, 14, 7, 7)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_supnd"]
+atlas = ExtResource("2_jbx30")
+region = Rect2(49, 14, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_48orp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qxtnc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1dtr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y04eg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f5np4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hlmhc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dbygq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_supnd")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 20.0
+}]
 
 [node name="SettingsManager" type="Node" unique_id=179063886]
 script = ExtResource("1_ghynm")
+
+[node name="Label" type="Label" parent="." unique_id=2019205518]
+visible = false
+offset_left = 33.0
+offset_top = 7.0
+offset_right = 193.0
+offset_bottom = 30.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+text = "当前处于开发者模式！"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Label" unique_id=281197298]
+position = Vector2(-14, 13)
+scale = Vector2(3.5535712, 3.3035715)
+sprite_frames = SubResource("SpriteFrames_3xd07")
+autoplay = "default"
+frame = 3
+frame_progress = 0.881014

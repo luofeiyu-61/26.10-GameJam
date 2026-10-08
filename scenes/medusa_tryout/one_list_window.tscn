@@ -1,0 +1,157 @@
+[gd_scene format=3 uid="uid://ba88v16hiy53o"]
+
+[ext_resource type="Script" uid="uid://p3kxh1k4g1xf" path="res://script/one_list_window.gd" id="1_1ojmh"]
+[ext_resource type="Script" uid="uid://fdnj2647tl6j" path="res://addons/medusa/nodes/graph.gd" id="2_4d4xh"]
+[ext_resource type="Script" uid="uid://bcam0m8gus7h7" path="res://addons/medusa/resources/progress_db.gd" id="2_sqpji"]
+[ext_resource type="PackedScene" uid="uid://b6uc5y2tqfmce" path="res://scenes/medusa_tryout/atom.tscn" id="3_0v3hw"]
+[ext_resource type="Script" uid="uid://c5cuyffxl8ir3" path="res://addons/medusa/nodes/graph_branch.gd" id="3_3up8n"]
+[ext_resource type="Script" uid="uid://81gxqyp3voj3" path="res://addons/medusa/resources/graph_forces/graph_force.gd" id="3_rso1s"]
+[ext_resource type="Script" uid="uid://rldivev2kura" path="res://addons/medusa/resources/graph_lines/graph_debug_line.gd" id="4_oig48"]
+[ext_resource type="Script" uid="uid://cfpk5vsce6hx5" path="res://addons/medusa/resources/graph_forces/inertia_force.gd" id="4_r27mi"]
+[ext_resource type="Script" uid="uid://dkgfc2g1xbie5" path="res://addons/medusa/nodes/atom.gd" id="4_rso1s"]
+[ext_resource type="Script" uid="uid://bopi5k14y5m2n" path="res://addons/medusa/resources/graph_logic/graph_logic.gd" id="5_0v3hw"]
+[ext_resource type="Script" uid="uid://j27844s7hdsl" path="res://addons/medusa/resources/graph_forces/replusion_force.gd" id="6_8nvrm"]
+[ext_resource type="Script" uid="uid://jdi800m2gcy6" path="res://addons/medusa/resources/graph_logic/progress_logic.gd" id="6_bvh7b"]
+[ext_resource type="Script" uid="uid://26y6hsr413ji" path="res://addons/medusa/resources/graph_forces/cluster_replusion_force.gd" id="7_3xlgh"]
+[ext_resource type="Script" uid="uid://bdkynf6pdxkxw" path="res://addons/medusa/resources/graph_forces/spring_force.gd" id="8_oig48"]
+[ext_resource type="Script" uid="uid://cwjmtwqajvom4" path="res://addons/medusa/resources/graph_forces/gravity_force.gd" id="9_0v3hw"]
+[ext_resource type="Texture2D" uid="uid://ccblxm2myax3a" path="res://assets/one list/icon_spiral.png" id="16_0v3hw"]
+[ext_resource type="Script" uid="uid://ca1fvxi1ih4p4" path="res://addons/medusa/resources/atom_data.gd" id="16_bvh7b"]
+[ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="19_1d4pj"]
+[ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="20_do50j"]
+[ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="21_0i2gh"]
+[ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="22_nsvu4"]
+
+[sub_resource type="Resource" id="Resource_3up8n"]
+script = ExtResource("2_sqpji")
+metadata/_custom_type_script = "uid://bcam0m8gus7h7"
+
+[sub_resource type="Resource" id="Resource_1xs7i"]
+script = ExtResource("4_oig48")
+margin = 10.0
+metadata/_custom_type_script = "uid://rldivev2kura"
+
+[sub_resource type="Resource" id="Resource_l3w11"]
+script = ExtResource("6_bvh7b")
+metadata/_custom_type_script = "uid://jdi800m2gcy6"
+
+[sub_resource type="Resource" id="Resource_b5pvt"]
+script = ExtResource("4_r27mi")
+metadata/_custom_type_script = "uid://cfpk5vsce6hx5"
+
+[sub_resource type="Resource" id="Resource_rso1s"]
+script = ExtResource("6_8nvrm")
+metadata/_custom_type_script = "uid://j27844s7hdsl"
+
+[sub_resource type="Resource" id="Resource_r27mi"]
+script = ExtResource("7_3xlgh")
+metadata/_custom_type_script = "uid://26y6hsr413ji"
+
+[sub_resource type="Resource" id="Resource_tciga"]
+script = ExtResource("8_oig48")
+target_length = 100.0
+metadata/_custom_type_script = "uid://bdkynf6pdxkxw"
+
+[sub_resource type="Resource" id="Resource_tql1k"]
+script = ExtResource("9_0v3hw")
+metadata/_custom_type_script = "uid://cwjmtwqajvom4"
+
+[sub_resource type="Resource" id="Resource_gjt81"]
+script = ExtResource("16_bvh7b")
+id = &"root"
+title = "Root One"
+metadata/_custom_type_script = "uid://ca1fvxi1ih4p4"
+
+[node name="OneListWindow" type="Control" unique_id=231771146 node_paths=PackedStringArray("graph", "world", "root_one", "graph_branch")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ojmh")
+graph = NodePath("Graph")
+one_template = ExtResource("3_0v3hw")
+progress_db = SubResource("Resource_3up8n")
+world = NodePath("Graph/world")
+root_one = NodePath("Graph/world/GraphBranch/Root")
+graph_branch = NodePath("Graph/world/GraphBranch")
+
+[node name="Graph" type="Control" parent="." unique_id=515815400]
+anchors_preset = 0
+offset_right = 1152.0
+offset_bottom = 648.0
+script = ExtResource("2_4d4xh")
+graph_lines = SubResource("Resource_1xs7i")
+graph_logics = Array[ExtResource("5_0v3hw")]([SubResource("Resource_l3w11")])
+physics_forces = Array[ExtResource("3_rso1s")]([SubResource("Resource_b5pvt"), SubResource("Resource_rso1s"), SubResource("Resource_r27mi"), SubResource("Resource_tciga"), SubResource("Resource_tql1k")])
+metadata/_custom_type_script = "uid://fdnj2647tl6j"
+
+[node name="world" type="Control" parent="Graph" unique_id=46132727]
+layout_mode = 1
+anchor_left = -0.081
+anchor_top = -0.046000004
+anchor_right = 1.23
+anchor_bottom = 1.0
+offset_left = 93.312
+offset_top = 29.808002
+offset_right = -264.95996
+
+[node name="GraphBranch" type="Control" parent="Graph/world" unique_id=2069291869]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -20.0
+offset_right = 31.0
+offset_bottom = 30.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_3up8n")
+metadata/_custom_type_script = "uid://c5cuyffxl8ir3"
+
+[node name="ColorRect" type="ColorRect" parent="Graph/world/GraphBranch" unique_id=1723617445]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+color = Color(0.5931338, 0.5931335, 0.59313357, 1)
+
+[node name="Root" type="Control" parent="Graph/world/GraphBranch" unique_id=1266474294]
+custom_minimum_size = Vector2(32, 32)
+anchors_preset = 0
+offset_left = 9.0
+offset_top = 9.0
+offset_right = 41.0
+offset_bottom = 41.0
+pivot_offset = Vector2(16, 16)
+script = ExtResource("4_rso1s")
+data = SubResource("Resource_gjt81")
+radius = 25.0
+icon = ExtResource("16_0v3hw")
+status = 1
+metadata/_custom_type_script = "uid://dkgfc2g1xbie5"
+
+[node name="next" type="TextureButton" parent="." unique_id=2112998440]
+layout_mode = 0
+offset_left = 952.0
+offset_top = 564.0
+offset_right = 974.0
+offset_bottom = 586.0
+size_flags_vertical = 0
+texture_normal = ExtResource("19_1d4pj")
+texture_pressed = ExtResource("20_do50j")
+texture_hover = ExtResource("21_0i2gh")
+texture_disabled = ExtResource("22_nsvu4")
+
+[node name="Label3" type="Label" parent="next" unique_id=1919315467]
+layout_mode = 0
+offset_left = -116.0
+offset_right = -20.0
+offset_bottom = 23.0
+text = "聚焦至根节点"
+
+[connection signal="pressed" from="next" to="." method="_on_next_pressed"]

@@ -1,3 +1,191 @@
 [gd_scene format=3 uid="uid://cgfpcfq020s78"]
 
-[node name="Sacrifice_window" type="Node2D" unique_id=1254893706]
+[ext_resource type="Script" uid="uid://ka9dPdzM8gc" path="res://script/game/sacrifice_window.gd" id="1_uyu3g"]
+[ext_resource type="Texture2D" uid="uid://cdsyouvl63w5g" path="res://assets/bar/purple_background.png" id="2_lqxe7"]
+[ext_resource type="Texture2D" uid="uid://gvbfm1svdlef" path="res://assets/bar/purple_progress.png" id="3_pmxj7"]
+[ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="4_qkx0e"]
+[ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="5_w4ahu"]
+[ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="6_1bpl7"]
+[ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="7_dkyhc"]
+
+[node name="Sacrifice_window" type="Control" unique_id=746007612]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_uyu3g")
+
+[node name="AirGuyEarth" type="ColorRect" parent="." unique_id=316148979]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 41.0
+offset_right = 1093.0
+offset_bottom = 596.0
+color = Color(0.22, 0.22, 0.22, 1)
+
+[node name="Air" type="ColorRect" parent="AirGuyEarth" unique_id=852011042]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 17.0
+offset_right = 246.0
+offset_bottom = 155.0
+color = Color(0.48, 0.48, 0.48, 1)
+
+[node name="Guy" type="ColorRect" parent="AirGuyEarth" unique_id=409541342]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 175.0
+offset_right = 246.0
+offset_bottom = 313.0
+color = Color(0.48, 0.48, 0.48, 1)
+
+[node name="SacrificeRatio" type="ColorRect" parent="AirGuyEarth/Guy" unique_id=1912703430]
+layout_mode = 0
+offset_left = 382.0
+offset_top = -107.0
+offset_right = 774.0
+offset_bottom = 202.0
+color = Color(0.3791798, 0.3791798, 0.37917978, 1)
+
+[node name="VSlider" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=856456106]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 31.0
+offset_right = 90.0
+offset_bottom = 268.0
+
+[node name="VSlider2" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=342044266]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 47.0
+offset_right = 197.0
+offset_bottom = 243.0
+
+[node name="VSlider3" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=1709609661]
+layout_mode = 0
+offset_left = 226.0
+offset_top = 47.0
+offset_right = 258.0
+offset_bottom = 243.0
+
+[node name="VSlider4" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=1144361058]
+layout_mode = 0
+offset_left = 292.0
+offset_top = 47.0
+offset_right = 324.0
+offset_bottom = 243.0
+
+[node name="Earth" type="ColorRect" parent="AirGuyEarth" unique_id=344554514]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 336.0
+offset_right = 246.0
+offset_bottom = 474.0
+color = Color(0.48, 0.48, 0.48, 1)
+
+[node name="SacrificeWindow" type="ColorRect" parent="." unique_id=1214892396]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 41.0
+offset_right = 747.0
+offset_bottom = 410.0
+color = Color(0.19, 0.19, 0.19, 1)
+
+[node name="SacrificeBar" type="ColorRect" parent="." unique_id=711916259]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 453.0
+offset_right = 747.0
+offset_bottom = 515.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="1" type="TextureProgressBar" parent="SacrificeBar" unique_id=729730314]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 23.0
+offset_right = 247.0
+offset_bottom = 28.0
+scale = Vector2(2.8, 2.8)
+value = 5.0
+texture_under = ExtResource("2_lqxe7")
+texture_progress = ExtResource("3_pmxj7")
+
+[node name="ColorRect" type="ColorRect" parent="SacrificeBar" unique_id=1125639171]
+layout_mode = 0
+offset_left = 612.0
+offset_top = 16.0
+offset_right = 639.0
+offset_bottom = 43.0
+
+[node name="ColorRect2" type="ColorRect" parent="SacrificeBar" unique_id=1605488629]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 16.0
+offset_right = 47.0
+offset_bottom = 43.0
+
+[node name="operations" type="ColorRect" parent="." unique_id=847992289]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 548.0
+offset_right = 747.0
+offset_bottom = 596.0
+color = Color(0.2051175, 0.2051174, 0.20511746, 1)
+
+[node name="eventstream" type="TextureButton" parent="operations" unique_id=409245442]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 11.000004
+offset_right = 325.0
+offset_bottom = 33.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("4_qkx0e")
+texture_pressed = ExtResource("5_w4ahu")
+texture_hover = ExtResource("6_1bpl7")
+texture_disabled = ExtResource("7_dkyhc")
+
+[node name="Label" type="Label" parent="operations/eventstream" unique_id=661785295]
+layout_mode = 0
+offset_left = -102.0
+offset_right = -22.0
+offset_bottom = 23.0
+text = "返回事件流"
+
+[node name="wish" type="TextureButton" parent="operations" unique_id=1498201459]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 11.000004
+offset_right = 477.0
+offset_bottom = 33.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("4_qkx0e")
+texture_pressed = ExtResource("5_w4ahu")
+texture_hover = ExtResource("6_1bpl7")
+texture_disabled = ExtResource("7_dkyhc")
+
+[node name="Label2" type="Label" parent="operations/wish" unique_id=299945243]
+layout_mode = 0
+offset_left = -64.0
+offset_right = -24.0
+offset_bottom = 23.0
+text = "祈愿"
+
+[node name="confirmsacrifice" type="TextureButton" parent="operations" unique_id=1813902898]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 11.000004
+offset_right = 621.0
+offset_bottom = 33.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("4_qkx0e")
+texture_pressed = ExtResource("5_w4ahu")
+texture_hover = ExtResource("6_1bpl7")
+texture_disabled = ExtResource("7_dkyhc")
+
+[node name="Label3" type="Label" parent="operations/confirmsacrifice" unique_id=1476647483]
+layout_mode = 0
+offset_left = -83.0
+offset_right = -3.0
+offset_bottom = 23.0
+text = "确认献祭"
+
+[connection signal="pressed" from="operations/eventstream" to="." method="_on_eventstream_pressed"]
+[connection signal="pressed" from="operations/wish" to="." method="_on_wish_pressed"]

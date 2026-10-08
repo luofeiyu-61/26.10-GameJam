@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bwji7b46xo40h"]
 
-[ext_resource type="Script" uid="uid://bu0jh080vpqb0" path="res://script/game/one.gd" id="1_6mu0j"]
+[ext_resource type="Script" path="res://script/game/one.gd" id="1_q8wxn"]
 [ext_resource type="PackedScene" uid="uid://c4gpvvjcmgf6h" path="res://scenes/game/events_stream.tscn" id="2_vfh2y"]
 [ext_resource type="PackedScene" uid="uid://cgfpcfq020s78" path="res://scenes/game/sacrifice_window.tscn" id="3_tr1a1"]
 [ext_resource type="PackedScene" uid="uid://dskgnhh6o13wa" path="res://scenes/game/wish_window.tscn" id="4_jc0xx"]
@@ -10,10 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="7_f04th"]
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="8_ewchi"]
 
-[node name="One" type="Node" unique_id=655850677]
-script = ExtResource("1_6mu0j")
+[node name="One" type="Node" unique_id=655850677 node_paths=PackedStringArray("EventStremPage", "SacrificePage", "WishPage")]
+script = ExtResource("1_q8wxn")
+EventStremPage = NodePath("Events_window")
+SacrificePage = NodePath("Sacrifice_window")
+WishPage = NodePath("Wish_window")
 
-[node name="EventsStream" parent="." unique_id=2064952660 instance=ExtResource("2_vfh2y")]
+[node name="Events_window" parent="." unique_id=2064952660 instance=ExtResource("2_vfh2y")]
 
 [node name="Sacrifice_window" parent="." unique_id=1254893706 instance=ExtResource("3_tr1a1")]
 visible = false
@@ -25,11 +28,10 @@ visible = false
 layer = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="options" unique_id=2090130154]
-offset_left = 34.0
-offset_top = 580.0
-offset_right = 140.0
-offset_bottom = 603.0
-scale = Vector2(2, 2)
+offset_left = 24.0
+offset_top = 608.0
+offset_right = 130.0
+offset_bottom = 631.0
 
 [node name="Label" type="Label" parent="options/HBoxContainer" unique_id=1266260859]
 layout_mode = 2
@@ -44,7 +46,39 @@ texture_pressed = ExtResource("6_45klv")
 texture_hover = ExtResource("7_f04th")
 texture_disabled = ExtResource("8_ewchi")
 
+[node name="Control" type="Control" parent="options" unique_id=2006135475]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="options/Control" unique_id=706514002]
+layout_mode = 0
+offset_left = 91.0
+offset_top = 554.0
+offset_right = 131.0
+offset_bottom = 588.0
+color = Color(0.27752772, 0.27752772, 0.27752772, 1)
+
+[node name="backToMenu" type="TextureButton" parent="options/Control" unique_id=433285366]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 561.0
+offset_right = 123.0
+offset_bottom = 583.0
+size_flags_vertical = 0
+texture_normal = ExtResource("5_q8wxn")
+texture_pressed = ExtResource("6_45klv")
+texture_hover = ExtResource("7_f04th")
+texture_disabled = ExtResource("8_ewchi")
+
 [node name="GameSettingUI" parent="." unique_id=612859518 instance=ExtResource("5_vfh2y")]
 visible = false
 
+[connection signal="go_to_sacrifice" from="Events_window" to="." method="_events_to_sacrifice"]
+[connection signal="go_to_wish" from="Events_window" to="." method="_events_to_wish"]
+[connection signal="go_to_event" from="Sacrifice_window" to="." method="_sacrifice_to_event"]
+[connection signal="go_to_wish" from="Sacrifice_window" to="." method="_sacrifice_to_wish"]
+[connection signal="go_to_event" from="Wish_window" to="." method="_wish_to_event"]
+[connection signal="go_to_sacrifice" from="Wish_window" to="." method="_wish_to_sacrifice"]
 [connection signal="pressed" from="options/HBoxContainer/backToMenu" to="." method="_on_back_to_menu_pressed"]

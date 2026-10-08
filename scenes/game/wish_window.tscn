@@ -1,3 +1,144 @@
 [gd_scene format=3 uid="uid://dskgnhh6o13wa"]
 
-[node name="Wish_window" type="Node2D" unique_id=647853954]
+[ext_resource type="Script" path="res://script/game/wish_window.gd" id="1_2k7n0"]
+[ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="3_tdq8v"]
+[ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="4_h2it5"]
+[ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="5_jeqaf"]
+[ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="6_fslg2"]
+
+[node name="Wish_window" type="Control" unique_id=436975690]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_2k7n0")
+
+[node name="spirit" type="ColorRect" parent="." unique_id=490360729]
+layout_mode = 0
+offset_left = 821.0
+offset_top = 41.0
+offset_right = 1093.0
+offset_bottom = 596.0
+color = Color(0.22, 0.22, 0.22, 1)
+
+[node name="status" type="ColorRect" parent="spirit" unique_id=590963940]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 24.0
+offset_right = 199.0
+offset_bottom = 148.0
+color = Color(0.48, 0.48, 0.48, 1)
+
+[node name="Yao" type="ColorRect" parent="spirit" unique_id=1534217998]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 206.0
+offset_right = 246.0
+offset_bottom = 518.0
+color = Color(0.48, 0.48, 0.48, 1)
+
+[node name="WishWindow" type="ColorRect" parent="." unique_id=623934048]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 41.0
+offset_right = 747.0
+offset_bottom = 406.0
+color = Color(0.19, 0.19, 0.19, 1)
+
+[node name="effects" type="ColorRect" parent="." unique_id=1608423907]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 431.0
+offset_right = 566.0
+offset_bottom = 528.0
+color = Color(0.2, 0.2, 0.2, 1)
+
+[node name="gua1" type="ColorRect" parent="effects" unique_id=1144085478]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 27.0
+offset_right = 216.0
+offset_bottom = 74.0
+color = Color(0.39181867, 0.39181864, 0.39181864, 1)
+
+[node name="gua2" type="ColorRect" parent="effects" unique_id=2020737420]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 27.0
+offset_right = 112.0
+offset_bottom = 74.0
+color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+
+[node name="lunar" type="ColorRect" parent="effects" unique_id=1325861442]
+layout_mode = 0
+offset_left = -143.0
+offset_top = 27.0
+offset_right = -93.0
+offset_bottom = 74.0
+color = Color(0.39181867, 0.39181864, 0.39181864, 1)
+
+[node name="operations" type="ColorRect" parent="." unique_id=1297770066]
+layout_mode = 0
+offset_left = 75.0
+offset_top = 548.0
+offset_right = 747.0
+offset_bottom = 596.0
+color = Color(0.2051175, 0.2051174, 0.20511746, 1)
+
+[node name="sacrifice" type="TextureButton" parent="operations" unique_id=1388116359]
+layout_mode = 0
+offset_left = 303.0
+offset_top = 11.000004
+offset_right = 325.0
+offset_bottom = 33.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("3_tdq8v")
+texture_pressed = ExtResource("4_h2it5")
+texture_hover = ExtResource("5_jeqaf")
+texture_disabled = ExtResource("6_fslg2")
+
+[node name="Label" type="Label" parent="operations/sacrifice" unique_id=2047499796]
+layout_mode = 0
+offset_left = -56.0
+offset_right = -16.0
+offset_bottom = 23.0
+text = "祭祀"
+
+[node name="eventstream" type="TextureButton" parent="operations" unique_id=1043417574]
+layout_mode = 0
+offset_left = 455.0
+offset_top = 11.000004
+offset_right = 477.0
+offset_bottom = 33.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("3_tdq8v")
+texture_pressed = ExtResource("4_h2it5")
+texture_hover = ExtResource("5_jeqaf")
+texture_disabled = ExtResource("6_fslg2")
+
+[node name="Label2" type="Label" parent="operations/eventstream" unique_id=1180700597]
+layout_mode = 0
+offset_left = -101.0
+offset_right = -21.0
+offset_bottom = 23.0
+text = "返回事件流"
+
+[node name="savewish" type="TextureButton" parent="operations" unique_id=849727247]
+layout_mode = 0
+offset_left = 599.0
+offset_top = 11.000004
+offset_right = 621.0
+offset_bottom = 33.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("3_tdq8v")
+texture_pressed = ExtResource("4_h2it5")
+texture_hover = ExtResource("5_jeqaf")
+texture_disabled = ExtResource("6_fslg2")
+
+[node name="Label3" type="Label" parent="operations/savewish" unique_id=468508189]
+layout_mode = 0
+offset_left = -108.0
+offset_right = -12.0
+offset_bottom = 23.0
+text = "确认祈愿结果"
+
+[connection signal="pressed" from="operations/sacrifice" to="." method="_on_sacrifice_pressed"]
+[connection signal="pressed" from="operations/eventstream" to="." method="_on_eventstream_pressed"]

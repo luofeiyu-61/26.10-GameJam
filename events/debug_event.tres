@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://1l84p7610qol"]
+
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_dgcjj"]
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_pjmub"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="3_lob1s"]
+
+[sub_resource type="Resource" id="Resource_tdq8v"]
+script = ExtResource("1_pjmub")
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_hflv4"]
+script = ExtResource("1_pjmub")
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_ymro0"]
+script = ExtResource("1_pjmub")
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_2k7n0"]
+script = ExtResource("3_lob1s")
+metadata/_custom_type_script = "uid://dnorw4dhm2vui"
+
+[resource]
+script = ExtResource("1_dgcjj")
+trigger_meet_info = Array[ExtResource("3_lob1s")]([SubResource("Resource_2k7n0")])
+result_good = SubResource("Resource_hflv4")
+result_normal = SubResource("Resource_ymro0")
+result_bad = SubResource("Resource_tdq8v")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"
