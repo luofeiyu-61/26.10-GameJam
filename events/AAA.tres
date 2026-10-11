@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://bp8aebep48kqs"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_6dp1a"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_sylbt"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="2_6dp1a"]
+
+[sub_resource type="Resource" id="Resource_xcayv"]
+script = ExtResource("1_6dp1a")
+result_type = 2
+result_context = "bad"
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_myx87"]
+script = ExtResource("1_6dp1a")
+result_context = "good"
+belief_feedback = 7
+air_feedback = 2
+people_feedback = 1
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_hiooj"]
+script = ExtResource("1_6dp1a")
+result_type = 1
+result_context = "normal"
+belief_feedback = 7
+air_feedback = 4
+earth_feedback = 56
+people_feedback = 12
+animal_feedback = 33
+grain_feedback = 20
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_sylbt")
+display_name = "测试事件0"
+time_consume = 1
+context = "事件内容000"
+result_good = SubResource("Resource_myx87")
+result_normal = SubResource("Resource_hiooj")
+result_bad = SubResource("Resource_xcayv")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

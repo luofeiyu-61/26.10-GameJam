@@ -98,28 +98,35 @@ func colletConditionEvent(chosen_history_event_ids:Array[int],air_now:int,guy_no
 			for condition_id in all_events[id].trigger_after_event_id:#轮询条件
 				if condition_id not in chosen_history_event_ids: #前置事件没在提供历史中
 					is_trigger=false
+					break#与逻辑短路
 					
-		if all_events[id].is_meet:#查询数值条件
+		if all_events[id].is_meet and is_trigger :#查询数值条件
 			for condition in all_events[id].trigger_meet_info:#轮询条件
 				match condition.trigger_meet_type:#看是哪个值
 					ENUMS.MeetWhich.Air:
 						if (air_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :#不满足数值条件
 							is_trigger=false
+							break#与逻辑短路
 					ENUMS.MeetWhich.Guy:
 						if (guy_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :
 							is_trigger=false
+							break#与逻辑短路
 					ENUMS.MeetWhich.Earth:
 						if (earth_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :
 							is_trigger=false
+							break#与逻辑短路
 					ENUMS.MeetWhich.People:
 						if (people_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :
 							is_trigger=false
+							break#与逻辑短路
 					ENUMS.MeetWhich.Animal:
 						if (animal_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :
 							is_trigger=false
+							break#与逻辑短路
 					ENUMS.MeetWhich.Grain:
 						if (grain_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :
 							is_trigger=false
+							break#与逻辑短路
 							
 		if is_trigger:
 			target_events.append(id)

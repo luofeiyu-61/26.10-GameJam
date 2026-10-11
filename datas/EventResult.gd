@@ -1,8 +1,9 @@
 extends Resource
 class_name EventResult
 
-
+@export var result_type:ENUMS.ResultType
 @export_multiline("结果内容描述") var result_context :String
+
 
 #触发卦象
 @export var meet_gua:Array[ENUMS.Gua]

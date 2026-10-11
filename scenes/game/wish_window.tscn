@@ -1,10 +1,99 @@
 [gd_scene format=3 uid="uid://dskgnhh6o13wa"]
 
 [ext_resource type="Script" path="res://script/game/wish_window.gd" id="1_2k7n0"]
+[ext_resource type="Texture2D" uid="uid://cnooylcvutelr" path="res://assets/map_background.png" id="2_ymro0"]
+[ext_resource type="Texture2D" uid="uid://nq3fnqbi6wxi" path="res://assets/charas/white/c111.png" id="3_h2it5"]
 [ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="3_tdq8v"]
+[ext_resource type="Texture2D" uid="uid://sa043fqpqtgt" path="res://assets/charas/white/c110.png" id="4_b7108"]
 [ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="4_h2it5"]
+[ext_resource type="Texture2D" uid="uid://bmer7psvfk68b" path="res://assets/charas/white/c101.png" id="5_7n1lx"]
 [ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="5_jeqaf"]
+[ext_resource type="Texture2D" uid="uid://bmmtnc5tr5flh" path="res://assets/charas/white/c100.png" id="6_1osp7"]
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="6_fslg2"]
+[ext_resource type="Texture2D" uid="uid://bsmkp5q0qu5ta" path="res://assets/charas/white/c011.png" id="7_10d4y"]
+[ext_resource type="Texture2D" uid="uid://dosds5aqkogmf" path="res://assets/charas/white/c010.png" id="8_a60t7"]
+[ext_resource type="Texture2D" uid="uid://b0p2a6jprrupi" path="res://assets/charas/white/c001.png" id="9_l7wo1"]
+[ext_resource type="Texture2D" uid="uid://2d4uivr10j13" path="res://assets/charas/white/c000.png" id="10_lbqry"]
+[ext_resource type="Texture2D" uid="uid://ch7mbwgomc312" path="res://assets/charas/white/charas.png" id="11_7n1lx"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1osp7"]
+atlas = ExtResource("11_7n1lx")
+region = Rect2(49, 0, 7, 7)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b7108"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_lbqry")
+}],
+"loop": 1,
+"name": &"000",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_l7wo1")
+}],
+"loop": 1,
+"name": &"001",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_a60t7")
+}],
+"loop": 1,
+"name": &"010",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_10d4y")
+}],
+"loop": 1,
+"name": &"011",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_1osp7")
+}],
+"loop": 1,
+"name": &"100",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_7n1lx")
+}],
+"loop": 1,
+"name": &"101",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_b7108")
+}],
+"loop": 1,
+"name": &"110",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_h2it5")
+}],
+"loop": 1,
+"name": &"111",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1osp7")
+}],
+"loop": 1,
+"name": &"none",
+"speed": 20.0
+}]
 
 [node name="Wish_window" type="Control" unique_id=436975690]
 layout_mode = 3
@@ -35,6 +124,22 @@ offset_right = 246.0
 offset_bottom = 518.0
 color = Color(0.48, 0.48, 0.48, 1)
 
+[node name="yin" type="Label" parent="spirit/Yao" unique_id=799880441]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 79.0
+offset_right = 109.0
+offset_bottom = 102.0
+text = "阴爻：0"
+
+[node name="yang" type="Label" parent="spirit/Yao" unique_id=160088629]
+layout_mode = 0
+offset_left = 69.0
+offset_top = 122.0
+offset_right = 117.0
+offset_bottom = 145.0
+text = "阳爻：0"
+
 [node name="WishWindow" type="ColorRect" parent="." unique_id=623934048]
 layout_mode = 0
 offset_left = 75.0
@@ -42,6 +147,42 @@ offset_top = 41.0
 offset_right = 747.0
 offset_bottom = 406.0
 color = Color(0.19, 0.19, 0.19, 1)
+
+[node name="GuaMenuButton" type="MenuButton" parent="WishWindow" unique_id=1957067638]
+layout_mode = 0
+offset_left = 259.0
+offset_top = 61.0
+offset_right = 383.0
+offset_bottom = 178.0
+text = "选择卦象"
+icon = ExtResource("2_ymro0")
+icon_alignment = 1
+vertical_icon_alignment = 0
+item_count = 8
+popup/item_0/text = "乾"
+popup/item_0/icon = ExtResource("3_h2it5")
+popup/item_0/id = 0
+popup/item_1/text = "兑"
+popup/item_1/icon = ExtResource("4_b7108")
+popup/item_1/id = 1
+popup/item_2/text = "离"
+popup/item_2/icon = ExtResource("5_7n1lx")
+popup/item_2/id = 2
+popup/item_3/text = "震"
+popup/item_3/icon = ExtResource("6_1osp7")
+popup/item_3/id = 3
+popup/item_4/text = "巽"
+popup/item_4/icon = ExtResource("7_10d4y")
+popup/item_4/id = 4
+popup/item_5/text = "坎"
+popup/item_5/icon = ExtResource("8_a60t7")
+popup/item_5/id = 5
+popup/item_6/text = "艮"
+popup/item_6/icon = ExtResource("9_l7wo1")
+popup/item_6/id = 6
+popup/item_7/text = "坤"
+popup/item_7/icon = ExtResource("10_lbqry")
+popup/item_7/id = 7
 
 [node name="effects" type="ColorRect" parent="." unique_id=1608423907]
 layout_mode = 0
@@ -51,23 +192,21 @@ offset_right = 566.0
 offset_bottom = 528.0
 color = Color(0.2, 0.2, 0.2, 1)
 
-[node name="gua1" type="ColorRect" parent="effects" unique_id=1144085478]
+[node name="gua" type="ColorRect" parent="effects" unique_id=1144085478]
 layout_mode = 0
-offset_left = 166.0
+offset_left = 124.0
 offset_top = 27.0
-offset_right = 216.0
+offset_right = 174.0
 offset_bottom = 74.0
 color = Color(0.39181867, 0.39181864, 0.39181864, 1)
 
-[node name="gua2" type="ColorRect" parent="effects" unique_id=2020737420]
-layout_mode = 0
-offset_left = 65.0
-offset_top = 27.0
-offset_right = 112.0
-offset_bottom = 74.0
-color = Color(0.4506483, 0.4506483, 0.45064825, 1)
+[node name="now_gua" type="AnimatedSprite2D" parent="effects/gua" unique_id=829905198]
+position = Vector2(25, 23)
+scale = Vector2(5.5, 5.5)
+sprite_frames = SubResource("SpriteFrames_b7108")
+animation = &"none"
 
-[node name="lunar" type="ColorRect" parent="effects" unique_id=1325861442]
+[node name="GuaCheckList" type="ColorRect" parent="effects" unique_id=1325861442]
 layout_mode = 0
 offset_left = -143.0
 offset_top = 27.0
@@ -142,3 +281,4 @@ text = "确认祈愿结果"
 
 [connection signal="pressed" from="operations/sacrifice" to="." method="_on_sacrifice_pressed"]
 [connection signal="pressed" from="operations/eventstream" to="." method="_on_eventstream_pressed"]
+[connection signal="pressed" from="operations/savewish" to="." method="confirmWish"]

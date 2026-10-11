@@ -20,7 +20,6 @@ buses/default_bus_layout="uid://0q8yvevaujng"
 
 [autoload]
 
-_mcp_game_helper="*res://addons/godot_ai/runtime/game_helper.gd"
 SettingsManager="*uid://dpr4pgm86k3nj"
 EventDataBase="*uid://d0obwvkjgb55k"
 
@@ -31,7 +30,7 @@ window/stretch/aspect="expand"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/godot_ai/plugin.cfg", "res://addons/medusa/plugin.cfg")
+enabled=PackedStringArray("res://addons/medusa/plugin.cfg")
 
 [input]
 

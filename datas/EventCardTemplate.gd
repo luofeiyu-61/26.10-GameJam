@@ -7,7 +7,7 @@ class_name EventCard
 @export var id_name:String
 @export var display_name:String
 #持续时间
-@export var time_consume:ENUMS.TimeLength
+@export var time_consume:ENUMS.TimeLength=ENUMS.TimeLength.Normal
 
 #事件内容
 @export_category("事件内容")

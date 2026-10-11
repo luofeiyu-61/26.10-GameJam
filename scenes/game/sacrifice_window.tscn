@@ -1,85 +1,179 @@
 [gd_scene format=3 uid="uid://cgfpcfq020s78"]
 
-[ext_resource type="Script" uid="uid://ka9dPdzM8gc" path="res://script/game/sacrifice_window.gd" id="1_uyu3g"]
+[ext_resource type="Script" path="res://script/game/sacrifice_window.gd" id="1_uyu3g"]
+[ext_resource type="Texture2D" uid="uid://dwgd1wxns1h5q" path="res://assets/bar/green_background.png" id="2_dkyhc"]
 [ext_resource type="Texture2D" uid="uid://cdsyouvl63w5g" path="res://assets/bar/purple_background.png" id="2_lqxe7"]
 [ext_resource type="Texture2D" uid="uid://gvbfm1svdlef" path="res://assets/bar/purple_progress.png" id="3_pmxj7"]
 [ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="4_qkx0e"]
+[ext_resource type="Texture2D" uid="uid://b1ym75b6ll3nj" path="res://assets/bar/yellow_background.png" id="5_55m0t"]
 [ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="5_w4ahu"]
 [ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="6_1bpl7"]
+[ext_resource type="Texture2D" uid="uid://cnxagtcldo3v5" path="res://assets/bar/green_progress.png" id="6_a1fo6"]
+[ext_resource type="Texture2D" uid="uid://d4alr045mxlr4" path="res://assets/bar/blue_progress.png" id="6_k3jht"]
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="7_dkyhc"]
+[ext_resource type="Texture2D" uid="uid://cdu7g3jmpc5rs" path="res://assets/bar/white_progress.png" id="7_nhwe4"]
+[ext_resource type="Texture2D" uid="uid://l15t1d4ud68j" path="res://assets/bar/yellow_progress.png" id="7_yyt4y"]
+[ext_resource type="Texture2D" uid="uid://jks4yulodp6i" path="res://assets/bar/pink_progress.png" id="9_a1fo6"]
 
 [node name="Sacrifice_window" type="Control" unique_id=746007612]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uyu3g")
 
-[node name="AirGuyEarth" type="ColorRect" parent="." unique_id=316148979]
+[node name="RatioSetWindow" type="ColorRect" parent="." unique_id=316148979]
 layout_mode = 0
-offset_left = 821.0
+offset_left = 782.0
 offset_top = 41.0
 offset_right = 1093.0
 offset_bottom = 596.0
 color = Color(0.22, 0.22, 0.22, 1)
 
-[node name="Air" type="ColorRect" parent="AirGuyEarth" unique_id=852011042]
+[node name="ResultPreview" type="ColorRect" parent="RatioSetWindow" unique_id=1535304834]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 17.0
-offset_right = 246.0
-offset_bottom = 155.0
-color = Color(0.48, 0.48, 0.48, 1)
+offset_left = 20.0
+offset_top = 19.0
+offset_right = 291.0
+offset_bottom = 329.0
+color = Color(0.38039216, 0.38039216, 0.38039216, 1)
 
-[node name="Guy" type="ColorRect" parent="AirGuyEarth" unique_id=409541342]
-layout_mode = 0
-offset_left = 21.0
-offset_top = 175.0
-offset_right = 246.0
-offset_bottom = 313.0
-color = Color(0.48, 0.48, 0.48, 1)
+[node name="Now" type="Control" parent="RatioSetWindow/ResultPreview" unique_id=1074180569]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="SacrificeRatio" type="ColorRect" parent="AirGuyEarth/Guy" unique_id=1912703430]
+[node name="Guy" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Now" unique_id=798480644]
 layout_mode = 0
-offset_left = 382.0
-offset_top = -107.0
-offset_right = 774.0
-offset_bottom = 202.0
-color = Color(0.3791798, 0.3791798, 0.37917978, 1)
+offset_left = 29.0
+offset_top = 281.0
+offset_right = 211.0
+offset_bottom = 286.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 50.0
+texture_under = ExtResource("2_dkyhc")
+texture_progress = ExtResource("6_k3jht")
 
-[node name="VSlider" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=856456106]
+[node name="people" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Now" unique_id=1258162258]
 layout_mode = 0
-offset_left = 58.0
-offset_top = 31.0
-offset_right = 90.0
-offset_bottom = 268.0
+offset_left = 116.0
+offset_top = 284.0
+offset_right = 298.0
+offset_bottom = 289.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 50.0
+texture_under = ExtResource("5_55m0t")
+texture_progress = ExtResource("7_nhwe4")
 
-[node name="VSlider2" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=342044266]
+[node name="animal" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Now" unique_id=1676079602]
 layout_mode = 0
-offset_left = 165.0
-offset_top = 47.0
-offset_right = 197.0
-offset_bottom = 243.0
+offset_left = 166.0
+offset_top = 284.0
+offset_right = 348.0
+offset_bottom = 289.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 50.0
+texture_under = ExtResource("5_55m0t")
+texture_progress = ExtResource("7_nhwe4")
 
-[node name="VSlider3" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=1709609661]
+[node name="grain" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Now" unique_id=1379486969]
 layout_mode = 0
-offset_left = 226.0
-offset_top = 47.0
-offset_right = 258.0
-offset_bottom = 243.0
+offset_left = 216.0
+offset_top = 283.0
+offset_right = 398.0
+offset_bottom = 288.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 50.0
+texture_under = ExtResource("5_55m0t")
+texture_progress = ExtResource("7_nhwe4")
 
-[node name="VSlider4" type="VSlider" parent="AirGuyEarth/Guy/SacrificeRatio" unique_id=1144361058]
-layout_mode = 0
-offset_left = 292.0
-offset_top = 47.0
-offset_right = 324.0
-offset_bottom = 243.0
+[node name="Pre" type="Control" parent="RatioSetWindow/ResultPreview" unique_id=547463317]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="Earth" type="ColorRect" parent="AirGuyEarth" unique_id=344554514]
+[node name="GuyPre" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Pre" unique_id=1127430427]
 layout_mode = 0
-offset_left = 21.0
-offset_top = 336.0
-offset_right = 246.0
-offset_bottom = 474.0
-color = Color(0.48, 0.48, 0.48, 1)
+offset_left = 29.0
+offset_top = 281.0
+offset_right = 211.0
+offset_bottom = 286.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 30.0
+texture_progress = ExtResource("6_a1fo6")
+
+[node name="peoplePre" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Pre" unique_id=47172060]
+layout_mode = 0
+offset_left = 116.0
+offset_top = 284.0
+offset_right = 298.0
+offset_bottom = 289.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 30.0
+texture_progress = ExtResource("7_yyt4y")
+
+[node name="animalPre" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Pre" unique_id=747487038]
+layout_mode = 0
+offset_left = 166.0
+offset_top = 284.0
+offset_right = 348.0
+offset_bottom = 289.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 30.0
+texture_progress = ExtResource("7_yyt4y")
+
+[node name="grainPre" type="TextureProgressBar" parent="RatioSetWindow/ResultPreview/Pre" unique_id=1818612791]
+layout_mode = 0
+offset_left = 216.0
+offset_top = 283.0
+offset_right = 398.0
+offset_bottom = 288.0
+rotation = -1.5707964
+scale = Vector2(1.5, 2)
+value = 30.0
+texture_progress = ExtResource("7_yyt4y")
+
+[node name="SacrificeRatio" type="ColorRect" parent="RatioSetWindow" unique_id=1912703430]
+z_index = 1
+layout_mode = 0
+offset_left = 20.0
+offset_top = 351.0
+offset_right = 291.0
+offset_bottom = 529.0
+color = Color(0.38039216, 0.38039216, 0.38039216, 1)
+
+[node name="Total" type="HSlider" parent="RatioSetWindow/SacrificeRatio" unique_id=1586801458]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 33.0
+offset_right = 259.0
+offset_bottom = 49.0
+
+[node name="people" type="HSlider" parent="RatioSetWindow/SacrificeRatio" unique_id=494556039]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 70.0
+offset_right = 250.0
+offset_bottom = 86.0
+
+[node name="animal" type="HSlider" parent="RatioSetWindow/SacrificeRatio" unique_id=266171468]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 99.0
+offset_right = 250.0
+offset_bottom = 115.0
+
+[node name="grain" type="HSlider" parent="RatioSetWindow/SacrificeRatio" unique_id=806494296]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 133.0
+offset_right = 250.0
+offset_bottom = 149.0
 
 [node name="SacrificeWindow" type="ColorRect" parent="." unique_id=1214892396]
 layout_mode = 0
@@ -97,7 +191,18 @@ offset_right = 747.0
 offset_bottom = 515.0
 color = Color(0.2, 0.2, 0.2, 1)
 
-[node name="1" type="TextureProgressBar" parent="SacrificeBar" unique_id=729730314]
+[node name="BarPre" type="TextureProgressBar" parent="SacrificeBar" unique_id=1937167068]
+layout_mode = 0
+offset_left = 65.0
+offset_top = 23.0
+offset_right = 247.0
+offset_bottom = 28.0
+scale = Vector2(2.8, 2.8)
+value = 10.0
+texture_under = ExtResource("2_lqxe7")
+texture_progress = ExtResource("9_a1fo6")
+
+[node name="Bar" type="TextureProgressBar" parent="SacrificeBar" unique_id=729730314]
 layout_mode = 0
 offset_left = 65.0
 offset_top = 23.0
@@ -105,17 +210,24 @@ offset_right = 247.0
 offset_bottom = 28.0
 scale = Vector2(2.8, 2.8)
 value = 5.0
-texture_under = ExtResource("2_lqxe7")
 texture_progress = ExtResource("3_pmxj7")
 
-[node name="ColorRect" type="ColorRect" parent="SacrificeBar" unique_id=1125639171]
+[node name="Qi" type="ColorRect" parent="SacrificeBar" unique_id=1125639171]
 layout_mode = 0
 offset_left = 612.0
 offset_top = 16.0
 offset_right = 639.0
 offset_bottom = 43.0
 
-[node name="ColorRect2" type="ColorRect" parent="SacrificeBar" unique_id=1605488629]
+[node name="Label" type="Label" parent="SacrificeBar/Qi" unique_id=5098399]
+layout_mode = 0
+offset_left = -37.0
+offset_top = 27.0
+offset_right = 19.0
+offset_bottom = 50.0
+theme_override_font_sizes/font_size = 13
+
+[node name="Taiji" type="ColorRect" parent="SacrificeBar" unique_id=1605488629]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 16.0
@@ -187,5 +299,10 @@ offset_right = -3.0
 offset_bottom = 23.0
 text = "确认献祭"
 
+[connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/Total" to="." method="_on_total_value_changed"]
+[connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/people" to="." method="_on_people_value_changed"]
+[connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/animal" to="." method="_on_animal_value_changed"]
+[connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/grain" to="." method="_on_grain_value_changed"]
 [connection signal="pressed" from="operations/eventstream" to="." method="_on_eventstream_pressed"]
 [connection signal="pressed" from="operations/wish" to="." method="_on_wish_pressed"]
+[connection signal="pressed" from="operations/confirmsacrifice" to="." method="_on_confirmsacrifice_pressed"]

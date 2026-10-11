@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://dmdy1dembd7ie"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_ckpvx"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_gbpxt"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="2_ckpvx"]
+
+[sub_resource type="Resource" id="Resource_fc58l"]
+script = ExtResource("1_ckpvx")
+result_context = "asdasd"
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_nswqt"]
+script = ExtResource("1_ckpvx")
+result_context = "a"
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_uaepi"]
+script = ExtResource("1_ckpvx")
+result_context = "ddd"
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_gbpxt")
+id = 3
+id_name = "test3"
+context = "asgdhkasghj333"
+event_level = 2
+trigger_term = 1
+result_good = SubResource("Resource_nswqt")
+result_normal = SubResource("Resource_uaepi")
+result_bad = SubResource("Resource_fc58l")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

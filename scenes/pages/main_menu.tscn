@@ -43,6 +43,7 @@ alignment = 2
 layout_mode = 2
 size_flags_horizontal = 2
 size_flags_vertical = 1
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "世界"
 
 [node name="OnesListBt" type="TextureButton" parent="Control/MenuOptions/OnesList" unique_id=1901124449]
@@ -60,6 +61,7 @@ alignment = 2
 [node name="GameSetting" type="Label" parent="Control/MenuOptions/GameSetting" unique_id=1704110152]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "设置"
 
 [node name="GameSettingBt" type="TextureButton" parent="Control/MenuOptions/GameSetting" unique_id=1181668141]
@@ -77,6 +79,7 @@ alignment = 2
 [node name="Exit" type="Label" parent="Control/MenuOptions/Exit" unique_id=658319277]
 layout_mode = 2
 size_flags_horizontal = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "退出"
 
 [node name="ExitBt" type="TextureButton" parent="Control/MenuOptions/Exit" unique_id=592871490]

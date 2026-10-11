@@ -77,8 +77,12 @@ visible = false
 
 [connection signal="go_to_sacrifice" from="Events_window" to="." method="_events_to_sacrifice"]
 [connection signal="go_to_wish" from="Events_window" to="." method="_events_to_wish"]
+[connection signal="next_event" from="Events_window" to="." method="clientPushNextEvent"]
+[connection signal="confirm_sacrifice" from="Sacrifice_window" to="." method="clientConfirmSacrifice"]
 [connection signal="go_to_event" from="Sacrifice_window" to="." method="_sacrifice_to_event"]
 [connection signal="go_to_wish" from="Sacrifice_window" to="." method="_sacrifice_to_wish"]
+[connection signal="preview_sacrifice_result" from="Sacrifice_window" to="." method="clientPreviewSacrificeResult"]
+[connection signal="confirm_wish" from="Wish_window" to="." method="clientConfirmWish"]
 [connection signal="go_to_event" from="Wish_window" to="." method="_wish_to_event"]
 [connection signal="go_to_sacrifice" from="Wish_window" to="." method="_wish_to_sacrifice"]
 [connection signal="pressed" from="options/HBoxContainer/backToMenu" to="." method="_on_back_to_menu_pressed"]

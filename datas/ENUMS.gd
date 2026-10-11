@@ -3,11 +3,11 @@ class_name ENUMS
 
 #region 事件卡片相关
 
-enum TimeLength {Short,Normal,Long}
+enum TimeLength { Short=1 , Normal=2 , Long=3} #时间持续时间
 
 enum TriggerType {Fixed=0,Condition=1,Random=2}
 
-enum EventLevel {common,heavy,story}
+enum EventLevel {Common,Heavy,Story}
 
 enum EventType {Good,Bad}
 
@@ -37,6 +37,6 @@ enum SolarTerm {
 	LiDong,XiaoXue,DaXue,DongZhi,XiaoHan,DaHan
 	}
 
-enum Gua { Kun,Gen,Kan,Xun,Zhen,Li,Dui,Qian }
+enum Gua { Kun,Gen,Kan,Xun,Zhen,Li,Dui,Qian,NONE }
 
 enum Qi { Balance=0,PartYin=-1,PartYang=1,FullYin=-2,FullYang=2 }
