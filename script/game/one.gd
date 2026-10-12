@@ -9,12 +9,12 @@ extends Node
 
 #游戏变量
 #region 信仰值相关
-@export var gua_now :ENUMS.Gua=ENUMS.Gua.NONE :					#当前卦象
+var gua_now :ENUMS.Gua=ENUMS.Gua.NONE :					#当前卦象
 	set(value):
 		WishPage.changeGuaDisplay(value)
 		gua_now=value
 
-@export var lunar_buff_now :ENUMS.LunarPhase = ENUMS.LunarPhase.NONE	#当前起效的月相buff
+var lunar_buff_now :ENUMS.LunarPhase = ENUMS.LunarPhase.NONE	#当前起效的月相buff
 
 @export var lunar_buff_upup:Dictionary[int,float]={#月相增益效果
 	0:0.00,
