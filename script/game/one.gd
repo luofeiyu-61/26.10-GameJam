@@ -24,7 +24,8 @@ extends Node
 	4:1.00,
 	5:0.85,
 	6:0.65,
-	7:0.35
+	7:0.35,
+	8:0.00
 }
 @export var lunar_buff_downdown:Dictionary[int,float]={#月相减伤效果
 	0:0.00,
@@ -34,7 +35,8 @@ extends Node
 	4:0.50,
 	5:0.35,
 	6:0.18,
-	7:0.08
+	7:0.08,
+	8:0.00
 }
 
 @export var belief_sup:int = 100	#信仰值上限
