@@ -6,6 +6,8 @@ class_name ClientWishPage
 @onready var yin_label: Label = $spirit/Yao/yin
 @onready var yang_label: Label = $spirit/Yao/yang
 
+@onready var lunar_phase_now: Label = $effects/lunarPhaseNow/lunarPhase
+
 
 var temp_gua:ENUMS.Gua
 
@@ -21,26 +23,10 @@ func _ready() -> void:
 
 #debug
 func changeGuaDisplay(gua:ENUMS.Gua):
-	match gua:
-		ENUMS.Gua.Kun:
-			now_gua_sprite.play("000")
-		ENUMS.Gua.Gen:
-			now_gua_sprite.play("001")
-		ENUMS.Gua.Kan:
-			now_gua_sprite.play("010")
-		ENUMS.Gua.Xun:
-			now_gua_sprite.play("011")
-		ENUMS.Gua.Zhen:
-			now_gua_sprite.play("100")
-		ENUMS.Gua.Li:
-			now_gua_sprite.play("101")
-		ENUMS.Gua.Dui:
-			now_gua_sprite.play("110")
-		ENUMS.Gua.Qian:
-			now_gua_sprite.play("110")
-		ENUMS.Gua.NONE:
-			now_gua_sprite.play("none")
+	now_gua_sprite.play(ENUMS.gua2Binary(gua))
 
+func renderLunarPhaseNow(lunar_phase:ENUMS.LunarPhase):
+	lunar_phase_now.text="当前月相："+"\n"+ENUMS.lunarPhase2Text(lunar_phase)
 
 #debug
 func changeGua(gua_index:int):

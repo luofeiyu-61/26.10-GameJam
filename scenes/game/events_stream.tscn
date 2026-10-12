@@ -15,6 +15,21 @@
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="9_udt61"]
 [ext_resource type="Texture2D" uid="uid://sa043fqpqtgt" path="res://assets/charas/white/c110.png" id="10_3fo68"]
 [ext_resource type="Texture2D" uid="uid://nq3fnqbi6wxi" path="res://assets/charas/white/c111.png" id="11_c3ucf"]
+[ext_resource type="Texture2D" uid="uid://ch7mbwgomc312" path="res://assets/charas/white/charas.png" id="12_udt61"]
+[ext_resource type="Texture2D" uid="uid://br3liqm1d2wep" path="res://assets/bar/blue_background.png" id="13_13mg3"]
+[ext_resource type="Texture2D" uid="uid://d4alr045mxlr4" path="res://assets/bar/blue_progress.png" id="14_rcbbw"]
+[ext_resource type="Texture2D" uid="uid://4uqu05c1afmw" path="res://assets/bar/white_background.png" id="15_afa0g"]
+[ext_resource type="Texture2D" uid="uid://cdu7g3jmpc5rs" path="res://assets/bar/white_progress.png" id="16_h1xp3"]
+[ext_resource type="Texture2D" uid="uid://cdsyouvl63w5g" path="res://assets/bar/purple_background.png" id="17_bhsf4"]
+[ext_resource type="Texture2D" uid="uid://gvbfm1svdlef" path="res://assets/bar/purple_progress.png" id="18_0vfge"]
+[ext_resource type="Texture2D" uid="uid://b6r6ae8psfhbb" path="res://assets/bar/pink_background.png" id="19_okle5"]
+[ext_resource type="Texture2D" uid="uid://jks4yulodp6i" path="res://assets/bar/pink_progress.png" id="20_37hgh"]
+[ext_resource type="Texture2D" uid="uid://dwgd1wxns1h5q" path="res://assets/bar/green_background.png" id="21_trsee"]
+[ext_resource type="Texture2D" uid="uid://cnxagtcldo3v5" path="res://assets/bar/green_progress.png" id="22_m1mle"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jrxwt"]
+atlas = ExtResource("12_udt61")
+region = Rect2(49, 0, 7, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
 animations = [{
@@ -81,6 +96,14 @@ animations = [{
 "loop": 0,
 "name": &"111",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jrxwt")
+}],
+"loop": 1,
+"name": &"none",
+"speed": 5.0
 }]
 
 [node name="EventsStream" type="Control" unique_id=1766736672 node_paths=PackedStringArray("event_stream_text")]
@@ -112,7 +135,16 @@ texture_progress = ExtResource("3_f0mje")
 position = Vector2(-13, 2.5)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_3xd07")
-animation = &"111"
+animation = &"none"
+
+[node name="lunarBuff" type="Label" parent="BeliefBar/1" unique_id=1981674740]
+layout_mode = 0
+offset_left = 2.5
+offset_top = 7.0
+offset_right = 66.5
+offset_bottom = 30.0
+scale = Vector2(0.5, 0.5)
+text = "月相buff：1"
 
 [node name="EventStreamWindow" type="ColorRect" parent="." unique_id=1282895804]
 layout_mode = 0
@@ -129,7 +161,6 @@ offset_top = 54.0
 offset_right = 635.0
 offset_bottom = 341.0
 theme_override_font_sizes/normal_font_size = 18
-text = "deveioping..."
 scroll_following = true
 scroll_following_visible_characters = true
 shortcut_keys_enabled = false
@@ -158,6 +189,26 @@ offset_right = 246.0
 offset_bottom = 155.0
 color = Color(0.48, 0.48, 0.48, 1)
 
+[node name="air_bar" type="TextureProgressBar" parent="AirGuyEarth/Air" unique_id=1910262544]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 133.0
+offset_right = 191.0
+offset_bottom = 138.0
+rotation = -1.5707964
+scale = Vector2(0.7, 1.5)
+value = 5.0
+texture_under = ExtResource("13_13mg3")
+texture_progress = ExtResource("14_rcbbw")
+
+[node name="airLabel" type="Label" parent="AirGuyEarth/Air" unique_id=1350078340]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 109.0
+offset_right = 63.0
+offset_bottom = 132.0
+text = "“天”"
+
 [node name="Guy" type="ColorRect" parent="AirGuyEarth" unique_id=22854212]
 layout_mode = 0
 offset_left = 21.0
@@ -166,6 +217,89 @@ offset_right = 246.0
 offset_bottom = 313.0
 color = Color(0.48, 0.48, 0.48, 1)
 
+[node name="guy_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=1533274522]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 133.0
+offset_right = 191.0
+offset_bottom = 138.0
+rotation = -1.5707964
+scale = Vector2(0.7, 1.5)
+value = 5.0
+texture_under = ExtResource("15_afa0g")
+texture_progress = ExtResource("16_h1xp3")
+
+[node name="people_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=659017378]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 134.0
+offset_right = 253.0
+offset_bottom = 139.0
+rotation = -1.5707964
+scale = Vector2(0.7, 1.5)
+value = 5.0
+texture_under = ExtResource("17_bhsf4")
+texture_progress = ExtResource("18_0vfge")
+
+[node name="animal_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=695575311]
+layout_mode = 0
+offset_left = 109.0
+offset_top = 134.0
+offset_right = 291.0
+offset_bottom = 139.0
+rotation = -1.5707964
+scale = Vector2(0.7, 1.5)
+value = 5.0
+texture_under = ExtResource("19_okle5")
+texture_progress = ExtResource("20_37hgh")
+
+[node name="grain_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=135211074]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 134.0
+offset_right = 328.0
+offset_bottom = 139.0
+rotation = -1.5707964
+scale = Vector2(0.7, 1.5)
+value = 5.0
+texture_under = ExtResource("2_tv0df")
+texture_progress = ExtResource("3_f0mje")
+
+[node name="guyLabel" type="Label" parent="AirGuyEarth/Guy" unique_id=362288200]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 108.0
+offset_right = 63.0
+offset_bottom = 131.0
+text = "“人”"
+
+[node name="peopleLabel" type="Label" parent="AirGuyEarth/Guy" unique_id=948763431]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 125.0
+offset_right = 120.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+text = "人口"
+
+[node name="animalLabel" type="Label" parent="AirGuyEarth/Guy" unique_id=1011421320]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 125.0
+offset_right = 158.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+text = "牲口"
+
+[node name="grainLabel" type="Label" parent="AirGuyEarth/Guy" unique_id=1150359631]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 125.0
+offset_right = 195.0
+offset_bottom = 148.0
+scale = Vector2(0.5, 0.5)
+text = "粮食"
+
 [node name="Earth" type="ColorRect" parent="AirGuyEarth" unique_id=1202159774]
 layout_mode = 0
 offset_left = 21.0
@@ -173,6 +307,26 @@ offset_top = 336.0
 offset_right = 246.0
 offset_bottom = 474.0
 color = Color(0.48, 0.48, 0.48, 1)
+
+[node name="earth_bar" type="TextureProgressBar" parent="AirGuyEarth/Earth" unique_id=1072513040]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 133.0
+offset_right = 191.0
+offset_bottom = 138.0
+rotation = -1.5707964
+scale = Vector2(0.7, 1.5)
+value = 5.0
+texture_under = ExtResource("21_trsee")
+texture_progress = ExtResource("22_m1mle")
+
+[node name="earthLabel" type="Label" parent="AirGuyEarth/Earth" unique_id=115241498]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 106.0
+offset_right = 63.0
+offset_bottom = 129.0
+text = "“地”"
 
 [node name="Calendar" type="ColorRect" parent="." unique_id=698308221]
 layout_mode = 0
@@ -190,6 +344,13 @@ offset_right = 73.0
 offset_bottom = 55.0
 color = Color(0.44806695, 0.44806695, 0.44806695, 1)
 
+[node name="solar" type="Label" parent="Calendar/sun" unique_id=1267005360]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 49.0
+text = "节气：
+1"
+
 [node name="lunar" type="ColorRect" parent="Calendar" unique_id=201972660]
 layout_mode = 0
 offset_left = 113.0
@@ -197,6 +358,20 @@ offset_top = 15.0
 offset_right = 153.0
 offset_bottom = 55.0
 color = Color(0.5211406, 0.5211406, 0.5211405, 1)
+
+[node name="lunar" type="Label" parent="Calendar/lunar" unique_id=2017670160]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "月相：
+1"
+
+[node name="days" type="Label" parent="Calendar" unique_id=719407154]
+layout_mode = 0
+offset_top = -27.0
+offset_right = 90.0
+offset_bottom = -4.0
+text = "游戏天数：0"
 
 [node name="operations" type="ColorRect" parent="." unique_id=520824183]
 layout_mode = 0

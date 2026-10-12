@@ -214,6 +214,22 @@ offset_right = -93.0
 offset_bottom = 74.0
 color = Color(0.39181867, 0.39181864, 0.39181864, 1)
 
+[node name="lunarPhaseNow" type="ColorRect" parent="effects" unique_id=1675785275]
+layout_mode = 0
+offset_left = 357.0
+offset_top = 31.0
+offset_right = 407.0
+offset_bottom = 78.0
+color = Color(0.39181867, 0.39181864, 0.39181864, 1)
+
+[node name="lunarPhase" type="Label" parent="effects/lunarPhaseNow" unique_id=1990288835]
+layout_mode = 0
+offset_top = -23.0
+offset_right = 80.0
+offset_bottom = 26.0
+text = "当前月相：
+1"
+
 [node name="operations" type="ColorRect" parent="." unique_id=1297770066]
 layout_mode = 0
 offset_left = 75.0

@@ -25,6 +25,13 @@ texture_hover = ExtResource("4_cde61")
 texture_disabled = ExtResource("5_cio4y")
 stretch_mode = 0
 
+[node name="Label" type="Label" parent="testBt" unique_id=1924187167]
+layout_mode = 0
+offset_left = 29.5
+offset_right = 69.5
+offset_bottom = 23.0
+text = "新游戏"
+
 [node name="CloseListBt" type="TextureButton" parent="." unique_id=269159040]
 offset_left = 1088.0
 offset_top = 592.0
@@ -39,6 +46,13 @@ texture_pressed = ExtResource("3_j10or")
 texture_hover = ExtResource("4_cde61")
 texture_disabled = ExtResource("5_cio4y")
 stretch_mode = 0
+
+[node name="Label" type="Label" parent="CloseListBt" unique_id=966174460]
+layout_mode = 0
+offset_left = -47.0
+offset_right = -7.0
+offset_bottom = 23.0
+text = "返回"
 
 [node name="OnesContainer" type="Control" parent="." unique_id=2007432558]
 layout_mode = 3

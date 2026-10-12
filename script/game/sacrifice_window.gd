@@ -1,7 +1,6 @@
 extends Control
 class_name ClientSacrificePage
 
-@onready var sacrifice_ratio_window: ColorRect = $AirGuyEarth/Guy/SacrificeRatio
 
 @onready var guy: TextureProgressBar = $RatioSetWindow/ResultPreview/Now/Guy
 @onready var people: TextureProgressBar = $RatioSetWindow/ResultPreview/Now/people
@@ -40,25 +39,25 @@ signal preview_sacrifice_result(people_ratio:float,animal_ratio:float,garin_rati
 
 #接受的是百分比
 func renderPreviewBars(pre_people,pre_animal,pre_grain,pre_guy,sacrifice_value,new_yao_num):
-	guy_pre.set_value_no_signal(pre_guy*100)
-	people_pre.set_value_no_signal(pre_people*100)
-	animal_pre.set_value_no_signal(pre_animal*100)
-	grain_pre.set_value_no_signal(pre_grain*100)
+	guy_pre.set_value_no_signal(pre_guy*guy_pre.max_value)
+	people_pre.set_value_no_signal(pre_people*people_pre.max_value)
+	animal_pre.set_value_no_signal(pre_animal*animal_pre.max_value)
+	grain_pre.set_value_no_signal(pre_grain*grain_pre.max_value)
 	if new_yao_num == 0:
-		sacrifice_bar_pre.set_value_no_signal(sacrifice_value*100)
+		sacrifice_bar_pre.set_value_no_signal(sacrifice_value*sacrifice_bar_pre.max_value)
 		yao_pre_num.text=""
 	else:
-		sacrifice_bar_pre.set_value_no_signal(100)
+		sacrifice_bar_pre.set_value_no_signal(sacrifice_bar_pre.max_value)
 		yao_pre_num.text="+%d"%new_yao_num
 
 
 #接受的是百分比
 func renderBars(people_,animal_,grain_,guy_,sacrifice_value,new_yao_num):
-	guy.set_value_no_signal(people_*100)
-	people.set_value_no_signal(animal_*100)
-	animal.set_value_no_signal(grain_*100)
-	grain.set_value_no_signal(guy_*100)
-	sacrifice_bar.set_value_no_signal(sacrifice_value*100)
+	guy.set_value_no_signal(people_*guy.max_value)
+	people.set_value_no_signal(animal_*people.max_value)
+	animal.set_value_no_signal(grain_*animal.max_value)
+	grain.set_value_no_signal(guy_*grain.max_value)
+	sacrifice_bar.set_value_no_signal(sacrifice_value*sacrifice_bar.max_value)
 
 
 func applyBarsAnimation(people,animal,grain,guy,sacrifice_value):

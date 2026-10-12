@@ -68,15 +68,15 @@ var earth_value:int:			#地
 #region 人相关变量
 
 @export var people_sup:int = 100	#人口上限
-var people_value:int = 50:				#人口
+@export var people_value:int = 50:				#人口
 	set(value):people_value = min(people_sup,max(0,value))
 
 @export var animal_sup:int = 100	#牲口上限
-var animal_value:int = 50:				#牲口
+@export var animal_value:int = 50:				#牲口
 	set(value):animal_value = min(animal_sup,max(0,value))
 
 @export var grain_sup:int = 100		#粮食上限
-var grain_value:int = 50:				#粮食
+@export var grain_value:int = 50:				#粮食
 	set(value):grain_value = min(grain_sup,max(0,value))
 
 #endregion
@@ -164,7 +164,7 @@ var year_now:int:
 	set(value):
 		year_now=int(days/YEAR_DAYS)
 
-#游戏时间开始时的偏移（不要在局内修改！！！）
+#游戏时间开始时的偏移（不要在局内修改！）
 @export var solar_shift:float=0.0
 @export var lunar_shift:float=0.0
 
@@ -223,8 +223,8 @@ signal back_to_main_menu
 
 #游戏首次开始时
 func _ready() -> void:
-	switch_window_to(0)
 	firstInitGame()
+	switch_window_to(0)
 
 
 #region 服务端处理游戏操作
@@ -477,6 +477,17 @@ func switch_window_to(window_index: int) -> void:
 			EventStremPage.visible = true
 			SacrificePage.visible = false
 			WishPage.visible = false
+			#更新事件流界面数值
+			EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
+			EventStremPage.EPupdateValues(
+				air_value/ float(air_sup)
+				,guy_value/ float(guy_sup)
+				,earth_value/ float(earth_sup)
+				,people_value/ float(people_sup)
+				,animal_value/ float(animal_sup)
+				,grain_value/ float(grain_sup)
+				)
+			EventStremPage.EPupdateTimeLine(days,solar_term_now,lunar_phase_now,year_now)
 			print("///切换至”事件流“界面///")
 		1:
 			EventStremPage.visible = false
@@ -503,6 +514,7 @@ func switch_window_to(window_index: int) -> void:
 			#更新爻的数值
 			WishPage.updateYao(yao_yin_num,yao_yang_num)
 			WishPage.changeGuaDisplay(gua_now)
+			WishPage.renderLunarPhaseNow(lunar_phase_now)
 			print("///切换至”祈愿“界面///")
 		_:
 			pass
@@ -550,11 +562,19 @@ func clientPushNextEvent() -> void:
 		recountDurationEachEvent()
 	
 	
+	
 	#在事件流处显示事件文本->延迟->显示结果
 	EventStremPage.EPupdateEventText(this_event_name,this_event_context,this_event_result_context,this_event_level,this_event_type,is_term_empty)
 	#->结算数值
-	EventStremPage.EPupdateBelief(belief_value)
-	EventStremPage.EPupdateValues(air_value,guy_value,earth_value,people_value,animal_value,grain_value)
+	EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
+	EventStremPage.EPupdateValues(
+				air_value/ float(air_sup)
+				,guy_value/ float(guy_sup)
+				,earth_value/ float(earth_sup)
+				,people_value/ float(people_sup)
+				,animal_value/ float(animal_sup)
+				,grain_value/ float(grain_sup)
+				)
 	#->时间改变
 	EventStremPage.EPupdateTimeLine(days,solar_term_now,lunar_phase_now,year_now)
 

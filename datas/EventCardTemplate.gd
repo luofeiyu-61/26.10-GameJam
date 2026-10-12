@@ -4,7 +4,7 @@ class_name EventCard
 #事件基本属性
 @export_category("事件基本属性")
 @export var id:int
-@export var id_name:String
+@export var sequence_id:String
 @export var display_name:String
 #持续时间
 @export var time_consume:ENUMS.TimeLength=ENUMS.TimeLength.Normal
@@ -33,7 +33,7 @@ class_name EventCard
 @export var trigger_meet_info:Array[TriggerCondition]
 
 @export_subgroup("随机：发生概率")
-@export_range(0,1.0) var trigger_possibility:float
+@export_range(0,1.0) var trigger_possibility:float=0.1
 
 
 
