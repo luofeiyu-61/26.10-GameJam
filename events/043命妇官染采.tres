@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://qrQXQOEAsMk"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "照旧法配的色，黑黄苍赤色色纯正，没有一处掺假。"
+meet_gua = Array[int]([0, 1])
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "染了一半，剩下的等下一季。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "赶工赶出来的。色不匀，还掺了杂色充数。"
+meet_gua = Array[int]([6, 4])
+belief_feedback = 0
+air_feedback = -2
+earth_feedback = -4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 44
+sequence_id = "43"
+display_name = "命妇官染采"
+time_consume = 1
+context = "这个月该染丝帛了。宫里的妇官领着做：黼黻上的纹样要照旧法，
+一丝不能差；黑、黄、苍、赤，色色都要纯正，不许掺假。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([10])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

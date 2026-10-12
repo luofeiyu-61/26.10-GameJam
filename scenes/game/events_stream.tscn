@@ -160,10 +160,14 @@ offset_left = 58.0
 offset_top = 54.0
 offset_right = 635.0
 offset_bottom = 341.0
-theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/normal_font_size = 16
+text = "按下“下一事件”开始..."
 scroll_following = true
 scroll_following_visible_characters = true
 shortcut_keys_enabled = false
+
+[node name="Timer" type="Timer" parent="EventStreamWindow/texts" unique_id=199054426]
+wait_time = 0.5
 
 [node name="history" type="ColorRect" parent="EventStreamWindow" unique_id=186388702]
 layout_mode = 0
@@ -192,9 +196,9 @@ color = Color(0.48, 0.48, 0.48, 1)
 [node name="air_bar" type="TextureProgressBar" parent="AirGuyEarth/Air" unique_id=1910262544]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 133.0
+offset_top = 132.4
 offset_right = 191.0
-offset_bottom = 138.0
+offset_bottom = 137.4
 rotation = -1.5707964
 scale = Vector2(0.7, 1.5)
 value = 5.0
@@ -220,9 +224,9 @@ color = Color(0.48, 0.48, 0.48, 1)
 [node name="guy_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=1533274522]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 133.0
+offset_top = 132.4
 offset_right = 191.0
-offset_bottom = 138.0
+offset_bottom = 137.4
 rotation = -1.5707964
 scale = Vector2(0.7, 1.5)
 value = 5.0
@@ -232,9 +236,9 @@ texture_progress = ExtResource("16_h1xp3")
 [node name="people_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=659017378]
 layout_mode = 0
 offset_left = 71.0
-offset_top = 134.0
+offset_top = 133.4
 offset_right = 253.0
-offset_bottom = 139.0
+offset_bottom = 138.4
 rotation = -1.5707964
 scale = Vector2(0.7, 1.5)
 value = 5.0
@@ -244,9 +248,9 @@ texture_progress = ExtResource("18_0vfge")
 [node name="animal_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=695575311]
 layout_mode = 0
 offset_left = 109.0
-offset_top = 134.0
+offset_top = 133.4
 offset_right = 291.0
-offset_bottom = 139.0
+offset_bottom = 138.4
 rotation = -1.5707964
 scale = Vector2(0.7, 1.5)
 value = 5.0
@@ -256,9 +260,9 @@ texture_progress = ExtResource("20_37hgh")
 [node name="grain_bar" type="TextureProgressBar" parent="AirGuyEarth/Guy" unique_id=135211074]
 layout_mode = 0
 offset_left = 146.0
-offset_top = 134.0
+offset_top = 133.4
 offset_right = 328.0
-offset_bottom = 139.0
+offset_bottom = 138.4
 rotation = -1.5707964
 scale = Vector2(0.7, 1.5)
 value = 5.0
@@ -311,9 +315,9 @@ color = Color(0.48, 0.48, 0.48, 1)
 [node name="earth_bar" type="TextureProgressBar" parent="AirGuyEarth/Earth" unique_id=1072513040]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 133.0
+offset_top = 132.4
 offset_right = 191.0
-offset_bottom = 138.0
+offset_bottom = 137.4
 rotation = -1.5707964
 scale = Vector2(0.7, 1.5)
 value = 5.0
@@ -346,8 +350,10 @@ color = Color(0.44806695, 0.44806695, 0.44806695, 1)
 
 [node name="solar" type="Label" parent="Calendar/sun" unique_id=1267005360]
 layout_mode = 0
+offset_top = -25.0
 offset_right = 48.0
-offset_bottom = 49.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(1, 0.9333334, 0, 1)
 text = "节气：
 1"
 
@@ -361,16 +367,19 @@ color = Color(0.5211406, 0.5211406, 0.5211405, 1)
 
 [node name="lunar" type="Label" parent="Calendar/lunar" unique_id=2017670160]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_top = -25.0
+offset_right = 48.0
+offset_bottom = 24.0
+theme_override_colors/font_color = Color(0.84313726, 1, 0.99607843, 1)
 text = "月相：
 1"
 
 [node name="days" type="Label" parent="Calendar" unique_id=719407154]
 layout_mode = 0
-offset_top = -27.0
-offset_right = 90.0
-offset_bottom = -4.0
+offset_left = -31.0
+offset_top = -35.0
+offset_right = 59.0
+offset_bottom = -12.0
 text = "游戏天数：0"
 
 [node name="operations" type="ColorRect" parent="." unique_id=520824183]

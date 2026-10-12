@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://775qOi+NWbM"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "事先得了卜警，人先搬到高坡上。水来了没伤着人，
+退了还留一层淤泥——那地反而肥了。"
+meet_gua = Array[int]([2, 7])
+belief_feedback = 0
+air_feedback = 5
+earth_feedback = 7
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = 12
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "水漫到田就退了，
+人没事，也没落下肥，春忙还得从头开始。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "水来得急，没人报信。河边田全淹，春时延误。
+冲塌了河边的房子，卷走了几头牛，人也伤了不少。"
+meet_gua = Array[int]([6, 0])
+belief_feedback = 0
+air_feedback = -5
+earth_feedback = -8
+people_feedback = -8
+animal_feedback = -8
+grain_feedback = -15
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 6
+sequence_id = "6.1"
+display_name = "凌汛"
+time_consume = 3
+context = "开春回暖，上游的冰先化，下游还冻着。大块冰顺水往下走，
+卡在河弯里堆成一道坝，水漫上岸，淹掉河边最好的那片田。"
+event_level = 1
+event_type = 2
+trigger_type = 0
+trigger_terms = Array[int]([0])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

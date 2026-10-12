@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://US7lsvIU01k"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "趁着几个大晴天抢晒透了才入仓。廪里干爽，一冬没起霉；那场潦水来的时候，田里已经收净了。"
+meet_gua = Array[int]([7, 5])
+belief_feedback = 0
+air_feedback = 5
+earth_feedback = 7
+people_feedback = 5
+animal_feedback = 2
+grain_feedback = 15
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "晒了一半就急着装了。廪里上层有点热，翻出来又晾了两次。够吃，损耗不算小。"
+belief_feedback = 0
+air_feedback = -2
+earth_feedback = 3
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = 3
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "为赶在雨前，湿谷全堆进了廪。没出一个月，廪里结块发酸，一半不能吃。"
+meet_gua = Array[int]([2, 4])
+belief_feedback = 0
+air_feedback = -4
+earth_feedback = -6
+people_feedback = 0
+animal_feedback = -2
+grain_feedback = -10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 50
+sequence_id = "49"
+display_name = "农乃登谷·始收敛"
+time_consume = 3
+context = "七月，谷登场了——这是全年最要紧的一笔收成，比夏天的麦和黍都主。
+割下来不能立刻入仓，得先在场上晒到咬得响，不然堆在廪里会发热霉变。
+可秋天的潦水还有一场：晒得越透，淋雨的风险越大；抢着收进去，又要烂在廪里。
+先割哪块田、晾几个日头、什么时候往廪里装，都在这几天。"
+event_level = 1
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([12])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://xqMzDcmaOro"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "赶在靡草枯死之前采了，晒得干透，一捆一捆码进仓。这一夏真病起来有得抓。"
+meet_gua = Array[int]([3, 4])
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 4
+people_feedback = 3
+animal_feedback = 2
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "知道会病，可只采了一点点，够宫里用。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = -2
+people_feedback = -3
+animal_feedback = -1
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "没当回事。入夏那一个月，有人发热没药吃，硬扛过去了；有人没扛过去。"
+meet_gua = Array[int]([5, 1])
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = -4
+people_feedback = -5
+animal_feedback = -3
+grain_feedback = -4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 30
+sequence_id = "29"
+display_name = "聚畜百药"
+time_consume = 1
+context = "靡草快死了——靡草一枯，采药的时令就过了。
+趁草还在，把这一年的药材采下来、晒干、收进仓里。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([6])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

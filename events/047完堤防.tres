@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://0c66qJmzDyY"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "趁人还没全下地，先把去年漫水的那截堤口补上了。后来那场潦水顺着沟走了，一亩也没淹。"
+meet_gua = Array[int]([2, 3])
+belief_feedback = 0
+air_feedback = 4
+earth_feedback = 3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只疏了近处的沟，远处那截堤没人管。水来的时候，远处的田泡了两天。"
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "堤也没修，城也没补。潦水下来，先从旧口子漫了进去——和去年是同一个地方。"
+meet_gua = Array[int]([1, 6])
+belief_feedback = 0
+air_feedback = -4
+earth_feedback = -4
+people_feedback = -2
+animal_feedback = -1
+grain_feedback = -10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 48
+sequence_id = "47"
+display_name = "完堤防"
+time_consume = 2
+context = "立秋的令下来了：趁着水还没落干净，把堤防补完，把堵住的水道疏开——秋天的潦水还有一场要来。
+同一道令里还说，宫室的墙垣、外面的城墙，这个月都得修。
+可谷子正在地里等着人去割，人手只有这一批。
+去年秋天那场水，就是从没人管的那截堤口漫进来的。"
+event_level = 0
+event_type = 2
+trigger_type = 0
+trigger_terms = Array[int]([12])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

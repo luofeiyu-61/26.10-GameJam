@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://9aXUA4N5rLU"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "趁雨还没落先烧了，水引着走。灰随雨入了田，土色变深，草也没再起来。"
+meet_gua = Array[int]([5, 2])
+belief_feedback = 0
+air_feedback = 5
+earth_feedback = 6
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 15
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只烧了近处那几块，远田的没动。近处肥了，远处草照样压着禾。"
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "风起了。火走出了界，烧了邻家还没收的地。"
+meet_gua = Array[int]([3, 6])
+belief_feedback = 0
+air_feedback = -8
+earth_feedback = -8
+people_feedback = 0
+animal_feedback = -2
+grain_feedback = -10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 47
+sequence_id = "46"
+display_name = "烧薙行水（？）"
+time_consume = 2
+context = "一年最热、雨也最勤的这半个月，地里的草长得比禾还快。
+这时候有一种老法子：贴着地皮把草割倒，趁湿点火烧掉，再开水引着走一遍。
+火烧在湿草上是闷的，走不快；水一过，热灰就随水渗进土里——草绝了根，地也肥上一年。
+可这件事挑天：要烧在雨前，不能烧在风里。风向一变，火就由不得人了。"
+event_level = 1
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([11])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

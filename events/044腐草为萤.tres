@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://xHAlxRKKYnA"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "那片草泽圈了起来，人畜一年没进去。
+入夜萤火一片，比往年都多——烂草层养住了。·"
+meet_gua = Array[int]([0, 5])
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只圈了一半。有萤，不多。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 2
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "牛赶进去了，黑土也被刨走大半。腐殖层压成了死板，那年一只萤也没飞出来。"
+meet_gua = Array[int]([4, 6])
+belief_feedback = 0
+air_feedback = -1
+earth_feedback = -4
+people_feedback = 0
+animal_feedback = 4
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 45
+sequence_id = "44"
+display_name = "腐草为萤"
+time_consume = 1
+context = "大暑的头一个候，是腐草化出萤火来。
+入伏以后，泽边积年的草烂成一层黑土，夜里就有萤从里头飞起来。
+萤的幼虫吃螺，只肯待在又湿又肥的烂草层里——萤多不多，验的其实是这片泽的湿气和肥力。
+今年泽边的草长得格外厚：放牛的想赶牛进去吃这块草，拾粪的想进去刨那层黑土当肥。
+这片泽圈不圈，就在这几天。"
+event_level = 0
+event_type = 1
+trigger_type = 2
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -75,8 +75,10 @@ func collectFixedEvent(solar_term:ENUMS.SolarTerm)->Array[int]:
 	var target_events:Array[int]
 	
 	for id in fixed_events:
-		if all_events[id].trigger_term == solar_term:
-			target_events.append(id)
+		for term in all_events[id].trigger_terms:
+			if  term== solar_term:
+				target_events.append(id)
+				break
 	
 	print("///收集到%d个%s事件" % [target_events.size(), ENUMS.SolarTerm.find_key(solar_term)])
 	return target_events

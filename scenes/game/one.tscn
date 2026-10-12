@@ -15,9 +15,6 @@ script = ExtResource("1_q8wxn")
 EventStremPage = NodePath("Events_window")
 SacrificePage = NodePath("Sacrifice_window")
 WishPage = NodePath("Wish_window")
-people_value = 100
-animal_value = 100
-grain_value = 100
 
 [node name="Events_window" parent="." unique_id=2064952660 instance=ExtResource("2_vfh2y")]
 
@@ -63,7 +60,7 @@ offset_right = 131.0
 offset_bottom = 588.0
 color = Color(0.27752772, 0.27752772, 0.27752772, 1)
 
-[node name="backToMenu" type="TextureButton" parent="options/Control" unique_id=433285366]
+[node name="openOptions" type="TextureButton" parent="options/Control" unique_id=433285366]
 layout_mode = 0
 offset_left = 101.0
 offset_top = 561.0
@@ -75,8 +72,24 @@ texture_pressed = ExtResource("6_45klv")
 texture_hover = ExtResource("7_f04th")
 texture_disabled = ExtResource("8_ewchi")
 
+[node name="setting" type="Label" parent="options/Control/openOptions" unique_id=1417549477]
+layout_mode = 0
+offset_left = 30.0
+offset_right = 94.0
+offset_bottom = 23.0
+text = "打开设置"
+
 [node name="GameSettingUI" parent="." unique_id=612859518 instance=ExtResource("5_vfh2y")]
 visible = false
+
+[node name="values" type="Label" parent="." unique_id=1993641804]
+offset_left = 2.0000005
+offset_top = 111.0
+offset_right = 199.0
+offset_bottom = 134.0
+scale = Vector2(0.8, 0.8)
+theme_override_colors/font_color = Color(1, 1, 1, 0.5411765)
+text = "GameValues[DEVELOPER]"
 
 [connection signal="go_to_sacrifice" from="Events_window" to="." method="_events_to_sacrifice"]
 [connection signal="go_to_wish" from="Events_window" to="." method="_events_to_wish"]
@@ -89,3 +102,5 @@ visible = false
 [connection signal="go_to_event" from="Wish_window" to="." method="_wish_to_event"]
 [connection signal="go_to_sacrifice" from="Wish_window" to="." method="_wish_to_sacrifice"]
 [connection signal="pressed" from="options/HBoxContainer/backToMenu" to="." method="_on_back_to_menu_pressed"]
+[connection signal="pressed" from="options/Control/openOptions" to="." method="_on_open_options_pressed"]
+[connection signal="close_game_setting" from="GameSettingUI" to="." method="_on_close_game_setting"]

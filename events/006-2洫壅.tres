@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://yiWj8ojkFzU"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = ""
+belief_feedback = 0
+air_feedback = 0
+earth_feedback = 0
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = ""
+belief_feedback = 0
+air_feedback = 0
+earth_feedback = 0
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = ""
+belief_feedback = 0
+air_feedback = 0
+earth_feedback = 0
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 7
+sequence_id = "6.2"
+display_name = "洫壅"
+time_consume = 2
+context = "凌汛水退了不等于事了
+——冲下来的沙全壅在沟里，沟底抬高半尺。
+下次水漫估计更得严重了。"
+event_level = 0
+event_type = 2
+trigger_type = 1
+is_after = true
+trigger_after_event_id = Array[int]([6])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

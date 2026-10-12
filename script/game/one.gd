@@ -5,6 +5,7 @@ extends Node
 @export var SacrificePage:ClientSacrificePage
 @export var WishPage:ClientWishPage
 
+@onready var game_setting_ui: CanvasLayer = $GameSettingUI
 
 #游戏变量
 #region 信仰值相关
@@ -13,7 +14,7 @@ extends Node
 		WishPage.changeGuaDisplay(value)
 		gua_now=value
 
-@export var lunar_buff_now :ENUMS.LunarPhase	#当前起效的月相buff
+@export var lunar_buff_now :ENUMS.LunarPhase = ENUMS.LunarPhase.NONE	#当前起效的月相buff
 
 @export var lunar_buff_upup:Dictionary[int,float]={#月相增益效果
 	0:0.00,
@@ -37,14 +38,19 @@ extends Node
 }
 
 @export var belief_sup:int = 100	#信仰值上限
-var belief_value:int:				#信仰值
-	set(value):belief_value = min(belief_sup,max(0,value))
+@export var belief_value:int = 30:				#信仰值
+	set(value):
+		belief_value = min(belief_sup,max(0,value))
+		#祈愿效果失效
+		if belief_value <= 0:
+			wishForGua(ENUMS.Gua.NONE)
+			EventStremPage.rederBelief(belief_value,gua_now,lunar_buff_now)
 #endregion
 
 #region 天人地
 
-@export var air_sup:int = 100	#天上限
-var air_value:int:				#天
+@export var air_sup:int = 120	#天上限
+@export var air_value:int = 40:				#天
 	set(value):air_value = min(air_sup,max(0,value))
 
 #人（内置判断机制（截断输入））
@@ -59,8 +65,8 @@ var guy_value:int:				#人
 		
 		guy_value = min(guy_sup,max(0,result))
 
-@export var earth_sup:int = 100	#地上限
-var earth_value:int:			#地
+@export var earth_sup:int = 120	#地上限
+@export var earth_value:int = 40:			#地
 	set(value):earth_value = min(earth_sup,max(0,value))
 
 #endregion
@@ -71,12 +77,12 @@ var earth_value:int:			#地
 @export var people_value:int = 50:				#人口
 	set(value):people_value = min(people_sup,max(0,value))
 
-@export var animal_sup:int = 100	#牲口上限
-@export var animal_value:int = 50:				#牲口
+@export var animal_sup:int = 80	#牲口上限
+@export var animal_value:int = 30:				#牲口
 	set(value):animal_value = min(animal_sup,max(0,value))
 
-@export var grain_sup:int = 100		#粮食上限
-@export var grain_value:int = 50:				#粮食
+@export var grain_sup:int = 200		#粮食上限
+@export var grain_value:int = 80:				#粮食
 	set(value):grain_value = min(grain_sup,max(0,value))
 
 #endregion
@@ -213,6 +219,7 @@ var this_event_context:String
 var this_event_result_context:String
 var this_event_level :ENUMS.EventLevel
 var this_event_type :ENUMS.EventType
+var this_result_type:ENUMS.ResultType
 
 #endregion
 
@@ -225,6 +232,31 @@ signal back_to_main_menu
 func _ready() -> void:
 	firstInitGame()
 	switch_window_to(0)
+
+func _process(delta: float) -> void:
+	developrInfo()
+
+#开发者模式
+func developrInfo():
+	if SettingsManager.develop_mode:
+		$values.show()
+		$values.text="游戏数值："+\
+		"\n"+"信仰值：%d/%d"%[belief_value,belief_sup]+\
+		"\n"+"当前卦象：%s"%ENUMS.Gua.find_key(gua_now)+\
+		"\n"+"当前月相buff：%s"%ENUMS.lunarPhase2Text(lunar_buff_now)+\
+		"\n"+"游戏天数：%d"%days+\
+		"\n"+"年：%d"%year_now+\
+		"\n"+"节气：%s"%ENUMS.solarTerm2Text(solar_term_now)+\
+		"\n"+"月相：%s"%ENUMS.lunarPhase2Text(lunar_phase_now)+\
+		"\n"+"“天”：%d/%d"%[air_value,air_sup]+\
+		"\n"+"“人”：%d/%d"%[guy_value,guy_sup]+\
+		"\n"+"“地”：%d/%d"%[earth_value,earth_sup]+\
+		"\n"+"人口：%d/%d"%[people_value,people_sup]+\
+		"\n"+"牲口：%d/%d"%[animal_value,animal_sup]+\
+		"\n"+"粮食：%d/%d"%[grain_value,grain_sup]
+	else:
+		$values.hide()
+
 
 
 #region 服务端处理游戏操作
@@ -346,6 +378,7 @@ func anEventHappen()->bool:
 		this_event_result_context = result.result_context
 		this_event_level =EventDataBase.all_events[id].event_level
 		this_event_type=EventDataBase.all_events[id].event_type
+		this_result_type=result.result_type
 		
 		#数值反馈
 		belief_value+=result.belief_feedback
@@ -444,10 +477,15 @@ func spawnYaos(num:int):
 
 #region 祈愿相关
 
+func wishForGua(gua_:ENUMS.Gua):
+	gua_now=gua_
+	if gua_!=ENUMS.Gua.NONE:
+		belief_value+=wish_belief_addition
+		lunar_buff_now=lunar_phase_now
+	else:
+		lunar_buff_now=ENUMS.LunarPhase.NONE
+
 #endregion
-
-
-
 
 
 #更新人的值
@@ -564,7 +602,7 @@ func clientPushNextEvent() -> void:
 	
 	
 	#在事件流处显示事件文本->延迟->显示结果
-	EventStremPage.EPupdateEventText(this_event_name,this_event_context,this_event_result_context,this_event_level,this_event_type,is_term_empty)
+	EventStremPage.EPupdateEventText(this_event_name,this_event_context,this_event_result_context,this_event_level,this_event_type,this_result_type,is_term_empty)
 	#->结算数值
 	EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
 	EventStremPage.EPupdateValues(
@@ -631,10 +669,16 @@ func clientConfirmWish(gua: ENUMS.Gua) -> void:
 	if yao_yang_num>=p and yao_yin_num>=3-p:
 		yao_yang_num-=p
 		yao_yin_num-=(3-p)
-		gua_now=gua
-		belief_value+=wish_belief_addition
+		wishForGua(gua)
 	else:
 		print("[WARNIG]祈愿失败，所需爻不够！")
 	
 	WishPage.changeGuaDisplay(gua_now)
 	WishPage.updateYao(yao_yin_num,yao_yang_num)
+
+
+func _on_open_options_pressed() -> void:
+	game_setting_ui.show()
+
+func _on_close_game_setting() -> void:
+	game_setting_ui.hide()

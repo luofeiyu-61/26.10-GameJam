@@ -20,7 +20,7 @@ class_name EventCard
 @export var trigger_type :ENUMS.TriggerType
 
 @export_subgroup("固定：发生节气")
-@export var trigger_term :ENUMS.SolarTerm
+@export var trigger_terms :Array[ENUMS.SolarTerm]
 
 @export_subgroup("条件：具体条件")
 

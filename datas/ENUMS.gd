@@ -9,7 +9,7 @@ enum TriggerType {Fixed=0,Condition=1,Random=2}
 
 enum EventLevel {Common,Heavy,Story}
 
-enum EventType {Good,Bad}
+enum EventType {Good,Normal,Bad}
 
 enum ResultType {Good,Normal,Bad }
 
@@ -27,7 +27,8 @@ enum LunarPhase {
 	FullMoon,			#满月 
 	WaningGibbous,		#亏凸月
 	LastQuarter,		#下弦
-	WaningCrescent		#残月
+	WaningCrescent,		#残月
+	NONE
 	}
 
 enum SolarTerm {
@@ -69,6 +70,7 @@ static func lunarPhase2Text(lunar_phase:ENUMS.LunarPhase)->String:
 		ENUMS.LunarPhase.WaningGibbous:		return "亏凸月"
 		ENUMS.LunarPhase.LastQuarter:		return "下弦"
 		ENUMS.LunarPhase.WaningCrescent:	return "残月"
+		ENUMS.LunarPhase.NONE:				return "none"
 		_: return "UnknownLunarPhase"
 
 

@@ -10,7 +10,7 @@ signal next_event
 
 @export var event_stream_text: RichTextLabel
 @export var debug_event: String = "[some event context]"
-const NEW_LINE: String = "[br]"
+const NEW_LINE: String = "\n"
 
 @onready var gua_sprite: AnimatedSprite2D = $"BeliefBar/1/Gua"
 @onready var belief_bar_sprite: TextureProgressBar = $"BeliefBar/1"
@@ -35,6 +35,8 @@ const NEW_LINE: String = "[br]"
 @onready var lunar: Label = $Calendar/lunar/lunar
 @onready var days: Label = $Calendar/days
 
+@onready var next_button: TextureButton = $operations/next
+@onready var timer_text: Timer = $EventStreamWindow/texts/Timer
 
 
 #region 客户端：事件流 操作
@@ -87,15 +89,66 @@ func EPupdateEventText(
 	server_event_result_text:String,
 	this_event_level :ENUMS.EventLevel,
 	this_event_type :ENUMS.EventType,
+	this_result_type:ENUMS.ResultType,
 	is_term_empty:bool
 ):
 	#debug
 	if is_term_empty:
-		event_stream_text.append_text(NEW_LINE+server_event_name)
-		event_stream_text.append_text(NEW_LINE+server_event_text)
+		var split_line:="--------新事件---------"
+		var event_level_:String
+		#事件等级：琐碎、重大、故事
+		match this_event_level:
+			ENUMS.EventLevel.Common:
+				split_line="|"+split_line+"|"
+				event_level_="[琐碎]"
+			ENUMS.EventLevel.Heavy:
+				split_line="||"+split_line+"||"
+				event_level_="[重大]"
+			ENUMS.EventLevel.Story:
+				split_line="*"+split_line+"*"
+				event_level_="[故事]"
+		
+		event_stream_text.append_text(NEW_LINE+NEW_LINE+NEW_LINE+NEW_LINE+split_line)
+		
+		#事件好坏：好、普通、坏
+		var color :String
+		match this_event_type:
+			ENUMS.EventType.Good:color="#4ef700"
+			ENUMS.EventType.Normal:color="#aeff9a"
+			ENUMS.EventType.Bad:color="#ff6044"
+		
+		color = "[color="+color+"]"
+		event_stream_text.append_text(NEW_LINE+NEW_LINE+event_level_+"	"+ color+server_event_name+"[/color]")
+		
+		#播放故事内容
+		next_button.disabled = true
+		
+		var context_ = server_event_text.split("\n")
+		for i in range(context_.size()):
+			#等待
+			timer_text.wait_time=1
+			timer_text.start()
+			await timer_text.timeout
+			
+			event_stream_text.append_text(NEW_LINE+context_[i])
+			
+		#等待
+		timer_text.wait_time=1.8
+		timer_text.start()
+		await timer_text.timeout
+		
+		#结果好坏
+		match this_result_type:
+			ENUMS.ResultType.Good:color="#80ffbf"
+			ENUMS.ResultType.Normal:color="#efffdd"
+			ENUMS.ResultType.Bad:color="#ff9b58"
+		color = "[color="+color+"]"
+		
+		event_stream_text.append_text(NEW_LINE+NEW_LINE+NEW_LINE+"·"+color+"结果"+"[/color]"+"·")
+		
 		event_stream_text.append_text(NEW_LINE+server_event_result_text)
-		event_stream_text.append_text(NEW_LINE+ENUMS.EventLevel.find_key(this_event_level))
-		event_stream_text.append_text(NEW_LINE+ENUMS.EventType.find_key(this_event_type))
+		
+		next_button.disabled = false
 	else:
 		event_stream_text.append_text(NEW_LINE+server_event_text)
 		event_stream_text.append_text(NEW_LINE+server_event_result_text)
@@ -118,8 +171,10 @@ func rederBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase)
 		ENUMS.Gua.Qian:gua_sprite.play("111")
 		ENUMS.Gua.NONE:gua_sprite.play("none")
 	
-	
-	lunar_buff.text="月相buff："+ENUMS.lunarPhase2Text(lunar_buff_now)
+	if lunar_buff_now == ENUMS.LunarPhase.NONE:
+		lunar_buff.text=""
+	else:
+		lunar_buff.text="月相buff："+ENUMS.lunarPhase2Text(lunar_buff_now)
 
 
 
@@ -130,5 +185,4 @@ func _on_wish_pressed() -> void:
 	go_to_wish.emit()
 
 func nextEvent() -> void:
-	event_stream_text.append_text(NEW_LINE+"--------[下一事件]---------")
 	emit_signal("next_event")

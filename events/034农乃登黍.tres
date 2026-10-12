@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://WoXAMQ0kh3U"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "按礼荐了庙，剩下的按户分下去。这一年黍收得齐。"
+meet_gua = Array[int]([0, 3])
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "荐是荐了，赏赐只给了近臣。"
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "等不及熟透就割了。顾了这一头，下一茬误了时候。"
+meet_gua = Array[int]([4, 7])
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = -2
+grain_feedback = -4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 35
+sequence_id = "34"
+display_name = "农乃登黍"
+time_consume = 1
+context = "黍熟了，登场。配一只小鸡，再加一盘樱桃，荐进祖庙。
+自立夏尝麦后第二次尝新。
+而黍一割完，地就腾出来了，接着就要播下一茬。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([8])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

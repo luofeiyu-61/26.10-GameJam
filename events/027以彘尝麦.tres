@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://s9UYNAqWn6I"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "先荐了寝庙，剩下的分赐下去，一家一勺。
+麦粒压手，灌浆那半个月没白等。"
+meet_gua = Array[int]([2, 0])
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = 2
+people_feedback = 3
+animal_feedback = -1
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "荐是荐了，只荐了麦，猪没宰。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "麦子割了先下了锅，庙里那一份忘了留。分的时候有近有远。"
+meet_gua = Array[int]([6, 7])
+belief_feedback = 0
+air_feedback = -1
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 2
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 28
+sequence_id = "27"
+display_name = "以彘尝麦"
+time_consume = 1
+context = "麦子熟了一角——只是一角。割下来磨了面，配一头猪，
+先供进祖庙，这叫\"尝新\"。老规矩：先给祖宗尝，活人再尝。 
+真正的大收要等到小满\"麦秋至\"。"
+event_level = 0
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([6])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

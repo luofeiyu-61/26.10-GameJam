@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://m042tdErWKM"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "只取大鱼，小鱼扔回河里。够补一阵春荒，鱼的根没伤着。"
+meet_gua = Array[int]([6, 2])
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = 1
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "照老例捕一点，够吃就行，不多撒网。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = 0
+people_feedback = 3
+animal_feedback = 0
+grain_feedback = 12
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "见鱼就捕，连鱼苗一起网上来。这一顿吃得最多，河却空了。"
+meet_gua = Array[int]([4, 5])
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = -2
+people_feedback = 5
+animal_feedback = 0
+grain_feedback = 15
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 13
+sequence_id = "12"
+display_name = "獭祭鱼"
+time_consume = 1
+context = "河冰化了。水獭把捕到的鱼一条条摆在岸上，头朝同一个方向，像摆祭品。
+老人说这是\"獭祭鱼\"——河开了，能下网了。
+可早春的鱼正要产子，网撒得密，往后河里就空了。"
+event_level = 0
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([1])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

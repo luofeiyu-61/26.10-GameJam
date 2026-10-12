@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://9Z4QvRT1aLQ"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "先荐了寝庙，剩下的按户分下去。家家灶上都冒了今年第一口新谷气。"
+meet_gua = Array[int]([0, 6])
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 4
+people_feedback = 3
+animal_feedback = 2
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "荐是荐了，剩下的照旧封进仓，说等冬闲再分。谁也没尝着，也没谁抱怨。"
+belief_feedback = 0
+air_feedback = 0
+earth_feedback = 1
+people_feedback = 2
+animal_feedback = 1
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "荐庙那天太牢办得极盛，分赐却只给了近臣。乡野那边新谷一粒没见着，私下骂了好些日子。"
+meet_gua = Array[int]([7, 1])
+belief_feedback = 0
+air_feedback = -4
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 2
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 52
+sequence_id = "51"
+display_name = "登尝"
+time_consume = 1
+context = "谷上了场，第一口新谷不能先给人吃。老规矩是先荐寝庙——今年的新谷蒸好盛上，供进祖庙，回来才敢动筷子，这一年的礼叫尝。
+荐剩下的那一份怎么处置，年年都要争一回：是分下去让国人都尝一口，还是照旧封进仓里等着。"
+event_level = 0
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([13])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

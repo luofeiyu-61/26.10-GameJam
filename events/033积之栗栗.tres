@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://EHaw41br68g"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "趁雨还没落下来之前，苫了垛、通了场的排水沟。
+用大车抢运了一部分。雨下来，垛是干的。"
+meet_gua = Array[int]([4, 2])
+belief_feedback = 0
+air_feedback = -2
+earth_feedback = 5
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "苫了一半，另一半淋了。场上摊开的那些进了水。"
+belief_feedback = 0
+air_feedback = -4
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "没人苫，也没人通沟。三天之后垛心发热，麦粒出了芽。"
+meet_gua = Array[int]([6, 1])
+belief_feedback = 0
+air_feedback = -6
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -12
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 34
+sequence_id = "33"
+display_name = "积之栗栗"
+time_consume = 2
+context = "割的声音密密响，堆起来像墙、像梳齿那么齐，一排仓门挨着打开往里装。
+麦子割下来了，堆在场里，还没来得及脱粒。天上起了云，连着三天没开。
+小满这个名字一直有两种说法：一说是麦粒渐满，一说是雨水渐盈。"
+event_level = 1
+event_type = 2
+trigger_type = 0
+trigger_terms = Array[int]([7])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

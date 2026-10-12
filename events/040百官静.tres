@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://MS0L6L8hAiA"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "斋戒静事，这个月一件刑也没动。牢里添了席子和饮水。"
+meet_gua = Array[int]([1, 0])
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = 4
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = -3
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "刑是停了，斋戒没做到，官署照常喧闹。"
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = -1
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "偏在至日这天动了刑。说是日子到了该了结。"
+meet_gua = Array[int]([7, 6])
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = -4
+people_feedback = -3
+animal_feedback = -2
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 41
+sequence_id = "40"
+display_name = "百官静"
+time_consume = 1
+context = "礼书上写道：夏至这一天白昼最长，阴和阳正在交争，生和死正在分界。
+君子要斋戒，居处要遮严身子，不许急躁，屏止声色，
+减薄滋味，节制嗜欲，安定心气。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([9])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

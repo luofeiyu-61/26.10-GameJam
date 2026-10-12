@@ -52,7 +52,7 @@ context = "在燕子飞来的第一天，按照传统礼节要以太牢祭祀高
 天子率领后妃九嫔，亲自前往祭祀
 在高禖面前，给怀孕妃子行礼，授予她们弓袋和弓箭
 以表达对生育的重视 "
-trigger_term = 3
+trigger_terms = Array[int]([3])
 result_good = SubResource("Resource_7n1lx")
 result_normal = SubResource("Resource_1osp7")
 result_bad = SubResource("Resource_10d4y")

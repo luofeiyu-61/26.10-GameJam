@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://8oxupQYehcQ"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "划了几处围场，日子也限了，猎的人走荒地不走田。猎回来的够补这一秋的肉食，地里的谷一棵没糟蹋。"
+meet_gua = Array[int]([5, 1])
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 4
+people_feedback = 4
+animal_feedback = 3
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只放近处的几支射手去了两天。猎物不多，够宫里吃几顿，也算没耽误收谷。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "许了全境随便猎。人马从还没收的田里趟过去，踩倒的比猎回来的值钱。"
+meet_gua = Array[int]([4, 0])
+belief_feedback = 0
+air_feedback = -2
+earth_feedback = -3
+people_feedback = -2
+animal_feedback = -2
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 51
+sequence_id = "50"
+display_name = "鹰乃祭鸟"
+time_consume = 1
+context = "处暑的头一个候是鹰乃祭鸟——鹰把捕到的鸟一只只摆在地上，头朝同一个方向，像在摆祭品。
+老猎人说，鹰肯这么摆，就是鸟兽都肥了的时候：猎得的禽兽能补上这一秋的肉食，弓矢兵器也正好趁这时候操练一遍。
+可地里的谷还没收完。开不开猎、放多少人出去、走哪些地，这几天就得说定。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([13])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

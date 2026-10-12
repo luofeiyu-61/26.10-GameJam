@@ -1,0 +1,59 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://XPfeZPOtz0o"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "栅设在兽走的路上，不在田里。夜里听见兽撞栅，第二天田里一棵没坏。"
+meet_gua = Array[int]([3, 5])
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只在近处的田边守了几夜，远处的地没人管。"
+belief_feedback = 0
+air_feedback = -1
+earth_feedback = -1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "一声令下聚了几百人，满山围猎。兽是赶跑了，麦子也被踩平了一片。"
+meet_gua = Array[int]([4, 6])
+belief_feedback = 0
+air_feedback = -4
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 29
+sequence_id = "28"
+display_name = "驱兽毋害五谷"
+time_consume = 1
+context = "麦子正在灌浆，野猪和鹿夜里下山，一晚上能拱掉半块地。
+可这条令的下半句是\"毋大田猎\"——不许大规模围猎，因为这时候兽肚里都有崽。"
+event_level = 0
+event_type = 2
+trigger_type = 0
+trigger_terms = Array[int]([6])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

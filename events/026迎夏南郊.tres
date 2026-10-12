@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://AUUp6hg9xxs"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "斋戒三日、亲往南郊，望云得黄。回来行赏封侯，
+庆赐一路发下去，没有漏的。这一夏的底子定下了。"
+meet_gua = Array[int]([5, 7])
+belief_feedback = 0
+air_feedback = 6
+earth_feedback = 4
+people_feedback = 6
+animal_feedback = 4
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "去了南郊，云看得潦草，赏赐只发了近臣。"
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 1
+people_feedback = 2
+animal_feedback = 1
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "礼办了，人没到。望云那日天色晦，册上只留了\"云不可辨\"。
+赏赐发得有厚有薄，回来一路没人说话。"
+meet_gua = Array[int]([2, 1])
+belief_feedback = 0
+air_feedback = -3
+earth_feedback = -6
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 27
+sequence_id = "26"
+display_name = "迎夏南郊"
+time_consume = 2
+context = "立夏为启，天子照例要登台望云，把云色记下来
+——保章氏辨\"五云之物\"：青为虫、白为丧、赤为兵荒、黑为水、黄为丰。
+三日斋，亲临南郊"
+event_level = 1
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([6])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

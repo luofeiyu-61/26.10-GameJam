@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://xxiklMSYmQA"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "不管虹主什么吉凶，趁晴把屋顶补了、沟挖开了。后来的雨没淹着谁。"
+meet_gua = Array[int]([2, 1])
+belief_feedback = 0
+air_feedback = 2
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只把近处的沟通了，屋顶没顾上。"
+belief_feedback = 0
+air_feedback = 0
+earth_feedback = 2
+people_feedback = -3
+animal_feedback = -1
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "全在议论虹主什么事，没人动手修。第一场大雨下来，塌了几间房"
+meet_gua = Array[int]([6, 3])
+belief_feedback = 0
+air_feedback = -2
+earth_feedback = -3
+people_feedback = -5
+animal_feedback = -2
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 22
+sequence_id = "21"
+display_name = "虹始见"
+time_consume = 1
+context = "雨后出了虹，一道挂在东边。虹不能指，指了不吉。
+老百姓都在看，没人敢抬手。
+可老农看的不是虹：虹出来了，就说明往后雨要多了
+——屋顶得修，沟得挖。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([4])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

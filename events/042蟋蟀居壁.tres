@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://vVMxtN6iX8g"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "看虫不看日子——虫进了壁，才按暑天行事。这一年暑气当至而至。"
+meet_gua = Array[int]([5, 3])
+belief_feedback = 0
+air_feedback = 3
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 2
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只是议论了几天天时，该做的照旧做了。"
+belief_feedback = 0
+air_feedback = 1
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "天一直不热，还按老日子下种。到了秋后，穗还青着。"
+meet_gua = Array[int]([1, 2])
+belief_feedback = 0
+air_feedback = -2
+earth_feedback = -4
+people_feedback = -3
+animal_feedback = -3
+grain_feedback = -10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 43
+sequence_id = "42"
+display_name = "蟋蟀居壁"
+time_consume = 1
+context = "这个月的头一个候是\"温风至\"——这时候刮来的风，没有一丝是凉的。
+蟋蟀也躲进了墙缝里避暑。
+老农看天，看的是虫，不是日子。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([10])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"
