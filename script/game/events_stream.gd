@@ -132,10 +132,16 @@ func EPupdateEventText(
 			
 			event_stream_text.append_text(NEW_LINE+context_[i])
 			
+		event_stream_text.append_text(NEW_LINE+NEW_LINE)
 		#等待
-		timer_text.wait_time=1.8
+		timer_text.wait_time=0.8
 		timer_text.start()
 		await timer_text.timeout
+		for i in range(3):
+			event_stream_text.append_text('. ')
+			timer_text.wait_time=0.8
+			timer_text.start()
+			await timer_text.timeout
 		
 		#结果好坏
 		match this_result_type:
@@ -144,7 +150,7 @@ func EPupdateEventText(
 			ENUMS.ResultType.Bad:color="#ff9b58"
 		color = "[color="+color+"]"
 		
-		event_stream_text.append_text(NEW_LINE+NEW_LINE+NEW_LINE+"·"+color+"结果"+"[/color]"+"·")
+		event_stream_text.append_text(NEW_LINE+NEW_LINE+"·"+color+"结果"+"[/color]"+"·")
 		
 		event_stream_text.append_text(NEW_LINE+server_event_result_text)
 		

@@ -15,6 +15,9 @@ script = ExtResource("1_q8wxn")
 EventStremPage = NodePath("Events_window")
 SacrificePage = NodePath("Sacrifice_window")
 WishPage = NodePath("Wish_window")
+people_value = 100
+animal_value = 100
+grain_value = 200
 
 [node name="Events_window" parent="." unique_id=2064952660 instance=ExtResource("2_vfh2y")]
 
@@ -109,6 +112,7 @@ texture_hover = ExtResource("7_f04th")
 
 [node name="close_warning" type="ColorRect" parent="options" unique_id=1445131355]
 visible = false
+z_index = 2
 anchors_preset = -1
 anchor_right = 0.079
 anchor_bottom = 0.094000004
@@ -186,7 +190,11 @@ text = "GameValues[DEVELOPER]"
 [connection signal="confirm_wish" from="Wish_window" to="." method="clientConfirmWish"]
 [connection signal="go_to_event" from="Wish_window" to="." method="_wish_to_event"]
 [connection signal="go_to_sacrifice" from="Wish_window" to="." method="_wish_to_sacrifice"]
+[connection signal="pressed" from="options/option/selections/saves" to="." method="_on_selections_saves_pressed"]
 [connection signal="pressed" from="options/option/selections/setting" to="." method="_on_open_game_setting"]
 [connection signal="pressed" from="options/option/selections/backToMenu" to="." method="_on_back_to_menu_pressed"]
 [connection signal="pressed" from="options/optionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="options/close_warning/HBoxContainer/save" to="." method="_on_close_warning_save_pressed"]
+[connection signal="pressed" from="options/close_warning/HBoxContainer/cancel" to="." method="_on_cancel_warning_pressed"]
+[connection signal="pressed" from="options/close_warning/HBoxContainer/confirm" to="." method="_on_confirm_back_to_pressed"]
 [connection signal="close_game_setting" from="GameSettingUI" to="." method="_on_close_game_setting"]

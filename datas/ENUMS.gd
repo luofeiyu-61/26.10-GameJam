@@ -102,3 +102,13 @@ static func solarTerm2Text(solar_term:ENUMS.SolarTerm)->String:
 		ENUMS.SolarTerm.XiaoHan:		return "小寒"
 		ENUMS.SolarTerm.DaHan:			return "大寒"
 		_: return "UnknownSoalrPhase"
+
+
+static func qi2Text(spirit:ENUMS.Qi)->String:
+	match spirit:
+		ENUMS.Qi.Balance: return "平衡"
+		ENUMS.Qi.PartYin: return "偏阴"
+		ENUMS.Qi.PartYang: return "偏阳"
+		ENUMS.Qi.FullYin: return "满阴"
+		ENUMS.Qi.FullYang: return "满阳"
+		_: return "UnknownQi"

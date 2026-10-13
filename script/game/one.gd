@@ -10,8 +10,6 @@ extends Node
 @onready var option: Control = $options/option
 
 
-
-
 #游戏变量
 #region 信仰值相关
 var gua_now :ENUMS.Gua=ENUMS.Gua.NONE :					#当前卦象
@@ -243,6 +241,7 @@ func _ready() -> void:
 
 func _process(delta: float) -> void:
 	developrInfo()
+	
 
 #开发者模式
 func developrInfo():
@@ -269,14 +268,27 @@ func developrInfo():
 
 #region 服务端处理游戏操作
 
-#游戏内容首次开始时的初始化 TODO
+#游戏内容首次开始时的初始化
 func firstInitGame():
-	#加载存档 TODO
-	updateGuy()
+	#判定进入游戏时是否带着“选中的存档”（由存档界面 ones_list 设置）
+	var save_path := _consumeSelectedSavePath()
+	if save_path != "":
+		var save_data := _peekSaveTemplate(save_path)
+		if save_data != null and !save_data.is_new_save:
+			#已有游玩数据的存档：读档
+			if load_game(save_path):
+				return
+			print("[WARNING]读档失败，改用默认值开新游戏：%s" % save_path)
+		#新建但尚未游玩的存档：不载入数据，采用本脚本(one.gd)里的默认变量值
+
+	#新游戏 / 新建存档
 	if days == 0.0:
 		lunar_phase_now = 0 as ENUMS.LunarPhase #具体算法已内置到变量的定义环节
 		solar_term_now = int((days+solar_shift)/SOLAR_TERM_TIME)%24 as ENUMS.SolarTerm
 		newEventList(solar_term_now)
+	
+	updateGuy()
+	updateSpirit()
 
 #region 事件流相关
 
@@ -558,6 +570,7 @@ func switch_window_to(window_index: int) -> void:
 			WishPage.updateYao(yao_yin_num,yao_yang_num)
 			WishPage.changeGuaDisplay(gua_now)
 			WishPage.renderLunarPhaseNow(lunar_phase_now)
+			WishPage.updateQi(spirit)
 			print("///切换至”祈愿“界面///")
 		_:
 			pass
@@ -651,6 +664,10 @@ func clientConfirmSacrifice(people_ratio: float, animal_ratio: float, garin_rati
 	sacrifice_bar_value = outcome[4]
 	spawnYaos(outcome[5])
 	
+	updateSpirit()
+	
+	clientPreviewSacrificeResult(people_ratio, animal_ratio, garin_ratio, total_ratio)
+	
 	SacrificePage.renderBars(people_value / float(people_sup)
 		,animal_value / float(animal_sup)
 		,grain_value / float(grain_sup)
@@ -658,7 +675,6 @@ func clientConfirmSacrifice(people_ratio: float, animal_ratio: float, garin_rati
 		,sacrifice_bar_value / float(sacrifice_bar_sup)
 		,outcome[5])
 	
-	clientPreviewSacrificeResult(people_ratio, animal_ratio, garin_ratio, total_ratio)
 
 #Hamming距离
 func popcount(n:int)->int:
@@ -678,6 +694,8 @@ func clientConfirmWish(gua: ENUMS.Gua) -> void:
 	else:
 		print("[WARNIG]祈愿失败，所需爻不够！")
 	
+	updateSpirit()
+	WishPage.updateQi(spirit)
 	WishPage.changeGuaDisplay(gua_now)
 	WishPage.updateYao(yao_yin_num,yao_yang_num)
 
@@ -701,8 +719,12 @@ func _on_close_game_setting() -> void:
 	game_setting_ui.hide()
 
 
-#返回主菜单（无保存）
+#退出游戏警告
 func _on_back_to_menu_pressed() -> void:
+	close_warning.show()
+
+#返回主菜单（无保存）
+func _on_confirm_back_to_pressed() -> void:
 	back_to_main_menu.emit()
 	queue_free()
 
@@ -710,3 +732,255 @@ func _on_back_to_menu_pressed() -> void:
 func _on_option_button_pressed() -> void:
 	if option.visible:option.hide()
 	else:option.show()
+
+
+func _on_cancel_warning_pressed() -> void:
+	close_warning.hide()
+
+
+#endregion
+
+
+#region 存档读写（3.1 存档位置 / 3.3 存档读写）
+#说明：本区只实现存档的读写函数，暂不耦合进游戏主逻辑（如 firstInitGame / anEventHappen）。
+#存档文件：res://saves/save_N.tres，内容为 SaveTemplate 资源。
+
+const SAVE_DIR := "res://saves/"
+
+#存档界面脚本（用于读取它记录下来的“选中存档路径”）
+const OnesListScript := preload("res://script/pages/ones_list.gd")
+
+#取出存档界面选中的待载入存档路径，并清空（避免下次进入游戏时误用旧路径）
+func _consumeSelectedSavePath() -> String:
+	var path:String = OnesListScript.pending_save_path
+	OnesListScript.pending_save_path = ""
+	return path
+
+
+#只看存档里的标志位，不载入游戏（新建存档 / 已有存档 的判定用）
+func _peekSaveTemplate(game_save_file:String) -> SaveTemplate:
+	if !FileAccess.file_exists(game_save_file):
+		return null
+	var data = ResourceLoader.load(game_save_file,"",ResourceLoader.CACHE_MODE_IGNORE)
+	if data == null or !(data is SaveTemplate):
+		return null
+	return data
+
+#把当前游戏状态写入存档文件 game_save_file（完整路径，如 "res://saves/save_1.tres"）
+func save_game(game_save_file:String) -> bool:
+	var save_data := SaveTemplate.new()
+	save_data.is_empty = false
+	save_data.is_new_save = false
+	save_data.slot_index = _slotIndexFromPath(game_save_file)
+	save_data.save_time = SaveTemplate.nowSaveTime()
+
+	#—— 信仰 / 卦象 ——
+	save_data.gua_now = int(gua_now)
+	save_data.lunar_buff_now = int(lunar_buff_now)
+	save_data.belief_value = belief_value
+
+	#—— 天人地 ——
+	save_data.air_value = air_value
+	save_data.earth_value = earth_value
+	save_data.people_value = people_value
+	save_data.animal_value = animal_value
+	save_data.grain_value = grain_value
+
+	#—— 献祭 ——
+	save_data.sacrifice_ratio = sacrifice_ratio.duplicate(true)
+	save_data.sacrifice_bar_value = sacrifice_bar_value
+
+	#—— 阴阳爻 / 气 ——
+	save_data.yao_yin_num = yao_yin_num
+	save_data.yao_yang_num = yao_yang_num
+	save_data.spirit = int(spirit)
+
+	#—— 时间轴 ——
+	#注意：year_now / lunar_phase_now 的 set 会根据 days 重算
+	#     solar_term_now / lunar_phase_now 由函数末尾的 timePassBy(0) 刷新
+	save_data.days = days
+	save_data.year_now = year_now
+	save_data.solar_shift = solar_shift
+	save_data.lunar_shift = lunar_shift
+
+	#—— 事件 ——
+	save_data.event_list = event_list.duplicate()
+	save_data.event_duration_list = event_duration_list.duplicate()
+	save_data.event_history = event_history.duplicate()
+	save_data.event_history_result = _resultTypesToInts(event_history_result)
+	save_data.all_history = all_history.duplicate(true)
+
+	#—— 子界面文本 ——
+	#注意：这里不能用 event_stream_text.text。
+	#     游戏里事件流是用 append_text() 一行行追加的，而 append_text 不会更新 text 属性
+	#     （text 只反映“最后一次被赋值的值”，也就是场景里的占位文本），
+	#     所以必须用 get_parsed_text() 才能取到真正显示出来的那一整段内容。
+	if EventStremPage != null and EventStremPage.event_stream_text != null:
+		save_data.event_stream_text = EventStremPage.event_stream_text.get_parsed_text()
+
+	_ensureSaveDir()
+	var err := ResourceSaver.save(save_data, game_save_file)
+	if err != OK:
+		print("[ERROR]存档写入失败：%s (err=%d)" % [game_save_file, err])
+		return false
+	print("///已保存至 %s///" % game_save_file)
+	return true
+
+
+#从存档文件 game_save_file 读取并载入游戏状态
+func load_game(game_save_file:String) -> bool:
+	if !FileAccess.file_exists(game_save_file):
+		print("[WARNING]存档不存在：%s" % game_save_file)
+		return false
+	#CACHE_MODE_IGNORE：绕开资源缓存，保证读到的是磁盘上最新的存档
+	var save_data = ResourceLoader.load(game_save_file,"",ResourceLoader.CACHE_MODE_IGNORE)
+	if save_data == null or !(save_data is SaveTemplate):
+		print("[ERROR]存档损坏或类型不符：%s" % game_save_file)
+		return false
+
+	#—— 时间轴 ——
+	#注意：solar_term_now / lunar_phase_now 不存盘，由函数末尾的 timePassBy(0) 刷新
+	solar_shift = save_data.solar_shift
+	lunar_shift = save_data.lunar_shift
+	days = save_data.days
+	year_now = 0
+	#先按 timePassBy 里的同一公式对齐 solar_term_now，
+	#这样末尾的 timePassBy(0) 不会因“节气变化”而重建事件列表（那会冲掉读到的 event_list）
+	solar_term_now = int((days+solar_shift)/SOLAR_TERM_TIME)%24 as ENUMS.SolarTerm
+
+	#—— 阴阳爻 / 气 ——
+	#注意：spirit 的 set 会根据阴阳爻数量重算，直接赋值即可
+	yao_yin_num = save_data.yao_yin_num
+	yao_yang_num = save_data.yao_yang_num
+	spirit = 0 as ENUMS.Qi
+
+	#—— 天人地 ——
+	#先设人小值，“人”由 updateGuy() 重算
+	people_value = save_data.people_value
+	animal_value = save_data.animal_value
+	grain_value = save_data.grain_value
+	updateGuy()
+	air_value = save_data.air_value
+	earth_value = save_data.earth_value
+
+	#—— 献祭 ——
+	#注意：sacrifice_ratio 是 Dictionary[String,float]，逐键赋值以免类型不符
+	sacrifice_ratio["people_ratio"] = save_data.sacrifice_ratio.get("people_ratio", 0.0)
+	sacrifice_ratio["animal_ratio"] = save_data.sacrifice_ratio.get("animal_ratio", 0.0)
+	sacrifice_ratio["grain_ratio"] = save_data.sacrifice_ratio.get("grain_ratio", 0.0)
+	sacrifice_ratio["total_ratio"] = save_data.sacrifice_ratio.get("total_ratio", 0.0)
+	sacrifice_bar_value = save_data.sacrifice_bar_value
+
+	#—— 信仰 / 卦象 ——
+	#注意：belief_value 的 set 在 <=0 时会清空卦象，故先设 belief 再设卦象
+	belief_value = save_data.belief_value
+	gua_now = save_data.gua_now as ENUMS.Gua
+	lunar_buff_now = save_data.lunar_buff_now as ENUMS.LunarPhase
+
+	#—— 事件 ——
+	event_list = save_data.event_list.duplicate()
+	event_duration_list = save_data.event_duration_list.duplicate()
+	event_history = save_data.event_history.duplicate()
+	event_history_result = _intsToResultTypes(save_data.event_history_result)
+	all_history = save_data.all_history.duplicate(true)
+
+	#—— 子界面文本 ——
+	#给 text 整体赋值会清空并替换事件流内部缓冲，正好用来还原
+	if EventStremPage != null and EventStremPage.event_stream_text != null:
+		EventStremPage.event_stream_text.text = save_data.event_stream_text
+
+	#刷新时间轴派生量（solar_term_now / lunar_phase_now）
+	timePassBy(0)
+
+	refreshAllDisplay()
+	print("///已读取存档 %s///" % game_save_file)
+	return true
+
+
+#刷新所有界面显示（载入存档后调用）
+func refreshAllDisplay() -> void:
+	EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
+	EventStremPage.EPupdateValues(
+				air_value/ float(air_sup)
+				,guy_value/ float(guy_sup)
+				,earth_value/ float(earth_sup)
+				,people_value/ float(people_sup)
+				,animal_value/ float(animal_sup)
+				,grain_value/ float(grain_sup)
+				)
+	EventStremPage.EPupdateTimeLine(days,solar_term_now,lunar_phase_now,year_now)
+
+
+#存档目录不存在时创建
+func _ensureSaveDir() -> void:
+	DirAccess.make_dir_recursive_absolute(SAVE_DIR)
+
+
+#从存档路径解析存档位编号（res://saves/save_3.tres -> 3），解析失败返回 -1
+func _slotIndexFromPath(game_save_file:String) -> int:
+	var num_text := ""
+	for ch in game_save_file.get_file():
+		if ch >= "0" and ch <= "9":
+			num_text += ch
+	if num_text.is_valid_int():
+		return num_text.to_int()
+	return -1
+
+
+#ENUMS.ResultType 数组 -> int 数组（写入存档用）
+func _resultTypesToInts(results:Array) -> Array[int]:
+	var out:Array[int]
+	for r in results:
+		out.append(int(r))
+	return out
+
+
+#int 数组 -> ENUMS.ResultType 数组（读取存档用）
+func _intsToResultTypes(values:Array) -> Array[ENUMS.ResultType]:
+	var out:Array[ENUMS.ResultType]
+	for v in values:
+		out.append(int(v) as ENUMS.ResultType)
+	return out
+
+#endregion
+
+#region 存档界面（游戏内入口 1.3 / 出口 1.4）
+
+#游戏内存档界面实例
+var _save_window:Node = null
+
+#打开存档界面（游戏内入口）：把它加入场景树；不隐藏、不改动游戏内容
+func openSaveWindow() -> void:
+	if _save_window != null and is_instance_valid(_save_window):
+		return
+	var save_window = preload("res://scenes/pages/ones_list.tscn").instantiate()
+	save_window.is_from_game = true
+	save_window.connect("request_load_game",Callable(self,"_on_save_window_load_game"))
+	save_window.connect("request_save_game",Callable(self,"_on_save_window_save_game"))
+	add_child(save_window)
+	_save_window = save_window
+	print("///打开存档界面（游戏内）///")
+
+
+#存档界面请求“加载存档”
+func _on_save_window_load_game(save_path:String) -> void:
+	load_game(save_path)
+
+
+#存档界面请求“保存存档”
+func _on_save_window_save_game(save_path:String) -> void:
+	save_game(save_path)
+
+
+#按键：options/option/selections/saves（游戏内入口）
+func _on_selections_saves_pressed() -> void:
+	option.hide()
+	openSaveWindow()
+
+
+#按键：options/close_warning/HBoxContainer/save（游戏内入口）
+func _on_close_warning_save_pressed() -> void:
+	close_warning.hide()
+	openSaveWindow()
+
+#endregion

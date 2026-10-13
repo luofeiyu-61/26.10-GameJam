@@ -53,10 +53,10 @@ func renderPreviewBars(pre_people,pre_animal,pre_grain,pre_guy,sacrifice_value,n
 
 #接受的是百分比
 func renderBars(people_,animal_,grain_,guy_,sacrifice_value,new_yao_num):
-	guy.set_value_no_signal(people_*guy.max_value)
-	people.set_value_no_signal(animal_*people.max_value)
-	animal.set_value_no_signal(grain_*animal.max_value)
-	grain.set_value_no_signal(guy_*grain.max_value)
+	guy.set_value_no_signal(guy_*guy.max_value)
+	people.set_value_no_signal(people_*people.max_value)
+	animal.set_value_no_signal(animal_*animal.max_value)
+	grain.set_value_no_signal(grain_*grain.max_value)
 	sacrifice_bar.set_value_no_signal(sacrifice_value*sacrifice_bar.max_value)
 
 

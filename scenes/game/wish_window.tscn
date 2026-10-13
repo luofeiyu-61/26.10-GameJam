@@ -116,6 +116,14 @@ offset_right = 199.0
 offset_bottom = 148.0
 color = Color(0.48, 0.48, 0.48, 1)
 
+[node name="spirit" type="Label" parent="spirit/status" unique_id=1592883699]
+layout_mode = 0
+offset_left = 31.0
+offset_top = 37.0
+offset_right = 71.0
+offset_bottom = 60.0
+scale = Vector2(2, 2)
+
 [node name="Yao" type="ColorRect" parent="spirit" unique_id=1534217998]
 layout_mode = 0
 offset_left = 27.0
@@ -213,6 +221,33 @@ offset_top = 27.0
 offset_right = -93.0
 offset_bottom = 74.0
 color = Color(0.39181867, 0.39181864, 0.39181864, 1)
+
+[node name="GuaCheckBt" type="TextureButton" parent="effects/GuaCheckList" unique_id=646831575]
+layout_mode = 0
+offset_left = 4.0
+offset_right = 26.0
+offset_bottom = 22.0
+scale = Vector2(2, 2)
+texture_normal = ExtResource("3_tdq8v")
+texture_pressed = ExtResource("4_h2it5")
+texture_hover = ExtResource("5_jeqaf")
+
+[node name="CheckListForGua" type="ColorRect" parent="effects/GuaCheckList" unique_id=144678851]
+z_index = 1
+layout_mode = 0
+offset_left = -133.0
+offset_top = -458.0
+offset_right = 1019.0
+offset_bottom = 190.0
+color = Color(0.13, 0.13, 0.13, 0.5411765)
+
+[node name="list" type="ColorRect" parent="effects/GuaCheckList/CheckListForGua" unique_id=1272140347]
+layout_mode = 0
+offset_left = 240.0
+offset_top = 88.0
+offset_right = 912.0
+offset_bottom = 510.0
+color = Color(0.3118496, 0.31184962, 0.3118496, 1)
 
 [node name="lunarPhaseNow" type="ColorRect" parent="effects" unique_id=1675785275]
 layout_mode = 0

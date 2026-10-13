@@ -8,6 +8,9 @@ class_name ClientWishPage
 
 @onready var lunar_phase_now: Label = $effects/lunarPhaseNow/lunarPhase
 
+@onready var spirit: Label = $spirit/status/spirit
+
+
 
 var temp_gua:ENUMS.Gua
 
@@ -46,7 +49,8 @@ func updateYao(yin:int,yang:int):
 	yin_label.text="阴爻:%d"%yin
 	yang_label.text="阳爻:%d"%yang
 
-
+func updateQi(spirit_now):
+	spirit.text=ENUMS.qi2Text(spirit_now)
 
 #TODO
 func confirmWish():
