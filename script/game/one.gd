@@ -6,6 +6,11 @@ extends Node
 @export var WishPage:ClientWishPage
 
 @onready var game_setting_ui: CanvasLayer = $GameSettingUI
+@onready var close_warning: ColorRect = $options/close_warning
+@onready var option: Control = $options/option
+
+
+
 
 #游戏变量
 #region 信仰值相关
@@ -233,6 +238,7 @@ signal back_to_main_menu
 #游戏首次开始时
 func _ready() -> void:
 	firstInitGame()
+	uiInit()
 	switch_window_to(0)
 
 func _process(delta: float) -> void:
@@ -263,7 +269,7 @@ func developrInfo():
 
 #region 服务端处理游戏操作
 
-#游戏首次开始时的初始化 TODO
+#游戏内容首次开始时的初始化 TODO
 func firstInitGame():
 	#加载存档 TODO
 	updateGuy()
@@ -503,10 +509,7 @@ func updateSpirit():
 
 #endregion
 
-#返回主菜单（无保存）
-func _on_back_to_menu_pressed() -> void:
-	back_to_main_menu.emit()
-	queue_free()
+
 
 
 #region 主窗口管理：事件流 / 祭祀 / 祈愿 三个子界面的切换，以及返回主菜单信号。
@@ -678,9 +681,32 @@ func clientConfirmWish(gua: ENUMS.Gua) -> void:
 	WishPage.changeGuaDisplay(gua_now)
 	WishPage.updateYao(yao_yin_num,yao_yang_num)
 
+#endregion
 
-func _on_open_options_pressed() -> void:
+
+#region 一些按键
+
+func uiInit():
+	option.hide()
+	close_warning.hide()
+	game_setting_ui.hide()
+
+
+
+#打开游戏设置
+func _on_open_game_setting() -> void:
 	game_setting_ui.show()
-
+#关闭游戏设置
 func _on_close_game_setting() -> void:
 	game_setting_ui.hide()
+
+
+#返回主菜单（无保存）
+func _on_back_to_menu_pressed() -> void:
+	back_to_main_menu.emit()
+	queue_free()
+
+#打开/关上选项卡
+func _on_option_button_pressed() -> void:
+	if option.visible:option.hide()
+	else:option.show()

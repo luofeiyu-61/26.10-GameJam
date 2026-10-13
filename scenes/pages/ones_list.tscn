@@ -73,28 +73,28 @@ offset_top = 40.0
 offset_right = 501.0
 offset_bottom = 325.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=910649759]
+[node name="saves" type="VBoxContainer" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=910649759]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 1.21
 alignment = 1
 
-[node name="save01" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=2146593033]
+[node name="save01" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/saves" unique_id=2146593033]
 layout_mode = 2
 size_flags_vertical = 6
 text = "存档_1"
 
-[node name="save02" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=724855643]
+[node name="save02" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/saves" unique_id=724855643]
 layout_mode = 2
 size_flags_vertical = 6
 text = "存档_2"
 
-[node name="save03" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=324863163]
+[node name="save03" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/saves" unique_id=324863163]
 layout_mode = 2
 size_flags_vertical = 6
 text = "存档_3"
 
-[node name="save04" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=1113886696]
+[node name="save04" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/saves" unique_id=1113886696]
 layout_mode = 2
 size_flags_vertical = 6
 text = "存档_4"
@@ -104,35 +104,39 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 0.17
 
-[node name="ColorRect" type="ColorRect" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=839175380]
+[node name="operations" type="ColorRect" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=839175380]
 layout_mode = 2
 size_flags_horizontal = 3
 color = Color(0.63375676, 0.6337568, 0.63375676, 1)
 
-[node name="VBoxContainer" type="VBoxContainer" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect" unique_id=1428375977]
+[node name="VBoxContainer" type="VBoxContainer" parent="OnesContainer/ColorRect/HBoxContainer/operations" unique_id=1428375977]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 131.0
 offset_right = 157.0
 offset_bottom = 260.0
 
-[node name="new" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect/VBoxContainer" unique_id=2001660906]
+[node name="new" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer" unique_id=2001660906]
 visible = false
 layout_mode = 2
 size_flags_vertical = 6
 text = "新建"
 
-[node name="continue" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect/VBoxContainer" unique_id=1256901854]
+[node name="load" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer" unique_id=1256901854]
 layout_mode = 2
 size_flags_vertical = 6
-text = "继续"
+text = "加载"
 
-[node name="delete" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect/VBoxContainer" unique_id=1772713750]
+[node name="save" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer" unique_id=750855789]
+layout_mode = 2
+text = "保存"
+
+[node name="delete" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer" unique_id=1772713750]
 layout_mode = 2
 size_flags_vertical = 6
 text = "删除"
 
-[node name="saveName" type="Label" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect" unique_id=562646482]
+[node name="saveName" type="Label" parent="OnesContainer/ColorRect/HBoxContainer/operations" unique_id=562646482]
 layout_mode = 0
 offset_left = 57.0
 offset_top = 32.0
