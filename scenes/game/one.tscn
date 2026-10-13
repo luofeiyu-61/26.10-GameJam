@@ -15,9 +15,6 @@ script = ExtResource("1_q8wxn")
 EventStremPage = NodePath("Events_window")
 SacrificePage = NodePath("Sacrifice_window")
 WishPage = NodePath("Wish_window")
-people_value = 100
-animal_value = 80
-grain_value = 200
 
 [node name="Events_window" parent="." unique_id=2064952660 instance=ExtResource("2_vfh2y")]
 
