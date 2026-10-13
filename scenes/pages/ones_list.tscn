@@ -11,10 +11,10 @@ layer = 3
 script = ExtResource("1_2wrn1")
 
 [node name="testBt" type="TextureButton" parent="." unique_id=2095864355]
-offset_left = 565.0
-offset_top = 313.0
-offset_right = 587.0
-offset_bottom = 335.0
+offset_left = 944.0
+offset_top = 499.0
+offset_right = 966.0
+offset_bottom = 521.0
 size_flags_horizontal = 10
 offset_transform_enabled = true
 offset_transform_scale = Vector2(2, 2)
@@ -57,6 +57,91 @@ text = "返回"
 [node name="OnesContainer" type="Control" parent="." unique_id=2007432558]
 layout_mode = 3
 anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="OnesContainer" unique_id=1531841097]
+layout_mode = 0
+offset_left = 296.0
+offset_top = 146.0
+offset_right = 843.0
+offset_bottom = 505.0
+color = Color(0.25808161, 0.25808161, 0.25808161, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="OnesContainer/ColorRect" unique_id=63182574]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 40.0
+offset_right = 501.0
+offset_bottom = 325.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=910649759]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.21
+alignment = 1
+
+[node name="save01" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=2146593033]
+layout_mode = 2
+size_flags_vertical = 6
+text = "存档_1"
+
+[node name="save02" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=724855643]
+layout_mode = 2
+size_flags_vertical = 6
+text = "存档_2"
+
+[node name="save03" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=324863163]
+layout_mode = 2
+size_flags_vertical = 6
+text = "存档_3"
+
+[node name="save04" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/VBoxContainer" unique_id=1113886696]
+layout_mode = 2
+size_flags_vertical = 6
+text = "存档_4"
+
+[node name="MarginContainer" type="MarginContainer" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=1743446259]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.17
+
+[node name="ColorRect" type="ColorRect" parent="OnesContainer/ColorRect/HBoxContainer" unique_id=839175380]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0.63375676, 0.6337568, 0.63375676, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect" unique_id=1428375977]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 131.0
+offset_right = 157.0
+offset_bottom = 260.0
+
+[node name="new" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect/VBoxContainer" unique_id=2001660906]
+visible = false
+layout_mode = 2
+size_flags_vertical = 6
+text = "新建"
+
+[node name="continue" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect/VBoxContainer" unique_id=1256901854]
+layout_mode = 2
+size_flags_vertical = 6
+text = "继续"
+
+[node name="delete" type="Button" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect/VBoxContainer" unique_id=1772713750]
+layout_mode = 2
+size_flags_vertical = 6
+text = "删除"
+
+[node name="saveName" type="Label" parent="OnesContainer/ColorRect/HBoxContainer/ColorRect" unique_id=562646482]
+layout_mode = 0
+offset_left = 57.0
+offset_top = 32.0
+offset_right = 117.0
+offset_bottom = 60.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 10
+theme_override_font_sizes/font_size = 20
+text = "存档_0"
 
 [connection signal="pressed" from="testBt" to="." method="_open_one"]
 [connection signal="pressed" from="CloseListBt" to="." method="closeOnesList"]
