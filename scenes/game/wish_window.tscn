@@ -233,6 +233,7 @@ texture_pressed = ExtResource("4_h2it5")
 texture_hover = ExtResource("5_jeqaf")
 
 [node name="CheckListForGua" type="ColorRect" parent="effects/GuaCheckList" unique_id=144678851]
+visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -133.0
@@ -248,6 +249,16 @@ offset_top = 88.0
 offset_right = 912.0
 offset_bottom = 510.0
 color = Color(0.3118496, 0.31184962, 0.3118496, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="effects/GuaCheckList/CheckListForGua/list" unique_id=1001831927]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 85.0
+offset_right = 646.0
+offset_bottom = 387.0
+
+[node name="000" type="HBoxContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=374335897]
+layout_mode = 2
 
 [node name="lunarPhaseNow" type="ColorRect" parent="effects" unique_id=1675785275]
 layout_mode = 0
