@@ -571,6 +571,7 @@ func switch_window_to(window_index: int) -> void:
 			WishPage.changeGuaDisplay(gua_now)
 			WishPage.renderLunarPhaseNow(lunar_phase_now)
 			WishPage.updateQi(spirit)
+			WishPage.initYaosAtSpirit(yao_yang_num,yao_yin_num,yao_num_sup)
 			print("///切换至”祈愿“界面///")
 		_:
 			pass
@@ -695,6 +696,7 @@ func clientConfirmWish(gua: ENUMS.Gua) -> void:
 		print("[WARNIG]祈愿失败，所需爻不够！")
 	
 	updateSpirit()
+	WishPage.initYaosAtSpirit(yao_yang_num,yao_yin_num,yao_num_sup)
 	WishPage.updateQi(spirit)
 	WishPage.changeGuaDisplay(gua_now)
 	WishPage.updateYao(yao_yin_num,yao_yang_num)

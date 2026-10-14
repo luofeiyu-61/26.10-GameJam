@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://5acc3qd5xbyc"]
+
+[ext_resource type="Script" uid="uid://dmvabdahlbgoj" path="res://script/wish/yao.gd" id="1_vh08e"]
+[ext_resource type="Texture2D" uid="uid://fncvvp2bu454" path="res://assets/wish/yao_yang.png" id="2_j4e52"]
+[ext_resource type="Texture2D" uid="uid://cf521gtgl0ke0" path="res://assets/wish/yao_yin.png" id="3_c0dhr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3xd07"]
+radius = 7.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_j4e52")
+}],
+"loop": 0,
+"name": &"yang",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_c0dhr")
+}],
+"loop": 0,
+"name": &"yin",
+"speed": 5.0
+}]
+
+[node name="Yao" type="CharacterBody2D" unique_id=209738047]
+script = ExtResource("1_vh08e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1908749831]
+visible = false
+shape = SubResource("CircleShape2D_3xd07")
+disabled = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1622619656]
+scale = Vector2(0.3, 0.3)
+sprite_frames = SubResource("SpriteFrames_3xd07")
+animation = &"yang"
+
+[node name="Line2D" type="Line2D" parent="." unique_id=77781535]
