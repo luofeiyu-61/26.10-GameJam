@@ -66,7 +66,7 @@ class_name SaveTemplate
 
 
 #region 子界面状态
-@export_multiline var event_stream_text:String = ""		#事件流富文本（events_stream.gd 的 event_stream_text.text）
+@export_multiline var event_stream_text:String = ""		#事件流富文本原文（带 BBCode 标签，来自 events_stream.gd 的 getEventText()）
 #endregion
 
 

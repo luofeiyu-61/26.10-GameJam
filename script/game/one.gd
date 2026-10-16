@@ -270,6 +270,11 @@ func developrInfo():
 
 #游戏内容首次开始时的初始化
 func firstInitGame():
+	#留一份「全新开局」的状态快照（此刻场景里的值还没被任何读档 / 游玩改动过）。
+	#游戏内加载空白存档时要用它把游戏恢复成全新开局。
+	if _fresh_snapshot == null:
+		_fresh_snapshot = _collectSaveTemplate()
+
 	#判定进入游戏时是否带着“选中的存档”（由存档界面 ones_list 设置）
 	var save_path := _consumeSelectedSavePath()
 	if save_path != "":
@@ -696,6 +701,7 @@ func clientConfirmWish(gua: ENUMS.Gua) -> void:
 		print("[WARNIG]祈愿失败，所需爻不够！")
 	
 	updateSpirit()
+	WishPage.endYaosAll()
 	WishPage.initYaosAtSpirit(yao_yang_num,yao_yin_num,yao_num_sup)
 	WishPage.updateQi(spirit)
 	WishPage.changeGuaDisplay(gua_now)
@@ -752,6 +758,11 @@ const SAVE_DIR := "res://saves/"
 #存档界面脚本（用于读取它记录下来的“选中存档路径”）
 const OnesListScript := preload("res://script/pages/ones_list.gd")
 
+#「全新开局」的状态快照：firstInitGame 一进来就抓一份（那时场景里的值还没被改过）。
+#用途：游戏内加载一个「新建但还没游玩过」的空白存档时，要把游戏恢复成全新开局；
+#     而那时场景初始值早被玩过一轮改掉了，所以必须先留一份。
+var _fresh_snapshot: SaveTemplate = null
+
 #取出存档界面选中的待载入存档路径，并清空（避免下次进入游戏时误用旧路径）
 func _consumeSelectedSavePath() -> String:
 	var path:String = OnesListScript.pending_save_path
@@ -768,12 +779,12 @@ func _peekSaveTemplate(game_save_file:String) -> SaveTemplate:
 		return null
 	return data
 
-#把当前游戏状态写入存档文件 game_save_file（完整路径，如 "res://saves/save_1.tres"）
-func save_game(game_save_file:String) -> bool:
+#把「当前游戏状态」收进一个 SaveTemplate（不写盘）。
+#save_game 与 firstInitGame 开头的「全新开局快照」都用它 —— 以后新增存档字段只要改这一处。
+func _collectSaveTemplate() -> SaveTemplate:
 	var save_data := SaveTemplate.new()
 	save_data.is_empty = false
 	save_data.is_new_save = false
-	save_data.slot_index = _slotIndexFromPath(game_save_file)
 	save_data.save_time = SaveTemplate.nowSaveTime()
 
 	#—— 信仰 / 卦象 ——
@@ -813,12 +824,21 @@ func save_game(game_save_file:String) -> bool:
 	save_data.all_history = all_history.duplicate(true)
 
 	#—— 子界面文本 ——
-	#注意：这里不能用 event_stream_text.text。
-	#     游戏里事件流是用 append_text() 一行行追加的，而 append_text 不会更新 text 属性
-	#     （text 只反映“最后一次被赋值的值”，也就是场景里的占位文本），
-	#     所以必须用 get_parsed_text() 才能取到真正显示出来的那一整段内容。
-	if EventStremPage != null and EventStremPage.event_stream_text != null:
-		save_data.event_stream_text = EventStremPage.event_stream_text.get_parsed_text()
+	#注意：必须取事件流的「原始 BBCode 镜像」getEventText()：
+	#     · 不能用 text 属性——append_text() 不更新它（它只反映最后一次被赋的值）；
+	#     · 也不能用 get_parsed_text()——它会把 [color=...] 标签全部剥掉，
+	#       读档时就没颜色可还原了（这正是之前颜色丢失的原因）。
+	#     镜像由 events_stream.gd 的 appendEventText() 维护，存的是带标签的原文。
+	if EventStremPage != null:
+		save_data.event_stream_text = EventStremPage.getEventText()
+
+	return save_data
+
+
+#把当前游戏状态写入存档文件 game_save_file（完整路径，如 "res://saves/save_1.tres"）
+func save_game(game_save_file:String) -> bool:
+	var save_data := _collectSaveTemplate()
+	save_data.slot_index = _slotIndexFromPath(game_save_file)
 
 	_ensureSaveDir()
 	var err := ResourceSaver.save(save_data, game_save_file)
@@ -839,6 +859,15 @@ func load_game(game_save_file:String) -> bool:
 	if save_data == null or !(save_data is SaveTemplate):
 		print("[ERROR]存档损坏或类型不符：%s" % game_save_file)
 		return false
+
+	#「新建但还没游玩过」的空白存档：SaveTemplate 只是数据容器，里面的游戏变量全是 0，
+	#直接套上去会把当前游戏清空 —— 这就是游戏内读空白存档失败的根因。
+	#正确语义：读这种存档 = 开一局全新的游戏 → 把数据源换成「全新开局快照」。
+	var fresh_start:bool = save_data.is_new_save
+	if fresh_start:
+		if _fresh_snapshot == null:
+			_fresh_snapshot = _collectSaveTemplate()
+		save_data = _fresh_snapshot
 
 	#—— 时间轴 ——
 	#注意：solar_term_now / lunar_phase_now 不存盘，由函数末尾的 timePassBy(0) 刷新
@@ -887,15 +916,33 @@ func load_game(game_save_file:String) -> bool:
 	all_history = save_data.all_history.duplicate(true)
 
 	#—— 子界面文本 ——
-	#给 text 整体赋值会清空并替换事件流内部缓冲，正好用来还原
-	if EventStremPage != null and EventStremPage.event_stream_text != null:
-		EventStremPage.event_stream_text.text = save_data.event_stream_text
+	#setEventText() 内部给 text 整体赋值（清空并替换内部缓冲）并按 bbcode 重新解析，
+	#配合场景里 texts 节点的 bbcode_enabled = true，[color=...] 颜色即可还原
+	if EventStremPage != null:
+		EventStremPage.setEventText(save_data.event_stream_text)
 
 	#刷新时间轴派生量（solar_term_now / lunar_phase_now）
 	timePassBy(0)
 
+	#全新开局：快照抓的是「场景初始值」，那会儿 event_list 还是空的，
+	#所以要按当前节气重新生成一份事件列表（与 firstInitGame 的「新游戏」分支保持一致）
+	if fresh_start:
+		if days == 0.0:
+			lunar_phase_now = 0 as ENUMS.LunarPhase
+			solar_term_now = int((days+solar_shift)/SOLAR_TERM_TIME)%24 as ENUMS.SolarTerm
+			newEventList(solar_term_now)
+		updateGuy()
+		updateSpirit()
+
 	refreshAllDisplay()
-	print("///已读取存档 %s///" % game_save_file)
+	#按“当前所在的界面”再整屏重画一次：
+	#玩家可能在祭祀/祈愿界面里读档，只刷新事件流界面（refreshAllDisplay）不够，
+	#当前界面上残留的还是读档前的旧数据。
+	switch_window_to(_currentWindowIndex())
+	if fresh_start:
+		print("///已读取存档 %s（空白存档 → 按全新开局处理）///" % game_save_file)
+	else:
+		print("///已读取存档 %s///" % game_save_file)
 	return true
 
 
@@ -911,6 +958,16 @@ func refreshAllDisplay() -> void:
 				,grain_value/ float(grain_sup)
 				)
 	EventStremPage.EPupdateTimeLine(days,solar_term_now,lunar_phase_now,year_now)
+
+
+#当前显示的是哪个子界面（0=事件流, 1=祭祀, 2=祈愿）
+#由三个页面的 visible 反推：switch_window_to() 每次都保证恰好只有一个为 true
+func _currentWindowIndex() -> int:
+	if SacrificePage != null and SacrificePage.visible:
+		return 1
+	if WishPage != null and WishPage.visible:
+		return 2
+	return 0
 
 
 #存档目录不存在时创建

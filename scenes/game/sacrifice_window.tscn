@@ -299,6 +299,11 @@ offset_right = -3.0
 offset_bottom = 23.0
 text = "确认献祭"
 
+[node name="YaoContainer" type="Control" parent="." unique_id=1493089998]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/Total" to="." method="_on_total_value_changed"]
 [connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/people" to="." method="_on_people_value_changed"]
 [connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/animal" to="." method="_on_animal_value_changed"]

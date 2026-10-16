@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://ckifigikb1vl6" path="res://script/pages/game_setting.gd" id="1_wl78f"]
 
 [node name="GameSettingUI" type="CanvasLayer" unique_id=612859518]
-layer = 3
+layer = 5
 script = ExtResource("1_wl78f")
 
 [node name="CenterContainer" type="CenterContainer" parent="." unique_id=1692171966]

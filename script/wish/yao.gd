@@ -7,11 +7,12 @@ class_name YaoBall
 
 @export var max_points: int = 20        # 拖尾长度（点数）
 @export var point_distance: float = 3.0  # 每移动多少像素记录一个点
-@export var teleport_threshold: float = 200.0  # 超过这个距离视为瞬移，清空拖尾
+@export var teleport_threshold: float = 100.0  # 超过这个距离视为瞬移，清空拖尾
 @export var trail_width: float = 12.0   # 拖尾宽度
 
 var _last_point_pos: Vector2
 
+#阴还是阳
 @export var yao:bool=true
 
 var color_:=Color(1, 1, 1, 0.8)

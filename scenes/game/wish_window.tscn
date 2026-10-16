@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dskgnhh6o13wa"]
 
 [ext_resource type="Script" path="res://script/game/wish_window.gd" id="1_2k7n0"]
-[ext_resource type="Texture2D" uid="uid://cnooylcvutelr" path="res://assets/map_background.png" id="2_ymro0"]
 [ext_resource type="Texture2D" uid="uid://nq3fnqbi6wxi" path="res://assets/charas/white/c111.png" id="3_h2it5"]
 [ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="3_tdq8v"]
 [ext_resource type="Texture2D" uid="uid://sa043fqpqtgt" path="res://assets/charas/white/c110.png" id="4_b7108"]
@@ -15,6 +14,13 @@
 [ext_resource type="Texture2D" uid="uid://b0p2a6jprrupi" path="res://assets/charas/white/c001.png" id="9_l7wo1"]
 [ext_resource type="Texture2D" uid="uid://2d4uivr10j13" path="res://assets/charas/white/c000.png" id="10_lbqry"]
 [ext_resource type="Texture2D" uid="uid://ch7mbwgomc312" path="res://assets/charas/white/charas.png" id="11_7n1lx"]
+[ext_resource type="Texture2D" uid="uid://ctvhvhtjwunbw" path="res://assets/charas/white/a0.png" id="11_tjnyx"]
+[ext_resource type="Texture2D" uid="uid://crvnvb4js4kc3" path="res://assets/charas/white/b00.png" id="12_nc4ka"]
+[ext_resource type="Texture2D" uid="uid://b22jmwe0eysdp" path="res://assets/charas/white/b01.png" id="13_kcyo6"]
+[ext_resource type="Texture2D" uid="uid://bgflt8g63biex" path="res://assets/charas/white/a1.png" id="14_ybofx"]
+[ext_resource type="Texture2D" uid="uid://ct6fb24fq2s58" path="res://assets/charas/white/b10.png" id="15_cymdv"]
+[ext_resource type="PackedScene" uid="uid://bjpvxxuqpbgq3" path="res://scenes/sprites/wish_circle.tscn" id="16_1osp7"]
+[ext_resource type="Texture2D" uid="uid://c1gf2jmp3juiy" path="res://assets/charas/white/b11.png" id="16_i6min"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1osp7"]
 atlas = ExtResource("11_7n1lx")
@@ -22,6 +28,22 @@ region = Rect2(49, 0, 7, 7)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_b7108"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_tjnyx")
+}],
+"loop": 0,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_nc4ka")
+}],
+"loop": 0,
+"name": &"00",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": ExtResource("10_lbqry")
@@ -36,6 +58,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"001",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_kcyo6")
+}],
+"loop": 0,
+"name": &"01",
 "speed": 5.0
 }, {
 "frames": [{
@@ -56,6 +86,22 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": ExtResource("14_ybofx")
+}],
+"loop": 0,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_cymdv")
+}],
+"loop": 0,
+"name": &"10",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": ExtResource("6_1osp7")
 }],
 "loop": 1,
@@ -68,6 +114,14 @@ animations = [{
 }],
 "loop": 1,
 "name": &"101",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_i6min")
+}],
+"loop": 0,
+"name": &"11",
 "speed": 5.0
 }, {
 "frames": [{
@@ -90,7 +144,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_1osp7")
 }],
-"loop": 1,
+"loop": 0,
 "name": &"none",
 "speed": 20.0
 }]
@@ -157,40 +211,6 @@ offset_right = 747.0
 offset_bottom = 406.0
 color = Color(0.19, 0.19, 0.19, 1)
 
-[node name="GuaMenuButton" type="MenuButton" parent="WishWindow" unique_id=1957067638]
-layout_mode = 0
-offset_right = 124.0
-offset_bottom = 117.0
-text = "选择卦象"
-icon = ExtResource("2_ymro0")
-icon_alignment = 1
-vertical_icon_alignment = 0
-item_count = 8
-popup/item_0/text = "乾"
-popup/item_0/icon = ExtResource("3_h2it5")
-popup/item_0/id = 0
-popup/item_1/text = "兑"
-popup/item_1/icon = ExtResource("4_b7108")
-popup/item_1/id = 1
-popup/item_2/text = "离"
-popup/item_2/icon = ExtResource("5_7n1lx")
-popup/item_2/id = 2
-popup/item_3/text = "震"
-popup/item_3/icon = ExtResource("6_1osp7")
-popup/item_3/id = 3
-popup/item_4/text = "巽"
-popup/item_4/icon = ExtResource("7_10d4y")
-popup/item_4/id = 4
-popup/item_5/text = "坎"
-popup/item_5/icon = ExtResource("8_a60t7")
-popup/item_5/id = 5
-popup/item_6/text = "艮"
-popup/item_6/icon = ExtResource("9_l7wo1")
-popup/item_6/id = 6
-popup/item_7/text = "坤"
-popup/item_7/icon = ExtResource("10_lbqry")
-popup/item_7/id = 7
-
 [node name="effects" type="ColorRect" parent="." unique_id=1608423907]
 layout_mode = 0
 offset_left = 276.0
@@ -214,6 +234,7 @@ sprite_frames = SubResource("SpriteFrames_b7108")
 animation = &"none"
 
 [node name="GuaCheckList" type="ColorRect" parent="effects" unique_id=1325861442]
+z_index = 2
 layout_mode = 0
 offset_left = -143.0
 offset_top = 27.0
@@ -667,8 +688,13 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
+[node name="WishCircle" parent="." unique_id=85456516 instance=ExtResource("16_1osp7")]
+position = Vector2(420, 226)
+scale = Vector2(0.3, 0.3)
+
 [connection signal="pressed" from="effects/GuaCheckList/GuaCheckBt" to="." method="_on_gua_check_bt_pressed"]
 [connection signal="pressed" from="effects/GuaCheckList/CheckListForGua/list/closeBt" to="." method="_on_close_bt_pressed"]
 [connection signal="pressed" from="operations/sacrifice" to="." method="_on_sacrifice_pressed"]
 [connection signal="pressed" from="operations/eventstream" to="." method="_on_eventstream_pressed"]
 [connection signal="pressed" from="operations/savewish" to="." method="confirmWish"]
+[connection signal="nao_gua_sprite_change" from="WishCircle" to="." method="_on_wish_circle_nao_gua_sprite_change"]

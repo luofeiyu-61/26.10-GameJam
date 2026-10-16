@@ -26,6 +26,7 @@ visible = false
 
 [node name="Wish_window" parent="." unique_id=647853954 instance=ExtResource("4_jc0xx")]
 visible = false
+circle_scale = null
 
 [node name="options" type="CanvasLayer" parent="." unique_id=1163264075]
 layer = 2
@@ -112,7 +113,7 @@ texture_hover = ExtResource("7_f04th")
 
 [node name="close_warning" type="ColorRect" parent="options" unique_id=1445131355]
 visible = false
-z_index = 2
+z_index = 4
 anchors_preset = -1
 anchor_right = 0.079
 anchor_bottom = 0.094000004
@@ -121,6 +122,14 @@ offset_top = 212.0
 offset_right = 639.992
 offset_bottom = 377.088
 color = Color(0.35906908, 0.35906908, 0.35906908, 1)
+
+[node name="ColorRect" type="ColorRect" parent="options/close_warning" unique_id=1807539576]
+layout_mode = 0
+offset_left = -356.0
+offset_top = -212.0
+offset_right = 796.0
+offset_bottom = 436.0
+color = Color(0, 0, 0, 0.28235295)
 
 [node name="warning" type="Label" parent="options/close_warning" unique_id=166934464]
 layout_mode = 0

@@ -12,6 +12,37 @@ signal next_event
 @export var debug_event: String = "[some event context]"
 const NEW_LINE: String = "\n"
 
+#事件流的「原始 BBCode 镜像」。
+#RichTextLabel 没有任何接口能取回 append_text() 追加进去的带标签原文：
+#  · text 属性只反映「最后一次被赋值」的内容，append_text() 不更新它；
+#  · get_parsed_text() 会把 [color=...] 之类的标签全部剥掉。
+#所以这里自己留一份原文，存档/读档都走它，颜色标签才不会丢。
+var event_text_log: String = ""
+
+
+func _ready() -> void:
+	#场景里的初始占位文本也记进镜像，否则没触发过事件时存档会存成空串
+	if event_stream_text != null:
+		event_text_log = event_stream_text.text
+
+
+#追加事件流文本（事件流里所有追加都应走这里，不要直接调 event_stream_text.append_text）
+func appendEventText(bbcode: String) -> void:
+	event_text_log += bbcode
+	event_stream_text.append_text(bbcode)
+
+
+#取事件流原始 BBCode 原文（存档用）
+func getEventText() -> String:
+	return event_text_log
+
+
+#设置事件流原文（读档用）：整体赋值会清空缓冲并按 bbcode 重新解析，颜色即可还原
+func setEventText(bbcode: String) -> void:
+	event_text_log = bbcode
+	event_stream_text.text = bbcode
+
+
 @onready var gua_sprite: AnimatedSprite2D = $"BeliefBar/1/Gua"
 @onready var belief_bar_sprite: TextureProgressBar = $"BeliefBar/1"
 @onready var lunar_buff: Label = $"BeliefBar/1/lunarBuff"
@@ -70,18 +101,10 @@ func EPupdateTimeLine(
 	server_lunar_phase:ENUMS.LunarPhase,
 	server_years:int
 	):
-	#debug
-	print("server_day"+str(server_day))
-	print("server_solar_term"+str(server_solar_term))
-	print("server_lunar_phase"+str(server_lunar_phase))
-	print("server_years"+str(server_years))
-	
-	
 	days.text="游戏天数："+str(server_day)
 	solar.text="节气："+"\n"+ENUMS.solarTerm2Text(server_solar_term)
 	lunar.text="月相："+"\n"+ENUMS.lunarPhase2Text(server_lunar_phase)
-	
-	
+
 #更新事件流文本
 func EPupdateEventText(
 	server_event_name:String,
@@ -108,7 +131,7 @@ func EPupdateEventText(
 				split_line="*"+split_line+"*"
 				event_level_="[故事]"
 		
-		event_stream_text.append_text(NEW_LINE+NEW_LINE+NEW_LINE+NEW_LINE+split_line)
+		appendEventText(NEW_LINE+NEW_LINE+NEW_LINE+NEW_LINE+split_line)
 		
 		#事件好坏：好、普通、坏
 		var color :String
@@ -118,7 +141,7 @@ func EPupdateEventText(
 			ENUMS.EventType.Bad:color="#ff6044"
 		
 		color = "[color="+color+"]"
-		event_stream_text.append_text(NEW_LINE+NEW_LINE+event_level_+"	"+ color+server_event_name+"[/color]")
+		appendEventText(NEW_LINE+NEW_LINE+event_level_+"	"+ color+server_event_name+"[/color]")
 		
 		#播放故事内容
 		next_button.disabled = true
@@ -130,15 +153,15 @@ func EPupdateEventText(
 			timer_text.start()
 			await timer_text.timeout
 			
-			event_stream_text.append_text(NEW_LINE+context_[i])
+			appendEventText(NEW_LINE+context_[i])
 			
-		event_stream_text.append_text(NEW_LINE+NEW_LINE)
+		appendEventText(NEW_LINE+NEW_LINE)
 		#等待
 		timer_text.wait_time=0.8
 		timer_text.start()
 		await timer_text.timeout
 		for i in range(3):
-			event_stream_text.append_text('. ')
+			appendEventText('. ')
 			timer_text.wait_time=0.8
 			timer_text.start()
 			await timer_text.timeout
@@ -150,14 +173,14 @@ func EPupdateEventText(
 			ENUMS.ResultType.Bad:color="#ff9b58"
 		color = "[color="+color+"]"
 		
-		event_stream_text.append_text(NEW_LINE+NEW_LINE+"·"+color+"结果"+"[/color]"+"·")
+		appendEventText(NEW_LINE+NEW_LINE+"·"+color+"结果"+"[/color]"+"·")
 		
-		event_stream_text.append_text(NEW_LINE+server_event_result_text)
+		appendEventText(NEW_LINE+server_event_result_text)
 		
 		next_button.disabled = false
 	else:
-		event_stream_text.append_text(NEW_LINE+server_event_text)
-		event_stream_text.append_text(NEW_LINE+server_event_result_text)
+		appendEventText(NEW_LINE+server_event_text)
+		appendEventText(NEW_LINE+server_event_result_text)
 
 #endregion
 

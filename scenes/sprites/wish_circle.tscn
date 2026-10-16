@@ -1,0 +1,303 @@
+[gd_scene format=3 uid="uid://bjpvxxuqpbgq3"]
+
+[ext_resource type="Script" uid="uid://w7lgt587gnja" path="res://script/wish/wish_circle.gd" id="1_n821r"]
+[ext_resource type="Texture2D" uid="uid://o8b55ogydspm" path="res://assets/wish/yu_yin.png" id="1_x25uy"]
+[ext_resource type="Texture2D" uid="uid://6racxepqru8o" path="res://assets/wish/taiji_yin.png" id="2_550mq"]
+[ext_resource type="Texture2D" uid="uid://b3sxus0adcpdr" path="res://assets/wish/yu_yang.png" id="3_l23wi"]
+[ext_resource type="Texture2D" uid="uid://cbp7osecibrh6" path="res://assets/wish/taiji_yang.png" id="4_0shlh"]
+[ext_resource type="Texture2D" uid="uid://md2tbdhikimt" path="res://assets/wish/taiji.png" id="5_qm1al"]
+[ext_resource type="Texture2D" uid="uid://c1gf2jmp3juiy" path="res://assets/charas/white/b11.png" id="6_cu558"]
+[ext_resource type="Texture2D" uid="uid://ct6fb24fq2s58" path="res://assets/charas/white/b10.png" id="7_n821r"]
+[ext_resource type="Texture2D" uid="uid://crvnvb4js4kc3" path="res://assets/charas/white/b00.png" id="8_1gap7"]
+[ext_resource type="Texture2D" uid="uid://b22jmwe0eysdp" path="res://assets/charas/white/b01.png" id="9_bp6co"]
+[ext_resource type="Texture2D" uid="uid://nq3fnqbi6wxi" path="res://assets/charas/white/c111.png" id="10_alrjt"]
+[ext_resource type="Texture2D" uid="uid://bsmkp5q0qu5ta" path="res://assets/charas/white/c011.png" id="11_pq1ap"]
+[ext_resource type="Texture2D" uid="uid://dosds5aqkogmf" path="res://assets/charas/white/c010.png" id="12_1bdjj"]
+[ext_resource type="Texture2D" uid="uid://b0p2a6jprrupi" path="res://assets/charas/white/c001.png" id="13_xa3ai"]
+[ext_resource type="Texture2D" uid="uid://2d4uivr10j13" path="res://assets/charas/white/c000.png" id="14_tvu3i"]
+[ext_resource type="Texture2D" uid="uid://bmmtnc5tr5flh" path="res://assets/charas/white/c100.png" id="15_jk0ew"]
+[ext_resource type="Texture2D" uid="uid://bmer7psvfk68b" path="res://assets/charas/white/c101.png" id="16_a3fg0"]
+[ext_resource type="Texture2D" uid="uid://sa043fqpqtgt" path="res://assets/charas/white/c110.png" id="17_wfbjb"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3xd07"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_x25uy")
+}],
+"loop": 0,
+"name": &"0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_550mq")
+}],
+"loop": 1,
+"name": &"0x",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_l23wi")
+}],
+"loop": 0,
+"name": &"1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_0shlh")
+}],
+"loop": 1,
+"name": &"1x",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_qm1al")
+}],
+"loop": 0,
+"name": &"xxx",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j0ogg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("6_cu558")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t7n2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_n821r")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dwbtc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("8_1gap7")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h83rl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_bp6co")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cdwd0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_alrjt")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jcwe0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("11_pq1ap")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6wlo2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("12_1bdjj")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_l80ik"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("13_xa3ai")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r6xyq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("14_tvu3i")
+}],
+"loop": 0,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y0oaw"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("15_jk0ew")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p477x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("16_a3fg0")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5b1ar"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("17_wfbjb")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="WishCircle" type="Node2D" unique_id=85456516]
+script = ExtResource("1_n821r")
+
+[node name="line_taiji_xiang" type="Line2D" parent="." unique_id=771000001]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 6.0
+default_color = Color(0.917647, 0.85098, 0.627451, 0.5)
+antialiased = true
+
+[node name="line_xiang_gua" type="Line2D" parent="." unique_id=771000002]
+visible = false
+points = PackedVector2Array(0, 0, 0, 0)
+width = 6.0
+default_color = Color(0.917647, 0.85098, 0.627451, 0.5)
+antialiased = true
+
+[node name="circle_xiang" type="Polygon2D" parent="." unique_id=771000003]
+visible = false
+color = Color(0.917647, 0.85098, 0.627451, 0.5)
+polygon = PackedVector2Array(40, 0, 39.231, 7.804, 36.955, 15.307, 33.259, 22.223, 28.284, 28.284, 22.223, 33.259, 15.307, 36.955, 7.804, 39.231, 0, 40, -7.804, 39.231, -15.307, 36.955, -22.223, 33.259, -28.284, 28.284, -33.259, 22.223, -36.955, 15.307, -39.231, 7.804, -40, 0, -39.231, -7.804, -36.955, -15.307, -33.259, -22.223, -28.284, -28.284, -22.223, -33.259, -15.307, -36.955, -7.804, -39.231, 0, -40, 7.804, -39.231, 15.307, -36.955, 22.223, -33.259, 28.284, -28.284, 33.259, -22.223, 36.955, -15.307, 39.231, -7.804)
+
+[node name="circle_gua" type="Polygon2D" parent="." unique_id=771000004]
+visible = false
+color = Color(0.917647, 0.85098, 0.627451, 0.5)
+polygon = PackedVector2Array(40, 0, 39.231, 7.804, 36.955, 15.307, 33.259, 22.223, 28.284, 28.284, 22.223, 33.259, 15.307, 36.955, 7.804, 39.231, 0, 40, -7.804, 39.231, -15.307, 36.955, -22.223, 33.259, -28.284, 28.284, -33.259, 22.223, -36.955, 15.307, -39.231, 7.804, -40, 0, -39.231, -7.804, -36.955, -15.307, -33.259, -22.223, -28.284, -28.284, -22.223, -33.259, -15.307, -36.955, -7.804, -39.231, 0, -40, 7.804, -39.231, 15.307, -36.955, 22.223, -33.259, 28.284, -28.284, 33.259, -22.223, 36.955, -15.307, 39.231, -7.804)
+
+[node name="taiji" type="AnimatedSprite2D" parent="." unique_id=802487075]
+z_index = 1
+sprite_frames = SubResource("SpriteFrames_3xd07")
+animation = &"xxx"
+
+[node name="SiXiang" type="Node2D" parent="." unique_id=923988855]
+z_index = 1
+
+[node name="11" type="AnimatedSprite2D" parent="SiXiang" unique_id=664592845]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_j0ogg")
+offset = Vector2(0, -17)
+
+[node name="10" type="AnimatedSprite2D" parent="SiXiang" unique_id=104435420]
+rotation = 1.5707964
+scale = Vector2(9.999999, 9.999999)
+sprite_frames = SubResource("SpriteFrames_t7n2i")
+offset = Vector2(0, -17)
+
+[node name="00" type="AnimatedSprite2D" parent="SiXiang" unique_id=639286818]
+rotation = 3.1415927
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_dwbtc")
+offset = Vector2(0, -17)
+
+[node name="01" type="AnimatedSprite2D" parent="SiXiang" unique_id=639836004]
+rotation = 4.712389
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_h83rl")
+offset = Vector2(0, -17)
+
+[node name="BaGua" type="Node2D" parent="." unique_id=586215655]
+z_index = 1
+
+[node name="111" type="AnimatedSprite2D" parent="BaGua" unique_id=102775535]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_cdwd0")
+offset = Vector2(0, -50)
+
+[node name="011" type="AnimatedSprite2D" parent="BaGua" unique_id=630967089]
+rotation = 0.7853982
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_jcwe0")
+offset = Vector2(0, -50)
+
+[node name="010" type="AnimatedSprite2D" parent="BaGua" unique_id=1840679676]
+rotation = 1.5707964
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_6wlo2")
+offset = Vector2(0, -50)
+
+[node name="001" type="AnimatedSprite2D" parent="BaGua" unique_id=1755034909]
+rotation = 2.3561945
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_l80ik")
+offset = Vector2(0, -50)
+
+[node name="000" type="AnimatedSprite2D" parent="BaGua" unique_id=1097469873]
+rotation = 3.1415927
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_r6xyq")
+offset = Vector2(0, -50)
+
+[node name="100" type="AnimatedSprite2D" parent="BaGua" unique_id=1694849121]
+rotation = 3.9269907
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_y0oaw")
+offset = Vector2(0, -50)
+
+[node name="101" type="AnimatedSprite2D" parent="BaGua" unique_id=1643159403]
+rotation = 4.712389
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_p477x")
+offset = Vector2(0, -50)
+
+[node name="110" type="AnimatedSprite2D" parent="BaGua" unique_id=463762316]
+rotation = 5.497787
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_5b1ar")
+offset = Vector2(0, -50)

@@ -153,17 +153,14 @@ func _refreshOperations() -> void:
 
 #region 对当前选中存档的操作
 #2.3.2 新建存档
+#主菜单 / 游戏内**语义一致**：都只新建一个「尚未游玩」的空白存档
+#（is_new_save = true，不写任何游戏数据）—— 要保存当前进度请用「保存」按钮。
+#新建之后点「加载」就会按全新开局进入（one.gd 的 load_game 会识别 is_new_save，
+#用「全新开局快照」而不是文件里的全 0 数据）。
 func _on_new_pressed() -> void:
 	if selected_slot <= 0:
 		return
 	var path := savePathOf(selected_slot)
-	if is_from_game:
-		#游戏内：把当前游戏数据写进这个空存档位
-		request_save_game.emit(path)
-		refreshSlots()
-		return
-	#主菜单：新建一个“尚未游玩”的存档，停留在本界面；
-	#等玩家点击“加载”后再打开游戏、载入数据
 	var data := SaveTemplate.new()
 	data.slot_index = selected_slot
 	data.is_empty = false
@@ -171,7 +168,9 @@ func _on_new_pressed() -> void:
 	data.save_time = SaveTemplate.nowSaveTime()
 	_ensureSaveDir()
 	ResourceSaver.save(data, path)
-	pending_save_path = path
+	if !is_from_game:
+		#主菜单：记下待载入存档并停留本界面；等玩家点「加载」再打开游戏
+		pending_save_path = path
 	refreshSlots()
 	selectSlot(selected_slot)
 
