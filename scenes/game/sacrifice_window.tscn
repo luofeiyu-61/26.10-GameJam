@@ -187,7 +187,7 @@ offset_bottom = 410.0
 color = Color(0.19, 0.19, 0.19, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="SacrificeWindow" unique_id=1617569024]
-position = Vector2(336.00003, 184.00002)
+position = Vector2(334, 183)
 scale = Vector2(0.49086925, 0.4817708)
 texture = ExtResource("8_k3jht")
 
@@ -237,7 +237,7 @@ offset_bottom = 50.0
 theme_override_font_sizes/font_size = 13
 
 [node name="Sprite2D" type="Sprite2D" parent="SacrificeBar/Qi" unique_id=1145500364]
-position = Vector2(12.999999, 12.999999)
+position = Vector2(12.999999, 8.999999)
 scale = Vector2(0.03, 0.03)
 texture = ExtResource("12_nhwe4")
 

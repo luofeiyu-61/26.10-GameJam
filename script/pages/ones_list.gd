@@ -47,12 +47,14 @@ signal request_save_game(save_path:String)
 @onready var _bt_delete:Button = $OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer/delete
 @onready var _lbl_save_name:Label = $OnesContainer/ColorRect/HBoxContainer/operations/saveName
 
+@onready var warning_page: Control = $OnesContainer/ColorRect/warningPage
 
 func _ready() -> void:
 	_bindSaveSlots()
 	_bindOperationButtons()
 	refreshSlots()
 	selectSlot(1)
+	warning_page.hide()
 
 
 #region 存档位
@@ -96,9 +98,6 @@ func _bindOneSlot(slot:int) -> void:
 #绑定 operations 下的 4 个操作按钮
 func _bindOperationButtons() -> void:
 	_bt_new.pressed.connect(_on_new_pressed)
-	_bt_load.pressed.connect(_on_load_pressed)
-	_bt_save.pressed.connect(_on_save_pressed)
-	_bt_delete.pressed.connect(_on_delete_pressed)
 
 
 #按下存档位：选中它（2.2）
@@ -223,4 +222,33 @@ func _ensureSaveDir() -> void:
 
 #endregion
 
+
+var index__=-1
+#0:save 1:load 2:delete
+func warningMixin():
+	warning_page.hide()
+	match index__:
+		0:_on_save_pressed()
+		1:_on_load_pressed()
+		2:_on_delete_pressed()
+
 #endregion
+
+func load_pressed() -> void:
+	if is_from_game:
+		index__=1
+		warning_page.show()
+	else:
+		_on_load_pressed()
+
+func save_pressed() -> void:
+	index__=0
+	warning_page.show()
+
+func delete_pressed() -> void:
+	index__=2
+	warning_page.show()
+
+func _on_cancel_pressed() -> void:
+	index__=-1
+	warning_page.hide()

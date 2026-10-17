@@ -379,6 +379,7 @@ offset_bottom = 45.0
 text = "日历"
 
 [node name="SolarCalendar" type="Control" parent="Calendar/sun" unique_id=845840662]
+visible = false
 z_index = 1
 anchors_preset = 0
 offset_right = 40.0

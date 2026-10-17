@@ -164,37 +164,60 @@ anchors_preset = 0
 offset_left = 342.0
 offset_top = 300.0
 offset_right = 472.0
-offset_bottom = 300.0
+offset_bottom = 366.0
+
+[node name="ColorRect2" type="ColorRect" parent="OnesContainer/ColorRect/warningPage" unique_id=944994146]
+layout_mode = 0
+offset_left = -342.0
+offset_top = -300.0
+offset_right = 205.0
+offset_bottom = 59.0
+color = Color(0, 0, 0, 0.3137255)
 
 [node name="ColorRect" type="ColorRect" parent="OnesContainer/ColorRect/warningPage" unique_id=1030744264]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -3.1580002
 anchor_right = -3.1580002
-offset_left = 127.54004
-offset_top = 42.0
-offset_right = 547.54004
-offset_bottom = 170.0
+offset_left = 119.54004
+offset_top = 25.0
+offset_right = 539.54004
+offset_bottom = 153.0
 color = Color(0.31, 0.31, 0.31, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="OnesContainer/ColorRect/warningPage/ColorRect" unique_id=607426248]
 layout_mode = 0
-offset_left = 69.0
-offset_top = 71.0
-offset_right = 337.0
-offset_bottom = 111.0
+offset_left = 71.0
+offset_top = 85.0
+offset_right = 339.0
+offset_bottom = 116.0
 
 [node name="confirm" type="Button" parent="OnesContainer/ColorRect/warningPage/ColorRect/HBoxContainer" unique_id=151910773]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-text = "确认"
+text = "  确认  "
 
 [node name="cancel" type="Button" parent="OnesContainer/ColorRect/warningPage/ColorRect/HBoxContainer" unique_id=246895901]
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
-text = "取消"
+text = "  取消  "
+
+[node name="Label" type="Label" parent="OnesContainer/ColorRect/warningPage/ColorRect" unique_id=1811364654]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 17.0
+offset_right = 356.0
+offset_bottom = 66.0
+text = "确认当前操作？ 
+这将会覆盖你选中的存档/当前进行中游戏"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="testBt" to="." method="_open_one"]
 [connection signal="pressed" from="CloseListBt" to="." method="closeOnesList"]
+[connection signal="pressed" from="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer/load" to="." method="load_pressed"]
+[connection signal="pressed" from="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer/save" to="." method="save_pressed"]
+[connection signal="pressed" from="OnesContainer/ColorRect/HBoxContainer/operations/VBoxContainer/delete" to="." method="delete_pressed"]
+[connection signal="pressed" from="OnesContainer/ColorRect/warningPage/ColorRect/HBoxContainer/confirm" to="." method="warningMixin"]
+[connection signal="pressed" from="OnesContainer/ColorRect/warningPage/ColorRect/HBoxContainer/cancel" to="." method="_on_cancel_pressed"]

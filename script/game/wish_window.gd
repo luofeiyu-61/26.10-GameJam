@@ -281,9 +281,9 @@ func _on_close_bt_pressed() -> void:
 	else:check_list_for_gua.show()
 
 
-func _on_wish_circle_nao_gua_sprite_change(gua_: ENUMS.Gua) -> void:
-	if gua_==ENUMS.Gua.NONE:
-		if now_gua_sprite:
+func _on_wish_circle_nao_gua_sprite_change(gua_: String) -> void:
+	if now_gua_sprite:
+		if gua_=="":
 			now_gua_sprite.play("none")
-	else:
-		changeGuaDisplay(gua_)
+		else:
+			now_gua_sprite.play(gua_)

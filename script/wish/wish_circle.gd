@@ -122,7 +122,7 @@ func clearYao():
 	updateSprites()
 
 
-signal nao_gua_sprite_change(gua_:ENUMS.Gua)
+signal nao_gua_sprite_change(gua_:String)
 
 func getPatternsFromYaos()->Array[int]:
 	#gua111, gua011, gua010, gua001, gua000, gua100, gua101, gua110
@@ -136,37 +136,25 @@ func getPatternsFromYaos()->Array[int]:
 			"10":result[1]=1
 			"00":result[1]=2
 			"01":result[1]=3
+	
+	
+	
 	if yaos2gua.size()==3:
-		var gua___:ENUMS.Gua
 		match str(yaos2gua[0])+str(yaos2gua[1])+str(yaos2gua[2]):
-			"111":
-				result[2]=0
-				gua___=ENUMS.Gua.Qian
-			"011":
-				result[2]=1
-				gua___=ENUMS.Gua.Xun
-			"010":
-				result[2]=2
-				gua___=ENUMS.Gua.Kan
-			"001":
-				result[2]=3
-				gua___=ENUMS.Gua.Gen
-			"000":
-				result[2]=4
-				gua___=ENUMS.Gua.Kun
-			"100":
-				result[2]=5
-				gua___=ENUMS.Gua.Zhen
-			"101":
-				result[2]=6
-				gua___=ENUMS.Gua.Li
-			"110":
-				result[2]=7
-				gua___=ENUMS.Gua.Dui
+			"111":result[2]=0
+			"011":result[2]=1
+			"010":result[2]=2
+			"001":result[2]=3
+			"000":result[2]=4
+			"100":result[2]=5
+			"101":result[2]=6
+			"110":result[2]=7
 				
-		nao_gua_sprite_change.emit(gua___)
-	else:
-		nao_gua_sprite_change.emit(ENUMS.Gua.NONE)
+	var sprite__:String=""
+	for i in range(yaos2gua.size()):
+		sprite__=sprite__+str(yaos2gua[i])
+	nao_gua_sprite_change.emit(sprite__)
+	
 	
 	return result
 

@@ -492,14 +492,17 @@ func updateScrificeValue(sacrifice_value:int)->Array:
 func spawnYaos(num:int):
 	#当生成的爻大于上线了之后直接没了。（偷懒嘻嘻
 	var temp = yao_num_sup-yao_yang_num-yao_yin_num
-	if num*2>temp:
+
+	if num*2 > temp:
 		print("[WARNING]你承载不了过多的爻！多余的阴阳爻已消散！")
 	else:
 		temp = num
 	
-	yao_yang_num+=temp
-	yao_yin_num+=temp
-	
+	@warning_ignore("integer_division")
+	yao_yang_num+=temp/2
+	@warning_ignore("integer_division")
+	yao_yin_num+=temp/2
+
 	
 
 
