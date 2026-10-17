@@ -75,14 +75,15 @@ func save_settings():
 	config.set_value("Settings","window_size_index",window_size_index)
 	config.set_value("Settings","develop_mode",develop_mode)
 	config.set_value("Settings","is_fullscreen",is_fullscreen)
-	config.save("user://settings.cfg")
+	#编辑器里写 user://settings.cfg，导出版写 exe 同目录的 settings.cfg（绿色版，不碰 C 盘）
+	config.save(GamePaths.settingsFile())
 	
 	print("save settings!")
 
 
 func load_settings():
 	var config = ConfigFile.new()
-	var result = config.load("user://settings.cfg")
+	var result = config.load(GamePaths.settingsFile())
 	if result == OK:#加载参数
 		Master_volumn = config.get_value("Settings","Master_volumn")
 		BGM_volumn = config.get_value("Settings","BGM_volumn")

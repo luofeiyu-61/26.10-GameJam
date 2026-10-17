@@ -809,9 +809,10 @@ func _on_cancel_warning_pressed() -> void:
 
 #region 存档读写（3.1 存档位置 / 3.3 存档读写）
 #说明：本区只实现存档的读写函数，暂不耦合进游戏主逻辑（如 firstInitGame / anEventHappen）。
-#存档文件：res://saves/save_N.tres，内容为 SaveTemplate 资源。
+#存档文件：<存档目录>/save_N.tres，内容为 SaveTemplate 资源。
+#存档目录由 GamePaths 决定：编辑器里是 res://saves/，导出成 exe 后是 exe 同目录的 saves/（绿色版，不写 C 盘）。
 
-const SAVE_DIR := "res://saves/"
+static var SAVE_DIR: String = GamePaths.saveDir()
 
 #存档界面脚本（用于读取它记录下来的“选中存档路径”）
 const OnesListScript := preload("res://script/pages/ones_list.gd")

@@ -21,7 +21,8 @@ func _open_one() -> void:
 #region 存档系统（2.2 存档位 / 2.3 存档详细 / 3.1 存档位置 / 3.4 入口标志）
 
 #存档目录与文件名（3.1）
-const SAVE_DIR := "res://saves/"
+#目录由 GamePaths 决定：编辑器里 res://saves/，导出版是 exe 同目录的 saves/（绿色版，不写 C 盘）
+static var SAVE_DIR: String = GamePaths.saveDir()
 const SAVE_FILE_FORMAT := "save_%d.tres"
 const SAVE_SLOT_COUNT := 4
 
