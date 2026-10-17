@@ -134,12 +134,17 @@ func initYaosAtSpirit(yang_yao:int,yin_yao:int,max_yao_num:int):
 	#初始化爻列表
 	for i in range(yang_yao+yin_yao):
 		yao_list[i] = yao_scene.instantiate() as YaoBall
+		yao_list[i].global_position=spirit_center+Vector2.RIGHT*300
 		yao_container.add_child(yao_list[i])
 		yao_list[i].setYao(true if i < yang_yao else false)
 
 #卸载爻球
 func endYaosAll():
 	yao_in_wish_list=[-1,-1,-1]
+	wish_circle__.clearYao()
+	for i in range(yao_pairs.size()):
+		yao_pairs[i].yang_ball=-1
+		yao_pairs[i].yin_ball=-1
 	for i in range(yao_list.size()):
 		if !yao_list[i]:continue
 		yao_list[i].queue_free()
@@ -237,14 +242,24 @@ func confirmWish():
 			"110":temp_gua= ENUMS.Gua.Dui
 			"111":temp_gua= ENUMS.Gua.Qian
 		
-	for i in range(yao_in_wish_list.size()):
-		yao_list[yao_in_wish_list[i]].queue_free()
-		yao_list[yao_in_wish_list[i]]=null
-		wish_circle__.delYao(yao_in_wish_list[i])
-		yao_in_wish_list[i]=-1
-	
-	
-	confirm_wish.emit(temp_gua)
+		
+			
+		
+		for i in range(yao_in_wish_list.size()):
+			for j in range(yao_pairs.size()):
+				if yao_pairs[j].yang_ball==yao_in_wish_list[i]:
+					yao_pairs[j].yang_ball=-1
+					break
+				elif yao_pairs[j].yin_ball==yao_in_wish_list[i]:
+					yao_pairs[j].yin_ball=-1
+					break
+			yao_list[yao_in_wish_list[i]].queue_free()
+			yao_list[yao_in_wish_list[i]]=null
+			wish_circle__.delYao(yao_in_wish_list[i])
+			yao_in_wish_list[i]=-1
+		
+		
+		confirm_wish.emit(temp_gua)
 
 
 func _on_sacrifice_pressed() -> void:

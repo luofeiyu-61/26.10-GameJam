@@ -44,10 +44,10 @@ func renderPreviewBars(pre_people,pre_animal,pre_grain,pre_guy,sacrifice_value,n
 	animal_pre.set_value_no_signal(pre_animal*animal_pre.max_value)
 	grain_pre.set_value_no_signal(pre_grain*grain_pre.max_value)
 	if new_yao_num == 0:
-		sacrifice_bar_pre.set_value_no_signal(sacrifice_value*sacrifice_bar_pre.max_value)
+		temp_bar_pre_value=sacrifice_value*sacrifice_bar_pre.max_value
 		yao_pre_num.text=""
 	else:
-		sacrifice_bar_pre.set_value_no_signal(sacrifice_bar_pre.max_value)
+		temp_bar_pre_value=sacrifice_bar_pre.max_value
 		yao_pre_num.text="+%d"%new_yao_num
 
 
@@ -60,7 +60,8 @@ func renderPreviewBars(pre_people,pre_animal,pre_grain,pre_guy,sacrifice_value,n
 #  · guy / people / animal / grain：指数插值，从当前值平滑推到最终值，
 #    可增可减、与帧率无关；半路再次 renderBars 会直接换目标、从当前位置继续。
 #  · sacrifice_bar：
-#    - new_yao_num > 0：先线性「充满」n 次（每次 0 → max_value，充满即归零重来），
+#    - new_yao_num > 0：线性「充满」n 次 —— 第 1 次是「当前值 → max」，
+#      第 2 次起是「0 → max」（充满即归零重来）；
 #      最后一次再用 smoothstep 从 0 平滑落到 sacrifice_value。
 #    - new_yao_num = 0：不充能，跟其它四条一样 —— 从**旧值**平滑变到新值。
 #============================================================
@@ -97,6 +98,9 @@ var _sb_seg_end: float = 0.0
 var _sb_seg_time: float = 0.0
 var _sb_t: float = 0.0
 var _sb_hold_left: float = 0.0      #段末满格的停留剩余时间
+#第一次「充满」是否从当前显示值起跑（而不是先归零）：
+#new_yao_num > 0 时，第 1 次是「当前值 → max」，第 2 次起才是「0 → max」
+var _sb_first_charge_from_current: bool = false
 
 #动画是否激活：renderBars 打开；全部到位后自动关掉，免得空转或跟外部改值打架
 var _bars_active: bool = false
@@ -122,6 +126,9 @@ func renderBars(people_,animal_,grain_,guy_,sacrifice_value,new_yao_num):
 	_sb_charge_left = maxi(int(new_yao_num), 0)
 	_sb_hold_left = 0.0
 	_sb_running = _sb_charge_left > 0
+	_sb_first_charge_from_current = _sb_running
+
+	redrawSacrificePreBar()
 	if _sb_running:
 		_beginSacrificeSegment(sacrifice_value)
 
@@ -192,16 +199,20 @@ func _process(delta: float) -> void:
 	_advance_yao_animations(delta)
 
 
-#开始 sacrifice_bar 的下一段：还有次数就跑 0→max_value，否则跑最后的 0→sacrifice_value
-#注意：每段都从 0 起跑（充满后归零再充下一次），这是「一次次充能」的观感来源
+#开始 sacrifice_bar 的下一段：还有次数就跑 max_value，否则跑最后的 0→sacrifice_value
+#起跑点：
+#  · 第 1 次「充满」= 当前显示值 → max（不先归零，接得上画面）
+#  · 第 2 次起的「充满」和最后那段 = 0 起跑（充满后归零再充，是「一次次充能」的观感来源）
 func _beginSacrificeSegment(sacrifice_value: float) -> void:
 	_sb_t = 0.0
-	_sb_seg_start = 0.0
 	_sb_final_phase = _sb_charge_left <= 0
 	if _sb_final_phase:
+		_sb_seg_start = 0.0
 		_sb_seg_end = sacrifice_value * sacrifice_bar.max_value
 		_sb_seg_time = maxf(sacrifice_fill_time, 0.0)
 	else:
+		_sb_seg_start = _v_sacrifice if _sb_first_charge_from_current else 0.0
+		_sb_first_charge_from_current = false
 		_sb_seg_end = sacrifice_bar.max_value
 		_sb_seg_time = maxf(yao_charge_time, 0.0)
 	_setSacrificeBar(_sb_seg_start)
@@ -370,19 +381,29 @@ func _on_confirmsacrifice_pressed() -> void:
 
 
 #调整比例滑条时实时计算预览结果
+@onready var bar_pre: TextureProgressBar = $SacrificeBar/BarPre
+var temp_bar_pre_value
+
+func redrawSacrificePreBar():
+	if $RatioSetWindow/SacrificeRatio/Total.value==0:sacrifice_bar_pre.set_value_no_signal(0)
+	else:sacrifice_bar_pre.set_value_no_signal(temp_bar_pre_value)
 
 func _on_total_value_changed(value: float) -> void:
 	total_ratio=value/100.0
+	redrawSacrificePreBar()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 
 func _on_people_value_changed(value: float) -> void:
 	people_ratio=value/100.0
+	redrawSacrificePreBar()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 
 func _on_animal_value_changed(value: float) -> void:
 	animal_ratio=value/100.0
+	redrawSacrificePreBar()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 
 func _on_grain_value_changed(value: float) -> void:
 	garin_ratio=value/100.0
+	redrawSacrificePreBar()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)

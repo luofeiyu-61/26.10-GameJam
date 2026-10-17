@@ -7,71 +7,25 @@ script = ExtResource("1_y5cjd")
 slot_index = 2
 is_empty = false
 is_new_save = false
-save_time = "2026/10/15
-16:20"
-gua_now = 3
-belief_value = 60
-air_value = 41
-earth_value = 41
-people_value = 21
-animal_value = 17
-grain_value = 41
+save_time = "2026/10/17
+11:46"
+gua_now = 8
+lunar_buff_now = 8
+belief_value = 30
+air_value = 40
+earth_value = 40
+people_value = 25
+animal_value = 34
+grain_value = 54
 sacrifice_ratio = Dictionary[String, float]({
-"animal_ratio": 1.0,
-"grain_ratio": 1.0,
+"animal_ratio": 0.76,
+"grain_ratio": 0.97,
 "people_ratio": 1.0,
-"total_ratio": 0.81
+"total_ratio": 0.75
 })
-sacrifice_bar_value = 7
+sacrifice_bar_value = 66
 yao_yin_num = 2
-yao_yang_num = 1
-spirit = -1
-days = 6.428571428571429
-event_list = Array[int]([20, 6])
-event_duration_list = Array[float]([2.142857142857143, 6.428571428571428])
-event_history = Array[int]([8, 19, 15])
-event_history_result = Array[int]([1, 0, 1])
-all_history = {
-"Year0": {
-"SolarTerm0": [[8, 1], [19, 0], [15, 1]]
-}
-}
-event_stream_text = "按下“下一事件”开始...
-
-
-
-|--------新事件---------|
-
-[琐碎]	孩童嬉戏
-部族孩童在村中玩耍，不慎引发小火苗。
-
-. . . 
-
-·结果·
-百姓控制火势，略有损失。
-
-
-
-|--------新事件---------|
-
-[琐碎]	班春行庆
-立春要\"行庆施惠\"——给老人发布帛，给孤儿和老人发粮食，恩惠一直下到百姓头上。
-可府库就这么些：发得越广，存粮越少；发得不均，反而招怨。
-
-. . . 
-
-·结果·
-布帛粮食一路发到乡野，老人孩子都拿到手。还没开春，人心先暖了。
-
-
-
-|--------新事件---------|
-
-[琐碎]	[color=#aeff9a]来归[/color]
-开春了。去年逃出去的人里，有十几个回来了——在外面熬不过冬，
-听说这边还发得出粮。守门的不敢放：收下就是十几张嘴；赶走，往后就没人敢来投了。
-
-. . . 
-
-·[color=#efffdd]结果[/color]·
-收了一半，另一半给点干粮打发走。"
+yao_yang_num = 2
+event_list = Array[int]([6, 15, 20, 19, 8])
+event_duration_list = Array[float]([6.428571428571428, 2.142857142857143, 2.142857142857143, 2.142857142857143, 2.142857142857143])
+event_stream_text = "按下“下一事件”开始..."

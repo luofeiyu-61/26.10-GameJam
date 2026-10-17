@@ -938,6 +938,7 @@ func load_game(game_save_file:String) -> bool:
 	#按“当前所在的界面”再整屏重画一次：
 	#玩家可能在祭祀/祈愿界面里读档，只刷新事件流界面（refreshAllDisplay）不够，
 	#当前界面上残留的还是读档前的旧数据。
+	WishPage.endYaosAll()
 	switch_window_to(_currentWindowIndex())
 	if fresh_start:
 		print("///已读取存档 %s（空白存档 → 按全新开局处理）///" % game_save_file)

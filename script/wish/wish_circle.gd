@@ -116,6 +116,11 @@ func delYao(index:int):
 		yaos.erase(index)
 		updateSprites()
 
+func clearYao():
+	yaos2gua.clear()
+	yaos.clear()
+	updateSprites()
+
 
 signal nao_gua_sprite_change(gua_:ENUMS.Gua)
 
