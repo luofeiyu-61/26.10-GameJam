@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://pxxarwQq/wk"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://11ryqcy8gq0"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "趁暑气还没到最盛，宽了刑、添了粮。这个月牢里没死人。"
 meet_gua = Array[int]([3, 0])
-belief_feedback = 0
+belief_feedback = 4
 air_feedback = 4
 earth_feedback = 2
 people_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "添了一点，只添了国邑那一处牢。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = 2
 earth_feedback = 1
 people_feedback = -2
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "没添。暑天牢里死了人，还跑了一个。"
 meet_gua = Array[int]([2, 1])
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = -4
 earth_feedback = -3
 people_feedback = -4
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 38
+id = 39
 sequence_id = "37"
 display_name = "挺重囚·益其食"
 time_consume = 2

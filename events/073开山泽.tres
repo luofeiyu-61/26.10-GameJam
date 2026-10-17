@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://4ay0ydad2g4"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "划出几片山泽限时开放，派野虞跟着教规矩——只取成熟的、不取幼的，不砍活树；
+其余照旧封着。这个冬有人靠山泽活了下来，明年山泽还在。"
+meet_gua = Array[int]([1, 6])
+belief_feedback = 5
+air_feedback = 5
+earth_feedback = 3
+people_feedback = 4
+animal_feedback = 2
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "不禁山泽，只「不诘」：田里剩下的、跑散的牲口，谁拿都不追问；
+山泽照旧封着。零碎的拾走了，真正缺粮的还是缺。"
+belief_feedback = -3
+air_feedback = 3
+earth_feedback = -2
+people_feedback = -2
+animal_feedback = -2
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "全放开，也不派人教。
+一冬下来山场被砍秃了，猎物也跑远了；来年春天连柴都不够砍。"
+meet_gua = Array[int]([4, 0])
+belief_feedback = -6
+air_feedback = -3
+earth_feedback = -5
+people_feedback = -3
+animal_feedback = -3
+grain_feedback = 15
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 76
+sequence_id = "73"
+display_name = "开山泽"
+time_consume = 2
+context = "这个月有两条令：一条是山泽里的蔬食禽兽，能取的，让野虞教着去取；
+一条是田里没收净的、牛马跑散了的，谁取走都不追问。
+粮是进了仓，可不够撑到开春的人家还有不少。
+搜山取田，是开是禁。"
+event_level = 1
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([20])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -57,7 +57,18 @@ static func gua2Binary(gua:ENUMS.Gua)->String:
 		ENUMS.Gua.NONE:	return "none"
 		_:return "UnknownGua"
 
-
+static func gua2Text (gua:ENUMS.Gua)->String:
+	match gua:
+		ENUMS.Gua.Kun:	return "坤"
+		ENUMS.Gua.Gen:	return "艮"
+		ENUMS.Gua.Kan:	return "坎"
+		ENUMS.Gua.Xun:	return "巽"
+		ENUMS.Gua.Zhen:	return "震"
+		ENUMS.Gua.Li:	return "离"
+		ENUMS.Gua.Dui:	return "兑"
+		ENUMS.Gua.Qian:	return "乾"
+		ENUMS.Gua.NONE:	return "none"
+		_:return "UnknownGua"
 
 
 static func lunarPhase2Text(lunar_phase:ENUMS.LunarPhase)->String:

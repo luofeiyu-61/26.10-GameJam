@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://s8spuzol3p1"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "分清楚了——场圃是农事，趁土还松连夜赶完；
+城上那段按令收工，用草苫盖住，墙基边上开沟把水引走。
+冬雪落下化不了多少，开春接着夯。"
+meet_gua = Array[int]([1, 0])
+belief_feedback = 4
+air_feedback = 3
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "都要。
+白天赶场圃，夜里点火把赶土工；
+土冻了就边烤边夯，看着跟去年一样板实。
+开春雪一化，那一段先酥，再化就塌。"
+belief_feedback = -3
+air_feedback = -2
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -2
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "农事一停，人也都放了。                                                                                  场上没筑，十月的禾稼只能在田里碾，谷粒落了一地；                                        城上那半截没苫没沟，雪水灌进墙基冻胀，鼓起一排包，开春得连底挖掉重夯。"
+meet_gua = Array[int]([2, 3])
+belief_feedback = -5
+air_feedback = 2
+earth_feedback = -4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -7
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 64
+sequence_id = "61"
+display_name = "筑场圃·百工休"
+time_consume = 2
+context = "此时正是百工休时，可活还没干完。
+场圃，一地两用：春夏种菜，秋收时铲平夯实当打谷场。
+头一场霜今晚就要落。场圃还没筑完，十月收的禾稼就无处登场脱粒；
+城上那段土工也还剩半截。土一冻就夯不动了，这一停就停到明年开春。
+人只有那么多，先赶哪一段，是个问题。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([16])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

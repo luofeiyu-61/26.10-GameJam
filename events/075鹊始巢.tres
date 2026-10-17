@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://ktuwrnkgoih"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "一窝也不拆，还把垒得最高那窝记下来，看它开口朝哪边。
+照着它分地：风口那几块改种矮的、耐倒的，背风那几块照旧。
+这一年风没折什么，谷穗也沉。"
+meet_gua = Array[int]([3, 5])
+belief_feedback = 5
+air_feedback = 3
+earth_feedback = 1
+people_feedback = 3
+animal_feedback = 3
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "嫌柴不够烧，把垒了一半的窝连枝折下来扔进灶膛，惊得整群鹊挪去了别处。
+火是旺了一夜；来年风从哪来没人知道，风口那几块谷子倒了一大片。"
+belief_feedback = -3
+air_feedback = -2
+earth_feedback = 2
+people_feedback = 1
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "只留下村口那棵最高的，其余的窝都拆了当柴。
+柴有了，风信也还剩一半——可只有一棵树作数，明年那几块地还是赌。"
+meet_gua = Array[int]([6, 4])
+belief_feedback = -4
+air_feedback = -2
+earth_feedback = -1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 78
+sequence_id = "75"
+display_name = "鹊始巢"
+time_consume = 1
+context = "喜鹊开始衔枝垒窝，一天一点，要垒大半月。                                                      老辈讲鹊能知风：窝垒得高，来年风大；垒得低，风小。                                      这话有一半是真的——鹊挑背风枝杈，风大的年份就得往上躲。                          今年村口那几棵树都动了工，靠东头那一窝垒得特别高。                                       拆、留，还是照着它定来年种什么，得定。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([22])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

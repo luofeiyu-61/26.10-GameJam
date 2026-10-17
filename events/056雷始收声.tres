@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://e07u5k44xik"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "按候收了。雷一停就趁晴抢晒，晒透的先入仓，
+剩下的摊开等着。雨来的时候，仓里是干的。"
+meet_gua = Array[int]([6, 1])
+belief_feedback = 7
+air_feedback = -2
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 12
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "把谷分成两拨——一拨趁现在装仓，一拨留在场上赌晴天。
+少赚一点，也不至于全烂。"
+belief_feedback = 3
+air_feedback = -3
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "还按夏天的老日子，等雷自己停。
+雷没停，雨先来了；场上的发了芽，仓里那批也返了潮。"
+meet_gua = Array[int]([4, 5])
+belief_feedback = -5
+air_feedback = -3
+earth_feedback = -4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 59
+sequence_id = "56"
+display_name = "雷始收声"
+time_consume = 1
+context = "雷到这天该停了。
+雷不是神在响，是地里的热气顶上去撞出来的声音；
+太阳一天比一天往南走，地气凉下来，就顶不动了。
+要是过了秋分还打雷，说明热气没退干净，后面的雨断不了。
+场上还摊着谷，仓里刚装的那批也没干透。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([15])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

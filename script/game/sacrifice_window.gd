@@ -131,6 +131,11 @@ func renderBars(people_,animal_,grain_,guy_,sacrifice_value,new_yao_num):
 	redrawSacrificePreBar()
 	if _sb_running:
 		_beginSacrificeSegment(sacrifice_value)
+	#这次没有爻要飞（new_yao_num = 0）→ 立刻解除锁定，
+	#否则「按下确认时锁上」会让按钮白闪一帧。
+	#有爻要飞时交给 _process 里的 _refreshActionLock 每帧判断。
+	if !_sb_running:
+		_refreshActionLock()
 
 
 #每帧推进动画（由 _process 调用）。参数都是最终值，单位与 renderBars 一致（百分比）。
@@ -197,6 +202,19 @@ func applyBarsAnimation(people_,animal_,grain_,guy_,sacrifice_value):
 func _process(delta: float) -> void:
 	applyBarsAnimation(_p_people, _p_animal, _p_grain, _p_guy, _p_sacrifice)
 	_advance_yao_animations(delta)
+	taiji_sprite_rotation(delta)
+
+
+@onready var taiji_sprite_2d: Sprite2D = $SacrificeBar/Taiji/Sprite2D
+
+var taiji_time:float=0
+var taiji_v = 5.0
+func taiji_sprite_rotation(delta:float):
+	taiji_time+=delta*taiji_v
+	taiji_sprite_2d.rotation_degrees=-taiji_time
+
+
+
 
 
 #开始 sacrifice_bar 的下一段：还有次数就跑 max_value，否则跑最后的 0→sacrifice_value
@@ -248,6 +266,23 @@ const yao_scene := preload("res://scenes/sprites/yao.tscn")
 
 #正在播放中的爻动画（播完由 anime_end 信号卸载）
 var _yao_anims: Array[SpawnYaoAnimator] = []
+
+#—— 爻飞行期间要禁用的操作按键（eventstream / wish / confirmsacrifice）——
+@onready var eventstream_bt: BaseButton = $operations/eventstream
+@onready var wish_bt: BaseButton = $operations/wish
+@onready var confirmsacrifice_bt: BaseButton = $operations/confirmsacrifice
+
+#这三个是 TextureButton：没设 texture_disabled 时，disabled 只挡点击、外观完全不变，
+#看起来像「没生效」。所以默认顺手把按键变淡，让禁用状态看得见。
+@export var dim_buttons_when_busy: bool = true
+
+#本轮「献祭动画」是否锁住了按键。
+#按下 confirmsacrifice 时立刻置 true（不等第一对爻生成），
+#等这一轮不会再有新爻（!_sb_running）**且**现有爻全部飞完，才解锁。
+var _action_lock: bool = false
+
+#当前按键是否已经处于禁用状态（缓存值，只在变化时写属性，避免每帧重复赋值）
+var _actions_busy: bool = false
 
 
 class SpawnYaoAnimator:
@@ -337,6 +372,34 @@ func spawnYaoAnimation(yao_num:int):
 		anim.anime_end.connect(_on_yao_anim_end.bind(anim))
 		_yao_anims.append(anim)
 		anim.startAnimation(yao_container)
+	#爻一生成就把三个操作按键禁掉（本轮全部飞完由 _refreshActionLock 恢复）
+	_updateActionButtons()
+
+
+#把当前的锁定状态写到三个按键上。
+#幂等：状态没变就早退，所以可以放心每帧调用。
+func _updateActionButtons() -> void:
+	var busy := _action_lock or !_yao_anims.is_empty()
+	if busy == _actions_busy:
+		return
+	_actions_busy = busy
+	var bts: Array[BaseButton] = [eventstream_bt, wish_bt, confirmsacrifice_bt]
+	for bt in bts:
+		if bt == null:
+			continue
+		bt.disabled = busy
+		if dim_buttons_when_busy:
+			bt.modulate = Color(1.0, 1.0, 1.0, 0.45) if busy else Color(1.0, 1.0, 1.0, 1.0)
+
+
+#刷新锁定状态并写按键：
+#解锁条件 = 这一轮不可能再生成新爻（!_sb_running）且现有爻全部飞完。
+#做成幂等 + 每帧调用，所以既不会漏禁用，也不会因为中途被打断/连续生成
+#或某个信号漏掉而把按键永久禁死。
+func _refreshActionLock() -> void:
+	if _action_lock and !_sb_running and _yao_anims.is_empty():
+		_action_lock = false
+	_updateActionButtons()
 
 
 #每帧推进所有爻动画。
@@ -344,10 +407,11 @@ func spawnYaoAnimation(yao_num:int):
 #爻的飞行(1s)可能比数值条动画更晚结束，而 applyBarsAnimation 在 _bars_active
 #变 false 后会直接 return，塞进去的话爻会飞到一半就不动了。
 func _advance_yao_animations(delta: float) -> void:
-	if _yao_anims.is_empty():
-		return
-	for anim in _yao_anims.duplicate():
-		anim.playAnimation(delta)
+	if !_yao_anims.is_empty():
+		for anim in _yao_anims.duplicate():
+			anim.playAnimation(delta)
+	#每帧刷新一次：全部爻飞完 + 不会再有新爻，才恢复
+	_refreshActionLock()
 
 
 #爻飞完：即刻卸载这个动画类。
@@ -357,6 +421,8 @@ func _on_yao_anim_end(anim: SpawnYaoAnimator) -> void:
 	for c in anim.anime_end.get_connections():
 		anim.anime_end.disconnect(c["callable"])
 	_yao_anims.erase(anim)
+	#这一对飞完了：若本轮不会再有新爻就立刻恢复按键（否则继续禁用）
+	_refreshActionLock()
 
 
 #endregion
@@ -373,6 +439,11 @@ func _on_wish_pressed() -> void:
 
 #确认祭祀
 func _on_confirmsacrifice_pressed() -> void:
+	#一按下就锁住三个操作键（不等第一对爻生成）：
+	#emit 是同步的，one.gd 的 clientConfirmSacrifice 会当场调 renderBars，
+	#若这次有爻要生成，_sb_running 会被置 true，锁定就自然延续到爻全部飞完。
+	_action_lock = true
+	_updateActionButtons()
 	confirm_sacrifice.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 	total_ratio=0
 	$RatioSetWindow/SacrificeRatio/Total.value=0

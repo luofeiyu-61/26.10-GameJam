@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://MD+sB99e2jA"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://7g35fns6o3r"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -9,7 +9,7 @@ result_type = 0
 result_context = "窖门一开，白气扑出来——冰存得足。
 献了羔，荐了寝庙，剩下的够用到夏天。"
 meet_gua = Array[int]([2, 1])
-belief_feedback = 0
+belief_feedback = 6
 air_feedback = 4
 earth_feedback = 5
 people_feedback = 0
@@ -21,7 +21,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "够用，不宽裕。献了羔，照例荐了庙。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 0
@@ -34,7 +34,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "窖里化得只剩个底，水面浮着一层草。荐庙的冰都不够。"
 meet_gua = Array[int]([5, 7])
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = -2
 earth_feedback = -4
 people_feedback = 0
@@ -44,12 +44,14 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 17
+id = 18
 sequence_id = "16"
 display_name = "开冰"
 time_consume = 3
-context = "腊月斩冰，三其凌（存三倍，因为要化掉大半），春天治鉴开窖，夏天颁冰，秋天刷窖。
-一年一圈，年年如此。今天开窖。窖门一开，才知道化了多少。"
+context = "腊月斩冰，三其凌（存三倍，因为要化掉大半），
+春天治鉴开窖，夏天颁冰，秋天刷窖。
+一年一圈，年年如此。
+今天开窖。窖门一开，才知道化了多少。"
 event_level = 1
 event_type = 0
 trigger_type = 0

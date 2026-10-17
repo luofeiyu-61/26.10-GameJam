@@ -1,0 +1,69 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://rj7kbepy4zb"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "分两拨：一半人进山起窑，火稳住了只留两三个看着，其余人回来守仓。
+
+炭出窑那天，正好赶上头场雪。"
+meet_gua = Array[int]([5, 1])
+belief_feedback = 4
+air_feedback = 5
+earth_feedback = 3
+people_feedback = 3
+animal_feedback = 2
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "不进山。就在村口把黄落的枝和下段硬木砍回来堆着，不起窑、不烧炭。
+
+人一个没走，冬天屋里烟大、柴要现砍、烧得也快，可仓一直有人守。"
+belief_feedback = -2
+air_feedback = 2
+earth_feedback = 2
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "为赶在上冻前多出炭，能动的都派上了山，窑挖得大、火也压不住。
+
+落叶铺了一地，一阵风把火带出去，烧了半面山场。
+
+炭没得着，明年连砍柴的地方都没了。"
+meet_gua = Array[int]([3, 4])
+belief_feedback = -6
+air_feedback = -4
+earth_feedback = -3
+people_feedback = -2
+animal_feedback = -1
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 67
+sequence_id = "64"
+display_name = "伐薪为炭"
+time_consume = 2
+context = "霜降这时的叶子落尽了，树也睡了——这时候木头里水分最少，闷进窑里烧出来的炭最经烧、烟也最小；
+等开春树一返青，含水一多，烧出来就全是烟。
+可窑在山上，闷炭得有人住进去看着火；
+眼下谷刚入仓、屋刚堵好，人一进山，家里就空了。"
+event_level = 1
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([17])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

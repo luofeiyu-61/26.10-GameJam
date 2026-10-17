@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://hO0HDW2UPHc"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://gr5g58sxtnw"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "办了。男女都去水边洗濯，还用香草熏了屋。这一春病倒的人比去年少。"
 meet_gua = Array[int]([0, 2])
-belief_feedback = 0
+belief_feedback = 4
 air_feedback = 3
 earth_feedback = 2
 people_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只让女巫在宫里办了，国人没跟着去。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = -1
 earth_feedback = -2
 people_feedback = -2
@@ -33,9 +33,9 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "嫌麻烦没办。开春这一个月，病倒了一片，抬出去三口棺材。"
 meet_gua = Array[int]([1, 7])
-belief_feedback = 0
-air_feedback = -3
-earth_feedback = -4
+belief_feedback = -5
+air_feedback = -2
+earth_feedback = -3
 people_feedback = -4
 animal_feedback = -1
 grain_feedback = 0
@@ -43,13 +43,12 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 21
+id = 22
 sequence_id = "20"
 display_name = "祓禊"
 time_consume = 1
 context = "三月上巳，人到水边去，洗濯、用香草熏身，除掉一冬攒下的不干净。
-老话说这时候水里的寒气刚退，下水正合适。
-可也有人在说：去年冬天病倒的人多，今年这个礼该办得大一点。"
+老话说这时候水里的寒气刚退，下水正合适，洗去疾病污秽。"
 event_level = 0
 event_type = 1
 trigger_type = 0

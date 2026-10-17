@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://kd+5PiHhC+4"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://o8qe8mg8l38"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,9 +8,9 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "等草起来了再赶出去，配了群。今年下的驹犊，册上一笔笔记着。"
 meet_gua = Array[int]([0, 4])
-belief_feedback = 0
+belief_feedback = 3
 air_feedback = 2
-earth_feedback = 4
+earth_feedback = 3
 people_feedback = 0
 animal_feedback = 5
 grain_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只配了一半，另一半留着圈里喂。"
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = 0
 earth_feedback = -2
 people_feedback = 0
@@ -33,9 +33,9 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "草没起来就赶出去了。牲口饿得啃麦苗，好几头还掉了膘。"
 meet_gua = Array[int]([7, 5])
-belief_feedback = 0
+belief_feedback = -7
 air_feedback = -2
-earth_feedback = -4
+earth_feedback = -3
 people_feedback = 0
 animal_feedback = -2
 grain_feedback = -10
@@ -43,14 +43,13 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 26
+id = 27
 sequence_id = "25"
 display_name = "游牝于牧"
 time_consume = 1
-context = "把公牛公马配给母的，一起赶到牧场上去。
-生下来的小牛小马，要一个一个数着记在册上。
-这是全年唯一一个牲畜能\"进\"的时令口子。
-可牧人在犯愁：坡上的草还没起来，现在放出去，牲口会啃麦苗。"
+context = "到了今年谷雨这个时节，
+是全年唯一一个牲畜能\"进\"的时令口子。
+可坡上的草还没起来，现在放出去，牲口会啃麦苗。"
 event_level = 0
 event_type = 1
 trigger_type = 0

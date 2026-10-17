@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://dZX6I6SMP9Q"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://20xzw0cck47"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -9,24 +9,24 @@ result_type = 0
 result_context = "趁虫还小，烧石头投进水口、焚草灰撒进田里，又让妇人孩子下地捉。
 虫没起来。"
 meet_gua = Array[int]([5, 0])
-belief_feedback = 0
+belief_feedback = 3
 air_feedback = -1
-earth_feedback = 0
+earth_feedback = 2
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = 4
+grain_feedback = 8
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只在近田治了一圈，远田顾不上。"
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = -2
-earth_feedback = -3
+earth_feedback = -1
 people_feedback = -1
 animal_feedback = 0
-grain_feedback = -6
+grain_feedback = -4
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -34,24 +34,24 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "等虫大了才动手。一片一片黄下去，补都补不回来。"
 meet_gua = Array[int]([3, 1])
-belief_feedback = 0
+belief_feedback = -6
 air_feedback = -3
-earth_feedback = -4
-people_feedback = -5
+earth_feedback = -3
+people_feedback = -3
 animal_feedback = -2
-grain_feedback = -10
+grain_feedback = -8
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
 id = 16
-sequence_id = "15"
+sequence_id = "15.1"
 display_name = "螟螣"
 time_consume = 2
 context = "启蛰了，土里的虫全醒了。田里有四种虫：
 螟咬心、螣吃叶、蟊啃根、贼钻节。
 老农说去年冬天不冷，虫没冻死，今年要凶。
-可这时候虫还小——早治费力，晚治就治不住了。"
+这时候虫还小——早治费力，晚治就治不住了。"
 event_level = 0
 event_type = 2
 trigger_type = 0

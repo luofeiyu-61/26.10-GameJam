@@ -358,6 +358,85 @@ theme_override_colors/font_color = Color(1, 0.9333334, 0, 1)
 text = "节气：
 1"
 
+[node name="SolarCalendar" type="Control" parent="Calendar/sun" unique_id=845840662]
+visible = false
+z_index = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bgMask" type="ColorRect" parent="Calendar/sun/SolarCalendar" unique_id=1578725008]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.85
+anchor_top = -1.25
+anchor_right = 13.950001
+anchor_bottom = 14.800001
+offset_top = -6.0
+offset_bottom = -6.1035156e-05
+color = Color(0.27, 0.27, 0.27, 0.5294118)
+
+[node name="calendarSo" type="ColorRect" parent="Calendar/sun/SolarCalendar" unique_id=1070646227]
+layout_mode = 0
+offset_left = -322.0
+offset_top = 40.0
+offset_right = 351.0
+offset_bottom = 459.0
+color = Color(0.19315353, 0.19315353, 0.19315353, 1)
+
+[node name="SolarTerm" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=1873454081]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 15.0
+offset_right = 650.0
+offset_bottom = 59.0
+color = Color(0.4403357, 0.44033572, 0.4403357, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm" unique_id=476175313]
+layout_mode = 0
+offset_left = 25.0
+offset_top = 8.0
+offset_right = 597.0
+offset_bottom = 31.0
+
+[node name="left" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer" unique_id=1799852627]
+layout_mode = 2
+
+[node name="last" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer" unique_id=548320485]
+modulate = Color(1, 1, 1, 0.7058824)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "1"
+horizontal_alignment = 1
+
+[node name="now" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer" unique_id=643334814]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "2"
+horizontal_alignment = 1
+
+[node name="next" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer" unique_id=616766929]
+modulate = Color(1, 1, 1, 0.7058824)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 14
+text = "3"
+horizontal_alignment = 1
+
+[node name="right" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer" unique_id=611767857]
+layout_mode = 2
+
+[node name="Events" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=412790968]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 83.0
+offset_right = 622.0
+offset_bottom = 379.0
+color = Color(0.45323175, 0.45323175, 0.45323175, 1)
+
 [node name="lunar" type="ColorRect" parent="Calendar" unique_id=201972660]
 layout_mode = 0
 offset_left = 113.0

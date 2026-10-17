@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://dwedvviqmny"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "书吏把两处雁痕描进册子，孩子守着看雁。白露末沙地被雨打平，册上留了\"人\"\"一\"两字。"
+meet_gua = Array[int]([3, 2])
+belief_feedback = 4
+air_feedback = 2
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "书吏记了两笔就放下。孩子描了两天便散了，雁痕被风扫平。"
+belief_feedback = -1
+air_feedback = 1
+earth_feedback = 0
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "老人说指雁不吉。书吏合了册子，孩子再问，大人就骂。"
+meet_gua = Array[int]([7, 5])
+belief_feedback = -4
+air_feedback = -1
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 58
+sequence_id = "55.2"
+display_name = "沙上字"
+time_consume = 1
+context = "今年雁飞得低，村口老榆树下沙地上落了一地雁脚印，横横斜斜，像字。有孩子拿树枝照着描，问书吏是什么字。书吏看了半天，说像个\"人\"，又像个\"一\"。一村人都来看，有说雁捎话，有说雁掉队。书吏来问：这算不算兆，要不要记？"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([14])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://iCa4hidw6F0"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://u9sbmrupozm"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -36,7 +36,7 @@ result_type = 2
 result_context = "不铸新、不毁旧。下令「凡有讼争之器，一律封存待断」，
 市上暂以官器为准；秋收之后再行校定。"
 meet_gua = Array[int]([1, 2])
-belief_feedback = -6
+belief_feedback = -4
 air_feedback = -2
 earth_feedback = -3
 people_feedback = 0

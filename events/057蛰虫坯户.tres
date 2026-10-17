@@ -1,0 +1,66 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://ewczh9x7dwb"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "先抽一天，把仓门、墙缝、屋瓦挨着塞了一遍，再回头收谷。
+夜里风起来，仓里没进一点。"
+meet_gua = Array[int]([0, 2])
+belief_feedback = 2
+air_feedback = -1
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只塞了仓，人住的那几间没顾上。
+谷是存住了，人这个冬天得多烧一成柴。"
+belief_feedback = -3
+air_feedback = -2
+earth_feedback = 2
+people_feedback = -2
+animal_feedback = -2
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "都在说虫封洞是吉是凶，谁也没动手。
+头一场北风灌了一夜，仓面上那层谷冻住了。"
+meet_gua = Array[int]([3, 6])
+belief_feedback = -5
+air_feedback = -3
+earth_feedback = -2
+people_feedback = -3
+animal_feedback = -2
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 60
+sequence_id = "57"
+display_name = "蛰虫坯户"
+time_consume = 1
+context = "虫开始一层一层用土把自己的洞口培起来封住。
+虫知道该关门了。
+人也一样：墙缝、屋瓦、仓门的缝，就这几天塞得住，
+等冬风灌进来就都晚了。
+麻烦的是眼下正是收谷最紧的时候
+——塞缝的手和收谷的手，是同一双。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([15])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

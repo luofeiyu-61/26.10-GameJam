@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://xxiklMSYmQA"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://rnsfasui70r"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,9 +8,9 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "不管虹主什么吉凶，趁晴把屋顶补了、沟挖开了。后来的雨没淹着谁。"
 meet_gua = Array[int]([2, 1])
-belief_feedback = 0
+belief_feedback = 4
 air_feedback = 2
-earth_feedback = 4
+earth_feedback = 3
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 6
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只把近处的沟通了，屋顶没顾上。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = 0
 earth_feedback = 2
 people_feedback = -3
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "全在议论虹主什么事，没人动手修。第一场大雨下来，塌了几间房"
 meet_gua = Array[int]([6, 3])
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -2
 earth_feedback = -3
 people_feedback = -5
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 22
+id = 23
 sequence_id = "21"
 display_name = "虹始见"
 time_consume = 1

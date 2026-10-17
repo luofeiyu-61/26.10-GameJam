@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid:///6mR+NFBsPM"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://lj518mtz9ba"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,19 +8,19 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "百姓欣然开市，热情接待，用物资交换，获得额外补给信息。"
 meet_gua = Array[int]([6, 3])
-belief_feedback = 0
+belief_feedback = 3
 air_feedback = 1
 earth_feedback = 3
 people_feedback = 0
 animal_feedback = 2
-grain_feedback = 5
+grain_feedback = 7
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "不给任何启示，让百姓自由交易 。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 0
@@ -33,9 +33,9 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "百姓怀疑其来意，拒绝交易，商人离去。"
 meet_gua = Array[int]([5, 1])
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = -2
-earth_feedback = -3
+earth_feedback = -2
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 0

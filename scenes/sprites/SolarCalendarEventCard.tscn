@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://e6axch2i8lob"]
+
+[ext_resource type="Script" uid="uid://cp2g3lofsjqn5" path="res://script/eventstream/solar_calendar_event_card.gd" id="1_61bxt"]
+
+[node name="SolarCalendarEventCard" type="Control" unique_id=453276643]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_61bxt")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=708264421]
+layout_mode = 0
+offset_right = 179.0
+offset_bottom = 213.0
+color = Color(0.18598092, 0.18598092, 0.18598092, 1)
+
+[node name="title" type="ColorRect" parent="ColorRect" unique_id=351945743]
+layout_mode = 0
+offset_right = 179.0
+offset_bottom = 43.0
+color = Color(0.36910734, 0.36910734, 0.3691073, 1)
+
+[node name="event_name" type="Label" parent="ColorRect/title" unique_id=1008737039]
+layout_mode = 0
+offset_right = 179.0
+offset_bottom = 43.0
+text = "告民出种·计耦耕事"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="yiji" type="ColorRect" parent="ColorRect" unique_id=417732835]
+layout_mode = 0
+offset_left = 14.0
+offset_top = 57.0
+offset_right = 163.0
+offset_bottom = 188.0
+color = Color(0.33163944, 0.33163944, 0.3316394, 1)
+
+[node name="good" type="Label" parent="ColorRect/yiji" unique_id=399928346]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 22.0
+offset_right = 125.0
+offset_bottom = 62.0
+text = "宜："
+vertical_alignment = 1
+
+[node name="bad" type="Label" parent="ColorRect/yiji" unique_id=1438741998]
+layout_mode = 0
+offset_left = 21.0
+offset_top = 75.0
+offset_right = 125.0
+offset_bottom = 115.0
+text = "忌："
+vertical_alignment = 1

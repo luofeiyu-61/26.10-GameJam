@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://v6snt2dg3os"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "只凿透的那一层——清得能看见底，一块块起上来码进凌阴，一层冰一层稻草隔开。
+眼下多费了几天工；到明年夏天冰还在，丧祭、颁冰一件不缺。"
+meet_gua = Array[int]([2, 7])
+belief_feedback = 5
+air_feedback = 5
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "贪那三倍的数，白冰也起、车也装满往回赶。
+日头一暖，冰面吃不住重车，连人带车陷了一回；运回去的白冰入夏前就化得差不多了，真要用时反倒不够。"
+belief_feedback = -3
+air_feedback = -3
+earth_feedback = 3
+people_feedback = -2
+animal_feedback = -3
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "不凑三倍，只取凿得透的清冰，够用就停。
+这个冬冰窖存得不多，可存下来的都是硬的；明年夏天够不够用，还要看这一冬冷不冷。"
+meet_gua = Array[int]([5, 0])
+belief_feedback = -6
+air_feedback = -4
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 82
+sequence_id = "79"
+display_name = "命取冰"
+time_consume = 2
+context = "冰要冻透了。
+这个时候下令：取回来的冰存进凌阴（冰窖），明年春夏颁给丧祭和公室用；
+取的数要三倍于用得的数。
+面上那层白的是冻得太快、里头全是气孔的，存到夏天就化；底下那种透的冻得慢，才存得住。
+是凑三倍的数，还是要三倍的好冰。"
+event_level = 1
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([23])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

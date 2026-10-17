@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://qrQXQOEAsMk"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://32mieb6e27z"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "照旧法配的色，黑黄苍赤色色纯正，没有一处掺假。"
 meet_gua = Array[int]([0, 1])
-belief_feedback = 0
+belief_feedback = 3
 air_feedback = 2
 earth_feedback = 4
 people_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "染了一半，剩下的等下一季。"
-belief_feedback = 0
+belief_feedback = -1
 air_feedback = 1
 earth_feedback = -2
 people_feedback = 0
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "赶工赶出来的。色不匀，还掺了杂色充数。"
 meet_gua = Array[int]([6, 4])
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = -2
 earth_feedback = -4
 people_feedback = 0
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 44
+id = 45
 sequence_id = "43"
 display_name = "命妇官染采"
 time_consume = 1

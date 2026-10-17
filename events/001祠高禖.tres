@@ -1,10 +1,35 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://bw8nrtdusvha0"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://m8lwf8kg6if"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
-[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="2_dt3yw"]
 
-[sub_resource type="Resource" id="Resource_10d4y"]
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "礼节隆重举行，为鼓励生育特增予口粮配给，降低田税，开垦新田，
+举国庙社同时举行祭拜，"
+meet_gua = Array[int]([0, 3])
+belief_feedback = 4
+air_feedback = 4
+earth_feedback = 4
+people_feedback = 7
+animal_feedback = -3
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "依照往年礼节，举办祭祀之礼"
+belief_feedback = -2
+air_feedback = 2
+earth_feedback = 2
+people_feedback = 5
+animal_feedback = -3
+grain_feedback = -5
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
 script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "仅以牺牲草草行太牢之礼，其余礼节跳过不计。"
@@ -13,31 +38,6 @@ belief_feedback = -5
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 2
-animal_feedback = -3
-grain_feedback = -6
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_7n1lx"]
-script = ExtResource("1_dt3yw")
-result_context = "礼节隆重举行，为鼓励生育特增予口粮配给，降低田税，开垦新田，
-举国庙社同时举行祭拜，"
-meet_gua = Array[int]([0, 3])
-belief_feedback = 4
-air_feedback = 4
-earth_feedback = 4
-people_feedback = 8
-animal_feedback = -3
-grain_feedback = 8
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_1osp7"]
-script = ExtResource("1_dt3yw")
-result_type = 1
-result_context = "依照往年礼节，举办祭祀之礼"
-belief_feedback = -2
-air_feedback = 2
-earth_feedback = 2
-people_feedback = 5
 animal_feedback = -3
 grain_feedback = -6
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
@@ -51,9 +51,12 @@ time_consume = 1
 context = "在燕子飞来的第一天，按照传统礼节要以太牢祭祀高禖
 天子率领后妃九嫔，亲自前往祭祀
 在高禖面前，给怀孕妃子行礼，授予她们弓袋和弓箭
-以表达对生育的重视 "
+以表达对生育的重视"
+event_level = 0
+event_type = 0
+trigger_type = 0
 trigger_terms = Array[int]([3])
-result_good = SubResource("Resource_7n1lx")
-result_normal = SubResource("Resource_1osp7")
-result_bad = SubResource("Resource_10d4y")
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
 metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://k5v6majvax0"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "菜分三路走——腌的、窖的、晒的，柴也堆到了屋檐底下。
+人是累了点，但入冬那几个月，灶上天天有得下。
+冬天过得富足而安康。"
+meet_gua = Array[int]([7, 1])
+belief_feedback = 5
+air_feedback = 2
+earth_feedback = 5
+people_feedback = 6
+animal_feedback = 2
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只顾了仓里的谷，菜没蓄，柴也只堆了一半。
+什么事情都只来得及做一半。
+到了冬天粮够吃，菜没有，柴要现去砍。"
+belief_feedback = -2
+air_feedback = 1
+earth_feedback = 2
+people_feedback = 3
+animal_feedback = 1
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "人全拉去修城，菜烂在地里。                                                                               等想起窖菜，节气已过。                                                                                       冬天端上来的只有谷饭，孩子扒两口问：菜呢？大人不吭声。                                开春，好几家人搬走了。"
+meet_gua = Array[int]([2, 4])
+belief_feedback = -7
+air_feedback = -6
+earth_feedback = -2
+people_feedback = -4
+animal_feedback = -4
+grain_feedback = -10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 61
+sequence_id = "58"
+display_name = "务畜菜"
+time_consume = 2
+context = "这个月的令写得明白：催百姓收敛蓄菜，腌的腌、窖的窖、晒的晒，柴堆起来，仓顶苫好。                                                                                                      秋分昼夜一样长，是结总账的日子：今年成不成，不看地里剩多少，看到冬天还能吃多久。"
+event_level = 1
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([15])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

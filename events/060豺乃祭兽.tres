@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://pwysf7j1r37"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "不动豺。把圈口加高一道栅，夜里添人轮流值守，羊关进里间。
+豺够不着，掉头去抓田里那些鼠和兔。
+羊都守着了，一只不少"
+meet_gua = Array[int]([1, 2])
+belief_feedback = 5
+air_feedback = 1
+earth_feedback = 3
+people_feedback = 0
+animal_feedback = 5
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "赶了一夜豺，火把喊声闹到天亮，
+豺是走了；可圈里的母羊受了惊，掉了几只羔。
+大畜保住了，小畜折了。"
+belief_feedback = -3
+air_feedback = 1
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 2
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "纠了几十个壮丁进山，围了一整天，连豺的影子都没见着。
+等人回来，圈角空了一片，羊被拖走几只，血还在地上。"
+meet_gua = Array[int]([6, 4])
+belief_feedback = -5
+air_feedback = -1
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = -3
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 63
+sequence_id = "60"
+display_name = "豺乃祭兽"
+time_consume = 1
+context = "草木黄落以后，野物藏不住了，豺也到了要贴着村子过冬的时候。
+连着几夜，圈里少了羊；天亮到圈边一看，咬死的野兔、田鼠摆成一排，
+摆得齐齐整整——老辈管这个叫「豺乃祭兽」，说豺在祭天。
+管牲畜的人来问：要不要纠人进山围猎？
+火把一闹，圈里的羊先要惊；不动手，一夜一夜地丢，一冬下来数目就难看了。"
+event_level = 0
+event_type = 2
+trigger_type = 0
+trigger_terms = Array[int]([16])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

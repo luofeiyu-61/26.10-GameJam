@@ -458,11 +458,17 @@ func calculateScrificeValue(ratio_people:float, ratio_animal:float, ratio_grain:
 	
 	outcome[3]=guy_sup*(a*b*c)**2/(((a+b+c)/3)**5) if (a+b+c) != 0 else 0
 	
+	var people_weight:float
+	if sacrifice_people<=20:people_weight=3.5
+	elif sacrifice_people<=30:people_weight=4
+	else:people_weight=5
+	
+	
 	#计算献祭后能加多少献祭值与爻
 	var sacrifice_value = \
-		sacrifice_people*(1+qi_buff_info[spirit]["people_weight"]) \
-		+sacrifice_animal*(1+qi_buff_info[spirit]["animal_weight"]) \
-		+sacrifice_grain*(1+qi_buff_info[spirit]["grain_weight"])
+		sacrifice_people*people_weight*(1+qi_buff_info[spirit]["people_weight"]) \
+		+sacrifice_animal*0.5*(1+qi_buff_info[spirit]["animal_weight"]) \
+		+sacrifice_grain*2.5*(1+qi_buff_info[spirit]["grain_weight"])
 	
 	var sacri_ := updateScrificeValue(sacrifice_value)
 	
@@ -663,6 +669,20 @@ func clientConfirmSacrifice(people_ratio: float, animal_ratio: float, garin_rati
 	sacrifice_ratio["grain_ratio"]=garin_ratio
 	sacrifice_ratio["total_ratio"]=total_ratio
 	var outcome = calculateScrificeValue(people_ratio,animal_ratio,garin_ratio,total_ratio)
+	
+	
+	
+	var delta_people=people_value-outcome[0]
+	var delta_grain=animal_value-outcome[1]
+	var delta_animal=grain_value-outcome[2]
+	
+	air_value-=ceil((delta_people)*0.2)+(ceil((delta_animal-30)*0.2) if delta_animal>30 else 0)
+	
+	earth_value-=(ceil((delta_grain-120)*0.3) if delta_grain>120 else 0)+(ceil((delta_animal-30)*0.3) if delta_animal>30 else 0)
+	
+	
+	
+	
 	people_value = outcome[0]
 	animal_value = outcome[1]
 	grain_value = outcome[2]
@@ -1042,5 +1062,17 @@ func _on_selections_saves_pressed() -> void:
 func _on_close_warning_save_pressed() -> void:
 	close_warning.hide()
 	openSaveWindow()
+
+#endregion
+
+
+
+
+
+#region 游戏结束
+
+func endGame():
+	print("游戏结束")
+
 
 #endregion

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://Ldnu0zaU/d4"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://1bb0t0q9kmg"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -7,7 +7,7 @@
 [sub_resource type="Resource" id="Resource_cond0"]
 script = ExtResource("2_dt3yw")
 trigger_meet_which = 3
-trigger_meet_value = 0
+trigger_meet_value = 260
 trigger_meet_type = -1
 metadata/_custom_type_script = "uid://dnorw4dhm2vui"
 
@@ -17,7 +17,7 @@ result_type = 0
 result_context = "田里实给了，屋也分了，头年徭役照榜上写的减半。
 外来户当年就下了地，几块荒地有了主。"
 meet_gua = Array[int]([6, 0])
-belief_feedback = 0
+belief_feedback = 8
 air_feedback = 3
 earth_feedback = 4
 people_feedback = 6
@@ -30,7 +30,7 @@ script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "榜是出了，可写得不明白——田给多少、役减几年都没说死。
 来的人站在榜前看了一晌，只来了三五家。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 3
@@ -44,12 +44,12 @@ result_type = 2
 result_context = "榜上说减役，人来了却按人头摊派，说是先垫上。
 有人第二夜就走了，走的时候把分到的农具也带走了。"
 meet_gua = Array[int]([5, 4])
-belief_feedback = 0
+belief_feedback = -6
 air_feedback = -2
 earth_feedback = -4
 people_feedback = 0
 animal_feedback = -3
-grain_feedback = -8
+grain_feedback = -6
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
@@ -58,10 +58,10 @@ id = 14
 sequence_id = "13"
 display_name = "下剂致甿"
 time_consume = 2
-context = "雨水前后该起春耕了，可点一遍人丁，能下地的没几个——冬天没熬过来的，开春前走了的，剩下的多是老人和孩子。
+context = "雨水前后该起春耕了，可点一遍人丁，能下地的没几个。
 人不够，地就种不过来。
 这时候可以出榜：外边的人愿意来的，给田、给屋，头几年徭役减半。
-只是，招，得拿得出田也拿得出粮；
+只是，招，得拿田，也得拿粮；
 空口出榜，人来了没处安置，反倒成患。
 不招，这几块地今年就空着。"
 event_level = 0

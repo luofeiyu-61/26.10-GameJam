@@ -113,9 +113,9 @@ class YaoPairData:
 var yao_pairs:Array[YaoPairData]=[
 	YaoPairData.new(2.24,2.24,1,0,0),
 	YaoPairData.new(0.8,0.8,-2,0,1),
-	YaoPairData.new(3.3,0.4,0.8,0,40),
-	YaoPairData.new(3.3,0.4,-0.8,120,160),
-	YaoPairData.new(3.3,1.4,0.8,240,280),
+	YaoPairData.new(3.3,0.4,0.8,0,PI/9.0),
+	YaoPairData.new(3.3,0.4,-0.8,2.5*PI/3.0,4*PI/9.0),
+	YaoPairData.new(3.3,0.4,0.8,3.5*PI/3.0,7*PI/9.0),
 	YaoPairData.new(4,4,0.3,0,180)
 ]
 

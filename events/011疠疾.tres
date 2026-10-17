@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://nE4pTL3xm0I"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://wzgjoqvsc9w"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "病人挪到村外空屋，专人送饭，不让串门。病没传开，一个人没死。"
 meet_gua = Array[int]([1, 0])
-belief_feedback = 0
+belief_feedback = 2
 air_feedback = -1
 earth_feedback = 3
 people_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "熬了几大锅药汤分下去，管不管用看命。"
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -2
 earth_feedback = -3
 people_feedback = -3
@@ -33,10 +33,10 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "只派巫去禳，人照样挤在一处。病顺着人走，一传一大片。"
 meet_gua = Array[int]([3, 2])
-belief_feedback = 0
+belief_feedback = -8
 air_feedback = -3
 earth_feedback = -3
-people_feedback = -8
+people_feedback = -6
 animal_feedback = -3
 grain_feedback = -4
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"

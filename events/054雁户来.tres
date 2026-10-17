@@ -1,0 +1,58 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://svgymbxezqi"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "给了桑地、借了屋，蚕种当场就收了。                                                              这户人一直没闲着，把自家那几棵桑苗栽进了地，又围着桑地转了好几圈，说这边的桑树\"没养过\"。"
+meet_gua = Array[int]([0, 3])
+belief_feedback = 5
+air_feedback = 3
+earth_feedback = 3
+people_feedback = 5
+animal_feedback = 0
+grain_feedback = -4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "收是收下了，没给地，只借了间空屋，说等明春再看。                                 人留了下来，但要靠给别家打短工过冬。"
+belief_feedback = -2
+air_feedback = 2
+earth_feedback = 0
+people_feedback = 3
+animal_feedback = 0
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "桑户留了下来，却被安置在村外废屋里，地没给，桑苗堆在墙根。男人话少了一半，夜里常往北边看。"
+meet_gua = Array[int]([7, 5])
+belief_feedback = -4
+air_feedback = -2
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 56
+sequence_id = "54"
+display_name = "雁户来"
+time_consume = 2
+context = "白露头一候，鸿雁北来。                                                                     与往年不同，今年却有一家三口，赶着两辆车，从北边进了部族。                                                                                                        车上捆着桑苗、蚕种和粗布。男人说，北边秋汛早，桑林淹了，蚕屋塌了，想讨块地栽桑养蚕。                                                                           守门的犯难：收下，多三张嘴过冬；赶走，往后逃难的人不敢再来。管桑的老吏却眼睛一亮：部族桑少丝薄，正缺这手养蚕的本事。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([14])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

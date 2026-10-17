@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://Z5tsZwtdIj4"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://ohsm27rnyge"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "布帛粮食一路发到乡野，老人孩子都拿到手。还没开春，人心先暖了。"
 meet_gua = Array[int]([3, 0])
-belief_feedback = 0
+belief_feedback = 6
 air_feedback = 2
 earth_feedback = 3
 people_feedback = 3
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "照老规矩发，国中发了，乡野没顾上。"
-belief_feedback = 0
+belief_feedback = -1
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 1
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "赏赐只给了公族近臣，乡野一点没得着。国人都说王偏心。"
 meet_gua = Array[int]([7, 1])
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -2
 earth_feedback = -3
 people_feedback = -3
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 19
+id = 20
 sequence_id = "18"
 display_name = "班春行庆"
 time_consume = 1

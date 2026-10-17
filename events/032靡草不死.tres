@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://Nxlpty4Ypnc"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://t34s77e4ccs"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "当夜就派人巡了麦场。盗贼没敢来，一袋没少。"
 meet_gua = Array[int]([2, 4])
-belief_feedback = 0
+belief_feedback = 3
 air_feedback = -2
 earth_feedback = 2
 people_feedback = 0
@@ -19,8 +19,9 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 [sub_resource type="Resource" id="Resource_normal"]
 script = ExtResource("1_dt3yw")
 result_type = 1
-result_context = "只在麦场上加了两个人守着，别处没管。"
-belief_feedback = 0
+result_context = "只在麦场上加了两个人守着，别处没管。
+守着的没有，没守的麦场却有好几个出了事。"
+belief_feedback = -2
 air_feedback = -3
 earth_feedback = 0
 people_feedback = 0
@@ -33,7 +34,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "谁也没当回事。夜里麦场被人扒了个口子，丢了两石新麦。"
 meet_gua = Array[int]([6, 3])
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -4
 earth_feedback = -2
 people_feedback = 0
@@ -43,7 +44,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 33
+id = 34
 sequence_id = "32"
 display_name = "靡草不死"
 time_consume = 1
@@ -53,7 +54,7 @@ context = "靡草是那些枝叶细软的草——荠菜、葶苈一类，一到
 event_level = 0
 event_type = 2
 trigger_type = 0
-trigger_terms = Array[int]([7, 8])
+trigger_terms = Array[int]([7])
 result_good = SubResource("Resource_good")
 result_normal = SubResource("Resource_normal")
 result_bad = SubResource("Resource_bad")

@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://ao25k658qi0"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "只补塌的那一段和两座门，其余不动；
+省下的人放回去歇着，柴也留一半。墙修好了，人也没垮。"
+meet_gua = Array[int]([1, 0])
+belief_feedback = 3
+air_feedback = 4
+earth_feedback = 2
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "不修墙，改塞徯径：山里那些小路全堵了，只在大道上设卡。
+省钱省工，可抄小路的照样绕得进来。"
+belief_feedback = -2
+air_feedback = 1
+earth_feedback = 3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "全线动工——塌的、没塌的都重新夯了一遍。
+人累倒了一批，柴烧光了，粮也吃超了，还没等到上冻就没力气了。"
+meet_gua = Array[int]([4, 2])
+belief_feedback = -4
+air_feedback = -2
+earth_feedback = -3
+people_feedback = -3
+animal_feedback = -1
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 73
+sequence_id = "70"
+display_name = "闭塞而成冬"
+time_consume = 2
+context = "闭塞而成冬：坏城郭、戒门闾、修键闭、固封疆、备边竟、完要塞、谨关梁、塞徯径——该补的补，该堵的堵。
+城墙有一段去年被雨水冲塌了，一直没修；
+今年秋收一般，人也累了一整年。
+是与不是全修，就看这几天。"
+event_level = 1
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([19])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://JEv92GQ+tiA"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://7sj833mtlga"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "天子亲往，登舟献鲔，替麦子求了实。这一年麦粒压手。"
 meet_gua = Array[int]([2, 0])
-belief_feedback = 0
+belief_feedback = 6
 air_feedback = 3
 earth_feedback = 2
 people_feedback = 4
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "鱼献了，礼数到了，可那句\"祈实\"说得潦草。"
-belief_feedback = 0
+belief_feedback = -1
 air_feedback = 1
 earth_feedback = 2
 people_feedback = 3
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "只派人把鱼送去了，人没去，麦子没人替它求一句。灌浆那半个月偏旱。"
 meet_gua = Array[int]([5, 7])
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = -2
 earth_feedback = -3
 people_feedback = -1
@@ -43,12 +43,13 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 24
+id = 25
 sequence_id = "23"
 display_name = "荐鲔于寝庙"
 time_consume = 1
 context = "鲔就是鲟鱼，这个月溯河而上，正是最肥的时候。
-天子上船，把第一网鲟鱼献进祖庙，顺便替地里的麦子求一句：籽实要饱满。"
+天子上船，把第一网鲟鱼献进祖庙，顺便替地里的麦子求一句：
+籽实要饱满。"
 event_level = 0
 event_type = 0
 trigger_type = 0

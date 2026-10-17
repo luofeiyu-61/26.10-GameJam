@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://24Ro1iT4tD8"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://0a4g556xk0o"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "趁麦收这几天断了、放了。放出来的人当天就下了地，麦子没烂在地里。"
 meet_gua = Array[int]([3, 6])
-belief_feedback = 0
+belief_feedback = 5
 air_feedback = 3
 earth_feedback = 3
 people_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "放了一半，剩下的等秋后再说。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 0
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "没断，也没放。人还关着。"
 meet_gua = Array[int]([4, 1])
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -2
 earth_feedback = -3
 people_feedback = -2
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 31
+id = 32
 sequence_id = "30"
 display_name = "断薄刑"
 time_consume = 1

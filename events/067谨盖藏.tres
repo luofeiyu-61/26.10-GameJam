@@ -1,0 +1,64 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://euguyoj6uih"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "分三路点数造册——仓里的盖草、窖里的封泥、场上盖席；
+最远那几块田留着不收，让孤儿寡妇去拾。
+收进来的没烂，没进仓的也没糟蹋。"
+meet_gua = Array[int]([1, 0])
+belief_feedback = 5
+air_feedback = 4
+earth_feedback = 2
+people_feedback = 4
+animal_feedback = 2
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "按户不按田：让各家自己报数，官府只登记不验。
+账面上是齐的，实数差着一截。"
+belief_feedback = -2
+air_feedback = -2
+earth_feedback = 3
+people_feedback = 2
+animal_feedback = 1
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "为赶在上冻前把城也修了，收敛的人被抽去筑城，粮留在场上只盖了层草。
+雪一化一冻，场上那批全霉了。"
+meet_gua = Array[int]([7, 2])
+belief_feedback = -5
+air_feedback = -2
+earth_feedback = -5
+people_feedback = -3
+animal_feedback = -1
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 70
+sequence_id = "67"
+display_name = "谨盖藏"
+time_consume = 2
+context = "这个月的令有一句：该收的都要收进去，该盖的都要盖起来，司徒要下去巡一遍，看有没有没收净、没敛齐的。
+秋收的粮、场上的草、地里的柴、窖里的菜，今年冬天撑不撑得过去，就看这一遍巡得细不细。
+最远的几块田上还摊着没收的。"
+event_level = 1
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([18])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

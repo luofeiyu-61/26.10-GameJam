@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://3Q8vBB4M3B0"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://o0072ii18f8"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -38,7 +38,7 @@ meet_gua = Array[int]([4, 5])
 belief_feedback = -8
 air_feedback = -1
 earth_feedback = -3
-people_feedback = 6
+people_feedback = 5
 animal_feedback = -2
 grain_feedback = -5
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"

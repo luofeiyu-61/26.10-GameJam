@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="7_dkyhc"]
 [ext_resource type="Texture2D" uid="uid://cdu7g3jmpc5rs" path="res://assets/bar/white_progress.png" id="7_nhwe4"]
 [ext_resource type="Texture2D" uid="uid://l15t1d4ud68j" path="res://assets/bar/yellow_progress.png" id="7_yyt4y"]
+[ext_resource type="Texture2D" uid="uid://bwcsbieijwdy2" path="res://assets/pictures/祭坛.png" id="8_k3jht"]
 [ext_resource type="Texture2D" uid="uid://jks4yulodp6i" path="res://assets/bar/pink_progress.png" id="9_a1fo6"]
+[ext_resource type="Texture2D" uid="uid://b6einq5jo6htp" path="res://assets/pictures/阴阳鱼收集 .png" id="12_nhwe4"]
+[ext_resource type="Texture2D" uid="uid://dd8ph3xw2ut1l" path="res://assets/pictures/阴阳鱼产出.png" id="13_18p21"]
 
 [node name="Sacrifice_window" type="Control" unique_id=746007612]
 layout_mode = 3
@@ -183,6 +186,11 @@ offset_right = 747.0
 offset_bottom = 410.0
 color = Color(0.19, 0.19, 0.19, 1)
 
+[node name="Sprite2D" type="Sprite2D" parent="SacrificeWindow" unique_id=1617569024]
+position = Vector2(336.00003, 184.00002)
+scale = Vector2(0.49086925, 0.4817708)
+texture = ExtResource("8_k3jht")
+
 [node name="SacrificeBar" type="ColorRect" parent="." unique_id=711916259]
 layout_mode = 0
 offset_left = 75.0
@@ -218,6 +226,7 @@ offset_left = 612.0
 offset_top = 16.0
 offset_right = 639.0
 offset_bottom = 43.0
+color = Color(1, 1, 1, 0)
 
 [node name="Label" type="Label" parent="SacrificeBar/Qi" unique_id=5098399]
 layout_mode = 0
@@ -227,12 +236,23 @@ offset_right = 19.0
 offset_bottom = 50.0
 theme_override_font_sizes/font_size = 13
 
+[node name="Sprite2D" type="Sprite2D" parent="SacrificeBar/Qi" unique_id=1145500364]
+position = Vector2(12.999999, 12.999999)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("12_nhwe4")
+
 [node name="Taiji" type="ColorRect" parent="SacrificeBar" unique_id=1605488629]
 layout_mode = 0
 offset_left = 20.0
 offset_top = 16.0
 offset_right = 47.0
 offset_bottom = 43.0
+color = Color(1, 1, 1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="SacrificeBar/Taiji" unique_id=2116615417]
+position = Vector2(13.999999, 12.999999)
+scale = Vector2(0.03, 0.03)
+texture = ExtResource("13_18p21")
 
 [node name="operations" type="ColorRect" parent="." unique_id=847992289]
 layout_mode = 0

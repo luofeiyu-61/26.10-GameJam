@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://rfKYC9+Hu4w"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://i4yxhvka2dn"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "等它自己落，落了才让人去拾。这一年阴起得顺。"
 meet_gua = Array[int]([0, 1])
-belief_feedback = 0
+belief_feedback = 6
 air_feedback = 3
 earth_feedback = 2
 people_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "拾了角，也没当回事，山照常进。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = 0
 earth_feedback = 1
 people_feedback = 0
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "等不及。入了山，把还没松动的角硬取下来。"
 meet_gua = Array[int]([4, 7])
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -2
 earth_feedback = -4
 people_feedback = 0
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 40
+id = 41
 sequence_id = "39"
 display_name = "鹿角解"
 time_consume = 3

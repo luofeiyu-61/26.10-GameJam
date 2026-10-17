@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://kcat6p57vq3"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "不追雁，也不等天暖。耒耜抬出来修，耦耕的人先配好对；人不下田，水不动土。
+等到河开那几天，家伙事是现成的，头一趟下地没误一天。"
+meet_gua = Array[int]([2, 0])
+belief_feedback = 3
+air_feedback = 1
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 2
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "说雁都往北了，今年暖得早，冬麦的地先敞了，人也派去修沟。
+谁知雁群在河滩上盘了两天又落回来，寒潮跟着就到——敞开的麦地冻死了一片，修沟的人也病倒几个。"
+belief_feedback = -3
+air_feedback = -2
+earth_feedback = 1
+people_feedback = -2
+animal_feedback = -1
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "只把坏了的农具补一补，耦耕的配对等开春再说。
+家伙事是齐的，可等到要下地，有牛的和没牛的还没搭好对，头几天耽误在地头。"
+meet_gua = Array[int]([5, 3])
+belief_feedback = -5
+air_feedback = -1
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 77
+sequence_id = "74"
+display_name = "雁北乡"
+time_consume = 1
+context = "小寒，雁开始掉头往北了。
+可这时候正是一年里最冷的一段，河还冻着，地还硬着，雁倒先动了。
+老辈说这是阳气回头了，也有人说雁只是记着日子，跟冷不冷不相干。
+令上这时候有一句：预备春耕，修农具，理田头，现在是时候了。
+是照着雁动手，还是等天真的暖过来。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([22])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

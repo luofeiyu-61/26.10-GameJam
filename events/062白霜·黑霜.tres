@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://zfqnj76cxm1"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "天没亮就下地，摸土、翻叶背——认出是干冻，
+立刻在上风头点起湿草熏烟，烟把地面罩住。
+天亮去看，叶子没黑。"
+meet_gua = Array[int]([2, 1])
+belief_feedback = 5
+air_feedback = -2
+earth_feedback = 4
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 9
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "不看霜，只看地形：
+凡低洼背风的几块一律盖上草，高处那几畦不管。
+低洼的保住了，高处冻了半畦；
+柴省下不少，人也没熬夜。"
+belief_feedback = -3
+air_feedback = -1
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "天亮才去看，见地上一点白都没有，就当这一夜暖和，照旧不动手。
+太阳一出来，薯藤和豆叶全黑了——
+今夜正是黑霜。"
+meet_gua = Array[int]([7, 5])
+belief_feedback = -4
+air_feedback = -3
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -7
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 65
+sequence_id = "62"
+display_name = "白霜·黑霜"
+time_consume = 1
+context = "霜降说的是气肃而凝、露结为霜。                                                                     可下地的人知道，白霜和冻不是一回事：夜里水汽凝霜时反倒放出一点热，替庄稼挡一分寒。                                                                                             最怕天晴无风、空气干透，早晨地里干干净净什么白都没有，庄稼却冻黑了——这叫黑霜，看不见，出手最狠。                                                             今夜是哪一夜，天亮前得有人下地去摸。                                                          地里还压着没起完的薯、没收净的豆和菜。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([17])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://CeLTJQx+nNE"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://mt6y1r7e737"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,24 +8,24 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "乐先齐了，山川百源一处不落。祭毕那场雨下来了。"
 meet_gua = Array[int]([2, 6])
-belief_feedback = 0
+belief_feedback = 8
 air_feedback = 7
 earth_feedback = 7
 people_feedback = 6
 animal_feedback = -4
-grain_feedback = -10
+grain_feedback = 10
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只命了百县去雩，国中没举大礼。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = 4
 earth_feedback = 3
 people_feedback = 3
 animal_feedback = 0
-grain_feedback = -6
+grain_feedback = -4
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -33,17 +33,17 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "礼办了，乐不齐，舞也乱。天上一片云也没有。"
 meet_gua = Array[int]([5, 1])
-belief_feedback = 0
+belief_feedback = -8
 air_feedback = -4
 earth_feedback = 5
 people_feedback = 0
 animal_feedback = -4
-grain_feedback = -10
+grain_feedback = -6
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 39
+id = 40
 sequence_id = "38"
 display_name = "大雩"
 time_consume = 2

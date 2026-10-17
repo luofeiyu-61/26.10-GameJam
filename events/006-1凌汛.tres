@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://775qOi+NWbM"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://36qn2ky601j"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -9,7 +9,7 @@ result_type = 0
 result_context = "事先得了卜警，人先搬到高坡上。水来了没伤着人，
 退了还留一层淤泥——那地反而肥了。"
 meet_gua = Array[int]([2, 7])
-belief_feedback = 0
+belief_feedback = 5
 air_feedback = 5
 earth_feedback = 7
 people_feedback = 2
@@ -22,7 +22,7 @@ script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "水漫到田就退了，
 人没事，也没落下肥，春忙还得从头开始。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = 1
 earth_feedback = -3
 people_feedback = 0
@@ -36,12 +36,12 @@ result_type = 2
 result_context = "水来得急，没人报信。河边田全淹，春时延误。
 冲塌了河边的房子，卷走了几头牛，人也伤了不少。"
 meet_gua = Array[int]([6, 0])
-belief_feedback = 0
-air_feedback = -5
-earth_feedback = -8
-people_feedback = -8
-animal_feedback = -8
-grain_feedback = -15
+belief_feedback = -8
+air_feedback = -6
+earth_feedback = -4
+people_feedback = -5
+animal_feedback = -6
+grain_feedback = -12
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

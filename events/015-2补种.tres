@@ -1,0 +1,62 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://nmdc1s33x2x"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "按垄匀着补撒了一遍，种子都盖上了土。
+出来的苗算不上齐，到底有苗。"
+meet_gua = Array[int]([0, 3])
+belief_feedback = 2
+air_feedback = 1
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只把最稀的几垄补了，剩下的没动。"
+belief_feedback = -3
+air_feedback = -1
+earth_feedback = -1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 3
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "舍不得种子，一垄没补；补了的几垄虫还在土里，刚出的苗又被啃了。"
+meet_gua = Array[int]([2, 1])
+belief_feedback = -5
+air_feedback = -2
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = -5
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 17
+sequence_id = "15.2"
+display_name = "补种"
+time_consume = 1
+context = "那些被虫啃过的地，苗稀得看得见土。补撒一遍还赶得上，
+可仓里那点种子原本是留着吃到夏收的——撒下去若再遭一场，
+连口粮都没了。而且虫未必除净，它就伏在土里。"
+event_level = 0
+event_type = 2
+trigger_type = 1
+is_after = true
+trigger_after_event_id = Array[int]([16])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

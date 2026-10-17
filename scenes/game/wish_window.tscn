@@ -156,7 +156,7 @@ script = ExtResource("1_2k7n0")
 
 [node name="spirit" type="ColorRect" parent="." unique_id=490360729]
 layout_mode = 0
-offset_left = 821.0
+offset_left = 782.0
 offset_top = 41.0
 offset_right = 1093.0
 offset_bottom = 596.0
@@ -164,18 +164,18 @@ color = Color(0.22, 0.22, 0.22, 1)
 
 [node name="status" type="ColorRect" parent="spirit" unique_id=590963940]
 layout_mode = 0
-offset_left = 65.0
-offset_top = 24.0
-offset_right = 199.0
-offset_bottom = 148.0
+offset_left = 89.0
+offset_top = 25.0
+offset_right = 223.0
+offset_bottom = 149.0
 color = Color(0.48, 0.48, 0.48, 1)
 
 [node name="spirit" type="Label" parent="spirit/status" unique_id=1592883699]
 layout_mode = 0
-offset_left = 31.0
-offset_top = 37.0
-offset_right = 71.0
-offset_bottom = 60.0
+offset_left = 24.0
+offset_top = 36.0
+offset_right = 64.0
+offset_bottom = 59.0
 scale = Vector2(2, 2)
 text = "气"
 
@@ -183,7 +183,7 @@ text = "气"
 layout_mode = 0
 offset_left = 27.0
 offset_top = 206.0
-offset_right = 246.0
+offset_right = 282.0
 offset_bottom = 518.0
 color = Color(0.48, 0.48, 0.48, 1)
 
@@ -205,9 +205,9 @@ text = "阳爻：0"
 
 [node name="WishWindow" type="ColorRect" parent="." unique_id=623934048]
 layout_mode = 0
-offset_left = 75.0
+offset_left = 214.0
 offset_top = 41.0
-offset_right = 747.0
+offset_right = 622.0
 offset_bottom = 406.0
 color = Color(0.19, 0.19, 0.19, 1)
 

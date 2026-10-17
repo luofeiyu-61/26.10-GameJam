@@ -1,0 +1,65 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://dm00mhsmvvz"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "蚕户一家一家教着剪，剪下的枝统一沤在村外沟里。
+第二年春分，坡上桑条比往年粗，蚕养得厚，丝换回的粟比往年多两成。
+到了第三年，村里桑地连成一片，蚕户又教人栽新苗，
+桑林比原先扩了一倍。"
+meet_gua = Array[int]([2, 3])
+belief_feedback = 5
+air_feedback = 3
+earth_feedback = 3
+people_feedback = 5
+animal_feedback = 0
+grain_feedback = 8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只有几户跟着剪了，多数人家没动又或拿去当柴烧了。                                                           蚕户坡上那几棵桑好，别家的照旧，一村两样。
+丝换回的粟多了一点，不多。"
+belief_feedback = -1
+air_feedback = 3
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 5
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "乡邻把不属于蚕户的老桑树砍了大半当柴烧。
+剩下几棵歪在坡上，开春发的叶又薄又少，蚕上了簇也不结茧。
+桑地荒了，坡上再没出过一匹好丝。"
+meet_gua = Array[int]([5, 6])
+belief_feedback = -6
+air_feedback = -1
+earth_feedback = -3
+people_feedback = 0
+animal_feedback = -2
+grain_feedback = -7
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 57
+sequence_id = "55.1"
+display_name = "修桑"
+time_consume = 1
+context = "入了冬，坡上老桑叶落枝光。                                                                  蚕户说“枝乱根浅，得从头修”：不剪，明年芽多不壮，叶薄，蚕不肯上簇；剪了，新条粗，叶厚。他先剪自家那几棵，剪下的枝不烧，捆好埋沟里沤着。                                                                                       乡邻说：砍了不如当柴，还能烧一冬。                                                       砍不砍、留几棵，这几天得定。"
+event_level = 0
+event_type = 0
+trigger_type = 1
+is_after = true
+trigger_after_event_id = Array[int]([56])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

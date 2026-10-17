@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://M536Jl7LV8I"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://xl4ivh6egfj"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "蚕箔先备齐了，妇女都下地采桑。蚕养得好，丝换回一批粟。"
 meet_gua = Array[int]([0, 3])
-belief_feedback = 0
+belief_feedback = 5
 air_feedback = 2
 earth_feedback = 3
 people_feedback = 3
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "令下了，只禁了官家的桑林，野外的没人管。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = 1
 earth_feedback = -2
 people_feedback = 0
@@ -33,9 +33,9 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "桑树砍了当柴卖，换了三天的粮。蚕没吃的上不了簇。"
 meet_gua = Array[int]([4, 6])
-belief_feedback = 0
+belief_feedback = -5
 air_feedback = -3
-earth_feedback = -4
+earth_feedback = -3
 people_feedback = 0
 animal_feedback = -2
 grain_feedback = 8
@@ -43,14 +43,14 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 25
+id = 26
 sequence_id = "24"
 display_name = "毋伐桑柘"
 time_consume = 1
-context = "戴胜鸟落在桑树顶上，就是蚕要起的信号。这时候官府下一道令：
+context = "戴胜鸟落在桑树顶上，就是蚕要起的信号。
+这时候官府下一道令：
 桑树柘树一律不许砍——砍了，蚕就没吃的。
-麻烦在于：桑树现在砍了能当柴卖，丝要等到夏初才见。
-有人已经在偷偷砍了。"
+麻烦在于：桑树现在砍了能当柴卖，丝要等到夏初才见。"
 event_level = 0
 event_type = 1
 trigger_type = 0

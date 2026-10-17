@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://B/Ff3Ka5iW8"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://8v5er6au5z5"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,8 +8,8 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "收下，按人头发粮，编进里。消息传出去，后来又来了几户。"
 meet_gua = Array[int]([0, 6])
-belief_feedback = 0
-air_feedback = 2
+belief_feedback = 4
+air_feedback = 3
 earth_feedback = 2
 people_feedback = 6
 animal_feedback = 0
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "收了一半，另一半给点干粮打发走。"
-belief_feedback = 0
+belief_feedback = -4
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 3
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "闭门不纳，还派人守着路口。人没进来，风声传出去了。"
 meet_gua = Array[int]([1, 5])
-belief_feedback = 0
+belief_feedback = -6
 air_feedback = 0
 earth_feedback = -1
 people_feedback = 0
@@ -48,7 +48,8 @@ sequence_id = "14"
 display_name = "来归"
 time_consume = 1
 context = "开春了。去年逃出去的人里，有十几个回来了——在外面熬不过冬，
-听说这边还发得出粮。守门的不敢放：收下就是十几张嘴；赶走，往后就没人敢来投了。"
+听说这边还发得出粮。
+守门的不知放不放：收下就是十几张嘴；赶走，往后就没人敢来投了。"
 event_level = 0
 event_type = 1
 trigger_type = 0

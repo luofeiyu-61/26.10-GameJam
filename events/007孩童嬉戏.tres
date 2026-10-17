@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://0O7G3TXDJwA"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://7z8fpx3qsdk"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "百姓及时扑灭，孩童无事，反而锻炼应急能力。"
 meet_gua = Array[int]([2, 4])
-belief_feedback = 0
+belief_feedback = 2
 air_feedback = -2
 earth_feedback = 3
 people_feedback = 0
@@ -20,11 +20,11 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "百姓控制火势，略有损失。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = -2
 earth_feedback = -3
 people_feedback = 0
-animal_feedback = -2
+animal_feedback = -1
 grain_feedback = -5
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
@@ -33,12 +33,12 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "火势蔓延，百姓惊慌失措，烧毁部分房屋 ."
 meet_gua = Array[int]([5, 6])
-belief_feedback = 0
+belief_feedback = -6
 air_feedback = -3
-earth_feedback = -3
+earth_feedback = -2
 people_feedback = -2
-animal_feedback = -3
-grain_feedback = -7
+animal_feedback = -2
+grain_feedback = -6
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

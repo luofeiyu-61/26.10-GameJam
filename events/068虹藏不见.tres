@@ -1,0 +1,63 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://gjwg5d3ro7f"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "按「不通」的道理闭门——仓门上锁、城门早晚定时、市也定了日子；
+只留盐和药两样照旧能换。"
+meet_gua = Array[int]([1, 7])
+belief_feedback = 4
+air_feedback = 3
+earth_feedback = 1
+people_feedback = 0
+animal_feedback = 3
+grain_feedback = 6
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只把它当天象记下来、占了一卦，「天地不通」讲得头头是道；
+门照旧开着，市照旧散着。"
+belief_feedback = -3
+air_feedback = -2
+earth_feedback = 2
+people_feedback = 0
+animal_feedback = 1
+grain_feedback = 3
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "说哪有什么不通，一样也没闭。
+头一场雪把赶集的人堵在半路，人冻坏了几个，车上的货也丢了。"
+meet_gua = Array[int]([4, 6])
+belief_feedback = -5
+air_feedback = -2
+earth_feedback = -2
+people_feedback = -2
+animal_feedback = -1
+grain_feedback = -4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 71
+sequence_id = "68"
+display_name = "虹藏不见"
+time_consume = 1
+context = "天暖的时候，雨刚过、太阳斜着照过来，半空里挂一道虹——那是阳光穿过还没落下去的雨滴折出来的。
+入冬以后这类雨少了，太阳也一天比一天低，虹就见不着了。
+老辈讲，虹是天地还在往来的样子；虹藏了，就是上下不通，门该关了。"
+event_level = 0
+event_type = 1
+trigger_type = 0
+trigger_terms = Array[int]([19])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

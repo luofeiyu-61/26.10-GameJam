@@ -1,0 +1,67 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://pi9vha2y3t5"]
+
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_type = 0
+result_context = "没信「变」的说法。趁退潮派人下滩，采一批晒干入仓当冬春的口粮；
+滩也划开了，采一片留一片，明年还有。"
+meet_gua = Array[int]([5, 6])
+belief_feedback = 5
+air_feedback = 2
+earth_feedback = 4
+people_feedback = 4
+animal_feedback = 1
+grain_feedback = 10
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "信者自信，不信者不信·。
+只准在自家那段滩上捡，别的不许碰。捡回来先当新鲜物分着吃了，
+剩下的摊就在滩上，也没人管。眼下尝了味，冬天还是空的。"
+belief_feedback = -3
+air_feedback = 1
+earth_feedback = 2
+people_feedback = 2
+animal_feedback = 0
+grain_feedback = 4
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "没人听老农的“无稽之「变」”。
+全族一哄而下，连没长成的小蛤也捞了，滩泥踩成一片稀浆。
+捞回来的堆在场上，天还暖，没几天就臭了，只能连筐扔掉。"
+meet_gua = Array[int]([0, 3])
+belief_feedback = -6
+air_feedback = -3
+earth_feedback = -2
+people_feedback = 0
+animal_feedback = 0
+grain_feedback = 0
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[resource]
+script = ExtResource("1_l3b6a")
+id = 62
+sequence_id = "59"
+display_name = "雀入大水为蛤"
+time_consume = 1
+context = "入秋以后，地里、场边的雀一天比一天少见；
+偏偏这时候，河滩和海口浅水里的蛤一个个肥得鼓起来，
+退潮就露在外面，弯腰一捡就是一篓。
+管事的老人说，雀是钻进水里变的，天在改物，动不得。
+可滩就在那儿，蛤就在那儿——捡回来晒干，能顶一冬的菜和半春的粮。"
+event_level = 0
+event_type = 0
+trigger_type = 0
+trigger_terms = Array[int]([16])
+result_good = SubResource("Resource_good")
+result_normal = SubResource("Resource_normal")
+result_bad = SubResource("Resource_bad")
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

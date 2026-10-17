@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://xqMzDcmaOro"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://g0bv78f7922"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "赶在靡草枯死之前采了，晒得干透，一捆一捆码进仓。这一夏真病起来有得抓。"
 meet_gua = Array[int]([3, 4])
-belief_feedback = 0
+belief_feedback = 4
 air_feedback = 2
 earth_feedback = 4
 people_feedback = 3
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "知道会病，可只采了一点点，够宫里用。"
-belief_feedback = 0
+belief_feedback = -3
 air_feedback = 1
 earth_feedback = -2
 people_feedback = -3
@@ -33,7 +33,7 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "没当回事。入夏那一个月，有人发热没药吃，硬扛过去了；有人没扛过去。"
 meet_gua = Array[int]([5, 1])
-belief_feedback = 0
+belief_feedback = -7
 air_feedback = -3
 earth_feedback = -4
 people_feedback = -5
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 30
+id = 31
 sequence_id = "29"
 display_name = "聚畜百药"
 time_consume = 1

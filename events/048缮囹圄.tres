@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid:///xxu9e7HWjk"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://503ltjzz65h"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
@@ -8,7 +8,7 @@ script = ExtResource("1_dt3yw")
 result_type = 0
 result_context = "牢狱修葺了，刑具备齐，逃出去的也追了回来。这一秋，道上没人敢拦路抢粮。"
 meet_gua = Array[int]([1, 7])
-belief_feedback = 0
+belief_feedback = 4
 air_feedback = 3
 earth_feedback = 2
 people_feedback = 5
@@ -20,7 +20,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只把国邑那一处牢修了，鄙野的没人管。秋里出的事，大半出在那几处。"
-belief_feedback = 0
+belief_feedback = -2
 air_feedback = 0
 earth_feedback = -2
 people_feedback = 0
@@ -33,9 +33,9 @@ script = ExtResource("1_dt3yw")
 result_type = 2
 result_context = "一律从严，连在收过的地里拾几穗谷的也上了桎梏。牢里挤满了人，割谷的手更不够了。"
 meet_gua = Array[int]([5, 4])
-belief_feedback = 0
+belief_feedback = -6
 air_feedback = -3
-earth_feedback = -4
+earth_feedback = -3
 people_feedback = -4
 animal_feedback = -2
 grain_feedback = -8
@@ -43,7 +43,7 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
 script = ExtResource("1_l3b6a")
-id = 49
+id = 50
 sequence_id = "48"
 display_name = "缮囹圄"
 time_consume = 1
