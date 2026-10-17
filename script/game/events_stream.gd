@@ -7,6 +7,8 @@ class_name ClientEventPage
 signal go_to_wish
 signal go_to_sacrifice
 signal next_event
+#按下日历按键：只发出请求，由 one.gd 收集数据后再回调 openSolarCalendar()
+signal open_solar_calendar
 
 @export var event_stream_text: RichTextLabel
 @export var debug_event: String = "[some event context]"
@@ -246,4 +248,115 @@ func _on_close_pressed() -> void:
 
 
 func _on_solar_calendar_pressed() -> void:
+	#只发信号：由 one.gd 的 clientOpenSolarCalendar() 收集数据后，再回调 openSolarCalendar()
+	open_solar_calendar.emit()
+
+
+#region 节气日历（天数 / 年份 / 上一·当前·下一节气 + 事件卡片）
+
+#日历卡片场景（内部 ColorRect 固定 179×213）
+const SOLAR_CALENDAR_CARD_SCENE := preload("res://scenes/sprites/SolarCalendarEventCard.tscn")
+
+#卡片摆放容器：Calendar/sun/SolarCalendar/calendarSo/Events
+@onready var calendar_events_rect: ColorRect = $Calendar/sun/SolarCalendar/calendarSo/Events
+
+#当前已生成的卡片（重新打开时先清掉）
+var _calendar_cards: Array[Control] = []
+
+
+#由 one.gd 调用：传入已经收集好的信息，填 label + 在 Events 区域里随机摆卡片。
+#  day_now          当前天数（days，这里取整）
+#  year_now         年份（one.gd 已经 +1，直接显示）
+#  solar_term       当前节气
+#  possible_events  本节气可能发生（尚未发生）的事件
+#  happened_events  本节气已经发生过的事件
+func openSolarCalendar(day_now: float, year_now: int, solar_term: ENUMS.SolarTerm,
+		possible_events: Array[EventCard], happened_events: Array[EventCard]) -> void:
+	day.text = "第%d天" % int(day_now)
+	year.text = "第%d年" % year_now
+
+	#上一 / 当前 / 下一节气：按 ENUMS.SolarTerm 的顺序 ±1（24 个一轮）
+	var term_index: int = int(solar_term)
+	last.text = ENUMS.solarTerm2Text((term_index + 23) % 24)
+	now.text = ENUMS.solarTerm2Text(term_index % 24)
+	next.text = ENUMS.solarTerm2Text((term_index + 1) % 24)
+
+	_clearCalendarCards()
+
+	#① 先把卡片全部实例化（顺便量出卡片实际尺寸），顺序：先「已发生」再「可能发生」
+	var all_events: Array[EventCard] = []
+	all_events.append_array(happened_events)
+	all_events.append_array(possible_events)
+	for e in all_events:
+		var card: Control = SOLAR_CALENDAR_CARD_SCENE.instantiate()
+		calendar_events_rect.add_child(card)
+		card.writeText(e)          #用户的接口：只喂事件对象
+		_calendar_cards.append(card)
+
+	#② 一次性算好全部位置再摆：优先不重叠（区域够用时一定不重叠）
+	if !_calendar_cards.is_empty():
+		var card_size: Vector2 = (_calendar_cards[0].get_node("ColorRect") as ColorRect).size
+		var positions: Array[Vector2] = _layoutCardPositions(
+			_calendar_cards.size(), card_size, calendar_events_rect.size)
+		for i in _calendar_cards.size():
+			_placeCalendarCard(_calendar_cards[i], positions[i])
+
 	solar_calendar.show()
+
+
+#清掉上一次打开日历生成的卡片
+func _clearCalendarCards() -> void:
+	for c in _calendar_cards:
+		if is_instance_valid(c):
+			calendar_events_rect.remove_child(c)
+			c.queue_free()
+	_calendar_cards.clear()
+
+
+#算一整套卡片位置，保证「优先不重叠」：
+#  ① 把区域切成 cols × rows 个格子（每个格子 ≥ 一张卡片），一张卡片占一个格子
+#     → 格子之间不重叠，卡片自然也一定不重叠；
+#     格子顺序随机打乱、并在格子内再做一次随机偏移，保留「随机摆放」的手感。
+#  ② 卡片数量超过格子数 → 多出来的只能放到随机位置（允许重叠，但仍在区域内）。
+func _layoutCardPositions(count: int, card_size: Vector2, area: Vector2) -> Array[Vector2]:
+	var out: Array[Vector2] = []
+	if count <= 0:
+		return out
+
+	var max_x: float = maxf(area.x - card_size.x, 0.0)
+	var max_y: float = maxf(area.y - card_size.y, 0.0)
+
+	#能切出几列几行（至少 1×1）
+	var cols: int = maxi(int(area.x / card_size.x), 1)
+	var rows: int = maxi(int(area.y / card_size.y), 1)
+	var cell: Vector2 = Vector2(area.x / cols, area.y / rows)
+	#格子里多出来的余量，用来做随机抖动
+	var slack: Vector2 = Vector2(maxf(cell.x - card_size.x, 0.0), maxf(cell.y - card_size.y, 0.0))
+
+	#所有格子，打乱后按顺序分配
+	var grid: Array[Vector2] = []
+	for r in rows:
+		for c in cols:
+			grid.append(Vector2(c, r))
+	grid.shuffle()
+
+	for i in count:
+		if i < grid.size():
+			var cell_index: Vector2 = grid[i]
+			var base: Vector2 = Vector2(cell_index.x * cell.x, cell_index.y * cell.y)
+			out.append(base + Vector2(randf_range(0.0, slack.x), randf_range(0.0, slack.y)))
+		else:
+			out.append(Vector2(randf_range(0.0, max_x), randf_range(0.0, max_y)))
+	return out
+
+
+#把卡片放到指定位置。
+#场景里的根 Control 是「铺满父节点」的，这里改成正好卡片大小，避免溢出 Events 区域。
+func _placeCalendarCard(card: Control, pos: Vector2) -> void:
+	var card_size: Vector2 = (card.get_node("ColorRect") as ColorRect).size
+	card.anchor_right = 0.0
+	card.anchor_bottom = 0.0
+	card.size = card_size
+	card.position = pos
+
+#endregion

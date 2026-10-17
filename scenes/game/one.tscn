@@ -243,6 +243,7 @@ text = "GameValues[DEVELOPER]"
 [connection signal="go_to_sacrifice" from="Events_window" to="." method="_events_to_sacrifice"]
 [connection signal="go_to_wish" from="Events_window" to="." method="_events_to_wish"]
 [connection signal="next_event" from="Events_window" to="." method="clientPushNextEvent"]
+[connection signal="open_solar_calendar" from="Events_window" to="." method="clientOpenSolarCalendar"]
 [connection signal="confirm_sacrifice" from="Sacrifice_window" to="." method="clientConfirmSacrifice"]
 [connection signal="go_to_event" from="Sacrifice_window" to="." method="_sacrifice_to_event"]
 [connection signal="go_to_wish" from="Sacrifice_window" to="." method="_sacrifice_to_wish"]

@@ -14,7 +14,7 @@ script = ExtResource("1_61bxt")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=708264421]
 layout_mode = 0
 offset_right = 179.0
-offset_bottom = 213.0
+offset_bottom = 170.0
 color = Color(0.18598092, 0.18598092, 0.18598092, 1)
 
 [node name="title" type="ColorRect" parent="ColorRect" unique_id=351945743]
@@ -36,23 +36,23 @@ layout_mode = 0
 offset_left = 14.0
 offset_top = 57.0
 offset_right = 163.0
-offset_bottom = 188.0
+offset_bottom = 152.0
 color = Color(0.33163944, 0.33163944, 0.3316394, 1)
 
 [node name="good" type="Label" parent="ColorRect/yiji" unique_id=399928346]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 22.0
+offset_top = 5.0
 offset_right = 125.0
-offset_bottom = 62.0
+offset_bottom = 45.0
 text = "宜："
 vertical_alignment = 1
 
 [node name="bad" type="Label" parent="ColorRect/yiji" unique_id=1438741998]
 layout_mode = 0
 offset_left = 21.0
-offset_top = 75.0
+offset_top = 45.0
 offset_right = 125.0
-offset_bottom = 115.0
+offset_bottom = 85.0
 text = "忌："
 vertical_alignment = 1

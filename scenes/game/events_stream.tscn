@@ -379,7 +379,6 @@ offset_bottom = 45.0
 text = "日历"
 
 [node name="SolarCalendar" type="Control" parent="Calendar/sun" unique_id=845840662]
-visible = false
 z_index = 1
 anchors_preset = 0
 offset_right = 40.0
@@ -398,17 +397,17 @@ color = Color(0.27, 0.27, 0.27, 0.5294118)
 
 [node name="calendarSo" type="ColorRect" parent="Calendar/sun/SolarCalendar" unique_id=1070646227]
 layout_mode = 0
-offset_left = -322.0
-offset_top = 20.0
-offset_right = 351.0
-offset_bottom = 483.0
+offset_left = -473.0
+offset_top = -27.0
+offset_right = 489.0
+offset_bottom = 540.0
 color = Color(0.19315353, 0.19315353, 0.19315353, 1)
 
 [node name="time" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=592122625]
 layout_mode = 0
-offset_left = 194.0
+offset_left = 330.0
 offset_top = 15.0
-offset_right = 478.0
+offset_right = 614.0
 offset_bottom = 49.0
 color = Color(0.40705615, 0.40705618, 0.40705615, 1)
 
@@ -435,15 +434,15 @@ text = "第m年"
 layout_mode = 0
 offset_left = 25.0
 offset_top = 66.0
-offset_right = 650.0
+offset_right = 921.0
 offset_bottom = 103.0
 color = Color(0.4403357, 0.44033572, 0.4403357, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm" unique_id=476175313]
 layout_mode = 0
-offset_left = 25.0
+offset_left = 232.0
 offset_top = 8.0
-offset_right = 597.0
+offset_right = 655.0
 offset_bottom = 31.0
 
 [node name="left" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer" unique_id=1799852627]
@@ -478,18 +477,18 @@ layout_mode = 2
 
 [node name="Events" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=412790968]
 layout_mode = 0
-offset_left = 50.0
-offset_top = 140.0
-offset_right = 622.0
-offset_bottom = 415.0
+offset_left = 51.0
+offset_top = 126.0
+offset_right = 897.0
+offset_bottom = 519.0
 color = Color(0.45323175, 0.45323175, 0.45323175, 1)
 
 [node name="close" type="TextureButton" parent="Calendar/sun/SolarCalendar" unique_id=2024535347]
 layout_mode = 0
-offset_left = 318.0
-offset_top = 26.000004
-offset_right = 340.0
-offset_bottom = 48.000004
+offset_left = 448.0
+offset_top = -11.999996
+offset_right = 470.0
+offset_bottom = 10.000004
 size_flags_vertical = 0
 texture_normal = ExtResource("6_ermaf")
 texture_pressed = ExtResource("7_htou7")

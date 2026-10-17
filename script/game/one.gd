@@ -610,6 +610,41 @@ func _wish_to_sacrifice() -> void:
 
 #region 客户端操作
 
+#打开节气日历（Events_window 的 solar_calendar 按键 → Events_window.open_solar_calendar 信号）
+#收集：天数、年份、当前节气、本节气「可能发生」与「已经发生」的事件，交给 events_stream 渲染。
+func clientOpenSolarCalendar() -> void:
+	if EventStremPage == null:
+		return
+
+	#① 本节气所有可发生的固定事件（EventDataBase 按 trigger_terms 收集）
+	var possible_events: Array[EventCard] = []
+	var possible_ids: Array[int] = EventDataBase.collectFixedEvent(solar_term_now)
+	for id in possible_ids:
+		if EventDataBase.all_events.has(id):
+			possible_events.append(EventDataBase.all_events[id])
+
+	#② 今年 + 本节气已经发生过的事件（all_history: {"Year0":{"SolarTerm0":[[id,result],...]}}）
+	var yk: String = "Year%d" % year_now
+	var tk: String = "SolarTerm%d" % int(solar_term_now)
+	var happened_events: Array[EventCard] = []
+	var happened_ids: Dictionary = {}
+	if all_history.has(yk) and all_history[yk].has(tk):
+		for row in all_history[yk][tk]:
+			var hid: int = int(row[0])
+			if EventDataBase.all_events.has(hid):
+				happened_events.append(EventDataBase.all_events[hid])
+				happened_ids[hid] = true
+
+	#③ 「可能发生」里去掉已经发生过的，避免同一张卡出现两次
+	var remain_events: Array[EventCard] = []
+	for e in possible_events:
+		if !happened_ids.has(e.id):
+			remain_events.append(e)
+
+	#④ 交给 events_stream：年份显示用 year_now + 1
+	EventStremPage.openSolarCalendar(days, year_now + 1, solar_term_now, remain_events, happened_events)
+
+
 #玩家按下“下一个事件”
 func clientPushNextEvent() -> void:
 	print("结算一次事件！")
