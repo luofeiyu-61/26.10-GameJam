@@ -38,7 +38,7 @@ lunar_buff_downdown = Dictionary[int, float]({
 8: 0.0
 })
 people_sup = 1000
-people_value = 400
+people_value = 300
 animal_sup = 300
 animal_value = 120
 grain_sup = 2000
