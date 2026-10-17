@@ -21,6 +21,7 @@ var event_text_log: String = ""
 
 
 func _ready() -> void:
+	solar_calendar.hide()
 	#场景里的初始占位文本也记进镜像，否则没触发过事件时存档会存成空串
 	if event_stream_text != null:
 		event_text_log = event_stream_text.text
@@ -207,6 +208,27 @@ func rederBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase)
 
 
 
+
+
+@onready var day: Label = $Calendar/sun/SolarCalendar/calendarSo/time/day
+@onready var year: Label = $Calendar/sun/SolarCalendar/calendarSo/time/year
+@onready var last: Label = $Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer/last
+@onready var now: Label = $Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer/now
+@onready var next: Label = $Calendar/sun/SolarCalendar/calendarSo/SolarTerm/HBoxContainer/next
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 func _on_sacrifice_pressed() -> void:
 	go_to_sacrifice.emit()
 
@@ -215,3 +237,13 @@ func _on_wish_pressed() -> void:
 
 func nextEvent() -> void:
 	emit_signal("next_event")
+
+
+
+@onready var solar_calendar: Control = $Calendar/sun/SolarCalendar
+func _on_close_pressed() -> void:
+	solar_calendar.hide()
+
+
+func _on_solar_calendar_pressed() -> void:
+	solar_calendar.show()

@@ -351,12 +351,32 @@ color = Color(0.44806695, 0.44806695, 0.44806695, 1)
 
 [node name="solar" type="Label" parent="Calendar/sun" unique_id=1267005360]
 layout_mode = 0
-offset_top = -25.0
+offset_top = 55.0
 offset_right = 48.0
-offset_bottom = 24.0
+offset_bottom = 104.0
 theme_override_colors/font_color = Color(1, 0.9333334, 0, 1)
 text = "节气：
 1"
+
+[node name="solar_calendar" type="TextureButton" parent="Calendar/sun" unique_id=66108808]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 7.0
+offset_right = 31.0
+offset_bottom = 29.0
+size_flags_vertical = 0
+texture_normal = ExtResource("6_ermaf")
+texture_pressed = ExtResource("7_htou7")
+texture_hover = ExtResource("8_kshkp")
+texture_disabled = ExtResource("9_udt61")
+
+[node name="111" type="Label" parent="Calendar/sun/solar_calendar" unique_id=364605750]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 22.0
+offset_right = 28.0
+offset_bottom = 45.0
+text = "日历"
 
 [node name="SolarCalendar" type="Control" parent="Calendar/sun" unique_id=845840662]
 visible = false
@@ -379,17 +399,44 @@ color = Color(0.27, 0.27, 0.27, 0.5294118)
 [node name="calendarSo" type="ColorRect" parent="Calendar/sun/SolarCalendar" unique_id=1070646227]
 layout_mode = 0
 offset_left = -322.0
-offset_top = 40.0
+offset_top = 20.0
 offset_right = 351.0
-offset_bottom = 459.0
+offset_bottom = 483.0
 color = Color(0.19315353, 0.19315353, 0.19315353, 1)
+
+[node name="time" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=592122625]
+layout_mode = 0
+offset_left = 194.0
+offset_top = 15.0
+offset_right = 478.0
+offset_bottom = 49.0
+color = Color(0.40705615, 0.40705618, 0.40705615, 1)
+
+[node name="day" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/time" unique_id=326603768]
+layout_mode = 0
+offset_left = 77.0
+offset_right = 205.0
+offset_bottom = 28.0
+text = "第n天"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="year" type="Label" parent="Calendar/sun/SolarCalendar/calendarSo/time" unique_id=965106828]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 13.0
+offset_right = 94.0
+offset_bottom = 27.0
+theme_override_colors/font_color = Color(1, 1, 1, 0.6862745)
+theme_override_font_sizes/font_size = 10
+text = "第m年"
 
 [node name="SolarTerm" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=1873454081]
 layout_mode = 0
 offset_left = 25.0
-offset_top = 15.0
+offset_top = 66.0
 offset_right = 650.0
-offset_bottom = 59.0
+offset_bottom = 103.0
 color = Color(0.4403357, 0.44033572, 0.4403357, 1)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Calendar/sun/SolarCalendar/calendarSo/SolarTerm" unique_id=476175313]
@@ -432,10 +479,29 @@ layout_mode = 2
 [node name="Events" type="ColorRect" parent="Calendar/sun/SolarCalendar/calendarSo" unique_id=412790968]
 layout_mode = 0
 offset_left = 50.0
-offset_top = 83.0
+offset_top = 140.0
 offset_right = 622.0
-offset_bottom = 379.0
+offset_bottom = 415.0
 color = Color(0.45323175, 0.45323175, 0.45323175, 1)
+
+[node name="close" type="TextureButton" parent="Calendar/sun/SolarCalendar" unique_id=2024535347]
+layout_mode = 0
+offset_left = 318.0
+offset_top = 26.000004
+offset_right = 340.0
+offset_bottom = 48.000004
+size_flags_vertical = 0
+texture_normal = ExtResource("6_ermaf")
+texture_pressed = ExtResource("7_htou7")
+texture_hover = ExtResource("8_kshkp")
+texture_disabled = ExtResource("9_udt61")
+
+[node name="Label" type="Label" parent="Calendar/sun/SolarCalendar/close" unique_id=1228128060]
+layout_mode = 0
+offset_left = -45.0
+offset_right = -5.0
+offset_bottom = 23.0
+text = "关闭"
 
 [node name="lunar" type="ColorRect" parent="Calendar" unique_id=201972660]
 layout_mode = 0
@@ -527,6 +593,8 @@ offset_right = -16.0
 offset_bottom = 23.0
 text = "下一事件"
 
+[connection signal="pressed" from="Calendar/sun/solar_calendar" to="." method="_on_solar_calendar_pressed"]
+[connection signal="pressed" from="Calendar/sun/SolarCalendar/close" to="." method="_on_close_pressed"]
 [connection signal="pressed" from="operations/sacrifice" to="." method="_on_sacrifice_pressed"]
 [connection signal="pressed" from="operations/wish" to="." method="_on_wish_pressed"]
 [connection signal="pressed" from="operations/next" to="." method="nextEvent"]
