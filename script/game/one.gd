@@ -418,7 +418,14 @@ func anEventHappen()->bool:
 		this_result_type=result.result_type
 		
 		#数值反馈
-		belief_value+=result.belief_feedback
+		match result.result_type:
+			ENUMS.ResultType.Good:
+				belief_value+=-3
+			ENUMS.ResultType.Normal:
+				belief_value+=-5
+			ENUMS.ResultType.Bad:
+				belief_value+=-8
+		#belief_value+=result.belief_feedback
 		
 		people_value=updateValueByLunarBuff(people_value,result.people_feedback)
 		animal_value=updateValueByLunarBuff(animal_value,result.animal_feedback)

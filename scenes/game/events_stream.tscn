@@ -881,6 +881,7 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="days" type="Label" parent="Calendar" unique_id=719407154]
+visible = false
 layout_mode = 0
 offset_left = -31.0
 offset_top = -35.0

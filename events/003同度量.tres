@@ -1,11 +1,23 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://u9sbmrupozm"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://brmqtg4aq2bma"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="3_csovo"]
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "不铸新、不毁旧。下令「凡有讼争之器，一律封存待断」，
+市上暂以官器为准；秋收之后再行校定。"
+meet_gua = Array[int]([1, 2])
+belief_feedback = -4
+air_feedback = -2
+earth_feedback = -3
+grain_feedback = -50
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_good"]
 script = ExtResource("1_dt3yw")
-result_type = 0
 result_context = "择市之日，当众以王室官方器皿校对各斗秤，不合者当场毁之，
 并刻石，于市门颁布其标准。"
 meet_gua = Array[int]([5, 7])
@@ -13,7 +25,6 @@ belief_feedback = 5
 air_feedback = 4
 earth_feedback = 3
 people_feedback = 30
-animal_feedback = 0
 grain_feedback = 70
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
@@ -25,23 +36,7 @@ result_context = "不颁令、不设期。把校准好的斗秤散入各里各�
 belief_feedback = -3
 air_feedback = 1
 earth_feedback = -2
-people_feedback = 0
-animal_feedback = 0
 grain_feedback = 40
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_bad"]
-script = ExtResource("1_dt3yw")
-result_type = 2
-result_context = "不铸新、不毁旧。下令「凡有讼争之器，一律封存待断」，
-市上暂以官器为准；秋收之后再行校定。"
-meet_gua = Array[int]([1, 2])
-belief_feedback = -4
-air_feedback = -2
-earth_feedback = -3
-people_feedback = 0
-animal_feedback = 0
-grain_feedback = -50
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
@@ -49,12 +44,8 @@ script = ExtResource("1_l3b6a")
 id = 3
 sequence_id = "3"
 display_name = "同度量"
-time_consume = 2
 context = "仲春月份，白天和黑夜时长相等，这时统一所有长度测量的标准，
 校准衡器和石这类重量量具，调准斗、甬这类容量量具。"
-event_level = 0
-event_type = 0
-trigger_type = 0
 trigger_terms = Array[int]([3])
 result_good = SubResource("Resource_good")
 result_normal = SubResource("Resource_normal")
