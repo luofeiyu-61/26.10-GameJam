@@ -70,6 +70,13 @@ class_name SaveTemplate
 #endregion
 
 
+#region 游戏结束
+#结局事件（天悲/人绝/地愤）已经发生过：读档时要把「下一事件 / 确认献祭 / 4 根比例滑块 / 保存祈愿」
+#全部重新禁掉，否则读一个已经死掉的档会把操作又解锁。
+@export var game_over:bool = false
+#endregion
+
+
 #当前时间，格式化为存档显示格式：2026/10/13  21：05
 static func nowSaveTime() -> String:
 	var t := Time.get_datetime_dict_from_system()

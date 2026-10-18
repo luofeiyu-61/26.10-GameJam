@@ -294,6 +294,10 @@ func firstInitGame():
 			print("[WARNING]读档失败，改用默认值开新游戏：%s" % save_path)
 		#新建但尚未游玩的存档：不载入数据，采用本脚本(one.gd)里的默认变量值
 
+	#新游戏 / 新建存档：把「游戏结束」的禁用状态清掉
+	#（上一局死了之后又开新档时，用的还是同一个 one.gd 实例，不重置的话那几个操作会一直禁着）
+	_setGameOver(false)
+
 	#新游戏 / 新建存档
 	if days == 0.0:
 		lunar_phase_now = 0 as ENUMS.LunarPhase #具体算法已内置到变量的定义环节
@@ -910,6 +914,9 @@ func _collectSaveTemplate() -> SaveTemplate:
 	if EventStremPage != null:
 		save_data.event_stream_text = EventStremPage.getEventText()
 
+	#—— 游戏结束 ——
+	save_data.game_over = game_over
+
 	return save_data
 
 
@@ -1012,8 +1019,9 @@ func load_game(game_save_file:String) -> bool:
 		updateGuy()
 		updateSpirit()
 
-	#读档后复原「游戏结束」状态（存档里不会记录死亡，读档就是重开）
-	_setGameOver(false)
+	#读档后按存档里记录的「游戏结束」状态复原（死掉的档要重新禁掉那几项操作）
+	#空白存档 = 全新开局，永远是「没死」的状态（即使快照里带了脏值也不锁）
+	_setGameOver(false if fresh_start else save_data.game_over)
 
 	refreshAllDisplay()
 	#按“当前所在的界面”再整屏重画一次：
