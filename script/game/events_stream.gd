@@ -71,6 +71,7 @@ func setEventText(bbcode: String) -> void:
 
 @onready var next_button: TextureButton = $operations/next
 @onready var timer_text: Timer = $EventStreamWindow/texts/Timer
+@onready var moon_sprite: AnimatedSprite2D = $Calendar/lunar/moon
 
 
 #region 客户端：事件流 操作
@@ -105,8 +106,9 @@ func EPupdateTimeLine(
 	server_years:int
 	):
 	days.text="游戏天数："+str(server_day)
-	solar.text="节气："+"\n"+ENUMS.solarTerm2Text(server_solar_term)
-	lunar.text="月相："+"\n"+ENUMS.lunarPhase2Text(server_lunar_phase)
+	solar.text=ENUMS.solarTerm2Text(server_solar_term)
+	lunar.text=ENUMS.lunarPhase2Text(server_lunar_phase)
+	moon_sprite.play(ENUMS.lunarPhase2Text(server_lunar_phase))
 
 #更新事件流文本
 func EPupdateEventText(
@@ -360,3 +362,8 @@ func _placeCalendarCard(card: Control, pos: Vector2) -> void:
 	card.position = pos
 
 #endregion
+
+@onready var lunar_calendar: Control = $Calendar/lunar/LunarCalendar
+
+func _on_close_lunar_calendar() -> void:
+	lunar_calendar.hide()

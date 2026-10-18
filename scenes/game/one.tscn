@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="6_45klv"]
 [ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="7_f04th"]
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="8_ewchi"]
-[ext_resource type="Texture2D" uid="uid://5khrbrooym01" path="res://assets/button/设置图标.png" id="9_ewchi"]
-[ext_resource type="Texture2D" uid="uid://b4fliafudjrrm" path="res://assets/button/设置图标·点击.png" id="10_hb8o3"]
-[ext_resource type="Texture2D" uid="uid://bu1eev471gp55" path="res://assets/button/设置图标·鼠标放置.png" id="11_c1g6b"]
+[ext_resource type="Texture2D" uid="uid://c1yifmsoam1g5" path="res://assets/button/C262137F6EC219E9C708BB71922DC6B8.png" id="9_ewchi"]
+[ext_resource type="Texture2D" uid="uid://bsliv1lkrbte7" path="res://assets/button/3CEE32B89EB320F1FA8E0E051263CA3F.png" id="10_hb8o3"]
+[ext_resource type="Texture2D" uid="uid://cojw8wximki7k" path="res://assets/button/8283AE982E0B82ABE7E53314286F3C8C.png" id="11_c1g6b"]
 
 [node name="One" type="Node" unique_id=655850677 node_paths=PackedStringArray("EventStremPage", "SacrificePage", "WishPage")]
 script = ExtResource("1_q8wxn")
@@ -95,10 +95,10 @@ offset_bottom = 40.0
 
 [node name="selections" type="ColorRect" parent="options/option" unique_id=706514002]
 layout_mode = 0
-offset_left = 91.0
-offset_top = 481.0
-offset_right = 296.0
-offset_bottom = 588.0
+offset_left = 89.0
+offset_top = 485.0
+offset_right = 294.0
+offset_bottom = 592.0
 color = Color(0.29709315, 0.29709288, 0.2970929, 1)
 
 [node name="saves" type="TextureButton" parent="options/option/selections" unique_id=789923169]
@@ -159,14 +159,14 @@ size_flags_vertical = 0
 text = "返回主菜单"
 
 [node name="optionButton" type="TextureButton" parent="options" unique_id=1986977323]
-offset_left = 84.0
-offset_top = 546.0
-offset_right = 596.0
-offset_bottom = 1058.0
-scale = Vector2(0.1, 0.1)
+offset_left = 91.99999
+offset_top = 555.0
+offset_right = 604.0
+offset_bottom = 1067.0
+scale = Vector2(0.07, 0.07)
 texture_normal = ExtResource("9_ewchi")
-texture_pressed = ExtResource("10_hb8o3")
-texture_hover = ExtResource("11_c1g6b")
+texture_pressed = ExtResource("11_c1g6b")
+texture_hover = ExtResource("10_hb8o3")
 
 [node name="close_warning" type="ColorRect" parent="options" unique_id=1445131355]
 visible = false

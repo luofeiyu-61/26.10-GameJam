@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dskgnhh6o13wa"]
 
 [ext_resource type="Script" path="res://script/game/wish_window.gd" id="1_2k7n0"]
-[ext_resource type="Texture2D" uid="uid://t3pji54la1fx" path="res://assets/pictures/祈愿背景图.png" id="2_tjnyx"]
 [ext_resource type="Texture2D" uid="uid://nq3fnqbi6wxi" path="res://assets/charas/white/c111.png" id="3_h2it5"]
 [ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="3_tdq8v"]
 [ext_resource type="Texture2D" uid="uid://sa043fqpqtgt" path="res://assets/charas/white/c110.png" id="4_b7108"]
@@ -22,9 +21,15 @@
 [ext_resource type="Texture2D" uid="uid://ct6fb24fq2s58" path="res://assets/charas/white/b10.png" id="15_cymdv"]
 [ext_resource type="PackedScene" uid="uid://bjpvxxuqpbgq3" path="res://scenes/sprites/wish_circle.tscn" id="16_1osp7"]
 [ext_resource type="Texture2D" uid="uid://c1gf2jmp3juiy" path="res://assets/charas/white/b11.png" id="16_i6min"]
+[ext_resource type="Texture2D" uid="uid://cqo0yxf6fu6er" path="res://assets/button/事件流.png" id="21_i6min"]
+[ext_resource type="Texture2D" uid="uid://droc1kswvnan5" path="res://assets/button/事件流·点击·.png" id="22_o3ukn"]
 [ext_resource type="Texture2D" uid="uid://d0kbh2htf75rd" path="res://assets/button/祈愿图标.png" id="22_ybofx"]
 [ext_resource type="Texture2D" uid="uid://bd2g7sq4k8vg2" path="res://assets/button/祈愿图标·点击.png" id="23_cymdv"]
+[ext_resource type="Texture2D" uid="uid://dnudd28no1ml2" path="res://assets/button/事件流·鼠标放置.png" id="23_ivx11"]
 [ext_resource type="Texture2D" uid="uid://c24j0tjkrggtd" path="res://assets/button/祈愿图标·鼠标放置.png" id="24_i6min"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcyo6"]
+load_path = "res://.godot/imported/祈愿背景图.png-31c6cacec46e0f0a0ab057f430172aa5.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1osp7"]
 atlas = ExtResource("11_7n1lx")
@@ -161,7 +166,7 @@ script = ExtResource("1_2k7n0")
 [node name="祈愿背景图2" type="Sprite2D" parent="." unique_id=1282377724]
 position = Vector2(576.2, 324)
 scale = Vector2(0.40435395, 0.40500003)
-texture = ExtResource("2_tjnyx")
+texture = SubResource("CompressedTexture2D_kcyo6")
 
 [node name="spirit" type="ColorRect" parent="." unique_id=490360729]
 modulate = Color(1, 1, 1, 0.8039216)
@@ -244,6 +249,7 @@ sprite_frames = SubResource("SpriteFrames_b7108")
 animation = &"none"
 
 [node name="GuaCheckList" type="ColorRect" parent="effects" unique_id=1325861442]
+visible = false
 z_index = 2
 layout_mode = 0
 offset_left = -143.0
@@ -263,7 +269,6 @@ texture_pressed = ExtResource("4_h2it5")
 texture_hover = ExtResource("5_jeqaf")
 
 [node name="CheckListForGua" type="ColorRect" parent="effects/GuaCheckList" unique_id=144678851]
-visible = false
 z_index = 1
 layout_mode = 0
 offset_left = -133.0
@@ -308,17 +313,17 @@ text = "卦"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/header" unique_id=1926738732]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "自然"
+text = "五行"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/header" unique_id=966531180]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "五行"
+text = "自然"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/header" unique_id=776923847]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "卦德"
+text = "核心功效"
 
 [node name="MarginContainer" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=780196413]
 layout_mode = 2
@@ -343,17 +348,17 @@ text = "乾"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/000" unique_id=1118359435]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "天"
+text = "金"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/000" unique_id=314594902]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "金"
+text = "天"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/000" unique_id=99281140]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "健"
+text = "决断、刚健、定大局"
 
 [node name="MarginContainer2" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=905953148]
 layout_mode = 2
@@ -378,17 +383,17 @@ text = "兑"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/001" unique_id=1493196474]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "泽"
+text = "金"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/001" unique_id=1478514680]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "金"
+text = "泽"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/001" unique_id=1526755728]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "悦"
+text = "交换、谈和、让人高兴"
 
 [node name="MarginContainer3" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=1634347039]
 layout_mode = 2
@@ -413,17 +418,17 @@ text = "离"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/002" unique_id=108439154]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "火、日"
+text = "火"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/002" unique_id=1463340826]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "火"
+text = "火/日"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/002" unique_id=1100140599]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "明"
+text = "照亮、烧灼、烤干"
 
 [node name="MarginContainer4" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=91164148]
 layout_mode = 2
@@ -448,17 +453,17 @@ text = "震"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/003" unique_id=1372479944]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "雷"
+text = "木"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/003" unique_id=2142594807]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "木"
+text = "雷"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/003" unique_id=1770384784]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "动"
+text = "惊醒、启动、破僵局"
 
 [node name="MarginContainer5" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=152104029]
 layout_mode = 2
@@ -483,17 +488,17 @@ text = "巽"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/004" unique_id=727160211]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "风"
+text = "木"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/004" unique_id=1434384422]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "木"
+text = "风"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/004" unique_id=893679796]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "入"
+text = "渗透、传播、养桑蚕"
 
 [node name="MarginContainer6" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=43514857]
 layout_mode = 2
@@ -518,17 +523,17 @@ text = "坎"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/005" unique_id=2013622361]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "水、月"
+text = "水"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/005" unique_id=591240185]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "水"
+text = "水/月"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/005" unique_id=446217300]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "陷"
+text = "滋润、浇灌、也带险"
 
 [node name="MarginContainer7" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=1908858627]
 layout_mode = 2
@@ -553,17 +558,17 @@ text = "艮"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/006" unique_id=1776582474]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "山"
+text = "土"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/006" unique_id=213292158]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "土"
+text = "山"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/006" unique_id=1912403198]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "止"
+text = "阻挡、停止、稳住"
 
 [node name="MarginContainer8" type="MarginContainer" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer" unique_id=797938880]
 layout_mode = 2
@@ -588,17 +593,17 @@ text = "坤"
 [node name="Label2" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/007" unique_id=1291066670]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "地"
+text = "土"
 
 [node name="Label3" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/007" unique_id=120990599]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "土"
+text = "地"
 
 [node name="Label4" type="Label" parent="effects/GuaCheckList/CheckListForGua/list/VBoxContainer/007" unique_id=1469351343]
 layout_mode = 2
 size_flags_horizontal = 6
-text = "顺"
+text = "承载、养育、收留"
 
 [node name="closeBt" type="TextureButton" parent="effects/GuaCheckList/CheckListForGua/list" unique_id=302698670]
 layout_mode = 0
@@ -656,21 +661,22 @@ text = "祭祀"
 
 [node name="eventstream" type="TextureButton" parent="operations" unique_id=1043417574]
 layout_mode = 0
-offset_left = 455.0
-offset_top = 11.000004
-offset_right = 477.0
-offset_bottom = 33.000004
+offset_left = 441.0
+offset_top = 10.000004
+offset_right = 1129.0
+offset_bottom = 394.0
+scale = Vector2(0.07, 0.07)
 size_flags_vertical = 0
-texture_normal = ExtResource("3_tdq8v")
-texture_pressed = ExtResource("4_h2it5")
-texture_hover = ExtResource("5_jeqaf")
-texture_disabled = ExtResource("6_fslg2")
+texture_normal = ExtResource("21_i6min")
+texture_pressed = ExtResource("22_o3ukn")
+texture_hover = ExtResource("23_ivx11")
 
-[node name="Label2" type="Label" parent="operations/eventstream" unique_id=1180700597]
+[node name="Label2" type="Label" parent="operations" unique_id=1180700597]
 layout_mode = 0
-offset_left = -101.0
-offset_right = -21.0
-offset_bottom = 23.0
+offset_left = 353.0
+offset_top = 11.0
+offset_right = 433.0
+offset_bottom = 34.0
 text = "返回事件流"
 
 [node name="savewish" type="TextureButton" parent="operations" unique_id=849727247]

@@ -8,6 +8,9 @@ class_name SacrificePie
 ##     ├── Outline                        Line2D    —— 外圈（颜色、线宽、抗锯齿）
 ##     ├── Dividers/people、animal、grain  Line2D    —— 三根分隔线（同上）
 ##     ├── sacrifiys                      Node2D    —— Sprite2D 原型（运行时被隐藏，只当模板）：人 / 谷物1 / 谷物2 / 谷物堆 / 猪 / 羊 / 牛
+##     │                                             原型按**节点名**认（名字要含「人/谷物1/谷物2/谷物堆/猪/羊/牛」），
+##     │                                             运行时直接 duplicate 这个节点 → 贴图、scale、offset 全照抄，
+##     │                                             所以检查器里把 scale 调多大，撒出来的就是多大
 ##     └── Scatter                        Node2D    —— 运行时生成，装撒出去的精灵
 ##   脚本只负责**更新这些节点的几何**（polygon / points），不会覆盖你调好的颜色和线宽。
 ##
@@ -44,7 +47,8 @@ class_name SacrificePie
 #把原型节点藏起来（只当模板用）
 @export var hide_prototypes: bool = true
 #total_ratio = 1、且整圆都属同一类时的精灵数量（其余按扇区面积等比缩放）
-#按现在这套贴图缩放（人 45px / 猪牛 51px / 羊 61px / 粮 31px）实测：36 是「很满但不糊」的值
+#按场景里 sacrifiys 的缩放算（512px 贴图：人/猪/羊/牛 scale 0.09 → 46px，谷物三种 scale 0.1 → 51px）
+#实测：36 是「很满但不糊」的值
 @export_range(0, 400, 1) var sprites_at_full_circle: int = 36
 #精灵生成时圆心到精灵中心的距离上限系数（再按精灵半径往里收，保证不戳出饼图）
 @export_range(0.1, 1.0, 0.01) var scatter_margin: float = 0.86
@@ -262,17 +266,34 @@ func _prepareScatter() -> void:
 func _collectProtos(n: Node) -> void:
 	for c in n.get_children():
 		if c is Sprite2D and (c as Sprite2D).texture != null:
-			var path: String = (c as Sprite2D).texture.resource_path
-			for pair in TEX_KIND:
-				if path.contains(pair[0]) and not _protos.has(pair[1]):
-					_protos[pair[1]] = c
-					_proto_box[pair[1]] = _renderedBox(c as Sprite2D)
-					break
+			var sp := c as Sprite2D
+			#先按**节点名**认（人/谷物1/谷物2/谷物堆/猪/羊/牛），再退回按贴图路径认。
+			#美术换图后贴图文件名是哈希（如 C3DB13...png，不含中文），只按路径认会全部落空，
+			#那样就会掉到 _fillProtosFromFiles 的兜底 18px 精灵 —— 运行时图标大小就和检查器里调的不一样了。
+			var kind: String = _kindOfName(String(sp.name))
+			if kind.is_empty():
+				kind = _kindOfName(sp.texture.resource_path)
+			if not kind.is_empty() and not _protos.has(kind):
+				_protos[kind] = sp
+				_proto_box[kind] = _renderedBox(sp)
 		_collectProtos(c)
+
+
+#文字里是否含某个种类关键字（TEX_KIND 已保证「谷物堆」排在「谷物1/2」之前）
+func _kindOfName(text: String) -> String:
+	#完全相等优先，避免「人」误匹配到别的名字里
+	for pair in TEX_KIND:
+		if text == pair[0]:
+			return pair[1]
+	for pair in TEX_KIND:
+		if text.contains(pair[0]):
+			return pair[1]
+	return ""
 
 
 func _fillProtosFromFiles() -> void:
 	var dir_path := "res://assets/pictures/"
+	var from_file: Array = []
 	for pair in TEX_KIND:
 		var kind: String = pair[1]
 		if _protos.has(kind):
@@ -292,6 +313,10 @@ func _fillProtosFromFiles() -> void:
 		add_child(s)
 		_protos[kind] = s
 		_proto_box[kind] = tex.get_size() * k
+		from_file.append(pair[0])
+	#兜底会导致这些图标不按检查器里的缩放显示，单独提示一下
+	if not from_file.is_empty():
+		print("[SacrificePie] 「%s」里没找到这些场景精灵，改用贴图兜底（统一 %s px）：%s" % [prototypes_name, str(fallback_sprite_size), str(from_file)])
 	if _protos.size() < TEX_KIND.size() and not _warned_no_proto:
 		_warned_no_proto = true
 		var missing: Array = []
@@ -304,7 +329,11 @@ func _fillProtosFromFiles() -> void:
 func _renderedBox(s: Sprite2D) -> Vector2:
 	if s.texture == null:
 		return Vector2(fallback_sprite_size, fallback_sprite_size)
-	return s.texture.get_size() * s.scale.abs()
+	#get_rect() 会把 centered / offset / region 都算进去，比直接用 texture.get_size() 准
+	var base: Vector2 = s.get_rect().size
+	if base.x <= 0.0 or base.y <= 0.0:
+		base = s.texture.get_size()
+	return base * s.scale.abs()
 
 
 #精灵中点是否已经跑到饼图外面（只判中点）

@@ -14,22 +14,25 @@
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="7_dkyhc"]
 [ext_resource type="Texture2D" uid="uid://cdu7g3jmpc5rs" path="res://assets/bar/white_progress.png" id="7_nhwe4"]
 [ext_resource type="Texture2D" uid="uid://l15t1d4ud68j" path="res://assets/bar/yellow_progress.png" id="7_yyt4y"]
+[ext_resource type="Texture2D" uid="uid://gmw8aunvlrqo" path="res://assets/pictures/祭台1.png" id="8_6t6ab"]
 [ext_resource type="Texture2D" uid="uid://jks4yulodp6i" path="res://assets/bar/pink_progress.png" id="9_a1fo6"]
-[ext_resource type="Texture2D" uid="uid://gc8mpcsj782c" path="res://assets/pictures/祭台 (1).png" id="9_wwm0o"]
-[ext_resource type="Texture2D" uid="uid://dweuk17ygyvnu" path="res://assets/pictures/人.png" id="10_5084a"]
-[ext_resource type="Texture2D" uid="uid://dyxljugjrie41" path="res://assets/pictures/牛.png" id="11_vlulm"]
-[ext_resource type="Texture2D" uid="uid://xbybwuypnbx1" path="res://assets/pictures/猪.png" id="12_giuth"]
-[ext_resource type="Texture2D" uid="uid://b6einq5jo6htp" path="res://assets/pictures/阴阳鱼收集 .png" id="12_nhwe4"]
-[ext_resource type="Texture2D" uid="uid://csby5m4xvw1kq" path="res://assets/pictures/粮.png" id="13_6t6ab"]
-[ext_resource type="Texture2D" uid="uid://dd8ph3xw2ut1l" path="res://assets/pictures/阴阳鱼产出.png" id="13_18p21"]
-[ext_resource type="Texture2D" uid="uid://bemelg5pukdm2" path="res://assets/pictures/羊.png" id="14_lx8nx"]
+[ext_resource type="Texture2D" uid="uid://cclijsvj6wsdw" path="res://assets/pictures/C3DB13901F9925550BF6720F494852D9.png" id="10_lx8nx"]
+[ext_resource type="Texture2D" uid="uid://kbc8qpbjqpy2" path="res://assets/pictures/F055C1D10890513DD9A4BB8960D80FBD.png" id="11_f1xe3"]
+[ext_resource type="Texture2D" uid="uid://bww1cq251yyu6" path="res://assets/pictures/BC2C1D534357A8DADD4C00CFD42BA42A.png" id="12_wkpjv"]
+[ext_resource type="Texture2D" uid="uid://5aeef3nsmjl1" path="res://assets/pictures/1F9851D4D306DC928F94BB37EE9BC0BC.png" id="13_wwm0o"]
+[ext_resource type="Texture2D" uid="uid://b1bmpm43fcr0a" path="res://assets/pictures/4CF428E69261B2F97FB1DC71470C50C8.png" id="14_lfk26"]
 [ext_resource type="Script" uid="uid://xle7de278wi" path="res://script/game/sacrifice_pie.gd" id="14_pie01"]
-[ext_resource type="Texture2D" uid="uid://c1cu0qyflia47" path="res://assets/pictures/谷物1.png" id="16_lx8nx"]
-[ext_resource type="Texture2D" uid="uid://bm88e27txne3w" path="res://assets/pictures/谷物2.png" id="17_f1xe3"]
-[ext_resource type="Texture2D" uid="uid://u6hbo2vym4de" path="res://assets/pictures/谷物堆.png" id="18_wkpjv"]
+[ext_resource type="Texture2D" uid="uid://6jv4mhbk4gkh" path="res://assets/pictures/0E999ABB12339FFED6E2F2440A8D62DE.png" id="15_mlb8o"]
+[ext_resource type="Texture2D" uid="uid://hqsc0esnjn7q" path="res://assets/pictures/DF41278A7C7CA757539E0387C8FCBF9D.png" id="16_od375"]
 [ext_resource type="Texture2D" uid="uid://bafpbxxpia2mj" path="res://assets/button/确认献祭.png" id="28_wwm0o"]
 [ext_resource type="Texture2D" uid="uid://cao4twthrku1o" path="res://assets/button/确认献祭·点击.png" id="29_lfk26"]
 [ext_resource type="Texture2D" uid="uid://bwfk5pxjttsrt" path="res://assets/button/确认献祭·鼠标放置.png" id="30_mlb8o"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_uwsxv"]
+load_path = "res://.godot/imported/阴阳鱼收集 .png-3877054fe27948e28b77302d831a2bad.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_56ocj"]
+load_path = "res://.godot/imported/阴阳鱼产出.png-6c57ac2acb88dc30484e48cae04b0159.ctex"
 
 [node name="Sacrifice_window" type="Control" unique_id=746007612]
 layout_mode = 3
@@ -242,14 +245,13 @@ offset_bottom = 410.0
 color = Color(0.19, 0.19, 0.19, 0.827451)
 
 [node name="祭台" type="Sprite2D" parent="SacrificeWindow" unique_id=2029846535]
-position = Vector2(336, 185)
+position = Vector2(338, 176)
 scale = Vector2(0.3, 0.3)
-texture = ExtResource("9_wwm0o")
+texture = ExtResource("8_6t6ab")
 
 [node name="SacrificePie" type="Node2D" parent="SacrificeWindow" unique_id=1529072136]
 position = Vector2(336, 184.5)
 script = ExtResource("14_pie01")
-sprites_at_full_circle = 56
 
 [node name="Slices" type="Node2D" parent="SacrificeWindow/SacrificePie" unique_id=351508268]
 
@@ -294,42 +296,37 @@ position = Vector2(870, -184.5)
 [node name="人" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=1288440469]
 position = Vector2(22.399963, 59.100014)
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("10_5084a")
+texture = ExtResource("10_lx8nx")
 
 [node name="牛" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=775301569]
 position = Vector2(74.39996, 74.10001)
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("11_vlulm")
+texture = ExtResource("11_f1xe3")
 
 [node name="猪" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=1738590972]
 position = Vector2(65.39996, 30.100016)
 scale = Vector2(0.07, 0.07)
-texture = ExtResource("12_giuth")
-
-[node name="粮" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=557995741]
-position = Vector2(126.39996, 63.100014)
-scale = Vector2(0.04, 0.04)
-texture = ExtResource("13_6t6ab")
+texture = ExtResource("12_wkpjv")
 
 [node name="羊" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=249142578]
 position = Vector2(106.3999, 9.100002)
-scale = Vector2(0.18, 0.18)
-texture = ExtResource("14_lx8nx")
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("13_wwm0o")
 
 [node name="谷物1" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=41543199]
 position = Vector2(145, 123)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("16_lx8nx")
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("14_lfk26")
 
 [node name="谷物2" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=201988764]
 position = Vector2(118.999985, 101)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("17_f1xe3")
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("15_mlb8o")
 
 [node name="谷物堆" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=1805283083]
 position = Vector2(91.000015, 125)
-scale = Vector2(0.08, 0.08)
-texture = ExtResource("18_wkpjv")
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("16_od375")
 
 [node name="SacrificeBar" type="ColorRect" parent="." unique_id=711916259]
 layout_mode = 0
@@ -379,7 +376,7 @@ theme_override_font_sizes/font_size = 13
 [node name="Sprite2D" type="Sprite2D" parent="SacrificeBar/Qi" unique_id=1145500364]
 position = Vector2(12.999999, 8.999999)
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("12_nhwe4")
+texture = SubResource("CompressedTexture2D_uwsxv")
 
 [node name="Taiji" type="ColorRect" parent="SacrificeBar" unique_id=1605488629]
 layout_mode = 0
@@ -392,7 +389,7 @@ color = Color(1, 1, 1, 0)
 [node name="Sprite2D" type="Sprite2D" parent="SacrificeBar/Taiji" unique_id=2116615417]
 position = Vector2(13.999999, 12.999999)
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("13_18p21")
+texture = SubResource("CompressedTexture2D_56ocj")
 
 [node name="operations" type="ColorRect" parent="." unique_id=847992289]
 layout_mode = 0
@@ -442,19 +439,19 @@ text = "祈愿"
 
 [node name="Label3" type="Label" parent="operations" unique_id=1476647483]
 layout_mode = 0
-offset_left = 515.0
+offset_left = 521.0
 offset_top = 11.0
-offset_right = 595.0
+offset_right = 601.0
 offset_bottom = 34.0
 text = "确认献祭"
 
 [node name="confirmsacrifice" type="TextureButton" parent="operations" unique_id=1813902898]
 layout_mode = 0
-offset_left = 598.0
-offset_top = -1.999995
-offset_right = 1110.0
-offset_bottom = 510.0
-scale = Vector2(0.1, 0.1)
+offset_left = 603.0
+offset_top = 1.0000055
+offset_right = 1115.0
+offset_bottom = 513.0
+scale = Vector2(0.09, 0.09)
 size_flags_vertical = 0
 texture_normal = ExtResource("28_wwm0o")
 texture_pressed = ExtResource("29_lfk26")

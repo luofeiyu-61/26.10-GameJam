@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://c4gpvvjcmgf6h"]
 
 [ext_resource type="Script" uid="uid://cludq6c60y6u6" path="res://script/game/events_stream.gd" id="1_f0mje"]
-[ext_resource type="Texture2D" uid="uid://b5rtdp7vsnkup" path="res://assets/pictures/事件流背景图.png" id="2_rcbbw"]
 [ext_resource type="Texture2D" uid="uid://b1ym75b6ll3nj" path="res://assets/bar/yellow_background.png" id="2_tv0df"]
 [ext_resource type="Texture2D" uid="uid://l15t1d4ud68j" path="res://assets/bar/yellow_progress.png" id="3_f0mje"]
 [ext_resource type="Texture2D" uid="uid://2d4uivr10j13" path="res://assets/charas/white/c000.png" id="4_f0mje"]
@@ -27,6 +26,26 @@
 [ext_resource type="Texture2D" uid="uid://jks4yulodp6i" path="res://assets/bar/pink_progress.png" id="20_37hgh"]
 [ext_resource type="Texture2D" uid="uid://dwgd1wxns1h5q" path="res://assets/bar/green_background.png" id="21_trsee"]
 [ext_resource type="Texture2D" uid="uid://cnxagtcldo3v5" path="res://assets/bar/green_progress.png" id="22_m1mle"]
+[ext_resource type="Texture2D" uid="uid://dm1xbqspblwjt" path="res://assets/button/日历.png" id="23_okle5"]
+[ext_resource type="Texture2D" uid="uid://cmh5hjyjxkipd" path="res://assets/button/日历·点击.png" id="24_37hgh"]
+[ext_resource type="Texture2D" uid="uid://bi5rxxfwpltnc" path="res://assets/button/日历·鼠标放置.png" id="25_trsee"]
+[ext_resource type="Texture2D" uid="uid://bbtc3t4g0ddtg" path="res://assets/button/下一事件.png" id="27_h1xp3"]
+[ext_resource type="Texture2D" uid="uid://c3bo5oj5dydv4" path="res://assets/button/下一事件·点击.png" id="28_bhsf4"]
+[ext_resource type="Texture2D" uid="uid://drul7q7cuuhqr" path="res://assets/button/下一事件·鼠标放置.png" id="29_0vfge"]
+[ext_resource type="Texture2D" uid="uid://d0j1gq52kmvfb" path="res://assets/button/normal.png" id="30_spfvc"]
+[ext_resource type="Texture2D" uid="uid://brmmgp1ltfouc" path="res://assets/button/press.png" id="31_1gc4f"]
+[ext_resource type="Texture2D" uid="uid://cebi0g3mxjxar" path="res://assets/button/hover.png" id="32_hcdgh"]
+[ext_resource type="Texture2D" uid="uid://ddqdus5g56tb8" path="res://assets/moons/shangxuan.png" id="33_14vmg"]
+[ext_resource type="Texture2D" uid="uid://vcwn2qpibumn" path="res://assets/moons/xiaxuan.png" id="34_abnre"]
+[ext_resource type="Texture2D" uid="uid://mm067c5plihe" path="res://assets/moons/kuitu.png" id="35_1pw4x"]
+[ext_resource type="Texture2D" uid="uid://dtdo3f7q7gvho" path="res://assets/moons/xin.png" id="36_covgp"]
+[ext_resource type="Texture2D" uid="uid://d1ay8naqe20ag" path="res://assets/moons/can.png" id="37_xk5ln"]
+[ext_resource type="Texture2D" uid="uid://cnox40i5utb5w" path="res://assets/moons/man.png" id="38_siujo"]
+[ext_resource type="Texture2D" uid="uid://2kne0cbqll48" path="res://assets/moons/yintu.png" id="39_7b26x"]
+[ext_resource type="Texture2D" uid="uid://l7bpp73xsbge" path="res://assets/moons/emei.png" id="40_eqcxw"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okle5"]
+load_path = "res://.godot/imported/事件流背景图.png-b84bef203270242585e68e856885a2a1.ctex"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jrxwt"]
 atlas = ExtResource("12_udt61")
@@ -107,6 +126,85 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_spfvc"]
+atlas = ExtResource("12_udt61")
+region = Rect2(42, 0, 14, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jq8tk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spfvc")
+}],
+"loop": 1,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("33_14vmg")
+}],
+"loop": 0,
+"name": &"上弦月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("34_abnre")
+}],
+"loop": 0,
+"name": &"下弦",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("35_1pw4x")
+}],
+"loop": 0,
+"name": &"亏凸月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("36_covgp")
+}],
+"loop": 0,
+"name": &"新月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("37_xk5ln")
+}],
+"loop": 0,
+"name": &"残月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("38_siujo")
+}],
+"loop": 0,
+"name": &"满月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("39_7b26x")
+}],
+"loop": 0,
+"name": &"盈凸月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("40_eqcxw")
+}],
+"loop": 0,
+"name": &"蛾眉月",
+"speed": 5.0
+}]
+
 [node name="EventsStream" type="Control" unique_id=1766736672 node_paths=PackedStringArray("event_stream_text")]
 layout_mode = 3
 anchors_preset = 0
@@ -116,7 +214,7 @@ event_stream_text = NodePath("EventStreamWindow/texts")
 [node name="事件流背景图" type="Sprite2D" parent="." unique_id=1846546665]
 position = Vector2(576.2, 324.5)
 scale = Vector2(0.40435395, 0.40562502)
-texture = ExtResource("2_rcbbw")
+texture = SubResource("CompressedTexture2D_okle5")
 
 [node name="BeliefBar" type="ColorRect" parent="." unique_id=216123124]
 layout_mode = 0
@@ -151,6 +249,14 @@ offset_right = 66.5
 offset_bottom = 30.0
 scale = Vector2(0.5, 0.5)
 text = "月相buff：1"
+
+[node name="moon_" type="AnimatedSprite2D" parent="BeliefBar/1" unique_id=196521677]
+visible = false
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+position = Vector2(6.500002, 12)
+scale = Vector2(0.1, 0.1)
+sprite_frames = SubResource("SpriteFrames_jq8tk")
+animation = &"上弦月"
 
 [node name="EventStreamWindow" type="ColorRect" parent="." unique_id=1282895804]
 layout_mode = 0
@@ -353,35 +459,36 @@ offset_left = 33.0
 offset_top = 15.0
 offset_right = 73.0
 offset_bottom = 55.0
-color = Color(0.44806695, 0.44806695, 0.44806695, 1)
-
-[node name="solar" type="Label" parent="Calendar/sun" unique_id=1267005360]
-layout_mode = 0
-offset_top = 55.0
-offset_right = 48.0
-offset_bottom = 104.0
-theme_override_colors/font_color = Color(1, 0.9333334, 0, 1)
-text = "节气：
-1"
+color = Color(0.45, 0.45, 0.45, 0)
 
 [node name="solar_calendar" type="TextureButton" parent="Calendar/sun" unique_id=66108808]
 layout_mode = 0
-offset_left = 9.0
-offset_top = 7.0
-offset_right = 31.0
-offset_bottom = 29.0
+offset_left = -2.999999
+offset_top = -3.999999
+offset_right = 445.0
+offset_bottom = 444.0
+scale = Vector2(0.1, 0.1)
 size_flags_vertical = 0
-texture_normal = ExtResource("6_ermaf")
-texture_pressed = ExtResource("7_htou7")
-texture_hover = ExtResource("8_kshkp")
-texture_disabled = ExtResource("9_udt61")
+texture_normal = ExtResource("23_okle5")
+texture_pressed = ExtResource("24_37hgh")
+texture_hover = ExtResource("25_trsee")
 
-[node name="111" type="Label" parent="Calendar/sun/solar_calendar" unique_id=364605750]
+[node name="solar" type="Label" parent="Calendar/sun" unique_id=1267005360]
 layout_mode = 0
-offset_left = -4.0
-offset_top = 22.0
-offset_right = 28.0
-offset_bottom = 45.0
+offset_left = 5.0
+offset_top = 10.0
+offset_right = 33.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.22795087, 0.39839685, 0.44694865, 0.84705883)
+theme_override_font_sizes/font_size = 14
+text = "节气"
+
+[node name="111" type="Label" parent="Calendar/sun" unique_id=364605750]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 34.0
+offset_right = 34.0
+offset_bottom = 57.0
 text = "日历"
 
 [node name="SolarCalendar" type="Control" parent="Calendar/sun" unique_id=845840662]
@@ -515,35 +622,27 @@ offset_left = 113.0
 offset_top = 15.0
 offset_right = 153.0
 offset_bottom = 55.0
-color = Color(0.5211406, 0.5211406, 0.5211405, 1)
-
-[node name="lunar" type="Label" parent="Calendar/lunar" unique_id=2017670160]
-layout_mode = 0
-offset_top = 52.0
-offset_right = 48.0
-offset_bottom = 101.0
-theme_override_colors/font_color = Color(0.84313726, 1, 0.99607843, 1)
-text = "月相：
-1"
+color = Color(1, 1, 1, 0)
 
 [node name="lunar_calendar2" type="TextureButton" parent="Calendar/lunar" unique_id=1218305674]
+modulate = Color(0.765, 0.86399996, 0.9, 0.89411765)
 layout_mode = 0
-offset_left = 8.0
-offset_top = 7.0
-offset_right = 30.0
-offset_bottom = 29.0
+offset_left = -3.9999995
+offset_top = -4.9999995
+offset_right = 92.0
+offset_bottom = 91.0
+scale = Vector2(0.5, 0.5)
 size_flags_vertical = 0
-texture_normal = ExtResource("6_ermaf")
-texture_pressed = ExtResource("7_htou7")
-texture_hover = ExtResource("8_kshkp")
-texture_disabled = ExtResource("9_udt61")
+texture_normal = ExtResource("30_spfvc")
+texture_pressed = ExtResource("31_1gc4f")
+texture_hover = ExtResource("32_hcdgh")
 
-[node name="111" type="Label" parent="Calendar/lunar/lunar_calendar2" unique_id=1606309484]
+[node name="111" type="Label" parent="Calendar/lunar" unique_id=1606309484]
 layout_mode = 0
-offset_left = -4.0
-offset_top = 22.0
-offset_right = 28.0
-offset_bottom = 45.0
+offset_left = 5.0
+offset_top = 33.0
+offset_right = 37.0
+offset_bottom = 56.0
 text = "月历"
 
 [node name="LunarCalendar" type="Control" parent="Calendar/lunar" unique_id=1959622117]
@@ -581,6 +680,103 @@ offset_top = 30.0
 offset_right = 425.0
 offset_bottom = 415.0
 color = Color(0.27265528, 0.2726553, 0.2726553, 1)
+
+[node name="moon_" type="AnimatedSprite2D" parent="Calendar/lunar/LunarCalendar/ColorRect/ColorRect" unique_id=1473758511]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+position = Vector2(180.99998, 177.99998)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_jq8tk")
+animation = &"满月"
+
+[node name="close" type="TextureButton" parent="Calendar/lunar/LunarCalendar" unique_id=1291600714]
+layout_mode = 0
+offset_left = 252.0
+offset_top = 47.0
+offset_right = 274.0
+offset_bottom = 69.0
+size_flags_vertical = 0
+texture_normal = ExtResource("6_ermaf")
+texture_pressed = ExtResource("7_htou7")
+texture_hover = ExtResource("8_kshkp")
+texture_disabled = ExtResource("9_udt61")
+
+[node name="Label" type="Label" parent="Calendar/lunar/LunarCalendar/close" unique_id=674231107]
+layout_mode = 0
+offset_left = -45.0
+offset_right = -5.0
+offset_bottom = 23.0
+text = "关闭"
+
+[node name="lunarnow" type="Label" parent="Calendar/lunar/LunarCalendar" unique_id=586482856]
+layout_mode = 0
+offset_left = -7.0
+offset_top = 124.0
+offset_right = 41.0
+offset_bottom = 147.0
+text = "今夜月相："
+
+[node name="upup" type="Label" parent="Calendar/lunar/LunarCalendar/lunarnow" unique_id=1674586923]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 42.0
+offset_right = 78.0
+offset_bottom = 65.0
+text = "事成加益："
+
+[node name="Label" type="Label" parent="Calendar/lunar/LunarCalendar/lunarnow/upup" unique_id=1376287383]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 33.0
+offset_right = 77.0
+offset_bottom = 56.0
+text = "人口：
+牲口：
+粮食："
+
+[node name="downdown" type="Label" parent="Calendar/lunar/LunarCalendar/lunarnow" unique_id=418154984]
+layout_mode = 0
+offset_left = -2.0
+offset_top = 167.0
+offset_right = 78.0
+offset_bottom = 190.0
+text = "事败止损："
+
+[node name="Label" type="Label" parent="Calendar/lunar/LunarCalendar/lunarnow/downdown" unique_id=1371072710]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 33.0
+offset_right = 77.0
+offset_bottom = 56.0
+text = "人口：
+牲口：
+粮食："
+
+[node name="lunarbuff_now" type="Label" parent="Calendar/lunar/LunarCalendar" unique_id=628755053]
+layout_mode = 0
+offset_left = -17.0
+offset_top = 437.0
+offset_right = 84.0
+offset_bottom = 460.0
+text = "当前起效月相:"
+
+[node name="moon" type="AnimatedSprite2D" parent="Calendar/lunar" unique_id=1870888037]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+position = Vector2(19.999998, 18.999998)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_jq8tk")
+animation = &"满月"
+
+[node name="lunar" type="Label" parent="Calendar/lunar" unique_id=2017670160]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 7.0
+offset_right = 36.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0, 0.75272137, 0.86741036, 0.4745098)
+theme_override_font_sizes/font_size = 14
+text = "月相"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="days" type="Label" parent="Calendar" unique_id=719407154]
 layout_mode = 0
@@ -638,25 +834,27 @@ text = "祈愿"
 
 [node name="next" type="TextureButton" parent="operations" unique_id=1639347819]
 layout_mode = 0
-offset_left = 599.0
-offset_top = 11.000004
-offset_right = 621.0
-offset_bottom = 33.000004
+offset_left = 590.0
+offset_top = -11.999995
+offset_right = 1102.0
+offset_bottom = 500.0
+scale = Vector2(0.14, 0.14)
 size_flags_vertical = 0
-texture_normal = ExtResource("6_ermaf")
-texture_pressed = ExtResource("7_htou7")
-texture_hover = ExtResource("8_kshkp")
-texture_disabled = ExtResource("9_udt61")
+texture_normal = ExtResource("27_h1xp3")
+texture_pressed = ExtResource("28_bhsf4")
+texture_hover = ExtResource("29_0vfge")
 
-[node name="Label3" type="Label" parent="operations/next" unique_id=796796042]
+[node name="Label3" type="Label" parent="operations" unique_id=796796042]
 layout_mode = 0
-offset_left = -80.0
-offset_right = -16.0
-offset_bottom = 23.0
+offset_left = 524.0
+offset_top = 11.0
+offset_right = 588.0
+offset_bottom = 34.0
 text = "下一事件"
 
 [connection signal="pressed" from="Calendar/sun/solar_calendar" to="." method="_on_solar_calendar_pressed"]
 [connection signal="pressed" from="Calendar/sun/SolarCalendar/close" to="." method="_on_close_pressed"]
+[connection signal="pressed" from="Calendar/lunar/LunarCalendar/close" to="." method="_on_close_lunar_calendar"]
 [connection signal="pressed" from="operations/sacrifice" to="." method="_on_sacrifice_pressed"]
 [connection signal="pressed" from="operations/wish" to="." method="_on_wish_pressed"]
 [connection signal="pressed" from="operations/next" to="." method="nextEvent"]
