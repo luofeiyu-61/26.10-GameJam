@@ -6,7 +6,8 @@
 [sub_resource type="Resource" id="Resource_good"]
 script = ExtResource("1_dt3yw")
 result_type = 0
-result_context = "等雁来齐才下种，湿田先开沟排水，干一块种一块。                                      冬前麦苗墩实，一冬没冻坏，来年返青齐。"
+result_context = "等雁来齐才下种，湿田先开沟排水，干一块种一块。
+冬前麦苗墩实，一冬没冻坏，来年返青齐。"
 meet_gua = Array[int]([2, 1])
 belief_feedback = 4
 air_feedback = 3

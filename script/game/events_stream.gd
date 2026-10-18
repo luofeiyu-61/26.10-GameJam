@@ -189,7 +189,7 @@ func EPupdateEventText(
 
 
 #更新信仰值#接受的是百分比
-func rederBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase):
+func renderBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase):
 	belief_bar_sprite.set_value_no_signal(belief_now*belief_bar_sprite.max_value)
 	
 	match gua:

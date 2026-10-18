@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://qod8q7ixykmp"]
+
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_yr6hc"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="2_ypvul"]
+
+[sub_resource type="Resource" id="Resource_5084a"]
+script = ExtResource("2_ypvul")
+trigger_meet_type = -1
+metadata/_custom_type_script = "uid://dnorw4dhm2vui"
+
+[resource]
+script = ExtResource("1_yr6hc")
+id = -3
+sequence_id = "-2"
+display_name = "天悲"
+trigger_type = 1
+is_meet = true
+trigger_meet_info = Array[ExtResource("2_ypvul")]([SubResource("Resource_5084a")])
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

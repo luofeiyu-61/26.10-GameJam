@@ -36,7 +36,9 @@ metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 [sub_resource type="Resource" id="Resource_bad"]
 script = ExtResource("1_dt3yw")
 result_type = 2
-result_context = "农事一停，人也都放了。                                                                                  场上没筑，十月的禾稼只能在田里碾，谷粒落了一地；                                        城上那半截没苫没沟，雪水灌进墙基冻胀，鼓起一排包，开春得连底挖掉重夯。"
+result_context = "农事一停，人也都放了。
+场上没筑，十月的禾稼只能在田里碾，谷粒落了一地；
+城上那半截没苫没沟，雪水灌进墙基冻胀，鼓起一排包，开春得连底挖掉重夯。"
 meet_gua = Array[int]([2, 3])
 belief_feedback = -5
 air_feedback = 2

@@ -14,7 +14,8 @@ extends Node
 #region 信仰值相关
 var gua_now :ENUMS.Gua=ENUMS.Gua.NONE :					#当前卦象
 	set(value):
-		WishPage.changeGuaDisplay(value)
+		if WishPage:
+			WishPage.changeGuaDisplay(value)
 		gua_now=value
 
 var lunar_buff_now :ENUMS.LunarPhase = ENUMS.LunarPhase.NONE	#当前起效的月相buff
@@ -49,7 +50,8 @@ var lunar_buff_now :ENUMS.LunarPhase = ENUMS.LunarPhase.NONE	#当前起效的月
 		#祈愿效果失效
 		if belief_value <= 0:
 			wishForGua(ENUMS.Gua.NONE)
-			EventStremPage.rederBelief(belief_value,gua_now,lunar_buff_now)
+			if EventStremPage:
+				EventStremPage.renderBelief(belief_value,gua_now,lunar_buff_now)
 #endregion
 
 #region 天人地
@@ -459,9 +461,8 @@ func calculateScrificeValue(ratio_people:float, ratio_animal:float, ratio_grain:
 	outcome[3]=guy_sup*(a*b*c)**2/(((a+b+c)/3)**5) if (a+b+c) != 0 else 0
 	
 	var people_weight:float
-	if sacrifice_people<=20:people_weight=3.5
-	elif sacrifice_people<=30:people_weight=4
-	else:people_weight=5
+	if sacrifice_people<=30:people_weight=3
+	else:people_weight=4
 	
 	
 	#计算献祭后能加多少献祭值与爻
@@ -547,7 +548,7 @@ func switch_window_to(window_index: int) -> void:
 			SacrificePage.visible = false
 			WishPage.visible = false
 			#更新事件流界面数值
-			EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
+			EventStremPage.renderBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
 			EventStremPage.EPupdateValues(
 				air_value/ float(air_sup)
 				,guy_value/ float(guy_sup)
@@ -672,7 +673,7 @@ func clientPushNextEvent() -> void:
 	#在事件流处显示事件文本->延迟->显示结果
 	EventStremPage.EPupdateEventText(this_event_name,this_event_context,this_event_result_context,this_event_level,this_event_type,this_result_type,is_term_empty)
 	#->结算数值
-	EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
+	EventStremPage.renderBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
 	EventStremPage.EPupdateValues(
 				air_value/ float(air_sup)
 				,guy_value/ float(guy_sup)
@@ -714,9 +715,9 @@ func clientConfirmSacrifice(people_ratio: float, animal_ratio: float, garin_rati
 	var delta_grain=animal_value-outcome[1]
 	var delta_animal=grain_value-outcome[2]
 	
-	air_value-=ceil((delta_people)*0.2)+(ceil((delta_animal-30)*0.2) if delta_animal>30 else 0)
+	air_value-=ceil((delta_people)*0.2)+(ceil((delta_animal-20)*0.15) if delta_animal>20 else 0)
 	
-	earth_value-=(ceil((delta_grain-120)*0.3) if delta_grain>120 else 0)+(ceil((delta_animal-30)*0.3) if delta_animal>30 else 0)
+	earth_value-=(ceil((delta_grain-120)*0.1) if delta_grain>120 else 0)+(ceil((delta_animal-20)*0.2) if delta_animal>20 else 0)
 	
 	
 	
@@ -1008,7 +1009,7 @@ func load_game(game_save_file:String) -> bool:
 
 #刷新所有界面显示（载入存档后调用）
 func refreshAllDisplay() -> void:
-	EventStremPage.rederBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
+	EventStremPage.renderBelief(belief_value/ float(belief_sup),gua_now,lunar_buff_now)
 	EventStremPage.EPupdateValues(
 				air_value/ float(air_sup)
 				,guy_value/ float(guy_sup)

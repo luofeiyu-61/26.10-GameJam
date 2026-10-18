@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://c4gpvvjcmgf6h"]
 
 [ext_resource type="Script" uid="uid://cludq6c60y6u6" path="res://script/game/events_stream.gd" id="1_f0mje"]
+[ext_resource type="Texture2D" uid="uid://b5rtdp7vsnkup" path="res://assets/pictures/事件流背景图.png" id="2_rcbbw"]
 [ext_resource type="Texture2D" uid="uid://b1ym75b6ll3nj" path="res://assets/bar/yellow_background.png" id="2_tv0df"]
 [ext_resource type="Texture2D" uid="uid://l15t1d4ud68j" path="res://assets/bar/yellow_progress.png" id="3_f0mje"]
 [ext_resource type="Texture2D" uid="uid://2d4uivr10j13" path="res://assets/charas/white/c000.png" id="4_f0mje"]
@@ -112,13 +113,18 @@ anchors_preset = 0
 script = ExtResource("1_f0mje")
 event_stream_text = NodePath("EventStreamWindow/texts")
 
+[node name="事件流背景图" type="Sprite2D" parent="." unique_id=1846546665]
+position = Vector2(576.2, 324.5)
+scale = Vector2(0.40435395, 0.40562502)
+texture = ExtResource("2_rcbbw")
+
 [node name="BeliefBar" type="ColorRect" parent="." unique_id=216123124]
 layout_mode = 0
 offset_left = 75.0
 offset_top = 41.0
 offset_right = 530.0
 offset_bottom = 111.0
-color = Color(0.2, 0.2, 0.2, 1)
+color = Color(0.2, 0.2, 0.2, 0.7019608)
 
 [node name="1" type="TextureProgressBar" parent="BeliefBar" unique_id=1442052481]
 layout_mode = 0
@@ -152,7 +158,7 @@ offset_left = 75.0
 offset_top = 142.0
 offset_right = 747.0
 offset_bottom = 525.0
-color = Color(0.19, 0.19, 0.19, 1)
+color = Color(0.19, 0.19, 0.19, 0.84705883)
 
 [node name="texts" type="RichTextLabel" parent="EventStreamWindow" unique_id=614668531]
 layout_mode = 0
@@ -184,7 +190,7 @@ offset_left = 821.0
 offset_top = 41.0
 offset_right = 1093.0
 offset_bottom = 596.0
-color = Color(0.22, 0.22, 0.22, 1)
+color = Color(0.22, 0.22, 0.22, 0.8117647)
 
 [node name="Air" type="ColorRect" parent="AirGuyEarth" unique_id=1479296765]
 layout_mode = 0
@@ -339,7 +345,7 @@ offset_left = 561.0
 offset_top = 41.0
 offset_right = 747.0
 offset_bottom = 111.0
-color = Color(0.18359044, 0.18359044, 0.18359044, 1)
+color = Color(0.18, 0.18, 0.18, 0.8392157)
 
 [node name="sun" type="ColorRect" parent="Calendar" unique_id=463848014]
 layout_mode = 0
@@ -513,12 +519,68 @@ color = Color(0.5211406, 0.5211406, 0.5211405, 1)
 
 [node name="lunar" type="Label" parent="Calendar/lunar" unique_id=2017670160]
 layout_mode = 0
-offset_top = -25.0
+offset_top = 52.0
 offset_right = 48.0
-offset_bottom = 24.0
+offset_bottom = 101.0
 theme_override_colors/font_color = Color(0.84313726, 1, 0.99607843, 1)
 text = "月相：
 1"
+
+[node name="lunar_calendar2" type="TextureButton" parent="Calendar/lunar" unique_id=1218305674]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 7.0
+offset_right = 30.0
+offset_bottom = 29.0
+size_flags_vertical = 0
+texture_normal = ExtResource("6_ermaf")
+texture_pressed = ExtResource("7_htou7")
+texture_hover = ExtResource("8_kshkp")
+texture_disabled = ExtResource("9_udt61")
+
+[node name="111" type="Label" parent="Calendar/lunar/lunar_calendar2" unique_id=1606309484]
+layout_mode = 0
+offset_left = -4.0
+offset_top = 22.0
+offset_right = 28.0
+offset_bottom = 45.0
+text = "月历"
+
+[node name="LunarCalendar" type="Control" parent="Calendar/lunar" unique_id=1959622117]
+visible = false
+z_index = 1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="bgMask" type="ColorRect" parent="Calendar/lunar/LunarCalendar" unique_id=696169805]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -14.85
+anchor_top = -1.25
+anchor_right = 13.950001
+anchor_bottom = 14.800001
+offset_left = -80.0
+offset_top = -6.0
+offset_right = -80.0
+offset_bottom = -6.1035156e-05
+color = Color(0.27, 0.27, 0.27, 0.5294118)
+
+[node name="ColorRect" type="ColorRect" parent="Calendar/lunar/LunarCalendar" unique_id=1309698579]
+layout_mode = 0
+offset_left = -461.0
+offset_top = 39.0
+offset_right = 285.0
+offset_bottom = 482.0
+color = Color(0.18598104, 0.18598089, 0.18598092, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Calendar/lunar/LunarCalendar/ColorRect" unique_id=662841610]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 30.0
+offset_right = 425.0
+offset_bottom = 415.0
+color = Color(0.27265528, 0.2726553, 0.2726553, 1)
 
 [node name="days" type="Label" parent="Calendar" unique_id=719407154]
 layout_mode = 0
@@ -534,7 +596,7 @@ offset_left = 75.0
 offset_top = 548.0
 offset_right = 747.0
 offset_bottom = 596.0
-color = Color(0.2051175, 0.2051174, 0.20511746, 1)
+color = Color(0.21, 0.21, 0.21, 0.7607843)
 
 [node name="sacrifice" type="TextureButton" parent="operations" unique_id=277483644]
 layout_mode = 0

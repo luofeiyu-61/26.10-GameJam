@@ -25,11 +25,17 @@ func loadAllEventCards(EVENT_CARD_DIR):
 	var file_name:=dir.get_next()
 	
 	while file_name!="":
-		if not dir.current_is_dir() and file_name.ends_with(".tres"):
-			var event:EventCard = load(EVENT_CARD_DIR+file_name)
-			if event:
-				#注册事件
-				registerEvent(event)
+		if not dir.current_is_dir():
+			#导出成 exe 后，PCK 里的资源实际文件名是 xxx.tres.remap
+			#（remap 表里登记的仍然是 xxx.tres），直接 ends_with(".tres") 会一个都匹配不到，
+			#导致导出版「已注册卡牌数量: 0」。所以先去掉 .remap 再判断、并用原名去 load。
+			#编辑器里没有 .remap，trim_suffix 不会改动任何东西。
+			var card_file := file_name.trim_suffix(".remap")
+			if card_file.ends_with(".tres"):
+				var event:EventCard = load(EVENT_CARD_DIR+card_file)
+				if event:
+					#注册事件
+					registerEvent(event)
 		
 		file_name=dir.get_next()
 	dir.list_dir_end()

@@ -1,11 +1,23 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://cgyb1dzxroq"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://bw6nqnyyql0u4"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="3_0xl4s"]
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "怕烟熏坏了刚入仓的粮，一样也没动，只在仓门口钉了块板、喊了几句。
+一冬下来，仓角被掏出一个洞，粮袋咬破一片，地上撒了一层。"
+meet_gua = Array[int]([1, 2])
+belief_feedback = -5
+air_feedback = -2
+earth_feedback = -2
+grain_feedback = -8
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_good"]
 script = ExtResource("1_dt3yw")
-result_type = 0
 result_context = "先把仓里的粮腾出一半到别处，再堵洞、再熏，
 熏完顺手把人住屋的北窗也一并堵了。
 鼠没处躲，粮也没熏坏。"
@@ -28,22 +40,7 @@ belief_feedback = -2
 air_feedback = 1
 earth_feedback = 1
 people_feedback = 1
-animal_feedback = 0
 grain_feedback = -4
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_bad"]
-script = ExtResource("1_dt3yw")
-result_type = 2
-result_context = "怕烟熏坏了刚入仓的粮，一样也没动，只在仓门口钉了块板、喊了几句。
-一冬下来，仓角被掏出一个洞，粮袋咬破一片，地上撒了一层。"
-meet_gua = Array[int]([1, 2])
-belief_feedback = -5
-air_feedback = -2
-earth_feedback = -2
-people_feedback = 0
-animal_feedback = 0
-grain_feedback = -8
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
@@ -56,9 +53,7 @@ context = "虫都伏进土里，把洞封死了。
 虫是退干净了，进屋的却换了一批：田里没了食，老鼠全往场上、仓里、屋角钻。
 把窟窿堵死、用烟熏、把朝北的窗也堵上，便能治理鼠患。
 麻烦在于仓刚装满、人住的屋子也刚堵好，烟一起，人得先出去。"
-event_level = 0
 event_type = 2
-trigger_type = 0
 trigger_terms = Array[int]([17])
 result_good = SubResource("Resource_good")
 result_normal = SubResource("Resource_normal")

@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dskgnhh6o13wa"]
 
 [ext_resource type="Script" path="res://script/game/wish_window.gd" id="1_2k7n0"]
+[ext_resource type="Texture2D" uid="uid://t3pji54la1fx" path="res://assets/pictures/祈愿背景图.png" id="2_tjnyx"]
 [ext_resource type="Texture2D" uid="uid://nq3fnqbi6wxi" path="res://assets/charas/white/c111.png" id="3_h2it5"]
 [ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="3_tdq8v"]
 [ext_resource type="Texture2D" uid="uid://sa043fqpqtgt" path="res://assets/charas/white/c110.png" id="4_b7108"]
@@ -21,6 +22,9 @@
 [ext_resource type="Texture2D" uid="uid://ct6fb24fq2s58" path="res://assets/charas/white/b10.png" id="15_cymdv"]
 [ext_resource type="PackedScene" uid="uid://bjpvxxuqpbgq3" path="res://scenes/sprites/wish_circle.tscn" id="16_1osp7"]
 [ext_resource type="Texture2D" uid="uid://c1gf2jmp3juiy" path="res://assets/charas/white/b11.png" id="16_i6min"]
+[ext_resource type="Texture2D" uid="uid://d0kbh2htf75rd" path="res://assets/button/祈愿图标.png" id="22_ybofx"]
+[ext_resource type="Texture2D" uid="uid://bd2g7sq4k8vg2" path="res://assets/button/祈愿图标·点击.png" id="23_cymdv"]
+[ext_resource type="Texture2D" uid="uid://c24j0tjkrggtd" path="res://assets/button/祈愿图标·鼠标放置.png" id="24_i6min"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1osp7"]
 atlas = ExtResource("11_7n1lx")
@@ -154,7 +158,13 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_2k7n0")
 
+[node name="祈愿背景图2" type="Sprite2D" parent="." unique_id=1282377724]
+position = Vector2(576.2, 324)
+scale = Vector2(0.40435395, 0.40500003)
+texture = ExtResource("2_tjnyx")
+
 [node name="spirit" type="ColorRect" parent="." unique_id=490360729]
+modulate = Color(1, 1, 1, 0.8039216)
 layout_mode = 0
 offset_left = 782.0
 offset_top = 41.0
@@ -209,7 +219,7 @@ offset_left = 214.0
 offset_top = 41.0
 offset_right = 622.0
 offset_bottom = 406.0
-color = Color(0.19, 0.19, 0.19, 1)
+color = Color(0.19, 0.19, 0.19, 0.8039216)
 
 [node name="effects" type="ColorRect" parent="." unique_id=1608423907]
 layout_mode = 0
@@ -217,7 +227,7 @@ offset_left = 276.0
 offset_top = 431.0
 offset_right = 566.0
 offset_bottom = 528.0
-color = Color(0.2, 0.2, 0.2, 1)
+color = Color(0.2, 0.2, 0.2, 0.85490197)
 
 [node name="gua" type="ColorRect" parent="effects" unique_id=1144085478]
 layout_mode = 0
@@ -623,7 +633,7 @@ offset_left = 75.0
 offset_top = 548.0
 offset_right = 747.0
 offset_bottom = 596.0
-color = Color(0.2051175, 0.2051174, 0.20511746, 1)
+color = Color(0.21, 0.21, 0.21, 0.7882353)
 
 [node name="sacrifice" type="TextureButton" parent="operations" unique_id=1388116359]
 layout_mode = 0
@@ -665,27 +675,29 @@ text = "返回事件流"
 
 [node name="savewish" type="TextureButton" parent="operations" unique_id=849727247]
 layout_mode = 0
-offset_left = 599.0
-offset_top = 11.000004
-offset_right = 621.0
-offset_bottom = 33.000004
+offset_left = 600.0
+offset_top = -1.9999952
+offset_right = 1112.0
+offset_bottom = 510.0
+scale = Vector2(0.1, 0.1)
 size_flags_vertical = 0
-texture_normal = ExtResource("3_tdq8v")
-texture_pressed = ExtResource("4_h2it5")
-texture_hover = ExtResource("5_jeqaf")
-texture_disabled = ExtResource("6_fslg2")
+texture_normal = ExtResource("22_ybofx")
+texture_pressed = ExtResource("23_cymdv")
+texture_hover = ExtResource("24_i6min")
 
-[node name="Label3" type="Label" parent="operations/savewish" unique_id=468508189]
+[node name="Label3" type="Label" parent="operations" unique_id=468508189]
 layout_mode = 0
-offset_left = -108.0
-offset_right = -12.0
-offset_bottom = 23.0
+offset_left = 501.0
+offset_top = 11.0
+offset_right = 597.0
+offset_bottom = 34.0
 text = "确认祈愿结果"
 
 [node name="yao_container" type="Control" parent="." unique_id=1192747050]
 z_index = 1
 anchors_preset = 0
-offset_right = 40.0
+offset_left = 3.0
+offset_right = 43.0
 offset_bottom = 40.0
 
 [node name="WishCircle" parent="." unique_id=85456516 instance=ExtResource("16_1osp7")]

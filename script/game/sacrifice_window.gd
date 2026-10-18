@@ -18,6 +18,9 @@ class_name ClientSacrificePage
 
 @onready var yao_pre_num: Label = $SacrificeBar/Qi/Label
 
+#SacrificeWindow 中心的比例饼图（人口/牲口/粮食 三扇区，半径由 total_ratio 决定）
+@onready var sacrifice_pie: SacrificePie = $SacrificeWindow/SacrificePie
+
 
 
 #玩家调整的比例
@@ -33,6 +36,11 @@ signal go_to_event
 signal go_to_wish
 signal confirm_sacrifice(people_ratio:float,animal_ratio:float,garin_ratio:float,total_ratio:float)
 signal preview_sacrifice_result(people_ratio:float,animal_ratio:float,garin_ratio:float,total_ratio:float)
+
+
+#进场景先按当前比例画一次（滑块的初始值也一并反映进饼图）
+func _ready() -> void:
+	_updateSacrificePie()
 
 
 
@@ -462,19 +470,30 @@ func redrawSacrificePreBar():
 func _on_total_value_changed(value: float) -> void:
 	total_ratio=value/100.0
 	redrawSacrificePreBar()
+	_updateSacrificePie()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 
 func _on_people_value_changed(value: float) -> void:
 	people_ratio=value/100.0
 	redrawSacrificePreBar()
+	_updateSacrificePie()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 
 func _on_animal_value_changed(value: float) -> void:
 	animal_ratio=value/100.0
 	redrawSacrificePreBar()
+	_updateSacrificePie()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 
 func _on_grain_value_changed(value: float) -> void:
 	garin_ratio=value/100.0
 	redrawSacrificePreBar()
+	_updateSacrificePie()
 	preview_sacrifice_result.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
+
+
+#把「三个比例 + 总量比例」推给 SacrificeWindow 中心的饼图。
+#更新时机：_on_total / _on_people / _on_animal / _on_grain 四个回调（外加 _ready 一次）。
+func _updateSacrificePie() -> void:
+	if sacrifice_pie != null:
+		sacrifice_pie.setRatios(people_ratio,animal_ratio,garin_ratio,total_ratio)

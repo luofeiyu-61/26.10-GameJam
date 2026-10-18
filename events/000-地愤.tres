@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://ced4o3wm4342k"]
+
+[ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l1360"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="2_hp44r"]
+
+[resource]
+script = ExtResource("1_l1360")
+id = -3
+sequence_id = "-3"
+trigger_type = 1
+metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

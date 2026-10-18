@@ -6,45 +6,5 @@
 script = ExtResource("1_1kvy0")
 slot_index = 1
 is_empty = false
-is_new_save = false
-save_time = "2026/10/17
-22:24"
-gua_now = 8
-lunar_buff_now = 8
-belief_value = 27
-air_value = 41
-earth_value = 37
-people_value = 300
-animal_value = 120
-grain_value = 801
-sacrifice_ratio = Dictionary[String, float]({
-"animal_ratio": 0.0,
-"grain_ratio": 0.0,
-"people_ratio": 0.0,
-"total_ratio": 0.0
-})
-days = 7.5
-event_list = Array[int]([20, 15, 21])
-event_duration_list = Array[float]([2.5, 2.5, 2.5])
-event_history = Array[int]([6])
-event_history_result = Array[int]([1])
-all_history = {
-"Year0": {
-"SolarTerm0": [[6, 1]]
-}
-}
-event_stream_text = "按下“下一事件”开始...
-
-
-
-||--------新事件---------||
-
-[重大]	[color=#ff6044]凌汛[/color]
-开春回暖，上游的冰先化，下游还冻着。大块冰顺水往下走，
-卡在河弯里堆成一道坝，水漫上岸，淹掉河边最好的那片田。
-
-. . . 
-
-·[color=#efffdd]结果[/color]·
-水漫到田就退了，
-人没事，也没落下肥，春忙还得从头开始。"
+save_time = "2026/10/18
+13:35"

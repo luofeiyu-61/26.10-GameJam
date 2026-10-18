@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://script/game/sacrifice_window.gd" id="1_uyu3g"]
 [ext_resource type="Texture2D" uid="uid://dwgd1wxns1h5q" path="res://assets/bar/green_background.png" id="2_dkyhc"]
 [ext_resource type="Texture2D" uid="uid://cdsyouvl63w5g" path="res://assets/bar/purple_background.png" id="2_lqxe7"]
+[ext_resource type="Texture2D" uid="uid://dhjgo54ig28xu" path="res://assets/pictures/祭祀背景图.png" id="2_vlulm"]
 [ext_resource type="Texture2D" uid="uid://gvbfm1svdlef" path="res://assets/bar/purple_progress.png" id="3_pmxj7"]
 [ext_resource type="Texture2D" uid="uid://bdw2ir5wgevd4" path="res://assets/button/button.png" id="4_qkx0e"]
 [ext_resource type="Texture2D" uid="uid://b1ym75b6ll3nj" path="res://assets/bar/yellow_background.png" id="5_55m0t"]
@@ -13,17 +14,35 @@
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="7_dkyhc"]
 [ext_resource type="Texture2D" uid="uid://cdu7g3jmpc5rs" path="res://assets/bar/white_progress.png" id="7_nhwe4"]
 [ext_resource type="Texture2D" uid="uid://l15t1d4ud68j" path="res://assets/bar/yellow_progress.png" id="7_yyt4y"]
-[ext_resource type="Texture2D" uid="uid://bwcsbieijwdy2" path="res://assets/pictures/祭坛.png" id="8_k3jht"]
 [ext_resource type="Texture2D" uid="uid://jks4yulodp6i" path="res://assets/bar/pink_progress.png" id="9_a1fo6"]
+[ext_resource type="Texture2D" uid="uid://gc8mpcsj782c" path="res://assets/pictures/祭台 (1).png" id="9_wwm0o"]
+[ext_resource type="Texture2D" uid="uid://dweuk17ygyvnu" path="res://assets/pictures/人.png" id="10_5084a"]
+[ext_resource type="Texture2D" uid="uid://dyxljugjrie41" path="res://assets/pictures/牛.png" id="11_vlulm"]
+[ext_resource type="Texture2D" uid="uid://xbybwuypnbx1" path="res://assets/pictures/猪.png" id="12_giuth"]
 [ext_resource type="Texture2D" uid="uid://b6einq5jo6htp" path="res://assets/pictures/阴阳鱼收集 .png" id="12_nhwe4"]
+[ext_resource type="Texture2D" uid="uid://csby5m4xvw1kq" path="res://assets/pictures/粮.png" id="13_6t6ab"]
 [ext_resource type="Texture2D" uid="uid://dd8ph3xw2ut1l" path="res://assets/pictures/阴阳鱼产出.png" id="13_18p21"]
+[ext_resource type="Texture2D" uid="uid://bemelg5pukdm2" path="res://assets/pictures/羊.png" id="14_lx8nx"]
+[ext_resource type="Script" uid="uid://xle7de278wi" path="res://script/game/sacrifice_pie.gd" id="14_pie01"]
+[ext_resource type="Texture2D" uid="uid://c1cu0qyflia47" path="res://assets/pictures/谷物1.png" id="16_lx8nx"]
+[ext_resource type="Texture2D" uid="uid://bm88e27txne3w" path="res://assets/pictures/谷物2.png" id="17_f1xe3"]
+[ext_resource type="Texture2D" uid="uid://u6hbo2vym4de" path="res://assets/pictures/谷物堆.png" id="18_wkpjv"]
+[ext_resource type="Texture2D" uid="uid://bafpbxxpia2mj" path="res://assets/button/确认献祭.png" id="28_wwm0o"]
+[ext_resource type="Texture2D" uid="uid://cao4twthrku1o" path="res://assets/button/确认献祭·点击.png" id="29_lfk26"]
+[ext_resource type="Texture2D" uid="uid://bwfk5pxjttsrt" path="res://assets/button/确认献祭·鼠标放置.png" id="30_mlb8o"]
 
 [node name="Sacrifice_window" type="Control" unique_id=746007612]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_uyu3g")
 
+[node name="祭祀背景图" type="Sprite2D" parent="." unique_id=1242937000]
+position = Vector2(575.7, 324)
+scale = Vector2(0.40470505, 0.40500003)
+texture = ExtResource("2_vlulm")
+
 [node name="RatioSetWindow" type="ColorRect" parent="." unique_id=316148979]
+modulate = Color(1, 1, 1, 0.80784315)
 layout_mode = 0
 offset_left = 782.0
 offset_top = 41.0
@@ -141,6 +160,42 @@ scale = Vector2(1.5, 2)
 value = 30.0
 texture_progress = ExtResource("7_yyt4y")
 
+[node name="Label" type="Label" parent="RatioSetWindow/ResultPreview" unique_id=1932673320]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 282.0
+offset_right = 42.0
+offset_bottom = 296.0
+theme_override_font_sizes/font_size = 10
+text = "“人”"
+
+[node name="Label2" type="Label" parent="RatioSetWindow/ResultPreview" unique_id=1425295753]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 288.0
+offset_right = 132.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 10
+text = "人口"
+
+[node name="Label3" type="Label" parent="RatioSetWindow/ResultPreview" unique_id=1476482392]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 288.0
+offset_right = 180.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 10
+text = "牲口"
+
+[node name="Label4" type="Label" parent="RatioSetWindow/ResultPreview" unique_id=519925213]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 288.0
+offset_right = 229.0
+offset_bottom = 302.0
+theme_override_font_sizes/font_size = 10
+text = "粮食"
+
 [node name="SacrificeRatio" type="ColorRect" parent="RatioSetWindow" unique_id=1912703430]
 z_index = 1
 layout_mode = 0
@@ -184,12 +239,97 @@ offset_left = 75.0
 offset_top = 41.0
 offset_right = 747.0
 offset_bottom = 410.0
-color = Color(0.19, 0.19, 0.19, 1)
+color = Color(0.19, 0.19, 0.19, 0.827451)
 
-[node name="Sprite2D" type="Sprite2D" parent="SacrificeWindow" unique_id=1617569024]
-position = Vector2(334, 183)
-scale = Vector2(0.49086925, 0.4817708)
-texture = ExtResource("8_k3jht")
+[node name="祭台" type="Sprite2D" parent="SacrificeWindow" unique_id=2029846535]
+position = Vector2(336, 185)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("9_wwm0o")
+
+[node name="SacrificePie" type="Node2D" parent="SacrificeWindow" unique_id=1529072136]
+position = Vector2(336, 184.5)
+script = ExtResource("14_pie01")
+sprites_at_full_circle = 56
+
+[node name="Slices" type="Node2D" parent="SacrificeWindow/SacrificePie" unique_id=351508268]
+
+[node name="people" type="Polygon2D" parent="SacrificeWindow/SacrificePie/Slices" unique_id=173815495]
+color = Color(0.78, 0.34, 0.29, 0.156863)
+
+[node name="animal" type="Polygon2D" parent="SacrificeWindow/SacrificePie/Slices" unique_id=138010988]
+color = Color(0.36, 0.58, 0.45, 0.156863)
+
+[node name="grain" type="Polygon2D" parent="SacrificeWindow/SacrificePie/Slices" unique_id=1376219926]
+color = Color(0.9, 0.76, 0.36, 0.156863)
+
+[node name="Outline" type="Line2D" parent="SacrificeWindow/SacrificePie" unique_id=1081503190]
+visible = false
+modulate = Color(1, 1, 1, 0)
+closed = true
+width = 2.0
+default_color = Color(0.95, 0.89, 0.7, 0.95)
+antialiased = true
+
+[node name="Dividers" type="Node2D" parent="SacrificeWindow/SacrificePie" unique_id=881191905]
+visible = false
+
+[node name="people" type="Line2D" parent="SacrificeWindow/SacrificePie/Dividers" unique_id=883951000]
+width = 1.0
+default_color = Color(0.95, 0.89, 0.7, 0.95)
+antialiased = true
+
+[node name="animal" type="Line2D" parent="SacrificeWindow/SacrificePie/Dividers" unique_id=669086621]
+width = 1.0
+default_color = Color(0.95, 0.89, 0.7, 0.95)
+antialiased = true
+
+[node name="grain" type="Line2D" parent="SacrificeWindow/SacrificePie/Dividers" unique_id=30084024]
+width = 1.0
+default_color = Color(0.95, 0.89, 0.7, 0.95)
+antialiased = true
+
+[node name="sacrifiys" type="Node2D" parent="SacrificeWindow/SacrificePie" unique_id=1595520662]
+position = Vector2(870, -184.5)
+
+[node name="人" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=1288440469]
+position = Vector2(22.399963, 59.100014)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("10_5084a")
+
+[node name="牛" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=775301569]
+position = Vector2(74.39996, 74.10001)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("11_vlulm")
+
+[node name="猪" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=1738590972]
+position = Vector2(65.39996, 30.100016)
+scale = Vector2(0.07, 0.07)
+texture = ExtResource("12_giuth")
+
+[node name="粮" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=557995741]
+position = Vector2(126.39996, 63.100014)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("13_6t6ab")
+
+[node name="羊" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=249142578]
+position = Vector2(106.3999, 9.100002)
+scale = Vector2(0.18, 0.18)
+texture = ExtResource("14_lx8nx")
+
+[node name="谷物1" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=41543199]
+position = Vector2(145, 123)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("16_lx8nx")
+
+[node name="谷物2" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=201988764]
+position = Vector2(118.999985, 101)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("17_f1xe3")
+
+[node name="谷物堆" type="Sprite2D" parent="SacrificeWindow/SacrificePie/sacrifiys" unique_id=1805283083]
+position = Vector2(91.000015, 125)
+scale = Vector2(0.08, 0.08)
+texture = ExtResource("18_wkpjv")
 
 [node name="SacrificeBar" type="ColorRect" parent="." unique_id=711916259]
 layout_mode = 0
@@ -197,7 +337,7 @@ offset_left = 75.0
 offset_top = 453.0
 offset_right = 747.0
 offset_bottom = 515.0
-color = Color(0.2, 0.2, 0.2, 1)
+color = Color(0.2, 0.2, 0.2, 0.7254902)
 
 [node name="BarPre" type="TextureProgressBar" parent="SacrificeBar" unique_id=1937167068]
 layout_mode = 0
@@ -260,7 +400,7 @@ offset_left = 75.0
 offset_top = 548.0
 offset_right = 747.0
 offset_bottom = 596.0
-color = Color(0.2051175, 0.2051174, 0.20511746, 1)
+color = Color(0.21, 0.21, 0.21, 0.76862746)
 
 [node name="eventstream" type="TextureButton" parent="operations" unique_id=409245442]
 layout_mode = 0
@@ -300,24 +440,25 @@ offset_right = -24.0
 offset_bottom = 23.0
 text = "祈愿"
 
+[node name="Label3" type="Label" parent="operations" unique_id=1476647483]
+layout_mode = 0
+offset_left = 515.0
+offset_top = 11.0
+offset_right = 595.0
+offset_bottom = 34.0
+text = "确认献祭"
+
 [node name="confirmsacrifice" type="TextureButton" parent="operations" unique_id=1813902898]
 layout_mode = 0
-offset_left = 599.0
-offset_top = 11.000004
-offset_right = 621.0
-offset_bottom = 33.000004
+offset_left = 598.0
+offset_top = -1.999995
+offset_right = 1110.0
+offset_bottom = 510.0
+scale = Vector2(0.1, 0.1)
 size_flags_vertical = 0
-texture_normal = ExtResource("4_qkx0e")
-texture_pressed = ExtResource("5_w4ahu")
-texture_hover = ExtResource("6_1bpl7")
-texture_disabled = ExtResource("7_dkyhc")
-
-[node name="Label3" type="Label" parent="operations/confirmsacrifice" unique_id=1476647483]
-layout_mode = 0
-offset_left = -83.0
-offset_right = -3.0
-offset_bottom = 23.0
-text = "确认献祭"
+texture_normal = ExtResource("28_wwm0o")
+texture_pressed = ExtResource("29_lfk26")
+texture_hover = ExtResource("30_mlb8o")
 
 [node name="YaoContainer" type="Control" parent="." unique_id=1493089998]
 anchors_preset = 0
