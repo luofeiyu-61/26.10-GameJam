@@ -21,12 +21,20 @@
 [ext_resource type="Texture2D" uid="uid://ct6fb24fq2s58" path="res://assets/charas/white/b10.png" id="15_cymdv"]
 [ext_resource type="PackedScene" uid="uid://bjpvxxuqpbgq3" path="res://scenes/sprites/wish_circle.tscn" id="16_1osp7"]
 [ext_resource type="Texture2D" uid="uid://c1gf2jmp3juiy" path="res://assets/charas/white/b11.png" id="16_i6min"]
+[ext_resource type="Texture2D" uid="uid://ddqdus5g56tb8" path="res://assets/moons/shangxuan.png" id="20_hp4rd"]
 [ext_resource type="Texture2D" uid="uid://cqo0yxf6fu6er" path="res://assets/button/事件流.png" id="21_i6min"]
+[ext_resource type="Texture2D" uid="uid://vcwn2qpibumn" path="res://assets/moons/xiaxuan.png" id="21_vq16w"]
+[ext_resource type="Texture2D" uid="uid://mm067c5plihe" path="res://assets/moons/kuitu.png" id="22_8g51a"]
 [ext_resource type="Texture2D" uid="uid://droc1kswvnan5" path="res://assets/button/事件流·点击·.png" id="22_o3ukn"]
 [ext_resource type="Texture2D" uid="uid://d0kbh2htf75rd" path="res://assets/button/祈愿图标.png" id="22_ybofx"]
 [ext_resource type="Texture2D" uid="uid://bd2g7sq4k8vg2" path="res://assets/button/祈愿图标·点击.png" id="23_cymdv"]
+[ext_resource type="Texture2D" uid="uid://dtdo3f7q7gvho" path="res://assets/moons/xin.png" id="23_fq13o"]
 [ext_resource type="Texture2D" uid="uid://dnudd28no1ml2" path="res://assets/button/事件流·鼠标放置.png" id="23_ivx11"]
 [ext_resource type="Texture2D" uid="uid://c24j0tjkrggtd" path="res://assets/button/祈愿图标·鼠标放置.png" id="24_i6min"]
+[ext_resource type="Texture2D" uid="uid://d1ay8naqe20ag" path="res://assets/moons/can.png" id="24_rwq3n"]
+[ext_resource type="Texture2D" uid="uid://cnox40i5utb5w" path="res://assets/moons/man.png" id="25_gr6jy"]
+[ext_resource type="Texture2D" uid="uid://2kne0cbqll48" path="res://assets/moons/yintu.png" id="26_vm78k"]
+[ext_resource type="Texture2D" uid="uid://l7bpp73xsbge" path="res://assets/moons/emei.png" id="27_dg53k"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcyo6"]
 load_path = "res://.godot/imported/祈愿背景图.png-31c6cacec46e0f0a0ab057f430172aa5.ctex"
@@ -156,6 +164,85 @@ animations = [{
 "loop": 0,
 "name": &"none",
 "speed": 20.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_spfvc"]
+atlas = ExtResource("11_7n1lx")
+region = Rect2(42, 0, 14, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_qhiuh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_spfvc")
+}],
+"loop": 1,
+"name": &"none",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("20_hp4rd")
+}],
+"loop": 0,
+"name": &"上弦月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("21_vq16w")
+}],
+"loop": 0,
+"name": &"下弦",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("22_8g51a")
+}],
+"loop": 0,
+"name": &"亏凸月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("23_fq13o")
+}],
+"loop": 0,
+"name": &"新月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("24_rwq3n")
+}],
+"loop": 0,
+"name": &"残月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("25_gr6jy")
+}],
+"loop": 0,
+"name": &"满月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("26_vm78k")
+}],
+"loop": 0,
+"name": &"盈凸月",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("27_dg53k")
+}],
+"loop": 0,
+"name": &"蛾眉月",
+"speed": 5.0
 }]
 
 [node name="Wish_window" type="Control" unique_id=436975690]
@@ -624,13 +711,22 @@ offset_right = 407.0
 offset_bottom = 78.0
 color = Color(0.39181867, 0.39181864, 0.39181864, 1)
 
+[node name="moon" type="AnimatedSprite2D" parent="effects/lunarPhaseNow" unique_id=143253617]
+modulate = Color(0.90939033, 0.9093903, 0.9093903, 1)
+position = Vector2(23.999998, 22.999998)
+scale = Vector2(0.4, 0.4)
+sprite_frames = SubResource("SpriteFrames_qhiuh")
+animation = &"满月"
+
 [node name="lunarPhase" type="Label" parent="effects/lunarPhaseNow" unique_id=1990288835]
 layout_mode = 0
-offset_top = -23.0
-offset_right = 80.0
-offset_bottom = 26.0
-text = "当前月相：
-1"
+offset_left = 11.0
+offset_top = 13.0
+offset_right = 39.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0, 0.7529412, 0.8666667, 0.4745098)
+theme_override_font_sizes/font_size = 14
+text = "月相"
 
 [node name="operations" type="ColorRect" parent="." unique_id=1297770066]
 layout_mode = 0

@@ -38,7 +38,8 @@ func changeGuaDisplay(gua:ENUMS.Gua):
 	now_gua_sprite.play(ENUMS.gua2Binary(gua))
 
 func renderLunarPhaseNow(lunar_phase:ENUMS.LunarPhase):
-	lunar_phase_now.text="当前月相："+"\n"+ENUMS.lunarPhase2Text(lunar_phase)
+	lunar_phase_now.text=ENUMS.lunarPhase2Text(lunar_phase)
+	$effects/lunarPhaseNow/moon.play(ENUMS.lunarPhase2Text(lunar_phase))
 
 
 

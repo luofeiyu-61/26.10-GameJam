@@ -189,6 +189,7 @@ func EPupdateEventText(
 
 #endregion
 
+@onready var moon__: AnimatedSprite2D = $"BeliefBar/1/moon__"
 
 #更新信仰值#接受的是百分比
 func renderBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase):
@@ -209,7 +210,8 @@ func renderBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase
 		lunar_buff.text=""
 	else:
 		lunar_buff.text="月相buff："+ENUMS.lunarPhase2Text(lunar_buff_now)
-
+	
+	moon__.play(ENUMS.lunarPhase2Text(lunar_buff_now))
 
 
 
