@@ -5,6 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://b66cuw6b8rn02" path="res://assets/button/button_selected.png" id="3_j10or"]
 [ext_resource type="Texture2D" uid="uid://d1mr8pf660xn4" path="res://assets/button/button_highlighted.png" id="4_cde61"]
 [ext_resource type="Texture2D" uid="uid://dxllt7s8dlk2r" path="res://assets/button/button_disabled.png" id="5_cio4y"]
+[ext_resource type="Texture2D" uid="uid://dltemk8qwp0aw" path="res://assets/button/返回上一级.png" id="6_cde61"]
+[ext_resource type="Texture2D" uid="uid://kibid0enrote" path="res://assets/button/返回上一级·点击.png" id="7_cio4y"]
+[ext_resource type="Texture2D" uid="uid://lrf1e0cva64g" path="res://assets/button/返回上一级·鼠标放置.png" id="8_vhbce"]
 
 [node name="OnesList" type="CanvasLayer" unique_id=539324909]
 layer = 3
@@ -39,25 +42,24 @@ offset_bottom = 23.0
 text = "新游戏"
 
 [node name="CloseListBt" type="TextureButton" parent="." unique_id=269159040]
-offset_left = 71.0
-offset_top = 570.0
-offset_right = 93.0
-offset_bottom = 592.0
+offset_left = 44.0
+offset_top = 531.0
+offset_right = 2119.0
+offset_bottom = 2579.0
+scale = Vector2(0.04, 0.04)
 size_flags_horizontal = 10
-offset_transform_enabled = true
 offset_transform_scale = Vector2(2, 2)
 offset_transform_visual_only = false
-texture_normal = ExtResource("2_dhgwa")
-texture_pressed = ExtResource("3_j10or")
-texture_hover = ExtResource("4_cde61")
-texture_disabled = ExtResource("5_cio4y")
+texture_normal = ExtResource("6_cde61")
+texture_pressed = ExtResource("7_cio4y")
+texture_hover = ExtResource("8_vhbce")
 stretch_mode = 0
 
-[node name="Label" type="Label" parent="CloseListBt" unique_id=966174460]
-layout_mode = 0
-offset_left = 29.5
-offset_right = 69.5
-offset_bottom = 23.0
+[node name="Label" type="Label" parent="." unique_id=966174460]
+offset_left = 70.0
+offset_top = 599.0
+offset_right = 110.0
+offset_bottom = 622.0
 text = "返回"
 
 [node name="OnesContainer" type="Control" parent="." unique_id=2007432558]

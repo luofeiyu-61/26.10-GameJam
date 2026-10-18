@@ -51,6 +51,7 @@ func updateYao(yin:int,yang:int):
 
 func updateQi(spirit_now):
 	spirit.text=ENUMS.qi2Text(spirit_now)
+	$spirit/status/Qi.play(str(spirit_now))
 
 func updateTempQi():
 	yao_yin_num=0
@@ -68,6 +69,7 @@ func updateTempQi():
 	elif yao_yang_num<yao_yin_num: temp_spirit=ENUMS.Qi.PartYin
 	
 	spirit.text=ENUMS.qi2Text(temp_spirit)
+	$spirit/status/Qi.play(str(temp_spirit))
 
 
 
@@ -123,7 +125,7 @@ var yao_pairs:Array[YaoPairData]=[
 
 func _process(delta: float) -> void:
 	time+=delta
-	
+	$spirit/status/Qi.rotate(-0.1*delta)
 	swangingInSpirit(time)
 	swangingInWish(time)
 

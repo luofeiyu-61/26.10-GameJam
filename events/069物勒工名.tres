@@ -13,7 +13,7 @@ meet_gua = Array[int]([0, 4])
 belief_feedback = -4
 air_feedback = -2
 earth_feedback = -3
-grain_feedback = -8
+grain_feedback = -80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_good"]
@@ -24,7 +24,7 @@ meet_gua = Array[int]([7, 3])
 belief_feedback = 5
 air_feedback = 3
 earth_feedback = 2
-grain_feedback = 8
+grain_feedback = 80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -35,8 +35,8 @@ result_context = "只验祭器，农具点了数就过。
 belief_feedback = -2
 air_feedback = 3
 earth_feedback = -2
-animal_feedback = -1
-grain_feedback = -6
+animal_feedback = -10
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

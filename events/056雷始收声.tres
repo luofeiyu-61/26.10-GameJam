@@ -14,7 +14,7 @@ air_feedback = -2
 earth_feedback = 4
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = 12
+grain_feedback = 120
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -27,7 +27,7 @@ air_feedback = -3
 earth_feedback = 2
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = 6
+grain_feedback = 60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -41,7 +41,7 @@ air_feedback = -3
 earth_feedback = -4
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = -8
+grain_feedback = -80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

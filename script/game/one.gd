@@ -196,6 +196,12 @@ var event_duration_list:Array[float]
 #条件事件中查询前置事件时回看历史的最大事件数
 const MAX_CONDITION_LOOK_BACK_NUMBER=30
 
+#结局事件：天/地/人 任一归零后，下一张卡就是它们；发生后即进入游戏结束
+const ENDING_EVENT_ID_AIR = -1		#000-天悲
+const ENDING_EVENT_ID_GUY = -2		#000-人绝
+const ENDING_EVENT_ID_EARTH = -3	#000-地愤
+const ENDING_EVENT_IDS:Array[int]=[ENDING_EVENT_ID_AIR,ENDING_EVENT_ID_GUY,ENDING_EVENT_ID_EARTH]
+
 #历史事件
 var event_history:Array[int]
 var event_history_result:Array[ENUMS.ResultType]
@@ -425,6 +431,10 @@ func anEventHappen()->bool:
 		event_history_result.append(result.result_type)
 		
 		timePassBy(dur)
+		
+		#结局事件（天悲/人绝/地愤）发生 → 进入游戏结束
+		if id in ENDING_EVENT_IDS:
+			endGame()
 		return true
 
 #月相buff作用公式
@@ -496,13 +506,14 @@ func spawnYaos(num:int):
 
 	if num*2 > temp:
 		print("[WARNING]你承载不了过多的爻！多余的阴阳爻已消散！")
+		@warning_ignore("integer_division")
+		var t = min(yao_num_sup/2-yao_yang_num,yao_num_sup/2-yao_yin_num)
+		yao_yang_num+=t
+		yao_yin_num+=t
 	else:
-		temp = num
-	
-	@warning_ignore("integer_division")
-	yao_yang_num+=temp/2
-	@warning_ignore("integer_division")
-	yao_yin_num+=temp/2
+		yao_yang_num+=num
+		yao_yin_num+=num
+
 
 	
 
@@ -661,11 +672,18 @@ func clientPushNextEvent() -> void:
 	var condi_events_list = EventDataBase.colletConditionEvent(history_events_,air_value,guy_value,earth_value,people_value,animal_value,grain_value)
 	var possible_condi_events_list:Array
 	for con_event_id in condi_events_list:
-		if con_event_id in history_events_:
+		#没在回看窗口里出现过的才插队（否则同一个条件事件会在窗口内反复触发）
+		if con_event_id not in history_events_:
 			possible_condi_events_list.append(con_event_id)
 	
 	if !possible_condi_events_list.is_empty():
-		event_list.insert(0,possible_condi_events_list.pick_random())
+		#结局卡优先：天/地/人归零时，下一张必须是结局卡，不能被别的条件事件随机挤掉
+		var next_event_id = possible_condi_events_list.pick_random()
+		for ending_id in ENDING_EVENT_IDS:
+			if ending_id in possible_condi_events_list:
+				next_event_id = ending_id
+				break
+		event_list.insert(0,next_event_id)
 		recountDurationEachEvent()
 	
 	
@@ -994,6 +1012,9 @@ func load_game(game_save_file:String) -> bool:
 		updateGuy()
 		updateSpirit()
 
+	#读档后复原「游戏结束」状态（存档里不会记录死亡，读档就是重开）
+	_setGameOver(false)
+
 	refreshAllDisplay()
 	#按“当前所在的界面”再整屏重画一次：
 	#玩家可能在祭祀/祈愿界面里读档，只刷新事件流界面（refreshAllDisplay）不够，
@@ -1111,8 +1132,42 @@ func _on_close_warning_save_pressed() -> void:
 
 #region 游戏结束
 
+#结局事件（天悲/人绝/地愤）发生后置 true；读档/新游戏时复位
+var game_over: bool = false
+
+#结局事件发生后调用：禁掉一切能继续推进游戏的操作
 func endGame():
 	print("游戏结束")
+	_setGameOver(true)
+
+
+#开关「游戏结束」状态：
+#  · 事件流：禁「下一事件」（events_stream 里也留一份，文本播完不会把它重新点亮）
+#  · 祭祀：禁「确认献祭」+ 4 个比例滑块
+#  · 祈愿：禁「保存祈愿」
+#读档时用 _setGameOver(false) 复原。
+func _setGameOver(value: bool):
+	game_over = value
+
+	#事件流
+	if EventStremPage != null:
+		EventStremPage.setGameOver(value)
+
+	#祭祀：确认献祭 + 比例滑块（RatioSetWindow/SacrificeRatio 下的 4 根）
+	if SacrificePage != null:
+		var confirm := SacrificePage.get_node_or_null("operations/confirmsacrifice")
+		if confirm is BaseButton:
+			(confirm as BaseButton).disabled = value
+		for slider_name in ["Total", "people", "animal", "grain"]:
+			var slider := SacrificePage.get_node_or_null("RatioSetWindow/SacrificeRatio/" + slider_name)
+			if slider is Slider:
+				(slider as Slider).editable = not value
+
+	#祈愿：保存祈愿
+	if WishPage != null:
+		var save_wish := WishPage.get_node_or_null("operations/savewish")
+		if save_wish is BaseButton:
+			(save_wish as BaseButton).disabled = value
 
 
 #endregion

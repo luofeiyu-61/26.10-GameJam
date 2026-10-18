@@ -12,7 +12,7 @@ meet_gua = Array[int]([1, 0])
 belief_feedback = 3
 air_feedback = 4
 earth_feedback = 2
-people_feedback = 2
+people_feedback = 20
 animal_feedback = 0
 grain_feedback = 0
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
@@ -39,9 +39,9 @@ meet_gua = Array[int]([4, 2])
 belief_feedback = -4
 air_feedback = -2
 earth_feedback = -3
-people_feedback = -3
-animal_feedback = -1
-grain_feedback = -6
+people_feedback = -30
+animal_feedback = -10
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

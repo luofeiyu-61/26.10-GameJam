@@ -14,7 +14,7 @@ belief_feedback = 5
 air_feedback = 1
 earth_feedback = 3
 people_feedback = 0
-animal_feedback = 5
+animal_feedback = 50
 grain_feedback = 0
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
@@ -28,7 +28,7 @@ belief_feedback = -3
 air_feedback = 1
 earth_feedback = 2
 people_feedback = 0
-animal_feedback = 2
+animal_feedback = 20
 grain_feedback = 0
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
@@ -42,8 +42,8 @@ belief_feedback = -5
 air_feedback = -1
 earth_feedback = -3
 people_feedback = 0
-animal_feedback = -3
-grain_feedback = -6
+animal_feedback = -30
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

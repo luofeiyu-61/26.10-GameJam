@@ -110,7 +110,7 @@ func colletConditionEvent(chosen_history_event_ids:Array[int],air_now:int,guy_no
 					
 		if all_events[id].is_meet and is_trigger :#查询数值条件
 			for condition in all_events[id].trigger_meet_info:#轮询条件
-				match condition.trigger_meet_type:#看是哪个值
+				match condition.trigger_meet_which:#看是哪个值（不是 trigger_meet_type：那个是「大于/小于」）
 					ENUMS.MeetWhich.Air:
 						if (air_now-condition.trigger_meet_value)*condition.trigger_meet_type<0 :#不满足数值条件
 							is_trigger=false

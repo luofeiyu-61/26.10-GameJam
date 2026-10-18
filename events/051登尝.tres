@@ -11,9 +11,9 @@ meet_gua = Array[int]([0, 6])
 belief_feedback = 5
 air_feedback = 2
 earth_feedback = 3
-people_feedback = 3
-animal_feedback = 2
-grain_feedback = 8
+people_feedback = 30
+animal_feedback = 20
+grain_feedback = 80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -23,9 +23,9 @@ result_context = "荐是荐了，剩下的照旧封进仓，说等冬闲再分�
 belief_feedback = -1
 air_feedback = 0
 earth_feedback = 1
-people_feedback = 2
-animal_feedback = 1
-grain_feedback = 4
+people_feedback = 20
+animal_feedback = 10
+grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -38,7 +38,7 @@ air_feedback = -3
 earth_feedback = -2
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = 2
+grain_feedback = 20
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

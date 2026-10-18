@@ -12,9 +12,9 @@ meet_gua = Array[int]([1, 6])
 belief_feedback = 5
 air_feedback = 5
 earth_feedback = 3
-people_feedback = 4
-animal_feedback = 2
-grain_feedback = 8
+people_feedback = 40
+animal_feedback = 20
+grain_feedback = 80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -25,9 +25,9 @@ result_context = "不禁山泽，只「不诘」：田里剩下的、跑散的�
 belief_feedback = -3
 air_feedback = 3
 earth_feedback = -2
-people_feedback = -2
-animal_feedback = -2
-grain_feedback = 8
+people_feedback = -20
+animal_feedback = -20
+grain_feedback = 80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -39,9 +39,9 @@ meet_gua = Array[int]([4, 0])
 belief_feedback = -6
 air_feedback = -3
 earth_feedback = -5
-people_feedback = -3
-animal_feedback = -3
-grain_feedback = 15
+people_feedback = -30
+animal_feedback = -30
+grain_feedback = 150
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

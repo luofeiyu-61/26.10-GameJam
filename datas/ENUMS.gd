@@ -77,7 +77,7 @@ static func lunarPhase2Text(lunar_phase:ENUMS.LunarPhase)->String:
 		ENUMS.LunarPhase.WaxingCrescent:	return "蛾眉月"
 		ENUMS.LunarPhase.FirstQuarter:		return "上弦月"
 		ENUMS.LunarPhase.WaxingGibbous:		return "盈凸月"
-		ENUMS.LunarPhase.FullMoon:			return "满月 "
+		ENUMS.LunarPhase.FullMoon:			return "满月"
 		ENUMS.LunarPhase.WaningGibbous:		return "亏凸月"
 		ENUMS.LunarPhase.LastQuarter:		return "下弦"
 		ENUMS.LunarPhase.WaningCrescent:	return "残月"

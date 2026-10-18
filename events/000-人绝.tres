@@ -1,19 +1,43 @@
 [gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://qod8q7ixykmp"]
 
+[ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_ypvul"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_yr6hc"]
 [ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="2_ypvul"]
 
+[sub_resource type="Resource" id="Resource_4flpe"]
+script = ExtResource("1_ypvul")
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_ryg1m"]
+script = ExtResource("1_ypvul")
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_dt3yw"]
+script = ExtResource("1_ypvul")
+result_type = 1
+result_context = "人道大败！	游戏结束。"
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
 [sub_resource type="Resource" id="Resource_5084a"]
 script = ExtResource("2_ypvul")
+trigger_meet_which = 1
 trigger_meet_type = -1
 metadata/_custom_type_script = "uid://dnorw4dhm2vui"
 
 [resource]
 script = ExtResource("1_yr6hc")
-id = -3
+id = -2
 sequence_id = "-2"
-display_name = "天悲"
+display_name = "人绝"
+context = "天道、人道、地道，三才共济。
+今人道大断，天灾地祸相继而来。
+覆水难收。"
+event_level = 1
+event_type = 2
 trigger_type = 1
 is_meet = true
 trigger_meet_info = Array[ExtResource("2_ypvul")]([SubResource("Resource_5084a")])
+result_good = SubResource("Resource_ryg1m")
+result_normal = SubResource("Resource_dt3yw")
+result_bad = SubResource("Resource_4flpe")
 metadata/_custom_type_script = "uid://g8wqe1w7ipgs"

@@ -13,9 +13,9 @@ meet_gua = Array[int]([1, 6])
 belief_feedback = -6
 air_feedback = -3
 earth_feedback = -5
-people_feedback = -5
-animal_feedback = -3
-grain_feedback = 3
+people_feedback = -50
+animal_feedback = -30
+grain_feedback = 30
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_good"]
@@ -26,9 +26,9 @@ meet_gua = Array[int]([0, 3])
 belief_feedback = 5
 air_feedback = 4
 earth_feedback = 6
-people_feedback = 4
-animal_feedback = 2
-grain_feedback = 9
+people_feedback = 40
+animal_feedback = 20
+grain_feedback = 90
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -39,9 +39,9 @@ result_context = "匀了口粮，种子一粒没给。
 belief_feedback = -3
 air_feedback = 1
 earth_feedback = -3
-people_feedback = -2
-animal_feedback = -1
-grain_feedback = 4
+people_feedback = -20
+animal_feedback = -10
+grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_cond0"]

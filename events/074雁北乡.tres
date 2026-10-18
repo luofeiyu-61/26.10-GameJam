@@ -13,8 +13,8 @@ belief_feedback = 3
 air_feedback = 1
 earth_feedback = 2
 people_feedback = 0
-animal_feedback = 2
-grain_feedback = 6
+animal_feedback = 20
+grain_feedback = 60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -25,9 +25,9 @@ result_context = "说雁都往北了，今年暖得早，冬麦的地先敞了�
 belief_feedback = -3
 air_feedback = -2
 earth_feedback = 1
-people_feedback = -2
-animal_feedback = -1
-grain_feedback = -6
+people_feedback = -20
+animal_feedback = -10
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -41,7 +41,7 @@ air_feedback = -1
 earth_feedback = -3
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = -6
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

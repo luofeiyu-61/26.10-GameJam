@@ -12,9 +12,9 @@ meet_gua = Array[int]([5, 1])
 belief_feedback = -5
 air_feedback = 1
 earth_feedback = 1
-people_feedback = 2
-animal_feedback = -3
-grain_feedback = -6
+people_feedback = 20
+animal_feedback = -30
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_good"]
@@ -25,9 +25,9 @@ meet_gua = Array[int]([0, 3])
 belief_feedback = 4
 air_feedback = 4
 earth_feedback = 4
-people_feedback = 7
-animal_feedback = -3
-grain_feedback = 8
+people_feedback = 70
+animal_feedback = -30
+grain_feedback = 80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -37,9 +37,9 @@ result_context = "依照往年礼节，举办祭祀之礼"
 belief_feedback = -2
 air_feedback = 2
 earth_feedback = 2
-people_feedback = 5
-animal_feedback = -3
-grain_feedback = -5
+people_feedback = 50
+animal_feedback = -30
+grain_feedback = -50
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

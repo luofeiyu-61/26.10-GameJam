@@ -41,7 +41,7 @@ air_feedback = -2
 earth_feedback = -3
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = -6
+grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]

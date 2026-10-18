@@ -13,6 +13,9 @@ signal open_solar_calendar
 @export var event_stream_text: RichTextLabel
 @export var debug_event: String = "[some event context]"
 const NEW_LINE: String = "\n"
+#月历面板标签的前缀（文案要改的话改这里；场景里那两个 Label 的 text 会被运行时覆盖）
+const LUNAR_NOW_PREFIX: String = "今夜月相："
+const LUNAR_BUFF_PREFIX: String = "当前起效月相:"
 
 #事件流的「原始 BBCode 镜像」。
 #RichTextLabel 没有任何接口能取回 append_text() 追加进去的带标签原文：
@@ -21,9 +24,23 @@ const NEW_LINE: String = "\n"
 #所以这里自己留一份原文，存档/读档都走它，颜色标签才不会丢。
 var event_text_log: String = ""
 
+#游戏结束：结局事件发生后「下一事件」永久禁用。
+#不能只在 endGame() 里置一次 disabled = true —— EPupdateEventText 播完文本时会把按钮重新启用，
+#所以这里留一个标志，播完时按它决定要不要恢复。
+var game_over: bool = false
+
+
+#由 one.gd 的 endGame() / 读档时调用
+func setGameOver(value: bool) -> void:
+	game_over = value
+	if next_button != null:
+		next_button.disabled = value
+
+@onready var lunar_calendar: Control = $Calendar/lunar/LunarCalendar
 
 func _ready() -> void:
 	solar_calendar.hide()
+	lunar_calendar.hide()
 	#场景里的初始占位文本也记进镜像，否则没触发过事件时存档会存成空串
 	if event_stream_text != null:
 		event_text_log = event_stream_text.text
@@ -73,6 +90,15 @@ func setEventText(bbcode: String) -> void:
 @onready var timer_text: Timer = $EventStreamWindow/texts/Timer
 @onready var moon_sprite: AnimatedSprite2D = $Calendar/lunar/moon
 
+#月历面板（LunarCalendar）：中间那颗月亮 + 三个文字 Label
+@onready var moon_calendar: AnimatedSprite2D = $Calendar/lunar/LunarCalendar/ColorRect/ColorRect/moon_
+@onready var lunar_now_label: Label = $Calendar/lunar/LunarCalendar/lunarnow
+@onready var lunar_buff_now_label: Label = $Calendar/lunar/LunarCalendar/lunarbuff_now
+@onready var lunar_upup_label: Label = $Calendar/lunar/LunarCalendar/lunarnow/upup/Label
+@onready var lunar_downdown_label: Label = $Calendar/lunar/LunarCalendar/lunarnow/downdown/Label
+#one.gd 所在的节点（lunar_buff_upup / lunar_buff_downdown 两张表挂在它身上）
+@onready var _one: Node = get_parent()
+
 
 #region 客户端：事件流 操作
 
@@ -109,6 +135,33 @@ func EPupdateTimeLine(
 	solar.text=ENUMS.solarTerm2Text(server_solar_term)
 	lunar.text=ENUMS.lunarPhase2Text(server_lunar_phase)
 	moon_sprite.play(ENUMS.lunarPhase2Text(server_lunar_phase))
+	#月历面板：中间月亮的动画 + 今夜月相
+	#（两栏百分比不在这里刷：它跟的是「当前起效的月相 buff」，在 renderBelief 里更新）
+	moon_calendar.play(ENUMS.lunarPhase2Text(server_lunar_phase))
+	lunar_now_label.text=LUNAR_NOW_PREFIX+ENUMS.lunarPhase2Text(server_lunar_phase)
+
+
+#月历面板：把 upup / downdown 两行填成「当前起效的月相（lunar_buff_now）」对应的百分比
+#数值来自 one.gd 的 lunar_buff_upup / lunar_buff_downdown（0.15 → 15%）
+func _updateLunarPanel(lunar_phase:ENUMS.LunarPhase):
+	var up := {}
+	var down := {}
+	if _one != null:
+		var u = _one.get("lunar_buff_upup")
+		if u is Dictionary:
+			up = u
+		var d = _one.get("lunar_buff_downdown")
+		if d is Dictionary:
+			down = d
+	var key:int = int(lunar_phase)
+	lunar_upup_label.text=_buffPercentText(float(up.get(key,0.0)))
+	lunar_downdown_label.text=_buffPercentText(float(down.get(key,0.0)))
+
+
+#人口/牲口/粮食三行，同一月相共用一个系数
+func _buffPercentText(ratio:float)->String:
+	var p:int = roundi(ratio*100.0)
+	return "人口：%d%%" % p + NEW_LINE + "牲口：%d%%" % p + NEW_LINE + "粮食：%d%%" % p
 
 #更新事件流文本
 func EPupdateEventText(
@@ -154,7 +207,7 @@ func EPupdateEventText(
 		var context_ = server_event_text.split("\n")
 		for i in range(context_.size()):
 			#等待
-			timer_text.wait_time=1
+			timer_text.wait_time=1.5
 			timer_text.start()
 			await timer_text.timeout
 			
@@ -162,12 +215,12 @@ func EPupdateEventText(
 			
 		appendEventText(NEW_LINE+NEW_LINE)
 		#等待
-		timer_text.wait_time=0.8
+		timer_text.wait_time=1
 		timer_text.start()
 		await timer_text.timeout
 		for i in range(3):
 			appendEventText('. ')
-			timer_text.wait_time=0.8
+			timer_text.wait_time=1
 			timer_text.start()
 			await timer_text.timeout
 		
@@ -182,7 +235,7 @@ func EPupdateEventText(
 		
 		appendEventText(NEW_LINE+server_event_result_text)
 		
-		next_button.disabled = false
+		next_button.disabled = game_over
 	else:
 		appendEventText(NEW_LINE+server_event_text)
 		appendEventText(NEW_LINE+server_event_result_text)
@@ -208,8 +261,13 @@ func renderBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase
 	
 	if lunar_buff_now == ENUMS.LunarPhase.NONE:
 		lunar_buff.text=""
+		lunar_buff_now_label.text=LUNAR_BUFF_PREFIX+"无"
 	else:
 		lunar_buff.text="月相buff："+ENUMS.lunarPhase2Text(lunar_buff_now)
+		lunar_buff_now_label.text=LUNAR_BUFF_PREFIX+ENUMS.lunarPhase2Text(lunar_buff_now)
+	
+	#两栏百分比也跟「当前起效的月相」走（无 buff 时按 NONE 那一项，即 0%）
+	_updateLunarPanel(lunar_buff_now)
 	
 	moon__.play(ENUMS.lunarPhase2Text(lunar_buff_now))
 
@@ -365,7 +423,10 @@ func _placeCalendarCard(card: Control, pos: Vector2) -> void:
 
 #endregion
 
-@onready var lunar_calendar: Control = $Calendar/lunar/LunarCalendar
 
 func _on_close_lunar_calendar() -> void:
 	lunar_calendar.hide()
+
+
+func _on_lunar_calendar_open_2_pressed() -> void:
+	lunar_calendar.show()

@@ -13,7 +13,7 @@ air_feedback = 2
 earth_feedback = 2
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = 8
+grain_feedback = 80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_normal"]
@@ -25,7 +25,7 @@ air_feedback = -1
 earth_feedback = 1
 people_feedback = 0
 animal_feedback = 0
-grain_feedback = 4
+grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_bad"]
@@ -36,9 +36,9 @@ meet_gua = Array[int]([4, 7])
 belief_feedback = -5
 air_feedback = -3
 earth_feedback = -3
-people_feedback = -1
-animal_feedback = -1
-grain_feedback = -8
+people_feedback = -10
+animal_feedback = -10
+grain_feedback = -80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
