@@ -440,9 +440,9 @@ func anEventHappen()->bool:
 #月相buff作用公式
 func updateValueByLunarBuff(target_value:int,feedback_value:int)->int:
 	if feedback_value>0:
-		target_value+=int(1+(lunar_buff_upup[lunar_buff_now])*feedback_value)
+		target_value+=int((1+lunar_buff_upup[lunar_buff_now])*feedback_value)
 	elif feedback_value<0:
-		target_value+=int(1-(lunar_buff_downdown[lunar_buff_now])*feedback_value)
+		target_value+=int((1-lunar_buff_downdown[lunar_buff_now])*feedback_value)
 	return target_value
 
 #endregion

@@ -1,32 +1,8 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://izwyy1haoi5"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://dljo0qdwbnoof"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
-
-[sub_resource type="Resource" id="Resource_good"]
-script = ExtResource("1_dt3yw")
-result_type = 0
-result_context = "听老农的，压住没动。十天后一场倒春寒，别家的苗冻坏一片，你家的没事。"
-meet_gua = Array[int]([1, 2])
-belief_feedback = 5
-air_feedback = 2
-earth_feedback = 2
-people_feedback = 0
-animal_feedback = 0
-grain_feedback = 80
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_normal"]
-script = ExtResource("1_dt3yw")
-result_type = 1
-result_context = "照常下种，收成比往年薄一点。"
-belief_feedback = -3
-air_feedback = -1
-earth_feedback = 1
-people_feedback = 0
-animal_feedback = 0
-grain_feedback = 40
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="3_tivf2"]
 
 [sub_resource type="Resource" id="Resource_bad"]
 script = ExtResource("1_dt3yw")
@@ -41,6 +17,26 @@ animal_feedback = -10
 grain_feedback = -80
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_context = "听老农的，压住没动。十天后一场倒春寒，别家的苗冻坏一片，你家的没事。"
+meet_gua = Array[int]([1, 2])
+belief_feedback = 5
+air_feedback = 2
+earth_feedback = 2
+grain_feedback = 80
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "照常下种，收成比往年薄一点。"
+belief_feedback = -3
+air_feedback = -1
+earth_feedback = 1
+grain_feedback = 40
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
 [resource]
 script = ExtResource("1_l3b6a")
 id = 21
@@ -50,9 +46,7 @@ time_consume = 1
 context = "立春的物候说\"蛰虫始振\"——土里的虫该动了。
 可现在土还是凉的，刨开来看，一点动静也没有。
 老农说寒气没退，贞人说时候没到。这时候是抢着下种，还是再等等？"
-event_level = 0
 event_type = 1
-trigger_type = 0
 trigger_terms = Array[int]([0])
 result_good = SubResource("Resource_good")
 result_normal = SubResource("Resource_normal")

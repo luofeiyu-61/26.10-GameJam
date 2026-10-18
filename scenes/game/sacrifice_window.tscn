@@ -24,6 +24,7 @@
 [ext_resource type="Script" uid="uid://xle7de278wi" path="res://script/game/sacrifice_pie.gd" id="14_pie01"]
 [ext_resource type="Texture2D" uid="uid://6jv4mhbk4gkh" path="res://assets/pictures/0E999ABB12339FFED6E2F2440A8D62DE.png" id="15_mlb8o"]
 [ext_resource type="Texture2D" uid="uid://hqsc0esnjn7q" path="res://assets/pictures/DF41278A7C7CA757539E0387C8FCBF9D.png" id="16_od375"]
+[ext_resource type="Texture2D" uid="uid://d5fqs8ie16v8" path="res://assets/button/确认献祭 - 禁用.png" id="28_f1xe3"]
 [ext_resource type="Texture2D" uid="uid://bafpbxxpia2mj" path="res://assets/button/确认献祭.png" id="28_wwm0o"]
 [ext_resource type="Texture2D" uid="uid://cao4twthrku1o" path="res://assets/button/确认献祭·点击.png" id="29_lfk26"]
 [ext_resource type="Texture2D" uid="uid://bwfk5pxjttsrt" path="res://assets/button/确认献祭·鼠标放置.png" id="30_mlb8o"]
@@ -456,6 +457,7 @@ size_flags_vertical = 0
 texture_normal = ExtResource("28_wwm0o")
 texture_pressed = ExtResource("29_lfk26")
 texture_hover = ExtResource("30_mlb8o")
+texture_disabled = ExtResource("28_f1xe3")
 
 [node name="YaoContainer" type="Control" parent="." unique_id=1493089998]
 anchors_preset = 0

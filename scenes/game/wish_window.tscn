@@ -40,6 +40,7 @@
 [ext_resource type="Texture2D" uid="uid://cnox40i5utb5w" path="res://assets/moons/man.png" id="25_gr6jy"]
 [ext_resource type="Texture2D" uid="uid://2kne0cbqll48" path="res://assets/moons/yintu.png" id="26_vm78k"]
 [ext_resource type="Texture2D" uid="uid://l7bpp73xsbge" path="res://assets/moons/emei.png" id="27_dg53k"]
+[ext_resource type="Texture2D" uid="uid://dex57nu5jbhto" path="res://assets/button/祈愿图标 - 禁用.png" id="40_vm78k"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kcyo6"]
 load_path = "res://.godot/imported/祈愿背景图.png-31c6cacec46e0f0a0ab057f430172aa5.ctex"
@@ -858,6 +859,7 @@ size_flags_vertical = 0
 texture_normal = ExtResource("22_ybofx")
 texture_pressed = ExtResource("23_cymdv")
 texture_hover = ExtResource("24_i6min")
+texture_disabled = ExtResource("40_vm78k")
 ignore_texture_size = true
 
 [node name="Label3" type="Label" parent="operations" unique_id=468508189]

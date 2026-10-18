@@ -1,32 +1,8 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://x399ptwkibw"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://pkj30bwp4o1r"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
-
-[sub_resource type="Resource" id="Resource_good"]
-script = ExtResource("1_dt3yw")
-result_type = 0
-result_context = "牵绳逐段量过去，界定得清清楚楚，全境没起一句争执。"
-meet_gua = Array[int]([6, 3])
-belief_feedback = 4
-air_feedback = 2
-earth_feedback = 3
-people_feedback = 0
-animal_feedback = 0
-grain_feedback = 60
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_normal"]
-script = ExtResource("1_dt3yw")
-result_type = 1
-result_context = "只把塌了的牛道垫了垫，界石一块没动。"
-belief_feedback = -2
-air_feedback = 1
-earth_feedback = 1
-people_feedback = 0
-animal_feedback = 0
-grain_feedback = 20
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="3_ixa7t"]
 
 [sub_resource type="Resource" id="Resource_bad"]
 script = ExtResource("1_dt3yw")
@@ -37,8 +13,27 @@ belief_feedback = -4
 air_feedback = -2
 earth_feedback = -4
 people_feedback = -20
-animal_feedback = 0
 grain_feedback = -60
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_good"]
+script = ExtResource("1_dt3yw")
+result_context = "牵绳逐段量过去，界定得清清楚楚，全境没起一句争执。"
+meet_gua = Array[int]([6, 3])
+belief_feedback = 4
+air_feedback = 2
+earth_feedback = 3
+grain_feedback = 60
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
+
+[sub_resource type="Resource" id="Resource_normal"]
+script = ExtResource("1_dt3yw")
+result_type = 1
+result_context = "只把塌了的牛道垫了垫，界石一块没动。"
+belief_feedback = -2
+air_feedback = 1
+earth_feedback = 1
+grain_feedback = 20
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
@@ -50,9 +45,7 @@ time_consume = 1
 context = "开春第一件农事不是下种，是修田界。一冬下来，
 界石被水冲歪了，牛道也塌了半边。
 牵绳把田界重新拉直，把小路修平。谁家多犁了谁家半垄，这时候就得说清楚。"
-event_level = 0
 event_type = 1
-trigger_type = 0
 trigger_terms = Array[int]([1])
 result_good = SubResource("Resource_good")
 result_normal = SubResource("Resource_normal")

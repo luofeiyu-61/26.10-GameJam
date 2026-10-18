@@ -1,11 +1,24 @@
-[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://o0072ii18f8"]
+[gd_resource type="Resource" script_class="EventCard" format=3 uid="uid://dg6c7jcmyfvnp"]
 
 [ext_resource type="Script" uid="uid://ous3wdnpxpwy" path="res://datas/EventResult.gd" id="1_dt3yw"]
 [ext_resource type="Script" uid="uid://g8wqe1w7ipgs" path="res://datas/EventCardTemplate.gd" id="1_l3b6a"]
+[ext_resource type="Script" uid="uid://dnorw4dhm2vui" path="res://datas/TriggerCondition.gd" id="3_56k3s"]
+
+[sub_resource type="Resource" id="Resource_bad"]
+script = ExtResource("1_dt3yw")
+result_type = 2
+result_context = "颁布法令，官方明令：孤者，以籍配其夫家，强制婚配。"
+meet_gua = Array[int]([4, 5])
+belief_feedback = -8
+air_feedback = -1
+earth_feedback = -3
+people_feedback = 50
+animal_feedback = -20
+grain_feedback = -50
+metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [sub_resource type="Resource" id="Resource_good"]
 script = ExtResource("1_dt3yw")
-result_type = 0
 result_context = "颁布法令后，天子进一步拓广其令，外族自由通婚，
 不限国野，凡无夫家者皆可会之
 法令颁布，民间若男女两情相悦，便互送布匹，心诚者即可成婚"
@@ -26,21 +39,7 @@ belief_feedback = -3
 air_feedback = 2
 earth_feedback = 1
 people_feedback = 30
-animal_feedback = 0
 grain_feedback = -30
-metadata/_custom_type_script = "uid://ous3wdnpxpwy"
-
-[sub_resource type="Resource" id="Resource_bad"]
-script = ExtResource("1_dt3yw")
-result_type = 2
-result_context = "颁布法令，官方明令：孤者，以籍配其夫家，强制婚配。"
-meet_gua = Array[int]([4, 5])
-belief_feedback = -8
-air_feedback = -1
-earth_feedback = -3
-people_feedback = 50
-animal_feedback = -20
-grain_feedback = -50
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 
 [resource]
@@ -52,9 +51,6 @@ time_consume = 3
 context = "每年仲春二月，阴阳二气交合，此时婚配最合天时。
 这个时候，如果有私奔的也不予禁止。
 如果无缘无故而不遵守上述嫁娶规定者，就有处罚。"
-event_level = 0
-event_type = 0
-trigger_type = 0
 trigger_terms = Array[int]([3])
 result_good = SubResource("Resource_good")
 result_normal = SubResource("Resource_normal")

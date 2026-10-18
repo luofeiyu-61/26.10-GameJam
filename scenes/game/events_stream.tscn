@@ -47,6 +47,7 @@
 [ext_resource type="Texture2D" uid="uid://2kne0cbqll48" path="res://assets/moons/yintu.png" id="39_7b26x"]
 [ext_resource type="Texture2D" uid="uid://l7bpp73xsbge" path="res://assets/moons/emei.png" id="40_eqcxw"]
 [ext_resource type="Script" uid="uid://xwg6js4y2r8a" path="res://script/game/lunar_octagon.gd" id="41_oct8"]
+[ext_resource type="Texture2D" uid="uid://bqtijxcjbvbxi" path="res://assets/button/下一事件-禁用.png" id="48_1pw4x"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okle5"]
 load_path = "res://.godot/imported/事件流背景图.png-b84bef203270242585e68e856885a2a1.ctex"
@@ -944,6 +945,7 @@ size_flags_vertical = 0
 texture_normal = ExtResource("27_h1xp3")
 texture_pressed = ExtResource("28_bhsf4")
 texture_hover = ExtResource("29_0vfge")
+texture_disabled = ExtResource("48_1pw4x")
 
 [node name="Label3" type="Label" parent="operations" unique_id=796796042]
 layout_mode = 0
