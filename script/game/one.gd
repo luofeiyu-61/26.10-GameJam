@@ -490,8 +490,8 @@ func calculateScrificeValue(ratio_people:float, ratio_animal:float, ratio_grain:
 	#计算献祭后能加多少献祭值与爻
 	var sacrifice_value = \
 		sacrifice_people*people_weight*(1+qi_buff_info[spirit]["people_weight"]) \
-		+sacrifice_animal*0.35*(1+qi_buff_info[spirit]["animal_weight"]) \
-		+sacrifice_grain*2.5*(1+qi_buff_info[spirit]["grain_weight"])
+		+sacrifice_animal*2.5*(1+qi_buff_info[spirit]["animal_weight"]) \
+		+sacrifice_grain*0.6*(1+qi_buff_info[spirit]["grain_weight"])
 	
 	var sacri_ := updateScrificeValue(sacrifice_value)
 	
@@ -745,9 +745,9 @@ func clientConfirmSacrifice(people_ratio: float, animal_ratio: float, garin_rati
 	var delta_grain=animal_value-outcome[1]
 	var delta_animal=grain_value-outcome[2]
 	
-	air_value-=ceil((delta_people)*0.2)+(ceil((delta_animal-25)*0.1) if delta_animal>25 else 0)
+	air_value-=ceil((delta_people)*0.15)+(ceil((delta_animal-40)*0.1) if delta_animal>40 else 0)
 	
-	earth_value-=(ceil((delta_grain-120)*0.1) if delta_grain>120 else 0)+(ceil((delta_animal-25)*0.15) if delta_animal>25 else 0)
+	earth_value-=(ceil((delta_grain-120)*0.08) if delta_grain>120 else 0)+(ceil((delta_animal-40)*0.12) if delta_animal>40 else 0)
 	
 	
 	
