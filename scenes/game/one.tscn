@@ -41,7 +41,7 @@ lunar_buff_downdown = Dictionary[int, float]({
 7: 0.15,
 8: 0.0
 })
-belief_sup = 50
+belief_sup = 80
 belief_value = 0
 people_sup = 1000
 people_value = 300
