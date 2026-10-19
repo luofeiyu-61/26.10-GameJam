@@ -247,9 +247,6 @@ func confirmWish():
 			"110":temp_gua= ENUMS.Gua.Dui
 			"111":temp_gua= ENUMS.Gua.Qian
 		
-		
-			
-		
 		for i in range(yao_in_wish_list.size()):
 			for j in range(yao_pairs.size()):
 				if yao_pairs[j].yang_ball==yao_in_wish_list[i]:
@@ -263,16 +260,18 @@ func confirmWish():
 			wish_circle__.delYao(yao_in_wish_list[i])
 			yao_in_wish_list[i]=-1
 		
-		
+		SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 		confirm_wish.emit(temp_gua)
 
 
 func _on_sacrifice_pressed() -> void:
 	endYaosAll()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	go_to_sacrifice.emit()
 
 func _on_eventstream_pressed() -> void:
 	endYaosAll()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	go_to_event.emit()
 
 
@@ -284,6 +283,7 @@ func _on_gua_check_bt_pressed() -> void:
 func _on_close_bt_pressed() -> void:
 	if check_list_for_gua.visible:check_list_for_gua.hide()
 	else:check_list_for_gua.show()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 func _on_wish_circle_nao_gua_sprite_change(gua_: String) -> void:
@@ -292,3 +292,19 @@ func _on_wish_circle_nao_gua_sprite_change(gua_: String) -> void:
 			now_gua_sprite.play("none")
 		else:
 			now_gua_sprite.play(gua_)
+
+
+func _on_gua_check_bt_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_sacrifice_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_eventstream_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_savewish_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))

@@ -335,6 +335,7 @@ class SpawnYaoAnimator:
 			yao_container.add_child(yang_yao)
 			yang_yao.yao=true
 		_is_playing=true
+		SfXplayer.play_sfx(preload("res://assets/sounds/阴阳鱼放入.mp3"))
 
 	func bezierCurve(B:Vector2,lambda:float)->Vector2:
 		var mu = 1-lambda
@@ -437,10 +438,13 @@ func _on_yao_anim_end(anim: SpawnYaoAnimator) -> void:
 
 
 func _on_eventstream_pressed() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	go_to_event.emit()
 
 func _on_wish_pressed() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	go_to_wish.emit()
+	
 
 
 
@@ -454,6 +458,7 @@ func _on_confirmsacrifice_pressed() -> void:
 	confirm_sacrifice.emit(people_ratio,animal_ratio,garin_ratio,total_ratio)
 	total_ratio=0
 	$RatioSetWindow/SacrificeRatio/Total.value=0
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 
@@ -496,3 +501,15 @@ func _on_grain_value_changed(value: float) -> void:
 func _updateSacrificePie() -> void:
 	if sacrifice_pie != null:
 		sacrifice_pie.setRatios(people_ratio,animal_ratio,garin_ratio,total_ratio)
+
+
+func _on_eventstream_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_wish_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_confirmsacrifice_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))

@@ -294,10 +294,13 @@ func renderBelief(belief_now:float,gua:ENUMS.Gua,lunar_buff_now:ENUMS.LunarPhase
 
 
 func _on_sacrifice_pressed() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
 	go_to_sacrifice.emit()
 
 func _on_wish_pressed() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
 	go_to_wish.emit()
+	
 
 func nextEvent() -> void:
 	SfXplayer.play_sfx(preload("res://assets/sounds/事件生成.mp3"))
@@ -308,11 +311,13 @@ func nextEvent() -> void:
 @onready var solar_calendar: Control = $Calendar/sun/SolarCalendar
 func _on_close_pressed() -> void:
 	solar_calendar.hide()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 func _on_solar_calendar_pressed() -> void:
 	#只发信号：由 one.gd 的 clientOpenSolarCalendar() 收集数据后，再回调 openSolarCalendar()
 	open_solar_calendar.emit()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 #region 节气日历（天数 / 年份 / 上一·当前·下一节气 + 事件卡片）
@@ -427,7 +432,33 @@ func _placeCalendarCard(card: Control, pos: Vector2) -> void:
 
 func _on_close_lunar_calendar() -> void:
 	lunar_calendar.hide()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 func _on_lunar_calendar_open_2_pressed() -> void:
 	lunar_calendar.show()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
+
+
+func _on_next_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_wish_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_sacrifice_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_lunar_calendar_2_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_solar_calendar_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_close_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))

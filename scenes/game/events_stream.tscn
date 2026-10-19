@@ -938,10 +938,10 @@ text = "祈愿"
 [node name="next" type="TextureButton" parent="operations" unique_id=1639347819]
 layout_mode = 0
 offset_left = 599.0
-offset_top = -0.99999595
+offset_top = 1.000004
 offset_right = 1111.0
-offset_bottom = 575.0
-scale = Vector2(0.11, 0.09)
+offset_bottom = 577.0
+scale = Vector2(0.11, 0.08)
 size_flags_vertical = 0
 texture_normal = ExtResource("45_1pw4x")
 texture_pressed = ExtResource("46_covgp")
@@ -956,10 +956,17 @@ offset_right = 588.0
 offset_bottom = 34.0
 text = "下一事件"
 
+[connection signal="mouse_entered" from="Calendar/sun/solar_calendar" to="." method="_on_solar_calendar_mouse_entered"]
 [connection signal="pressed" from="Calendar/sun/solar_calendar" to="." method="_on_solar_calendar_pressed"]
+[connection signal="mouse_entered" from="Calendar/sun/SolarCalendar/close" to="." method="_on_close_mouse_entered"]
 [connection signal="pressed" from="Calendar/sun/SolarCalendar/close" to="." method="_on_close_pressed"]
+[connection signal="mouse_entered" from="Calendar/lunar/lunar_calendar2" to="." method="_on_lunar_calendar_2_mouse_entered"]
 [connection signal="pressed" from="Calendar/lunar/lunar_calendar2" to="." method="_on_lunar_calendar_open_2_pressed"]
+[connection signal="mouse_entered" from="Calendar/lunar/LunarCalendar/close" to="." method="_on_close_mouse_entered"]
 [connection signal="pressed" from="Calendar/lunar/LunarCalendar/close" to="." method="_on_close_lunar_calendar"]
+[connection signal="mouse_entered" from="operations/sacrifice" to="." method="_on_sacrifice_mouse_entered"]
 [connection signal="pressed" from="operations/sacrifice" to="." method="_on_sacrifice_pressed"]
+[connection signal="mouse_entered" from="operations/wish" to="." method="_on_wish_mouse_entered"]
 [connection signal="pressed" from="operations/wish" to="." method="_on_wish_pressed"]
+[connection signal="mouse_entered" from="operations/next" to="." method="_on_next_mouse_entered"]
 [connection signal="pressed" from="operations/next" to="." method="nextEvent"]

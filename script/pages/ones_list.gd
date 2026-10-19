@@ -9,6 +9,7 @@ signal close_ones_list
 #关闭列表 TODO
 func closeOnesList() -> void:
 	emit_signal("close_ones_list")
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	queue_free()
 
 
@@ -236,6 +237,7 @@ func warningMixin():
 #endregion
 
 func load_pressed() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	if is_from_game:
 		index__=1
 		warning_page.show()
@@ -253,3 +255,7 @@ func delete_pressed() -> void:
 func _on_cancel_pressed() -> void:
 	index__=-1
 	warning_page.hide()
+
+
+func _on_close_list_bt_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))

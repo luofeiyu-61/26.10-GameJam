@@ -24,6 +24,9 @@
 [ext_resource type="Script" uid="uid://xle7de278wi" path="res://script/game/sacrifice_pie.gd" id="14_pie01"]
 [ext_resource type="Texture2D" uid="uid://6jv4mhbk4gkh" path="res://assets/pictures/0E999ABB12339FFED6E2F2440A8D62DE.png" id="15_mlb8o"]
 [ext_resource type="Texture2D" uid="uid://hqsc0esnjn7q" path="res://assets/pictures/DF41278A7C7CA757539E0387C8FCBF9D.png" id="16_od375"]
+[ext_resource type="Texture2D" uid="uid://cqo0yxf6fu6er" path="res://assets/button/事件流.png" id="21_lfk26"]
+[ext_resource type="Texture2D" uid="uid://droc1kswvnan5" path="res://assets/button/事件流·点击·.png" id="22_mlb8o"]
+[ext_resource type="Texture2D" uid="uid://dnudd28no1ml2" path="res://assets/button/事件流·鼠标放置.png" id="23_od375"]
 [ext_resource type="Texture2D" uid="uid://d5fqs8ie16v8" path="res://assets/button/确认献祭 - 禁用.png" id="28_f1xe3"]
 [ext_resource type="Texture2D" uid="uid://bafpbxxpia2mj" path="res://assets/button/确认献祭.png" id="28_wwm0o"]
 [ext_resource type="Texture2D" uid="uid://cao4twthrku1o" path="res://assets/button/确认献祭·点击.png" id="29_lfk26"]
@@ -402,21 +405,22 @@ color = Color(0.21, 0.21, 0.21, 0.76862746)
 
 [node name="eventstream" type="TextureButton" parent="operations" unique_id=409245442]
 layout_mode = 0
-offset_left = 303.0
-offset_top = 11.000004
-offset_right = 325.0
-offset_bottom = 33.000004
+offset_left = 288.0
+offset_top = 8.0
+offset_right = 976.0
+offset_bottom = 392.0
+scale = Vector2(0.07, 0.07)
 size_flags_vertical = 0
-texture_normal = ExtResource("4_qkx0e")
-texture_pressed = ExtResource("5_w4ahu")
-texture_hover = ExtResource("6_1bpl7")
-texture_disabled = ExtResource("7_dkyhc")
+texture_normal = ExtResource("21_lfk26")
+texture_pressed = ExtResource("22_mlb8o")
+texture_hover = ExtResource("23_od375")
 
-[node name="Label" type="Label" parent="operations/eventstream" unique_id=661785295]
+[node name="Label" type="Label" parent="operations" unique_id=661785295]
 layout_mode = 0
-offset_left = -102.0
-offset_right = -22.0
-offset_bottom = 23.0
+offset_left = 201.0
+offset_top = 11.0
+offset_right = 281.0
+offset_bottom = 34.0
 text = "返回事件流"
 
 [node name="wish" type="TextureButton" parent="operations" unique_id=1498201459]
@@ -468,6 +472,9 @@ offset_bottom = 40.0
 [connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/people" to="." method="_on_people_value_changed"]
 [connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/animal" to="." method="_on_animal_value_changed"]
 [connection signal="value_changed" from="RatioSetWindow/SacrificeRatio/grain" to="." method="_on_grain_value_changed"]
+[connection signal="mouse_entered" from="operations/eventstream" to="." method="_on_eventstream_mouse_entered"]
 [connection signal="pressed" from="operations/eventstream" to="." method="_on_eventstream_pressed"]
+[connection signal="mouse_entered" from="operations/wish" to="." method="_on_wish_mouse_entered"]
 [connection signal="pressed" from="operations/wish" to="." method="_on_wish_pressed"]
+[connection signal="mouse_entered" from="operations/confirmsacrifice" to="." method="_on_confirmsacrifice_mouse_entered"]
 [connection signal="pressed" from="operations/confirmsacrifice" to="." method="_on_confirmsacrifice_pressed"]

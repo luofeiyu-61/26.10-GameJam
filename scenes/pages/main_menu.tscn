@@ -35,9 +35,9 @@ texture = ExtResource("1_8ln24")
 [node name="OnesList" type="Label" parent="Control" unique_id=1229714712]
 layout_mode = 0
 offset_left = 197.0
-offset_top = 295.0
+offset_top = 298.0
 offset_right = 229.0
-offset_bottom = 318.0
+offset_bottom = 321.0
 scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 2
 size_flags_vertical = 1
@@ -59,9 +59,9 @@ texture_hover = ExtResource("6_f0aur")
 [node name="GameSetting" type="Label" parent="Control" unique_id=1704110152]
 layout_mode = 0
 offset_left = 197.0
-offset_top = 360.0
+offset_top = 366.0
 offset_right = 229.0
-offset_bottom = 383.0
+offset_bottom = 389.0
 scale = Vector2(1.5, 1.5)
 size_flags_horizontal = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
@@ -70,9 +70,9 @@ text = "设置"
 [node name="GameSettingBt" type="TextureButton" parent="Control" unique_id=1181668141]
 layout_mode = 0
 offset_left = 324.0
-offset_top = 343.0
+offset_top = 347.0
 offset_right = 836.0
-offset_bottom = 855.0
+offset_bottom = 859.0
 scale = Vector2(0.15, 0.15)
 size_flags_horizontal = 10
 texture_normal = ExtResource("7_q1gxg")
@@ -92,10 +92,10 @@ text = "退出"
 
 [node name="ExitBt" type="TextureButton" parent="Control" unique_id=592871490]
 layout_mode = 0
-offset_left = 331.0
-offset_top = 428.0
+offset_left = 331.00003
+offset_top = 424.0
 offset_right = 843.0
-offset_bottom = 940.0
+offset_bottom = 936.0
 scale = Vector2(0.12, 0.12)
 size_flags_horizontal = 10
 texture_normal = ExtResource("10_vh05m")
@@ -105,7 +105,10 @@ texture_hover = ExtResource("12_cpv4n")
 [node name="GameSettingUI" parent="." unique_id=612859518 instance=ExtResource("7_oa1go")]
 visible = false
 
+[connection signal="mouse_entered" from="Control/OnesListBt" to="." method="_on_ones_list_bt_mouse_entered"]
 [connection signal="pressed" from="Control/OnesListBt" to="." method="_open_ones_list"]
+[connection signal="mouse_entered" from="Control/GameSettingBt" to="." method="_on_game_setting_bt_mouse_entered"]
 [connection signal="pressed" from="Control/GameSettingBt" to="." method="_on_game_setting_bt_pressed"]
+[connection signal="mouse_entered" from="Control/ExitBt" to="." method="_on_exit_bt_mouse_entered"]
 [connection signal="pressed" from="Control/ExitBt" to="." method="_exit_game"]
 [connection signal="close_game_setting" from="GameSettingUI" to="." method="_on_game_setting_ui_close_game_setting"]

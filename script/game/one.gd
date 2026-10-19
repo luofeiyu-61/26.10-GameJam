@@ -565,6 +565,7 @@ func updateSpirit():
 #region 主窗口管理：事件流 / 祭祀 / 祈愿 三个子界面的切换，以及返回主菜单信号。
 # windowIndex: 0=事件流, 1=祭祀, 2=祈愿
 func switch_window_to(window_index: int) -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/日历翻页声.mp3"))
 	match window_index:
 		0:
 			EventStremPage.visible = true
@@ -675,7 +676,6 @@ func clientOpenSolarCalendar() -> void:
 #玩家按下“下一个事件”
 func clientPushNextEvent() -> void:
 	print("结算一次事件！")
-	var is_term_empty = anEventHappen()
 	
 	#判定条件事件 
 	var history_events_ = event_history.duplicate()
@@ -698,7 +698,7 @@ func clientPushNextEvent() -> void:
 		event_list.insert(0,next_event_id)
 		recountDurationEachEvent()
 	
-	
+	var is_term_empty = anEventHappen()
 	
 	#在事件流处显示事件文本->延迟->显示结果
 	EventStremPage.EPupdateEventText(this_event_name,this_event_context,this_event_result_context,this_event_level,this_event_type,this_result_type,is_term_empty)
@@ -811,24 +811,29 @@ func uiInit():
 #打开游戏设置
 func _on_open_game_setting() -> void:
 	game_setting_ui.show()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 #关闭游戏设置
 func _on_close_game_setting() -> void:
 	game_setting_ui.hide()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 #退出游戏警告
 func _on_back_to_menu_pressed() -> void:
 	close_warning.show()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 #返回主菜单（无保存）
 func _on_confirm_back_to_pressed() -> void:
 	back_to_main_menu.emit()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 	queue_free()
 
 #打开/关上选项卡
 func _on_option_button_pressed() -> void:
 	if option.visible:option.hide()
 	else:option.show()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 func _on_cancel_warning_pressed() -> void:
@@ -1133,6 +1138,7 @@ func _on_save_window_save_game(save_path:String) -> void:
 func _on_selections_saves_pressed() -> void:
 	option.hide()
 	openSaveWindow()
+	SfXplayer.play_sfx(preload("res://assets/sounds/press.mp3"))
 
 
 #按键：options/close_warning/HBoxContainer/save（游戏内入口）
@@ -1187,3 +1193,19 @@ func _setGameOver(value: bool):
 
 
 #endregion
+
+
+func _on_option_button_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_saves_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_setting_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+func _on_back_to_menu_mouse_entered() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
