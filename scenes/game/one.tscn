@@ -49,7 +49,6 @@ animal_sup = 300
 animal_value = 120
 grain_sup = 2000
 grain_value = 800
-sacrifice_bar_sup = 120
 qi_buff_info = {
 -2: {
 "animal_weight": 0.3,
