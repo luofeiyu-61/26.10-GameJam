@@ -41,17 +41,15 @@ lunar_buff_downdown = Dictionary[int, float]({
 7: 0.15,
 8: 0.0
 })
-belief_sup = 30
+belief_sup = 50
 belief_value = 0
-air_value = 50
-earth_value = 50
 people_sup = 1000
 people_value = 300
 animal_sup = 300
 animal_value = 120
 grain_sup = 2000
 grain_value = 800
-sacrifice_bar_sup = 150
+sacrifice_bar_sup = 120
 qi_buff_info = {
 -2: {
 "animal_weight": 0.3,

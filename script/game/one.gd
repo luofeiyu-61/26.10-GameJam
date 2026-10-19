@@ -247,6 +247,7 @@ func _ready() -> void:
 	uiInit()
 	switch_window_to(0)
 
+@warning_ignore("unused_parameter")
 func _process(delta: float) -> void:
 	developrInfo()
 	
@@ -424,7 +425,7 @@ func anEventHappen()->bool:
 			ENUMS.ResultType.Normal:
 				belief_value+=-5
 			ENUMS.ResultType.Bad:
-				belief_value+=-8
+				belief_value+=-6
 		#belief_value+=result.belief_feedback
 		
 		people_value=updateValueByLunarBuff(people_value,result.people_feedback)
@@ -482,14 +483,14 @@ func calculateScrificeValue(ratio_people:float, ratio_animal:float, ratio_grain:
 	outcome[3]=guy_sup*(a*b*c)**2/(((a+b+c)/3)**5) if (a+b+c) != 0 else 0
 	
 	var people_weight:float
-	if sacrifice_people<=30:people_weight=3
+	if sacrifice_people<=40:people_weight=3
 	else:people_weight=4
 	
 	
 	#计算献祭后能加多少献祭值与爻
 	var sacrifice_value = \
 		sacrifice_people*people_weight*(1+qi_buff_info[spirit]["people_weight"]) \
-		+sacrifice_animal*0.5*(1+qi_buff_info[spirit]["animal_weight"]) \
+		+sacrifice_animal*0.35*(1+qi_buff_info[spirit]["animal_weight"]) \
 		+sacrifice_grain*2.5*(1+qi_buff_info[spirit]["grain_weight"])
 	
 	var sacri_ := updateScrificeValue(sacrifice_value)
@@ -744,9 +745,9 @@ func clientConfirmSacrifice(people_ratio: float, animal_ratio: float, garin_rati
 	var delta_grain=animal_value-outcome[1]
 	var delta_animal=grain_value-outcome[2]
 	
-	air_value-=ceil((delta_people)*0.2)+(ceil((delta_animal-20)*0.15) if delta_animal>20 else 0)
+	air_value-=ceil((delta_people)*0.2)+(ceil((delta_animal-25)*0.1) if delta_animal>25 else 0)
 	
-	earth_value-=(ceil((delta_grain-120)*0.1) if delta_grain>120 else 0)+(ceil((delta_animal-20)*0.2) if delta_animal>20 else 0)
+	earth_value-=(ceil((delta_grain-120)*0.1) if delta_grain>120 else 0)+(ceil((delta_animal-25)*0.15) if delta_animal>25 else 0)
 	
 	
 	
