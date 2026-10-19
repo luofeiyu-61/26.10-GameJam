@@ -217,9 +217,11 @@ func swangingInWish(time_:float):
 			if yao_list[i].is_in_wish and i not in yao_in_wish_list: 
 				yao_in_wish_list[yao_in_wish_list.find(-1)]=i
 				wish_circle__.addYao(i,yao_list[i].yao)
+				SfXplayer.play_sfx(preload("res://assets/sounds/阴阳鱼放入.mp3"))
 			elif !yao_list[i].is_in_wish and i in yao_in_wish_list: 
 				yao_in_wish_list[yao_in_wish_list.find(i)]=-1
 				wish_circle__.delYao(i)
+				SfXplayer.play_sfx(preload("res://assets/sounds/阴阳鱼放入.mp3"))
 		
 	#在wish中的旋转
 	for k in range(yao_in_wish_list.size()):

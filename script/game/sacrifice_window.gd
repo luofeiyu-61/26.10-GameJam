@@ -348,7 +348,6 @@ class SpawnYaoAnimator:
 				_is_playing=false
 				yin_yao.queue_free()
 				yang_yao.queue_free()
-				
 				anime_end.emit()
 			
 			#_lambda=(1.513*(_t/_t_max)-0.5848)**3+0.2

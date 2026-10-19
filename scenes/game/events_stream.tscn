@@ -29,9 +29,6 @@
 [ext_resource type="Texture2D" uid="uid://dm1xbqspblwjt" path="res://assets/button/日历.png" id="23_okle5"]
 [ext_resource type="Texture2D" uid="uid://cmh5hjyjxkipd" path="res://assets/button/日历·点击.png" id="24_37hgh"]
 [ext_resource type="Texture2D" uid="uid://bi5rxxfwpltnc" path="res://assets/button/日历·鼠标放置.png" id="25_trsee"]
-[ext_resource type="Texture2D" uid="uid://bbtc3t4g0ddtg" path="res://assets/button/下一事件.png" id="27_h1xp3"]
-[ext_resource type="Texture2D" uid="uid://c3bo5oj5dydv4" path="res://assets/button/下一事件·点击.png" id="28_bhsf4"]
-[ext_resource type="Texture2D" uid="uid://drul7q7cuuhqr" path="res://assets/button/下一事件·鼠标放置.png" id="29_0vfge"]
 [ext_resource type="Texture2D" uid="uid://d0j1gq52kmvfb" path="res://assets/button/normal.png" id="30_spfvc"]
 [ext_resource type="Texture2D" uid="uid://brmmgp1ltfouc" path="res://assets/button/press.png" id="31_1gc4f"]
 [ext_resource type="Texture2D" uid="uid://cebi0g3mxjxar" path="res://assets/button/hover.png" id="32_hcdgh"]
@@ -47,7 +44,10 @@
 [ext_resource type="Texture2D" uid="uid://2kne0cbqll48" path="res://assets/moons/yintu.png" id="39_7b26x"]
 [ext_resource type="Texture2D" uid="uid://l7bpp73xsbge" path="res://assets/moons/emei.png" id="40_eqcxw"]
 [ext_resource type="Script" uid="uid://xwg6js4y2r8a" path="res://script/game/lunar_octagon.gd" id="41_oct8"]
-[ext_resource type="Texture2D" uid="uid://bqtijxcjbvbxi" path="res://assets/button/下一事件-禁用.png" id="48_1pw4x"]
+[ext_resource type="Texture2D" uid="uid://difncfcpg5qlq" path="res://assets/button/E8D2ADF754C27172B2F21774A8A215A5.png" id="45_1pw4x"]
+[ext_resource type="Texture2D" uid="uid://ccfa1bk1a7m5a" path="res://assets/button/D37E0BF48068A1D469256F52E2B84994.png" id="46_covgp"]
+[ext_resource type="Texture2D" uid="uid://dck4uemk3njka" path="res://assets/button/E8D2ADF754C27172B2F21774A8A215A5 - 副本.png" id="47_1pw4x"]
+[ext_resource type="Texture2D" uid="uid://chscbdoi8gem" path="res://assets/button/D37E0BF48068A1D469256F52E2B84994 - 副本.png" id="48_siujo"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_okle5"]
 load_path = "res://.godot/imported/事件流背景图.png-b84bef203270242585e68e856885a2a1.ctex"
@@ -937,16 +937,16 @@ text = "祈愿"
 
 [node name="next" type="TextureButton" parent="operations" unique_id=1639347819]
 layout_mode = 0
-offset_left = 590.0
-offset_top = -11.999995
-offset_right = 1102.0
-offset_bottom = 500.0
-scale = Vector2(0.14, 0.14)
+offset_left = 599.0
+offset_top = -0.99999595
+offset_right = 1111.0
+offset_bottom = 575.0
+scale = Vector2(0.11, 0.09)
 size_flags_vertical = 0
-texture_normal = ExtResource("27_h1xp3")
-texture_pressed = ExtResource("28_bhsf4")
-texture_hover = ExtResource("29_0vfge")
-texture_disabled = ExtResource("48_1pw4x")
+texture_normal = ExtResource("45_1pw4x")
+texture_pressed = ExtResource("46_covgp")
+texture_hover = ExtResource("47_1pw4x")
+texture_disabled = ExtResource("48_siujo")
 
 [node name="Label3" type="Label" parent="operations" unique_id=796796042]
 layout_mode = 0

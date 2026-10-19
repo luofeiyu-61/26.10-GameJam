@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b73nlww2laatk" path="res://script/settings_manager.gd" id="1_ghynm"]
 [ext_resource type="Texture2D" uid="uid://ch7mbwgomc312" path="res://assets/charas/white/charas.png" id="2_jbx30"]
+[ext_resource type="AudioStream" uid="uid://cicqx242e4f4r" path="res://assets/sounds/BGM.mp3" id="3_48orp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_48orp"]
 atlas = ExtResource("2_jbx30")
@@ -87,3 +88,8 @@ sprite_frames = SubResource("SpriteFrames_3xd07")
 autoplay = "default"
 frame = 3
 frame_progress = 0.881014
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=956416687]
+stream = ExtResource("3_48orp")
+autoplay = true
+bus = &"BGM"

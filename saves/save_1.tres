@@ -6,25 +6,5 @@
 script = ExtResource("1_1kvy0")
 slot_index = 1
 is_empty = false
-is_new_save = false
-save_time = "2026/10/18
-22:46"
-gua_now = 8
-lunar_buff_now = 8
-air_value = 28
-earth_value = 29
-people_value = 285
-animal_value = 113
-grain_value = 713
-sacrifice_ratio = Dictionary[String, float]({
-"animal_ratio": 0.03,
-"grain_ratio": 0.07,
-"people_ratio": 0.03,
-"total_ratio": 0.58
-})
-sacrifice_bar_value = 2
-yao_yin_num = 2
-yao_yang_num = 2
-event_list = Array[int]([5, 15, 6, 21, 4])
-event_duration_list = Array[float]([2.142857142857143, 2.142857142857143, 6.428571428571428, 2.142857142857143, 2.142857142857143])
-event_stream_text = "按下“下一事件”开始..."
+save_time = "2026/10/19
+18:15"

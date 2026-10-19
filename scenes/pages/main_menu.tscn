@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://cnooylcvutelr" path="res://assets/map_background.png" id="1_8ln24"]
 [ext_resource type="Script" uid="uid://c4c867b83f72h" path="res://script/pages/main_menu.gd" id="1_rtw2f"]
-[ext_resource type="Texture2D" uid="uid://c25chcf1ejjiw" path="res://assets/pictures/游戏主界面背景图.png" id="2_glspo"]
 [ext_resource type="Texture2D" uid="uid://dsuburcjybaff" path="res://assets/button/开始游戏.png" id="4_glspo"]
 [ext_resource type="Texture2D" uid="uid://ccniclh8tqt7c" path="res://assets/button/开始游戏·点击.png" id="5_0wd75"]
 [ext_resource type="Texture2D" uid="uid://dub2un7wokdur" path="res://assets/button/开始游戏·鼠标放置.png" id="6_f0aur"]
@@ -16,11 +15,6 @@
 
 [node name="MainMenu" type="CanvasLayer" unique_id=1838548920]
 script = ExtResource("1_rtw2f")
-
-[node name="游戏主界面背景图" type="Sprite2D" parent="." unique_id=1192547958]
-position = Vector2(576, 324.2)
-scale = Vector2(0.4114286, 0.4116974)
-texture = ExtResource("2_glspo")
 
 [node name="Control" type="Control" parent="." unique_id=1615182139]
 layout_mode = 3

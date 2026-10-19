@@ -112,29 +112,29 @@ texture = ExtResource("5_hb8o3")
 
 [node name="saves" type="TextureButton" parent="options/option/selections" unique_id=789923169]
 layout_mode = 0
-offset_left = 67.0
-offset_top = 35.0
-offset_right = 89.0
-offset_bottom = 57.0
+offset_left = 21.0
+offset_top = 33.0
+offset_right = 43.0
+offset_bottom = 55.0
 texture_normal = ExtResource("5_q8wxn")
 texture_pressed = ExtResource("6_45klv")
 texture_hover = ExtResource("7_f04th")
 
 [node name="saves2" type="Label" parent="options/option/selections" unique_id=621903219]
 layout_mode = 0
-offset_left = 26.0
-offset_top = 35.0
-offset_right = 66.0
-offset_bottom = 58.0
+offset_left = 14.0
+offset_top = 7.0
+offset_right = 54.0
+offset_bottom = 30.0
 theme_override_constants/outline_size = 7
 text = "存档"
 
 [node name="setting" type="TextureButton" parent="options/option/selections" unique_id=433285366]
 layout_mode = 0
-offset_left = 111.0
-offset_top = 81.0
-offset_right = 133.0
-offset_bottom = 103.0
+offset_left = 73.0
+offset_top = 68.0
+offset_right = 95.0
+offset_bottom = 90.0
 size_flags_vertical = 0
 texture_normal = ExtResource("5_q8wxn")
 texture_pressed = ExtResource("6_45klv")
@@ -143,19 +143,19 @@ texture_disabled = ExtResource("8_ewchi")
 
 [node name="setting2" type="Label" parent="options/option/selections" unique_id=1417549477]
 layout_mode = 0
-offset_left = 71.0
-offset_top = 78.0
-offset_right = 135.0
-offset_bottom = 101.0
+offset_left = 65.0
+offset_top = 42.0
+offset_right = 104.0
+offset_bottom = 65.0
 theme_override_constants/outline_size = 7
 text = "设置"
 
 [node name="backToMenu" type="TextureButton" parent="options/option/selections" unique_id=1585975617]
 layout_mode = 0
-offset_left = 120.0
-offset_top = 144.0
-offset_right = 142.0
-offset_bottom = 166.0
+offset_left = 113.0
+offset_top = 127.0
+offset_right = 135.0
+offset_bottom = 149.0
 size_flags_vertical = 0
 texture_normal = ExtResource("5_q8wxn")
 texture_pressed = ExtResource("6_45klv")
@@ -165,10 +165,10 @@ ignore_texture_size = true
 
 [node name="menu" type="Label" parent="options/option/selections" unique_id=1266260859]
 layout_mode = 0
-offset_left = 90.0
-offset_top = 122.0
-offset_right = 170.0
-offset_bottom = 145.0
+offset_left = 75.0
+offset_top = 101.0
+offset_right = 155.0
+offset_bottom = 124.0
 size_flags_vertical = 0
 theme_override_constants/outline_size = 7
 text = "返回主菜单"

@@ -77,6 +77,7 @@ func _input(event: InputEvent) -> void:
 		if event.pressed:
 			# 判断鼠标是否点在 Sprite 上
 			if _is_point_on_sprite(get_global_mouse_position()):
+				SfXplayer.play_sfx(preload("res://assets/sounds/阴阳鱼放入.mp3"))
 				dragging = true
 				# 记录鼠标与 Sprite 的偏移，避免跳动
 				dragging_offset = yao_.global_position - get_global_mouse_position()

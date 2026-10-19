@@ -448,10 +448,10 @@ text = "确认献祭"
 
 [node name="confirmsacrifice" type="TextureButton" parent="operations" unique_id=1813902898]
 layout_mode = 0
-offset_left = 603.0
-offset_top = 1.0000055
-offset_right = 1115.0
-offset_bottom = 513.0
+offset_left = 596.0
+offset_top = -1.999995
+offset_right = 1108.0
+offset_bottom = 510.0
 scale = Vector2(0.09, 0.09)
 size_flags_vertical = 0
 texture_normal = ExtResource("28_wwm0o")

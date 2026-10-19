@@ -300,6 +300,7 @@ func _on_wish_pressed() -> void:
 	go_to_wish.emit()
 
 func nextEvent() -> void:
+	SfXplayer.play_sfx(preload("res://assets/sounds/事件生成.mp3"))
 	emit_signal("next_event")
 
 
