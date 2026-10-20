@@ -23,8 +23,8 @@ result_type = 1
 result_context = "不按时刻，按鸡叫换班。
 鸡叫比鸟叫晚，前半夜那一段没人守。"
 belief_feedback = -2
-air_feedback = 2
-earth_feedback = -3
+air_feedback = 1
+earth_feedback = -4
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 0

@@ -31,8 +31,8 @@ script = ExtResource("1_dt3yw")
 result_type = 1
 result_context = "只把塌了的牛道垫了垫，界石一块没动。"
 belief_feedback = -2
-air_feedback = 1
-earth_feedback = 1
+air_feedback = -1
+earth_feedback = -1
 grain_feedback = 20
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 

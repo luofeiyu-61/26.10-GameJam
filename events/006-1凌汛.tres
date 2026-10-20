@@ -23,8 +23,8 @@ result_type = 1
 result_context = "水漫到田就退了，
 人没事，也没落下肥，春忙还得从头开始。"
 belief_feedback = -3
-air_feedback = 1
-earth_feedback = -3
+air_feedback = -1
+earth_feedback = -4
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 60

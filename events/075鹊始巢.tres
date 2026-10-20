@@ -36,8 +36,8 @@ result_type = 1
 result_context = "嫌柴不够烧，把垒了一半的窝连枝折下来扔进灶膛，惊得整群鹊挪去了别处。
 火是旺了一夜；来年风从哪来没人知道，风口那几块谷子倒了一大片。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 2
+air_feedback = -3
+earth_feedback = 1
 people_feedback = 10
 grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"

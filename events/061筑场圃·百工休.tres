@@ -26,8 +26,8 @@ result_context = "都要。
 土冻了就边烤边夯，看着跟去年一样板实。
 开春雪一化，那一段先酥，再化就塌。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 2
+air_feedback = -3
+earth_feedback = 1
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = -20

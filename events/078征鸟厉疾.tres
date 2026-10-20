@@ -23,8 +23,8 @@ result_type = 1
 result_context = "敲锣打鼓地赶了一通。鹰是飞走了，鸡群也惊得半个月不下蛋；
 等鹰再回来的时候，落单的两只羊羔已经没了。"
 belief_feedback = -3
-air_feedback = -3
-earth_feedback = 1
+air_feedback = -4
+earth_feedback = -1
 people_feedback = 0
 animal_feedback = -30
 grain_feedback = -50

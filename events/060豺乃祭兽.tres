@@ -25,8 +25,8 @@ result_context = "赶了一夜豺，火把喊声闹到天亮，
 豺是走了；可圈里的母羊受了惊，掉了几只羔。
 大畜保住了，小畜折了。"
 belief_feedback = -3
-air_feedback = 1
-earth_feedback = 2
+air_feedback = -1
+earth_feedback = 1
 people_feedback = 0
 animal_feedback = 20
 grain_feedback = 0

@@ -34,8 +34,8 @@ result_type = 1
 result_context = "谁也不肯先报，报上来的全是瘪的陈的，好种都藏在自家的瓮里。
 开春一下种，出苗稀一片密一片，补都补不上，空出来的地只能荒着。"
 belief_feedback = -3
-air_feedback = 1
-earth_feedback = -4
+air_feedback = -1
+earth_feedback = -5
 grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 

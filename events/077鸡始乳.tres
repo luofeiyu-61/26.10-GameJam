@@ -23,8 +23,8 @@ result_type = 1
 result_context = "说不孵了，蛋收来吃，鸡也卖了换粮。
 省下的是这一冬的几斗碎粮；可窝是凉的，没收净的蛋冻裂在草里，来年开春一只雏也没有。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 2
+air_feedback = -3
+earth_feedback = 1
 people_feedback = 20
 animal_feedback = -30
 grain_feedback = 80

@@ -23,8 +23,8 @@ result_type = 1
 result_context = "不浇水，改撒一层粪土保墒。
 省了水，也省了开沟的人，可没有那层冰壳，寒气还是下得去。"
 belief_feedback = -3
-air_feedback = 0
-earth_feedback = 2
+air_feedback = -1
+earth_feedback = 1
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 30

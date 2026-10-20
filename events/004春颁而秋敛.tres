@@ -37,8 +37,8 @@ result_type = 1
 result_context = "匀了口粮，种子一粒没给。
 能不能顺利熬过这个春天就看命了。"
 belief_feedback = -3
-air_feedback = 1
-earth_feedback = -3
+air_feedback = -1
+earth_feedback = -4
 people_feedback = -20
 animal_feedback = -10
 grain_feedback = 40

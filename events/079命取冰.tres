@@ -23,8 +23,8 @@ result_type = 1
 result_context = "贪那三倍的数，白冰也起、车也装满往回赶。
 日头一暖，冰面吃不住重车，连人带车陷了一回；运回去的白冰入夏前就化得差不多了，真要用时反倒不够。"
 belief_feedback = -3
-air_feedback = -3
-earth_feedback = 3
+air_feedback = -4
+earth_feedback = 2
 people_feedback = -20
 animal_feedback = -30
 grain_feedback = -80

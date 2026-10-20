@@ -37,8 +37,8 @@ result_context = "只顾人：把人住的屋子堵严实、熏了一遍，暖�
 仓那边只把门板钉了钉，窟窿没堵。
 这个冬人不受冻，仓里少了一截。"
 belief_feedback = -2
-air_feedback = 1
-earth_feedback = 1
+air_feedback = -1
+earth_feedback = -1
 people_feedback = 10
 grain_feedback = -40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"

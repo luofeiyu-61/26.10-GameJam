@@ -34,8 +34,8 @@ result_type = 1
 result_context = "不颁令、不设期。把校准好的斗秤散入各里各市，
 用者自择，旧器听其自废。"
 belief_feedback = -3
-air_feedback = 1
-earth_feedback = -2
+air_feedback = -1
+earth_feedback = -3
 grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 

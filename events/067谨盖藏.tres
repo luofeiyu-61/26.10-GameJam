@@ -24,8 +24,8 @@ result_type = 1
 result_context = "按户不按田：让各家自己报数，官府只登记不验。
 账面上是齐的，实数差着一截。"
 belief_feedback = -2
-air_feedback = -2
-earth_feedback = 3
+air_feedback = -3
+earth_feedback = 2
 people_feedback = 20
 animal_feedback = 10
 grain_feedback = 40

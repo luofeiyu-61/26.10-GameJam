@@ -24,8 +24,8 @@ result_context = "信者自信，不信者不信·。
 只准在自家那段滩上捡，别的不许碰。捡回来先当新鲜物分着吃了，
 剩下的摊就在滩上，也没人管。眼下尝了味，冬天还是空的。"
 belief_feedback = -3
-air_feedback = 1
-earth_feedback = 2
+air_feedback = -1
+earth_feedback = 1
 people_feedback = 20
 animal_feedback = 0
 grain_feedback = 40

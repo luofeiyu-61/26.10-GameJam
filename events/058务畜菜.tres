@@ -41,8 +41,8 @@ result_context = "只顾了仓里的谷，菜没蓄，柴也只堆了一半。
 什么事情都只来得及做一半。
 到了冬天粮够吃，菜没有，柴要现去砍。"
 belief_feedback = -2
-air_feedback = 1
-earth_feedback = 2
+air_feedback = -1
+earth_feedback = 1
 people_feedback = 30
 animal_feedback = 10
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"

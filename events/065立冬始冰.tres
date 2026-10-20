@@ -23,8 +23,8 @@ result_type = 1
 result_context = "先把缸坛挪进屋、井台围上草——会冻裂的先顾上；
 菜窖那扇门留到明日再说。"
 belief_feedback = -2
-air_feedback = -1
-earth_feedback = 1
+air_feedback = -2
+earth_feedback = -1
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 20

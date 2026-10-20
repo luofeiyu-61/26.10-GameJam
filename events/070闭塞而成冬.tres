@@ -23,8 +23,8 @@ result_type = 1
 result_context = "不修墙，改塞徯径：山里那些小路全堵了，只在大道上设卡。
 省钱省工，可抄小路的照样绕得进来。"
 belief_feedback = -2
-air_feedback = 1
-earth_feedback = 3
+air_feedback = -1
+earth_feedback = 2
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 0

@@ -23,8 +23,8 @@ result_type = 1
 result_context = "说雁都往北了，今年暖得早，冬麦的地先敞了，人也派去修沟。
 谁知雁群在河滩上盘了两天又落回来，寒潮跟着就到——敞开的麦地冻死了一片，修沟的人也病倒几个。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 1
+air_feedback = -3
+earth_feedback = -1
 people_feedback = -20
 animal_feedback = -10
 grain_feedback = -60

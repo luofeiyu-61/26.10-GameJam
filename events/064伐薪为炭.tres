@@ -40,8 +40,8 @@ result_context = "不进山。就在村口把黄落的枝和下段硬木砍回�
 
 人一个没走，冬天屋里烟大、柴要现砍、烧得也快，可仓一直有人守。"
 belief_feedback = -2
-air_feedback = 2
-earth_feedback = 2
+air_feedback = 1
+earth_feedback = 1
 people_feedback = 20
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 

@@ -23,8 +23,8 @@ result_type = 1
 result_context = "只把它当天象记下来、占了一卦，「天地不通」讲得头头是道；
 门照旧开着，市照旧散着。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 2
+air_feedback = -3
+earth_feedback = 1
 people_feedback = 0
 animal_feedback = 10
 grain_feedback = 30

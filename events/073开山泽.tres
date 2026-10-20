@@ -23,8 +23,8 @@ result_type = 1
 result_context = "不禁山泽，只「不诘」：田里剩下的、跑散的牲口，谁拿都不追问；
 山泽照旧封着。零碎的拾走了，真正缺粮的还是缺。"
 belief_feedback = -3
-air_feedback = 3
-earth_feedback = -2
+air_feedback = 2
+earth_feedback = -3
 people_feedback = -20
 animal_feedback = -20
 grain_feedback = 80

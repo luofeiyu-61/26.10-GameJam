@@ -23,8 +23,8 @@ result_context = "看见了就铲走，没看见就算了。
 河水带来了更多的沙子堆积，铲了和没铲一个样。
 来年还是照样淹。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 1
+air_feedback = -3
+earth_feedback = -1
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 30

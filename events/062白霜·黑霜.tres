@@ -37,8 +37,8 @@ result_context = "不看霜，只看地形：
 低洼的保住了，高处冻了半畦；
 柴省下不少，人也没熬夜。"
 belief_feedback = -3
-air_feedback = -1
-earth_feedback = 2
+air_feedback = -2
+earth_feedback = 1
 grain_feedback = 60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
 

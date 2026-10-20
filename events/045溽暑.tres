@@ -23,8 +23,8 @@ result_type = 1
 result_context = "歇是歇了，水没备够。
 干活的人一路小跑回村里找水，半天工夫白扔在路上。"
 belief_feedback = -3
-air_feedback = -2
-earth_feedback = 2
+air_feedback = -3
+earth_feedback = 1
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 60

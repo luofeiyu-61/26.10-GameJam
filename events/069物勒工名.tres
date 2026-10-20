@@ -33,8 +33,8 @@ result_type = 1
 result_context = "只验祭器，农具点了数就过。
 祭器光鲜体面，开春锄头断在手里没人管。"
 belief_feedback = -2
-air_feedback = 3
-earth_feedback = -2
+air_feedback = 2
+earth_feedback = -3
 animal_feedback = -10
 grain_feedback = -60
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"

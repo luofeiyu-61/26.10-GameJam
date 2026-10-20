@@ -23,8 +23,8 @@ result_type = 1
 result_context = "只把蜃捞来吃了，壳堆在墙根，没烧灰也没刷墙。
 眼下多了一顿鲜，仓里的潮照旧。"
 belief_feedback = -1
-air_feedback = 1
-earth_feedback = 2
+air_feedback = -1
+earth_feedback = 1
 people_feedback = 0
 animal_feedback = 0
 grain_feedback = 40

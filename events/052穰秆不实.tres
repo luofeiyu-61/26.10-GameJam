@@ -36,8 +36,8 @@ result_type = 1
 result_context = "混着割了，又混着入仓。
 够吃是够吃，仓里掺了一半空穗，白占着地方。"
 belief_feedback = -3
-air_feedback = -3
-earth_feedback = 2
+air_feedback = -4
+earth_feedback = 1
 people_feedback = 10
 grain_feedback = 40
 metadata/_custom_type_script = "uid://ous3wdnpxpwy"
