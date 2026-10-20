@@ -13,6 +13,11 @@
 [ext_resource type="Texture2D" uid="uid://c1yifmsoam1g5" path="res://assets/button/C262137F6EC219E9C708BB71922DC6B8.png" id="9_ewchi"]
 [ext_resource type="Texture2D" uid="uid://bsliv1lkrbte7" path="res://assets/button/3CEE32B89EB320F1FA8E0E051263CA3F.png" id="10_hb8o3"]
 [ext_resource type="Texture2D" uid="uid://cojw8wximki7k" path="res://assets/button/8283AE982E0B82ABE7E53314286F3C8C.png" id="11_c1g6b"]
+[ext_resource type="Texture2D" uid="uid://damyit4j3q0a0" path="res://assets/pictures/2451BABB5CCBE195DC60278B679C2FBF.png" id="13_282k2"]
+[ext_resource type="Texture2D" uid="uid://dienb2bn48qic" path="res://assets/pictures/3CC52EC642882255E5CF8E044049FED4.png" id="14_vh7uk"]
+[ext_resource type="Texture2D" uid="uid://b2nh0e1upwuw3" path="res://assets/pictures/9C8184C0CDE4A290D3C803253FA0B621.png" id="15_thyst"]
+[ext_resource type="Texture2D" uid="uid://ev3la8do64j5" path="res://assets/pictures/BC29C64125F4F153F80DD8BB461CC9AA.png" id="16_eph4c"]
+[ext_resource type="Texture2D" uid="uid://ctcx74rni58qe" path="res://assets/pictures/E7C449BD21EEE79D06CD7792E97ACC16.png" id="17_lhpsi"]
 
 [node name="One" type="Node" unique_id=655850677 node_paths=PackedStringArray("EventStremPage", "SacrificePage", "WishPage")]
 script = ExtResource("1_q8wxn")
@@ -89,6 +94,7 @@ visible = false
 layer = 2
 
 [node name="option" type="Control" parent="options" unique_id=2006135475]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -245,6 +251,95 @@ size_flags_horizontal = 3
 size_flags_vertical = 4
 text = "确认退出"
 
+[node name="intro" type="CanvasLayer" parent="." unique_id=1710725690]
+layer = 7
+
+[node name="ColorRect" type="ColorRect" parent="intro" unique_id=1736419989]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0.101960786, 0.101960786, 0.101960786, 0.46666667)
+
+[node name="ColorRect" type="ColorRect" parent="intro/ColorRect" unique_id=103719228]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = -0.082
+anchor_right = -0.082
+offset_left = 198.464
+offset_top = 30.0
+offset_right = 1125.464
+offset_bottom = 598.0
+color = Color(0.096204735, 0.09620475, 0.096204735, 1)
+
+[node name=">" type="Button" parent="intro/ColorRect/ColorRect" unique_id=341023761]
+layout_mode = 0
+offset_left = 791.0
+offset_top = 491.0
+offset_right = 883.0
+offset_bottom = 544.0
+theme_override_font_sizes/font_size = 32
+text = ">"
+
+[node name="<" type="Button" parent="intro/ColorRect/ColorRect" unique_id=2017407870]
+layout_mode = 0
+offset_left = 29.0
+offset_top = 489.0
+offset_right = 121.0
+offset_bottom = 542.0
+theme_override_font_sizes/font_size = 32
+text = "<"
+
+[node name="Label" type="Label" parent="intro/ColorRect/ColorRect" unique_id=1258712823]
+layout_mode = 0
+offset_left = 448.0
+offset_top = 495.0
+offset_right = 488.0
+offset_bottom = 523.0
+theme_override_font_sizes/font_size = 20
+text = "1/5"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="1" type="Sprite2D" parent="intro/ColorRect/ColorRect" unique_id=2112480547]
+position = Vector2(464, 251)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("13_282k2")
+
+[node name="2" type="Sprite2D" parent="intro/ColorRect/ColorRect" unique_id=786934285]
+visible = false
+position = Vector2(464.5, 251.25)
+scale = Vector2(0.34289175, 0.3327299)
+texture = ExtResource("14_vh7uk")
+
+[node name="3" type="Sprite2D" parent="intro/ColorRect/ColorRect" unique_id=2088073209]
+visible = false
+position = Vector2(464.25003, 250.75003)
+scale = Vector2(0.34075412, 0.3263643)
+texture = ExtResource("15_thyst")
+
+[node name="4" type="Sprite2D" parent="intro/ColorRect/ColorRect" unique_id=1046001731]
+visible = false
+position = Vector2(464.25003, 250.49998)
+scale = Vector2(0.3443454, 0.32741478)
+texture = ExtResource("16_eph4c")
+
+[node name="5" type="Sprite2D" parent="intro/ColorRect/ColorRect" unique_id=1581080871]
+visible = false
+position = Vector2(464.24997, 250.49997)
+scale = Vector2(0.34715974, 0.3419881)
+texture = ExtResource("17_lhpsi")
+
+[node name="Button" type="Button" parent="intro" unique_id=1156533553]
+z_index = 2
+anchors_preset = -1
+anchor_right = 0.013
+anchor_bottom = 0.021000002
+offset_left = 15.0
+offset_top = 60.0
+offset_right = 55.024002
+offset_bottom = 78.392
+text = "说明"
+
 [node name="GameSettingUI" parent="." unique_id=612859518 instance=ExtResource("5_vfh2y")]
 visible = false
 
@@ -280,4 +375,7 @@ text = "GameValues[DEVELOPER]"
 [connection signal="pressed" from="options/close_warning/HBoxContainer/save" to="." method="_on_close_warning_save_pressed"]
 [connection signal="pressed" from="options/close_warning/HBoxContainer/cancel" to="." method="_on_cancel_warning_pressed"]
 [connection signal="pressed" from="options/close_warning/HBoxContainer/confirm" to="." method="_on_confirm_back_to_pressed"]
+[connection signal="pressed" from="intro/ColorRect/ColorRect/>" to="." method="_on_next_pressed"]
+[connection signal="pressed" from="intro/ColorRect/ColorRect/<" to="." method="_on_last_pressed"]
+[connection signal="pressed" from="intro/Button" to="." method="_on_button_pressed"]
 [connection signal="close_game_setting" from="GameSettingUI" to="." method="_on_close_game_setting"]

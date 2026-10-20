@@ -245,6 +245,7 @@ signal back_to_main_menu
 func _ready() -> void:
 	firstInitGame()
 	uiInit()
+	color_rect_.hide()
 	switch_window_to(0)
 
 @warning_ignore("unused_parameter")
@@ -1209,3 +1210,78 @@ func _on_setting_mouse_entered() -> void:
 
 func _on_back_to_menu_mouse_entered() -> void:
 	SfXplayer.play_sfx(preload("res://assets/sounds/hover_.mp3"))
+
+
+
+@onready var color_rect_: ColorRect = $intro/ColorRect
+
+
+func _on_button_pressed() -> void:
+	if color_rect_.visible:
+		color_rect_.hide()
+	else:
+		color_rect_.show()
+		tutor_page=1
+
+
+@onready var _1: Sprite2D = $"intro/ColorRect/ColorRect/1"
+@onready var _2: Sprite2D = $"intro/ColorRect/ColorRect/2"
+@onready var _3: Sprite2D = $"intro/ColorRect/ColorRect/3"
+@onready var _4: Sprite2D = $"intro/ColorRect/ColorRect/4"
+@onready var _5: Sprite2D = $"intro/ColorRect/ColorRect/5"
+@onready var label: Label = $intro/ColorRect/ColorRect/Label
+
+
+func changeTutorPage(i:int):
+	match i:
+		1:
+			_1.show()
+			_2.hide()
+			_3.hide()
+			_4.hide()
+			_5.hide()
+			label.text="1/5"
+		2:
+			_1.hide()
+			_2.show()
+			_3.hide()
+			_4.hide()
+			_5.hide()
+			label.text="2/5"
+		3:
+			_1.hide()
+			_2.hide()
+			_3.show()
+			_4.hide()
+			_5.hide()
+			label.text="3/5"
+		4:
+			_1.hide()
+			_2.hide()
+			_3.hide()
+			_4.show()
+			_5.hide()
+			label.text="4/5"
+		5:
+			_1.hide()
+			_2.hide()
+			_3.hide()
+			_4.hide()
+			_5.show()
+			label.text="5/5"
+			
+
+var tutor_page:int=1:
+	set(value):
+		if value>5:tutor_page=5
+		elif value<0:tutor_page=0
+		else:tutor_page=value
+
+func _on_next_pressed() -> void:
+	tutor_page+=1
+	changeTutorPage(tutor_page)
+
+
+func _on_last_pressed() -> void:
+	tutor_page-=1
+	changeTutorPage(tutor_page)
